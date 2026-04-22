@@ -7,4 +7,5 @@ python-dateutil
 rapidfuzz
 tenacity
 Unidecode
+openpyxl
 pytest
