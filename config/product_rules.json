@@ -1,0 +1,534 @@
+{
+  "version": "1.0.0",
+  "currency": "BRL",
+  "locale": "pt-BR",
+  "defaults": {
+    "enabled": true,
+    "publish_only_if_active_institution": true,
+    "drop_records_without_institution_id": true,
+    "drop_records_without_segment": true,
+    "drop_records_without_credit_value": false,
+    "drop_records_without_term_months": false,
+    "missing_numeric_value": null,
+    "missing_text_value": null,
+    "string_normalization": {
+      "trim": true,
+      "collapse_spaces": true,
+      "uppercase_compare": true,
+      "remove_accents_for_matching": true
+    }
+  },
+  "families": {
+    "carro": {
+      "enabled": true,
+      "label": "Consórcio de carro",
+      "landing_route": "carro",
+      "priority": 1,
+      "match_any": [
+        "AUTO",
+        "AUTOMOVEL",
+        "AUTOMÓVEL",
+        "VEICULO LEVE",
+        "VEÍCULO LEVE",
+        "CARRO",
+        "CAMINHONETE",
+        "SUV",
+        "PICKUP"
+      ],
+      "exclude_any": [
+        "MOTO",
+        "MOTOCICLETA",
+        "IMOVEL",
+        "IMÓVEL",
+        "SERVICO",
+        "SERVIÇO",
+        "PESADO",
+        "CAMINHAO",
+        "CAMINHÃO",
+        "ONIBUS",
+        "ÔNIBUS",
+        "NAUTICO",
+        "NÁUTICO"
+      ],
+      "comparable": true
+    },
+    "moto": {
+      "enabled": true,
+      "label": "Consórcio de moto",
+      "landing_route": "moto",
+      "priority": 2,
+      "match_any": [
+        "MOTO",
+        "MOTOCICLETA",
+        "MOTOS",
+        "MOTOCICLETAS"
+      ],
+      "exclude_any": [
+        "AUTO",
+        "AUTOMOVEL",
+        "AUTOMÓVEL",
+        "IMOVEL",
+        "IMÓVEL",
+        "SERVICO",
+        "SERVIÇO",
+        "NAUTICO",
+        "NÁUTICO"
+      ],
+      "comparable": true
+    },
+    "imobiliario": {
+      "enabled": true,
+      "label": "Consórcio imobiliário",
+      "landing_route": "imobiliario",
+      "priority": 3,
+      "match_any": [
+        "IMOVEL",
+        "IMÓVEL",
+        "IMOBILIARIO",
+        "IMOBILIÁRIO",
+        "CASA",
+        "APARTAMENTO",
+        "TERRENO",
+        "CONSTRUCAO",
+        "CONSTRUÇÃO",
+        "REFORMA"
+      ],
+      "exclude_any": [
+        "AUTO",
+        "AUTOMOVEL",
+        "AUTOMÓVEL",
+        "MOTO",
+        "MOTOCICLETA",
+        "SERVICO",
+        "SERVIÇO",
+        "NAUTICO",
+        "NÁUTICO"
+      ],
+      "comparable": true
+    },
+    "servicos": {
+      "enabled": false,
+      "label": "Consórcio de serviços",
+      "landing_route": null,
+      "priority": 10,
+      "match_any": [
+        "SERVICO",
+        "SERVIÇO",
+        "SERVICOS",
+        "SERVIÇOS"
+      ],
+      "exclude_any": [],
+      "comparable": false
+    },
+    "pesados": {
+      "enabled": false,
+      "label": "Consórcio de pesados",
+      "landing_route": null,
+      "priority": 11,
+      "match_any": [
+        "CAMINHAO",
+        "CAMINHÃO",
+        "ONIBUS",
+        "ÔNIBUS",
+        "MAQUINA",
+        "MÁQUINA",
+        "TRATOR",
+        "IMPLEMENTO"
+      ],
+      "exclude_any": [],
+      "comparable": false
+    },
+    "nautico": {
+      "enabled": false,
+      "label": "Consórcio náutico",
+      "landing_route": null,
+      "priority": 12,
+      "match_any": [
+        "NAUTICO",
+        "NÁUTICO",
+        "BARCO",
+        "LANCHA",
+        "JET SKI"
+      ],
+      "exclude_any": [],
+      "comparable": false
+    },
+    "carta_contemplada": {
+      "enabled": false,
+      "label": "Carta contemplada",
+      "landing_route": "carta-contemplada",
+      "priority": 99,
+      "match_any": [
+        "CARTA CONTEMPLADA"
+      ],
+      "exclude_any": [],
+      "comparable": false,
+      "editorial_only": true
+    }
+  },
+  "segment_aliases": {
+    "AUTO": "carro",
+    "AUTOMOVEL": "carro",
+    "AUTOMÓVEL": "carro",
+    "VEICULO": "carro",
+    "VEÍCULO": "carro",
+    "VEICULO LEVE": "carro",
+    "VEÍCULO LEVE": "carro",
+    "CARRO": "carro",
+    "CAMINHONETE": "carro",
+    "SUV": "carro",
+    "PICKUP": "carro",
+    "MOTO": "moto",
+    "MOTOCICLETA": "moto",
+    "MOTOS": "moto",
+    "MOTOCICLETAS": "moto",
+    "IMOVEL": "imobiliario",
+    "IMÓVEL": "imobiliario",
+    "IMOBILIARIO": "imobiliario",
+    "IMOBILIÁRIO": "imobiliario",
+    "CASA": "imobiliario",
+    "APARTAMENTO": "imobiliario",
+    "TERRENO": "imobiliario",
+    "CONSTRUCAO": "imobiliario",
+    "CONSTRUÇÃO": "imobiliario",
+    "REFORMA": "imobiliario",
+    "SERVICO": "servicos",
+    "SERVIÇO": "servicos",
+    "SERVICOS": "servicos",
+    "SERVIÇOS": "servicos",
+    "CAMINHAO": "pesados",
+    "CAMINHÃO": "pesados",
+    "ONIBUS": "pesados",
+    "ÔNIBUS": "pesados",
+    "TRATOR": "pesados",
+    "IMPLEMENTO": "pesados",
+    "NAUTICO": "nautico",
+    "NÁUTICO": "nautico",
+    "BARCO": "nautico",
+    "LANCHA": "nautico",
+    "JET SKI": "nautico"
+  },
+  "subsegment_aliases": {
+    "HATCH": "hatch",
+    "SEDAN": "sedan",
+    "SUV": "suv",
+    "PICKUP": "pickup",
+    "UTILITARIO": "utilitario",
+    "UTILITÁRIO": "utilitario",
+    "MOTO STREET": "street",
+    "MOTO TRAIL": "trail",
+    "MOTO SCOOTER": "scooter",
+    "MOTO ESPORTIVA": "esportiva",
+    "RESIDENCIAL": "residencial",
+    "COMERCIAL": "comercial",
+    "TERRENO": "terreno",
+    "CONSTRUCAO": "construcao",
+    "CONSTRUÇÃO": "construcao",
+    "REFORMA": "reforma"
+  },
+  "field_mapping": {
+    "source_product_name_candidates": [
+      "nome_produto",
+      "produto",
+      "modalidade",
+      "grupo_modalidade",
+      "descricao",
+      "descrição"
+    ],
+    "source_segment_candidates": [
+      "segmento",
+      "modalidade",
+      "tipo_bem",
+      "grupo_modalidade",
+      "categoria"
+    ],
+    "source_subsegment_candidates": [
+      "subsegmento",
+      "subcategoria",
+      "descricao_bem",
+      "descrição_bem"
+    ],
+    "source_credit_value_candidates": [
+      "credito_valor",
+      "valor_credito",
+      "valor_carta",
+      "carta_credito",
+      "carta_de_credito",
+      "valor_bem",
+      "valor_referencia"
+    ],
+    "source_term_months_candidates": [
+      "prazo",
+      "prazo_meses",
+      "duracao_meses",
+      "duracao",
+      "vigencia_meses",
+      "vigência_meses"
+    ],
+    "source_admin_fee_percent_candidates": [
+      "taxa_administracao",
+      "taxa_admin",
+      "taxa_adm",
+      "tx_adm",
+      "percentual_taxa_administracao"
+    ],
+    "source_reserve_fund_percent_candidates": [
+      "fundo_reserva",
+      "tx_fundo_reserva",
+      "percentual_fundo_reserva"
+    ],
+    "source_join_fee_percent_candidates": [
+      "taxa_adesao",
+      "taxa_adesão",
+      "tx_adesao",
+      "tx_adesão"
+    ],
+    "source_installment_value_candidates": [
+      "parcela",
+      "valor_parcela",
+      "prestacao",
+      "prestação",
+      "parcela_media"
+    ],
+    "source_observation_candidates": [
+      "observacao",
+      "observação",
+      "nota",
+      "descricao",
+      "descrição"
+    ]
+  },
+  "normalization": {
+    "numeric": {
+      "decimal_separator_auto_detect": true,
+      "strip_currency_symbols": true,
+      "strip_percent_symbols": true,
+      "empty_to_null": true,
+      "negative_to_null": true
+    },
+    "text": {
+      "title_case_labels": false,
+      "keep_original_value": true,
+      "store_normalized_value": true
+    },
+    "derived_fields": {
+      "build_product_slug": true,
+      "build_credit_band": true,
+      "build_term_band": true,
+      "build_admin_fee_band": true,
+      "build_total_fee_percent": true,
+      "build_comparison_cluster_key": true
+    }
+  },
+  "credit_bands": [
+    {
+      "key": "ate_30k",
+      "label": "Até R$ 30 mil",
+      "min": 0,
+      "max": 30000
+    },
+    {
+      "key": "30k_60k",
+      "label": "R$ 30 mil a R$ 60 mil",
+      "min": 30000.01,
+      "max": 60000
+    },
+    {
+      "key": "60k_100k",
+      "label": "R$ 60 mil a R$ 100 mil",
+      "min": 60000.01,
+      "max": 100000
+    },
+    {
+      "key": "100k_200k",
+      "label": "R$ 100 mil a R$ 200 mil",
+      "min": 100000.01,
+      "max": 200000
+    },
+    {
+      "key": "200k_400k",
+      "label": "R$ 200 mil a R$ 400 mil",
+      "min": 200000.01,
+      "max": 400000
+    },
+    {
+      "key": "400k_800k",
+      "label": "R$ 400 mil a R$ 800 mil",
+      "min": 400000.01,
+      "max": 800000
+    },
+    {
+      "key": "acima_800k",
+      "label": "Acima de R$ 800 mil",
+      "min": 800000.01,
+      "max": null
+    }
+  ],
+  "term_bands": [
+    {
+      "key": "ate_36m",
+      "label": "Até 36 meses",
+      "min": 0,
+      "max": 36
+    },
+    {
+      "key": "37_60m",
+      "label": "37 a 60 meses",
+      "min": 37,
+      "max": 60
+    },
+    {
+      "key": "61_84m",
+      "label": "61 a 84 meses",
+      "min": 61,
+      "max": 84
+    },
+    {
+      "key": "85_120m",
+      "label": "85 a 120 meses",
+      "min": 85,
+      "max": 120
+    },
+    {
+      "key": "121_180m",
+      "label": "121 a 180 meses",
+      "min": 121,
+      "max": 180
+    },
+    {
+      "key": "acima_180m",
+      "label": "Acima de 180 meses",
+      "min": 181,
+      "max": null
+    }
+  ],
+  "admin_fee_bands": [
+    {
+      "key": "ate_10",
+      "label": "Até 10%",
+      "min": 0,
+      "max": 10
+    },
+    {
+      "key": "10_15",
+      "label": "10% a 15%",
+      "min": 10.0001,
+      "max": 15
+    },
+    {
+      "key": "15_20",
+      "label": "15% a 20%",
+      "min": 15.0001,
+      "max": 20
+    },
+    {
+      "key": "20_25",
+      "label": "20% a 25%",
+      "min": 20.0001,
+      "max": 25
+    },
+    {
+      "key": "acima_25",
+      "label": "Acima de 25%",
+      "min": 25.0001,
+      "max": null
+    }
+  ],
+  "publication_rules": {
+    "require_minimum_fields": [
+      "institution_id",
+      "segment"
+    ],
+    "prefer_records_with": [
+      "credit_value",
+      "term_months",
+      "admin_fee_percent"
+    ],
+    "discard_if_segment_disabled": true,
+    "discard_if_editorial_only": true,
+    "max_products_per_institution_per_cluster": 50
+  },
+  "comparison_rules": {
+    "same_segment_required": true,
+    "same_credit_band_preferred": true,
+    "same_term_band_preferred": true,
+    "credit_tolerance_percent": 20,
+    "term_tolerance_months": 12,
+    "allow_cross_subsegment": true,
+    "comparison_cluster_template": "{segment}:{credit_band}:{term_band}"
+  },
+  "sorting_defaults": {
+    "global": [
+      "segment_priority",
+      "credit_value",
+      "term_months",
+      "admin_fee_percent"
+    ],
+    "carro": [
+      "credit_value",
+      "admin_fee_percent",
+      "term_months"
+    ],
+    "moto": [
+      "credit_value",
+      "admin_fee_percent",
+      "term_months"
+    ],
+    "imobiliario": [
+      "credit_value",
+      "term_months",
+      "admin_fee_percent"
+    ]
+  },
+  "ui_filters": {
+    "segment": true,
+    "credit_band": true,
+    "term_band": true,
+    "admin_fee_band": true,
+    "institution": true,
+    "ranking_tier": true
+  },
+  "route_visibility": {
+    "home-consorcio": [
+      "carro",
+      "moto",
+      "imobiliario"
+    ],
+    "carro": [
+      "carro"
+    ],
+    "moto": [
+      "moto"
+    ],
+    "imobiliario": [
+      "imobiliario"
+    ],
+    "melhor-consorcio": [
+      "carro",
+      "moto",
+      "imobiliario"
+    ],
+    "consorcio-ou-financiamento": [
+      "carro",
+      "imobiliario"
+    ],
+    "ranking-administradoras": [
+      "carro",
+      "moto",
+      "imobiliario"
+    ],
+    "menor-taxa": [
+      "carro",
+      "moto",
+      "imobiliario"
+    ],
+    "carta-contemplada": []
+  },
+  "flags": {
+    "editorial_only_routes": [
+      "carta-contemplada"
+    ],
+    "do_not_infer_contract_conditions_not_present_in_source": true,
+    "do_not_rank_products_without_minimum_comparable_fields": true
+  }
+}
