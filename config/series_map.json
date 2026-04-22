@@ -1,0 +1,112 @@
+{
+  "version": "1.0.0",
+  "timezone": "America/Sao_Paulo",
+  "updated_by": "config/series_map.json",
+  "groups": {
+    "macroeconomia": [
+      {
+        "key": "selic_meta",
+        "label": "Meta Selic",
+        "source": "BCB/SGS",
+        "serie": null,
+        "unit": "% a.a.",
+        "frequency": "daily",
+        "category": "juros",
+        "enabled": true,
+        "notes": "Usada como contexto macroeconômico para custo de oportunidade e comparação com financiamento."
+      },
+      {
+        "key": "cdi",
+        "label": "CDI",
+        "source": "BCB/SGS",
+        "serie": null,
+        "unit": "% a.a.",
+        "frequency": "daily",
+        "category": "juros",
+        "enabled": true,
+        "notes": "Indicador auxiliar de mercado."
+      },
+      {
+        "key": "ipca",
+        "label": "IPCA",
+        "source": "BCB/SGS",
+        "serie": null,
+        "unit": "% a.m.",
+        "frequency": "monthly",
+        "category": "inflacao",
+        "enabled": true,
+        "notes": "Importante para contexto de poder de compra e comparação temporal."
+      },
+      {
+        "key": "inpc",
+        "label": "INPC",
+        "source": "BCB/SGS",
+        "serie": null,
+        "unit": "% a.m.",
+        "frequency": "monthly",
+        "category": "inflacao",
+        "enabled": false,
+        "notes": "Opcional para v1."
+      }
+    ],
+    "credito": [
+      {
+        "key": "taxa_media_credito_livre_pf",
+        "label": "Taxa média de crédito livre PF",
+        "source": "BCB/SGS",
+        "serie": null,
+        "unit": "% a.a.",
+        "frequency": "monthly",
+        "category": "credito",
+        "enabled": true,
+        "notes": "Usada como contexto em páginas como consórcio ou financiamento."
+      },
+      {
+        "key": "taxa_media_financiamento_veiculos_pf",
+        "label": "Taxa média de financiamento de veículos PF",
+        "source": "BCB/SGS",
+        "serie": null,
+        "unit": "% a.a.",
+        "frequency": "monthly",
+        "category": "credito",
+        "enabled": true,
+        "notes": "Série especialmente relevante para vertical carro."
+      },
+      {
+        "key": "taxa_media_credito_imobiliario_pf",
+        "label": "Taxa média de crédito imobiliário PF",
+        "source": "BCB/SGS",
+        "serie": null,
+        "unit": "% a.a.",
+        "frequency": "monthly",
+        "category": "credito",
+        "enabled": true,
+        "notes": "Série especialmente relevante para vertical imobiliário."
+      }
+    ],
+    "atividade": [
+      {
+        "key": "inadimplencia_pf",
+        "label": "Inadimplência PF",
+        "source": "BCB/SGS",
+        "serie": null,
+        "unit": "%",
+        "frequency": "monthly",
+        "category": "risco",
+        "enabled": false,
+        "notes": "Opcional; pode enriquecer cenários e contexto."
+      },
+      {
+        "key": "endividamento_familias",
+        "label": "Endividamento das famílias",
+        "source": "BCB/SGS",
+        "serie": null,
+        "unit": "%",
+        "frequency": "monthly",
+        "category": "risco",
+        "enabled": false,
+        "notes": "Opcional; útil para conteúdo comparativo e educacional."
+      }
+    ]
+  }
+}
