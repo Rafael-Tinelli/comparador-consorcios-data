@@ -50,6 +50,16 @@
       "category": "rede_fisica",
       "collector": "collectors/bc_filiais.py",
       "official_page_url": "https://dadosabertos.bcb.gov.br/dataset/filiais-de-administradoras-de-consorcio",
+      "api": {
+        "type": "odata",
+        "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais",
+        "default_params": {
+          "$format": "json",
+          "$top": 1000,
+          "$skip": 0
+        },
+        "pagination_param": "$skip"
+      },
       "discovery": {
         "type": "portal_resource_discovery",
         "dataset_page": "https://dadosabertos.bcb.gov.br/dataset/filiais-de-administradoras-de-consorcio",
@@ -192,16 +202,18 @@
       "provider": "ABAC",
       "category": "boletim_setorial",
       "collector": "collectors/abac_boletim.py",
-      "official_page_url": "https://blog.abac.org.br/",
+      "official_page_url": "https://abac.org.br/sistema-downloads/",
       "discovery": {
         "type": "html_post_discovery",
         "entry_pages": [
-          "https://blog.abac.org.br/",
-          "https://blog.abac.org.br/pagina/10/"
+          "https://abac.org.br/sistema-downloads/",
+          "https://blog.abac.org.br/tag/materiais-da-abac",
+          "https://blog.abac.org.br/downloads/"
         ],
         "match_any": [
+          "Boletim do Sistema de Consórcios",
           "boletim do sistema de consórcios",
-          "sistema de consórcios"
+          "Sistema de Consórcios"
         ],
         "preferred_categories": [
           "Downloads",
