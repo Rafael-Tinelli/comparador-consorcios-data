@@ -1,0 +1,224 @@
+{
+  "project": {
+    "name": "comparador-consorcios-data",
+    "version": "1.0.0",
+    "timezone": "America/Sao_Paulo",
+    "publish_only_on_change": true,
+    "validate_before_deploy": true
+  },
+  "defaults": {
+    "user_agent": "comparador-consorcios-data/1.0 (+https://sanida.com.br/financas/consorcio/)",
+    "timeout_seconds": 60,
+    "retry_attempts": 3,
+    "retry_backoff_seconds": 5,
+    "verify_ssl": true,
+    "raw_base_dir": "data/raw",
+    "stage_base_dir": "data/stage",
+    "dist_base_dir": "data/dist"
+  },
+  "sources": {
+    "bc_cadastro_admins": {
+      "enabled": true,
+      "provider": "BCB",
+      "category": "cadastro",
+      "collector": "collectors/bc_cadastro_admins.py",
+      "official_page_url": "https://dadosabertos.bcb.gov.br/dataset/relacao-de-instituicoes-em-funcionamento-no-pais/resource/a711488d-51ec-4364-ac8f-24c33efd9aa1",
+      "api": {
+        "type": "odata",
+        "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Instituicoes_em_funcionamento/versao/v1/odata/SedesConsorcios",
+        "default_params": {
+          "$format": "json",
+          "$top": 1000,
+          "$skip": 0
+        },
+        "pagination_param": "$skip"
+      },
+      "schedule": {
+        "kind": "daily",
+        "time_brt": "05:10"
+      },
+      "storage": {
+        "raw_dir": "data/raw/bc/cadastro",
+        "stage_dir": "data/stage/cadastro"
+      },
+      "publish_on_change": true,
+      "critical": true
+    },
+    "bc_filiais": {
+      "enabled": true,
+      "provider": "BCB",
+      "category": "rede_fisica",
+      "collector": "collectors/bc_filiais.py",
+      "official_page_url": "https://dadosabertos.bcb.gov.br/dataset/filiais-de-administradoras-de-consorcio",
+      "discovery": {
+        "type": "portal_resource_discovery",
+        "dataset_page": "https://dadosabertos.bcb.gov.br/dataset/filiais-de-administradoras-de-consorcio",
+        "preferred_formats": [
+          "json",
+          "csv"
+        ]
+      },
+      "schedule": {
+        "kind": "daily",
+        "time_brt": "05:20"
+      },
+      "storage": {
+        "raw_dir": "data/raw/bc/filiais",
+        "stage_dir": "data/stage/filiais"
+      },
+      "publish_on_change": true,
+      "critical": false
+    },
+    "bc_sgs_series": {
+      "enabled": true,
+      "provider": "BCB",
+      "category": "series",
+      "collector": "collectors/bc_sgs_series.py",
+      "official_page_url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs/",
+      "series_map_file": "config/series_map.json",
+      "api": {
+        "type": "sgs",
+        "endpoint_template": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{serie}/dados",
+        "default_params": {
+          "formato": "json",
+          "dataInicial": null,
+          "dataFinal": null
+        }
+      },
+      "schedule": {
+        "kind": "daily",
+        "time_brt": "05:35"
+      },
+      "storage": {
+        "raw_dir": "data/raw/bc/series",
+        "stage_dir": "data/stage/series"
+      },
+      "publish_on_change": true,
+      "critical": false
+    },
+    "bc_consorciobd": {
+      "enabled": true,
+      "provider": "BCB",
+      "category": "base_setorial",
+      "collector": "collectors/bc_consorciobd.py",
+      "official_page_url": "https://www.bcb.gov.br/estabilidadefinanceira/consorciobd",
+      "discovery": {
+        "type": "html_link_discovery",
+        "page_url": "https://www.bcb.gov.br/estabilidadefinanceira/consorciobd",
+        "accept_extensions": [
+          ".zip",
+          ".csv",
+          ".xlsx"
+        ],
+        "match_any": [
+          "ConsorcioBD",
+          "consorciobd"
+        ]
+      },
+      "schedule": {
+        "kind": "monthly",
+        "day_of_month": 5,
+        "time_brt": "06:00"
+      },
+      "storage": {
+        "raw_dir": "data/raw/bc/consorciobd",
+        "stage_dir": "data/stage/consorciobd"
+      },
+      "publish_on_change": true,
+      "critical": true
+    },
+    "bc_consorciobd_trimestral": {
+      "enabled": true,
+      "provider": "BCB",
+      "category": "base_setorial_trimestral",
+      "collector": "collectors/bc_consorciobd_trimestral.py",
+      "official_page_url": "https://www.bcb.gov.br/estabilidadefinanceira/consorciobd",
+      "discovery": {
+        "type": "html_link_discovery",
+        "page_url": "https://www.bcb.gov.br/estabilidadefinanceira/consorciobd",
+        "accept_extensions": [
+          ".zip",
+          ".csv",
+          ".xlsx"
+        ],
+        "match_any": [
+          "Bens móveis",
+          "bens moveis",
+          "Grupos",
+          "grupos"
+        ]
+      },
+      "schedule": {
+        "kind": "quarterly",
+        "months": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "day_of_month": 7,
+        "time_brt": "06:20"
+      },
+      "storage": {
+        "raw_dir": "data/raw/bc/consorciobd_trimestral",
+        "stage_dir": "data/stage/consorciobd_trimestral"
+      },
+      "publish_on_change": true,
+      "critical": false
+    },
+    "bc_ranking_reclamacoes": {
+      "enabled": true,
+      "provider": "BCB",
+      "category": "ranking_reclamacoes",
+      "collector": "collectors/bc_ranking_reclamacoes.py",
+      "official_page_url": "https://www.bcb.gov.br/meubc/rankingreclamacoes",
+      "explanation_url": "https://www.bcb.gov.br/meubc/rankingreclamacoesentenda",
+      "current_ranking_url": "https://www3.bcb.gov.br/ranking/consorcio.do",
+      "legacy_index_url": "https://www3.bcb.gov.br/ranking/idxcn.do",
+      "schedule": {
+        "kind": "daily",
+        "time_brt": "06:40",
+        "regulatory_periodicity": "semiannual"
+      },
+      "storage": {
+        "raw_dir": "data/raw/bc/ranking_reclamacoes",
+        "stage_dir": "data/stage/ranking_reclamacoes"
+      },
+      "publish_on_change": true,
+      "critical": false
+    },
+    "abac_boletim": {
+      "enabled": true,
+      "provider": "ABAC",
+      "category": "boletim_setorial",
+      "collector": "collectors/abac_boletim.py",
+      "official_page_url": "https://blog.abac.org.br/",
+      "discovery": {
+        "type": "html_post_discovery",
+        "entry_pages": [
+          "https://blog.abac.org.br/",
+          "https://blog.abac.org.br/pagina/10/"
+        ],
+        "match_any": [
+          "boletim do sistema de consórcios",
+          "sistema de consórcios"
+        ],
+        "preferred_categories": [
+          "Downloads",
+          "Drops de Mercado"
+        ]
+      },
+      "schedule": {
+        "kind": "monthly",
+        "day_of_month": 8,
+        "time_brt": "07:00"
+      },
+      "storage": {
+        "raw_dir": "data/raw/abac/boletim",
+        "stage_dir": "data/stage/abac_boletim"
+      },
+      "publish_on_change": true,
+      "critical": false
+    }
+  }
+}
