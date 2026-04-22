@@ -1,0 +1,466 @@
+{
+  "version": "1.0.0",
+  "currency": "BRL",
+  "locale": "pt-BR",
+  "score_scale": {
+    "min": 0,
+    "max": 100,
+    "round_digits": 2
+  },
+  "global_rules": {
+    "enabled": true,
+    "clamp_final_score": true,
+    "require_explainability": true,
+    "publish_scores_only_for_comparable_records": true,
+    "minimum_data_completeness_to_score_product": 0.45,
+    "minimum_data_completeness_to_score_institution": 0.35,
+    "null_metric_strategy": "ignore_and_reweight_with_penalty",
+    "null_metric_penalty_factor": 0.92,
+    "outlier_winsorization": {
+      "enabled": true,
+      "lower_percentile": 0.02,
+      "upper_percentile": 0.98
+    }
+  },
+  "institution_score": {
+    "enabled": true,
+    "label": "score_instituicao",
+    "description": "Score institucional orientado à confiabilidade operacional, qualidade regulatória e utilidade comparativa.",
+    "weights": {
+      "cadastro_regular": 0.22,
+      "ranking_reclamacoes": 0.26,
+      "completude_dados": 0.14,
+      "amplitude_portfolio": 0.10,
+      "presenca_operacional": 0.08,
+      "recencia_base": 0.08,
+      "consistencia_dados": 0.12
+    },
+    "metrics": {
+      "cadastro_regular": {
+        "type": "boolean_or_enum",
+        "source_priority": [
+          "instituicoes.json"
+        ],
+        "rules": {
+          "ativa_regular": 100,
+          "ativa_com_restricao": 65,
+          "desconhecida": 40,
+          "inativa": 0
+        }
+      },
+      "ranking_reclamacoes": {
+        "type": "rank_percentile_inverse",
+        "source_priority": [
+          "rankings.json"
+        ],
+        "rules": {
+          "best_percentile_score": 100,
+          "median_percentile_score": 55,
+          "worst_percentile_score": 10,
+          "not_ranked_score": 45,
+          "allow_regulatory_context_notes": true
+        }
+      },
+      "completude_dados": {
+        "type": "field_completeness",
+        "fields": [
+          "institution_id",
+          "institution_name",
+          "segmentos_ativos",
+          "status_cadastral",
+          "uf_sede"
+        ],
+        "scoring": {
+          "all_present": 100,
+          "ratio_based": true
+        }
+      },
+      "amplitude_portfolio": {
+        "type": "count_normalized",
+        "description": "Mede cobertura útil entre segmentos comparáveis da v1.",
+        "rules": {
+          "segments_considered": [
+            "carro",
+            "moto",
+            "imobiliario"
+          ],
+          "score_by_distinct_segment_count": {
+            "0": 0,
+            "1": 45,
+            "2": 75,
+            "3": 100
+          }
+        }
+      },
+      "presenca_operacional": {
+        "type": "count_normalized",
+        "description": "Usa sede/filiais apenas como sinal secundário, sem supervalorizar capilaridade.",
+        "rules": {
+          "0": 20,
+          "1": 45,
+          "2_10": 70,
+          "11_50": 85,
+          "51_plus": 100
+        }
+      },
+      "recencia_base": {
+        "type": "freshness",
+        "rules": {
+          "up_to_35_days": 100,
+          "36_to_65_days": 80,
+          "66_to_95_days": 60,
+          "96_to_125_days": 35,
+          "above_125_days": 10
+        }
+      },
+      "consistencia_dados": {
+        "type": "quality_checks",
+        "rules": {
+          "no_critical_conflicts": 100,
+          "minor_conflicts": 75,
+          "moderate_conflicts": 45,
+          "severe_conflicts": 10
+        }
+      }
+    }
+  },
+  "product_score": {
+    "enabled": true,
+    "label": "score_produto",
+    "description": "Score de comparabilidade e atratividade relativa dentro do cluster correto.",
+    "weights": {
+      "comparabilidade": 0.22,
+      "taxa_administracao": 0.24,
+      "prazo": 0.12,
+      "parcela_estimativa": 0.14,
+      "completude_dados": 0.14,
+      "consistencia_dados": 0.08,
+      "suporte_institucional": 0.06
+    },
+    "metrics": {
+      "comparabilidade": {
+        "type": "field_completeness_weighted",
+        "fields": {
+          "segment": 0.20,
+          "credit_value": 0.25,
+          "term_months": 0.20,
+          "admin_fee_percent": 0.25,
+          "institution_id": 0.10
+        },
+        "score_if_all_present": 100
+      },
+      "taxa_administracao": {
+        "type": "inverse_percentile_by_cluster",
+        "cluster_key": "comparison_cluster_key",
+        "field": "admin_fee_percent",
+        "rules": {
+          "best_percentile_score": 100,
+          "median_percentile_score": 55,
+          "worst_percentile_score": 15,
+          "null_score": 35
+        }
+      },
+      "prazo": {
+        "type": "contextual_percentile",
+        "cluster_key": "comparison_cluster_key",
+        "field": "term_months",
+        "rules": {
+          "shorter_can_be_better_but_not_absolute": true,
+          "best_percentile_score": 90,
+          "median_percentile_score": 60,
+          "worst_percentile_score": 30,
+          "null_score": 45
+        }
+      },
+      "parcela_estimativa": {
+        "type": "inverse_percentile_by_cluster",
+        "cluster_key": "comparison_cluster_key",
+        "field": "installment_value",
+        "rules": {
+          "enabled_only_if_field_present_in_cluster_min_share": 0.35,
+          "best_percentile_score": 95,
+          "median_percentile_score": 55,
+          "worst_percentile_score": 20,
+          "null_score": 45
+        }
+      },
+      "completude_dados": {
+        "type": "field_completeness",
+        "fields": [
+          "institution_id",
+          "segment",
+          "credit_value",
+          "term_months",
+          "admin_fee_percent",
+          "reserve_fund_percent",
+          "join_fee_percent",
+          "installment_value"
+        ],
+        "scoring": {
+          "all_present": 100,
+          "ratio_based": true
+        }
+      },
+      "consistencia_dados": {
+        "type": "quality_checks",
+        "rules": {
+          "no_critical_conflicts": 100,
+          "minor_conflicts": 75,
+          "moderate_conflicts": 45,
+          "severe_conflicts": 10
+        }
+      },
+      "suporte_institucional": {
+        "type": "inherited_score",
+        "source": "institution_score",
+        "inherit_weight_within_metric": 1.0
+      }
+    }
+  },
+  "route_profiles": {
+    "home-consorcio": {
+      "label": "Hub principal",
+      "use_institution_score": true,
+      "use_product_score": true,
+      "weights": {
+        "institution_score": 0.55,
+        "product_score": 0.45
+      },
+      "sorting": [
+        "final_score_desc",
+        "institution_score_desc",
+        "product_score_desc"
+      ]
+    },
+    "carro": {
+      "label": "Vertical carro",
+      "use_institution_score": true,
+      "use_product_score": true,
+      "weights": {
+        "institution_score": 0.35,
+        "product_score": 0.65
+      },
+      "sorting": [
+        "final_score_desc",
+        "product_score_desc",
+        "admin_fee_percent_asc",
+        "term_months_asc"
+      ]
+    },
+    "moto": {
+      "label": "Vertical moto",
+      "use_institution_score": true,
+      "use_product_score": true,
+      "weights": {
+        "institution_score": 0.35,
+        "product_score": 0.65
+      },
+      "sorting": [
+        "final_score_desc",
+        "product_score_desc",
+        "admin_fee_percent_asc",
+        "term_months_asc"
+      ]
+    },
+    "imobiliario": {
+      "label": "Vertical imobiliário",
+      "use_institution_score": true,
+      "use_product_score": true,
+      "weights": {
+        "institution_score": 0.38,
+        "product_score": 0.62
+      },
+      "sorting": [
+        "final_score_desc",
+        "product_score_desc",
+        "term_months_asc",
+        "admin_fee_percent_asc"
+      ]
+    },
+    "melhor-consorcio": {
+      "label": "Melhor consórcio",
+      "use_institution_score": true,
+      "use_product_score": true,
+      "weights": {
+        "institution_score": 0.60,
+        "product_score": 0.40
+      },
+      "sorting": [
+        "final_score_desc",
+        "institution_score_desc",
+        "ranking_reclamacoes_asc"
+      ]
+    },
+    "consorcio-ou-financiamento": {
+      "label": "Consórcio ou financiamento",
+      "use_institution_score": false,
+      "use_product_score": true,
+      "weights": {
+        "product_score": 1.0
+      },
+      "sorting": [
+        "product_score_desc",
+        "admin_fee_percent_asc",
+        "term_months_asc"
+      ]
+    },
+    "ranking-administradoras": {
+      "label": "Ranking administradoras",
+      "use_institution_score": true,
+      "use_product_score": false,
+      "weights": {
+        "institution_score": 1.0
+      },
+      "sorting": [
+        "institution_score_desc",
+        "ranking_reclamacoes_asc",
+        "completude_dados_desc"
+      ]
+    },
+    "menor-taxa": {
+      "label": "Menor taxa",
+      "use_institution_score": true,
+      "use_product_score": true,
+      "weights": {
+        "institution_score": 0.20,
+        "product_score": 0.80
+      },
+      "sorting": [
+        "admin_fee_percent_asc",
+        "product_score_desc",
+        "institution_score_desc"
+      ],
+      "notes": "Mesmo na rota de menor taxa, o score final não deve ser reduzido a taxa pura."
+    },
+    "carta-contemplada": {
+      "label": "Carta contemplada",
+      "use_institution_score": false,
+      "use_product_score": false,
+      "weights": {},
+      "sorting": [],
+      "editorial_only": true
+    }
+  },
+  "badges": {
+    "enabled": true,
+    "rules": {
+      "excelente": {
+        "min_score": 85,
+        "max_score": 100,
+        "label": "Excelente"
+      },
+      "muito_bom": {
+        "min_score": 70,
+        "max_score": 84.99,
+        "label": "Muito bom"
+      },
+      "bom": {
+        "min_score": 55,
+        "max_score": 69.99,
+        "label": "Bom"
+      },
+      "regular": {
+        "min_score": 40,
+        "max_score": 54.99,
+        "label": "Regular"
+      },
+      "baixo": {
+        "min_score": 0,
+        "max_score": 39.99,
+        "label": "Baixo"
+      }
+    }
+  },
+  "ranking_tiers": {
+    "enabled": true,
+    "rules": {
+      "tier_a": {
+        "label": "Tier A",
+        "min_score": 80
+      },
+      "tier_b": {
+        "label": "Tier B",
+        "min_score": 65
+      },
+      "tier_c": {
+        "label": "Tier C",
+        "min_score": 50
+      },
+      "tier_d": {
+        "label": "Tier D",
+        "min_score": 0
+      }
+    }
+  },
+  "penalties": {
+    "enabled": true,
+    "rules": {
+      "missing_credit_value": {
+        "target": "product_score",
+        "subtract": 6
+      },
+      "missing_term_months": {
+        "target": "product_score",
+        "subtract": 6
+      },
+      "missing_admin_fee_percent": {
+        "target": "product_score",
+        "subtract": 10
+      },
+      "missing_ranking_snapshot": {
+        "target": "institution_score",
+        "subtract": 4
+      },
+      "critical_data_conflict": {
+        "target": "both",
+        "multiply": 0.70
+      },
+      "inactive_institution": {
+        "target": "both",
+        "force_score": 0
+      }
+    }
+  },
+  "bonuses": {
+    "enabled": true,
+    "rules": {
+      "full_core_comparability": {
+        "target": "product_score",
+        "add": 5
+      },
+      "all_primary_segments_present": {
+        "target": "institution_score",
+        "add": 4
+      },
+      "fresh_and_complete_regulatory_data": {
+        "target": "institution_score",
+        "add": 3
+      }
+    }
+  },
+  "explanations": {
+    "enabled": true,
+    "top_n_factors": 4,
+    "templates": {
+      "institution": [
+        "Cadastro regulatório",
+        "Ranking de reclamações",
+        "Completude dos dados",
+        "Consistência das informações"
+      ],
+      "product": [
+        "Comparabilidade do produto",
+        "Taxa de administração no cluster",
+        "Prazo relativo",
+        "Completude dos dados do produto"
+      ]
+    }
+  },
+  "safety_flags": {
+    "do_not_call_anything_best_without_context": true,
+    "do_not_equate_score_with_regulatory_recommendation": true,
+    "do_not_score_editorial_only_routes": true,
+    "do_not_compare_products_from_different_segments_in_same_cluster": true,
+    "do_not_publish_final_score_if_no_core_comparability": true
+  }
+}
