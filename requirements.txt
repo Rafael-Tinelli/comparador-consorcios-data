@@ -1,0 +1,10 @@
+requests
+pandas
+beautifulsoup4
+lxml
+jsonschema
+python-dateutil
+rapidfuzz
+tenacity
+Unidecode
+pytest
