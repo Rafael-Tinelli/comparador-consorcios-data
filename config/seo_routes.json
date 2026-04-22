@@ -1,0 +1,749 @@
+{
+  "version": "1.0.0",
+  "site": {
+    "base_url": "https://sanida.com.br",
+    "cluster_base_path": "/financas/consorcio",
+    "cluster_name": "Comparador de Consórcios",
+    "language": "pt-BR",
+    "locale": "pt_BR"
+  },
+  "defaults": {
+    "enabled": true,
+    "publish": true,
+    "indexable": true,
+    "include_in_sitemap": true,
+    "schema_enabled": true,
+    "faq_enabled": true,
+    "breadcrumbs_enabled": true,
+    "build_output_dir": "data/dist/seo",
+    "canonical_trailing_slash_for_directories": true,
+    "canonical_trailing_slash_for_php_routes": false,
+    "title_suffix": " | Sanida",
+    "meta_description_max_length": 160,
+    "min_faq_items": 3,
+    "max_faq_items": 6,
+    "required_global_files": [
+      "instituicoes.json",
+      "produtos.json",
+      "rankings.json",
+      "series.json",
+      "cenarios.json",
+      "autocomplete.json",
+      "meta.json"
+    ],
+    "render_blocks_defaults": {
+      "hero": true,
+      "intro": true,
+      "institution_cards": true,
+      "product_cards": true,
+      "comparison_table": true,
+      "ranking_block": false,
+      "scenario_block": true,
+      "faq": true
+    },
+    "copy_rules": {
+      "seo_first": true,
+      "server_render_first": true,
+      "avoid_claiming_regulatory_recommendation": true,
+      "avoid_promising_contemplation": true,
+      "avoid_claiming_lowest_rate_as_absolute_truth": true,
+      "prefer_official_data_context": true
+    }
+  },
+  "routes": {
+    "home-consorcio": {
+      "enabled": true,
+      "page_type": "hub",
+      "output_file": "home-consorcio.json",
+      "public_path": "/financas/consorcio/",
+      "php_template": "/public_html/financas/consorcio/index.php",
+      "canonical": "https://sanida.com.br/financas/consorcio/",
+      "title": "Comparador de Consórcio: administradoras, produtos e cenários",
+      "meta_description": "Compare administradoras de consórcio, produtos por segmento e cenários práticos para decidir com mais clareza entre carro, moto, imóvel e outras intenções.",
+      "h1": "Comparador de consórcio",
+      "primary_intent": "comparacao_geral",
+      "target_segments": [
+        "carro",
+        "moto",
+        "imobiliario"
+      ],
+      "primary_keywords": [
+        "comparador de consorcios",
+        "comparador de consórcio",
+        "comparar consorcio",
+        "comparativo consorcio"
+      ],
+      "secondary_keywords": [
+        "melhor consórcio",
+        "consórcio confiável",
+        "melhores empresas de consórcio",
+        "ranking de consórcio"
+      ],
+      "hero": {
+        "eyebrow": "Comparação institucional e de produtos",
+        "title": "Compare consórcios com foco em decisão prática",
+        "subtitle": "Veja administradoras, segmentos, rankings regulatórios e cenários de escolha em uma estrutura orientada a SEO e consumo rápido.",
+        "cta_primary_label": "Comparar agora",
+        "cta_secondary_label": "Ver ranking"
+      },
+      "intro_focus": [
+        "visao_geral_do_cluster",
+        "explicacao_do_motor_comparativo",
+        "links_para_verticais",
+        "apoio_a_decisao"
+      ],
+      "render_blocks": {
+        "hero": true,
+        "intro": true,
+        "institution_cards": true,
+        "product_cards": true,
+        "comparison_table": false,
+        "ranking_block": true,
+        "scenario_block": true,
+        "faq": true
+      },
+      "ranking_context": {
+        "enabled": true,
+        "mode": "top_institutions_with_regulatory_context",
+        "max_items": 8
+      },
+      "faq_topics": [
+        "o que é comparador de consórcio",
+        "como comparar administradoras",
+        "o que observar além da taxa",
+        "como usar ranking regulatório"
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Início",
+          "url": "https://sanida.com.br/"
+        },
+        {
+          "name": "Negócios e Finanças",
+          "url": "https://sanida.com.br/financas/"
+        },
+        {
+          "name": "Consórcio",
+          "url": "https://sanida.com.br/financas/consorcio/"
+        }
+      ]
+    },
+    "carro": {
+      "enabled": true,
+      "page_type": "vertical",
+      "output_file": "carro.json",
+      "public_path": "/financas/consorcio/carro/",
+      "php_template": "/public_html/financas/consorcio/carro/index.php",
+      "canonical": "https://sanida.com.br/financas/consorcio/carro/",
+      "title": "Melhor consórcio de carros: compare administradoras e condições",
+      "meta_description": "Compare opções de consórcio de carro, administradoras, faixas de crédito, prazo e taxa de administração para decidir com mais clareza.",
+      "h1": "Consórcio de carro: compare antes de decidir",
+      "primary_intent": "melhor_consorcio_carro",
+      "target_segments": [
+        "carro"
+      ],
+      "primary_keywords": [
+        "melhor consórcio de carros",
+        "consorcio de carros qual o melhor",
+        "melhores consórcios para carros",
+        "melhores consorcios de carro"
+      ],
+      "secondary_keywords": [
+        "melhor consorcio carro",
+        "melhor consorcio de veiculos",
+        "consorcio para carros qual o melhor",
+        "comparativo consorcios automoveis"
+      ],
+      "hero": {
+        "eyebrow": "Vertical carro",
+        "title": "Consórcio de carro com comparação prática",
+        "subtitle": "Compare produtos por faixa de crédito, prazo e taxa de administração, com contexto institucional e ranking regulatório.",
+        "cta_primary_label": "Ver comparativo",
+        "cta_secondary_label": "Ver menor taxa"
+      },
+      "intro_focus": [
+        "intencao_de_busca_carro",
+        "comparacao_por_faixa_de_credito",
+        "comparacao_por_prazo",
+        "contexto_de_taxa_e_ranking"
+      ],
+      "render_blocks": {
+        "hero": true,
+        "intro": true,
+        "institution_cards": true,
+        "product_cards": true,
+        "comparison_table": true,
+        "ranking_block": false,
+        "scenario_block": true,
+        "faq": true
+      },
+      "comparison_rules_profile": "carro",
+      "faq_topics": [
+        "qual o melhor consórcio de carro",
+        "como comparar taxa de administração",
+        "consórcio de carro ou financiamento",
+        "o que observar no prazo"
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Início",
+          "url": "https://sanida.com.br/"
+        },
+        {
+          "name": "Negócios e Finanças",
+          "url": "https://sanida.com.br/financas/"
+        },
+        {
+          "name": "Consórcio",
+          "url": "https://sanida.com.br/financas/consorcio/"
+        },
+        {
+          "name": "Carro",
+          "url": "https://sanida.com.br/financas/consorcio/carro/"
+        }
+      ]
+    },
+    "moto": {
+      "enabled": true,
+      "page_type": "vertical",
+      "output_file": "moto.json",
+      "public_path": "/financas/consorcio/moto/",
+      "php_template": "/public_html/financas/consorcio/moto/index.php",
+      "canonical": "https://sanida.com.br/financas/consorcio/moto/",
+      "title": "Melhor consórcio de moto: compare taxa, prazo e administradoras",
+      "meta_description": "Veja comparações práticas de consórcio de moto com foco em faixa de crédito, prazo, taxa de administração e contexto institucional.",
+      "h1": "Consórcio de moto: compare opções com mais clareza",
+      "primary_intent": "melhor_consorcio_moto",
+      "target_segments": [
+        "moto"
+      ],
+      "primary_keywords": [
+        "melhor consorcio de moto",
+        "consorcio de moto qual o melhor",
+        "melhores consorcios para motos",
+        "melhor consórcio para moto"
+      ],
+      "secondary_keywords": [
+        "melhor consorcio moto",
+        "consorcio mais barato de moto",
+        "melhores consorcios de motos",
+        "comparar consorcio de moto"
+      ],
+      "hero": {
+        "eyebrow": "Vertical moto",
+        "title": "Consórcio de moto para ticket menor e decisão objetiva",
+        "subtitle": "Compare administradoras, faixas de crédito e prazos com leitura rápida e apoio regulatório.",
+        "cta_primary_label": "Comparar motos",
+        "cta_secondary_label": "Ver ranking"
+      },
+      "intro_focus": [
+        "ticket_menor",
+        "entrada_no_sistema",
+        "comparacao_de_taxa",
+        "comparacao_de_prazo"
+      ],
+      "render_blocks": {
+        "hero": true,
+        "intro": true,
+        "institution_cards": true,
+        "product_cards": true,
+        "comparison_table": true,
+        "ranking_block": false,
+        "scenario_block": true,
+        "faq": true
+      },
+      "comparison_rules_profile": "moto",
+      "faq_topics": [
+        "qual o melhor consórcio de moto",
+        "consórcio de moto vale a pena",
+        "como comparar taxa e prazo",
+        "qual administradora olhar"
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Início",
+          "url": "https://sanida.com.br/"
+        },
+        {
+          "name": "Negócios e Finanças",
+          "url": "https://sanida.com.br/financas/"
+        },
+        {
+          "name": "Consórcio",
+          "url": "https://sanida.com.br/financas/consorcio/"
+        },
+        {
+          "name": "Moto",
+          "url": "https://sanida.com.br/financas/consorcio/moto/"
+        }
+      ]
+    },
+    "imobiliario": {
+      "enabled": true,
+      "page_type": "vertical",
+      "output_file": "imobiliario.json",
+      "public_path": "/financas/consorcio/imobiliario/",
+      "php_template": "/public_html/financas/consorcio/imobiliario/index.php",
+      "canonical": "https://sanida.com.br/financas/consorcio/imobiliario/",
+      "title": "Melhor consórcio imobiliário: compare crédito, prazo e taxa",
+      "meta_description": "Compare consórcio imobiliário por faixa de crédito, prazo, taxa de administração e sinais institucionais para decidir melhor.",
+      "h1": "Consórcio imobiliário: comparação prática para imóvel",
+      "primary_intent": "melhor_consorcio_imobiliario",
+      "target_segments": [
+        "imobiliario"
+      ],
+      "primary_keywords": [
+        "qual o melhor consórcio imobiliário",
+        "melhor consórcio de imóvel",
+        "qual melhor consórcio para imóveis",
+        "consorcio de imoveis qual o melhor"
+      ],
+      "secondary_keywords": [
+        "melhor consorcio imobiliario",
+        "consorcio imobiliario qual o melhor",
+        "comparativo consorcio imobiliario",
+        "qual consorcio imobiliario tem a menor taxa de administração"
+      ],
+      "hero": {
+        "eyebrow": "Vertical imobiliário",
+        "title": "Consórcio imobiliário com visão comparativa e contexto",
+        "subtitle": "Compare faixas de crédito mais altas, prazos longos e taxa de administração sem depender apenas de promessa comercial.",
+        "cta_primary_label": "Comparar imóveis",
+        "cta_secondary_label": "Consórcio ou financiamento"
+      },
+      "intro_focus": [
+        "comparacao_imobiliaria",
+        "faixas_altas_de_credito",
+        "prazo_longo",
+        "contexto_educacional"
+      ],
+      "render_blocks": {
+        "hero": true,
+        "intro": true,
+        "institution_cards": true,
+        "product_cards": true,
+        "comparison_table": true,
+        "ranking_block": false,
+        "scenario_block": true,
+        "faq": true
+      },
+      "comparison_rules_profile": "imobiliario",
+      "faq_topics": [
+        "qual o melhor consórcio imobiliário",
+        "consórcio imobiliário ou financiamento",
+        "como comparar taxa de administração",
+        "o que olhar no prazo e na carta"
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Início",
+          "url": "https://sanida.com.br/"
+        },
+        {
+          "name": "Negócios e Finanças",
+          "url": "https://sanida.com.br/financas/"
+        },
+        {
+          "name": "Consórcio",
+          "url": "https://sanida.com.br/financas/consorcio/"
+        },
+        {
+          "name": "Imobiliário",
+          "url": "https://sanida.com.br/financas/consorcio/imobiliario/"
+        }
+      ]
+    },
+    "carta-contemplada": {
+      "enabled": true,
+      "page_type": "editorial",
+      "output_file": "carta-contemplada.json",
+      "public_path": "/financas/consorcio/carta-contemplada/",
+      "php_template": "/public_html/financas/consorcio/carta-contemplada/index.php",
+      "canonical": "https://sanida.com.br/financas/consorcio/carta-contemplada/",
+      "title": "Carta contemplada: riscos, ágio, cessão e diligência",
+      "meta_description": "Entenda carta contemplada, cessão, ágio, riscos e cuidados antes de negociar uma operação fora do comparador principal.",
+      "h1": "Carta contemplada exige cautela e diligência",
+      "primary_intent": "carta_contemplada_editorial",
+      "target_segments": [],
+      "primary_keywords": [
+        "carta contemplada",
+        "carta de credito contemplada",
+        "consorcio carta contemplada",
+        "ágio carta contemplada"
+      ],
+      "secondary_keywords": [
+        "cessão de carta contemplada",
+        "risco carta contemplada",
+        "como comprar carta contemplada"
+      ],
+      "hero": {
+        "eyebrow": "Rota editorial",
+        "title": "Carta contemplada não entra como produto comparável oficial",
+        "subtitle": "Aqui o foco é orientar sobre risco, diligência, cessão e leitura crítica da operação.",
+        "cta_primary_label": "Entender os riscos",
+        "cta_secondary_label": "Ver comparador oficial"
+      },
+      "intro_focus": [
+        "intencao_mais_quente",
+        "risco",
+        "cessao",
+        "agio",
+        "diligencia"
+      ],
+      "render_blocks": {
+        "hero": true,
+        "intro": true,
+        "institution_cards": false,
+        "product_cards": false,
+        "comparison_table": false,
+        "ranking_block": false,
+        "scenario_block": true,
+        "faq": true
+      },
+      "faq_topics": [
+        "o que é carta contemplada",
+        "o que é cessão",
+        "o que é ágio",
+        "quais os principais riscos"
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Início",
+          "url": "https://sanida.com.br/"
+        },
+        {
+          "name": "Negócios e Finanças",
+          "url": "https://sanida.com.br/financas/"
+        },
+        {
+          "name": "Consórcio",
+          "url": "https://sanida.com.br/financas/consorcio/"
+        },
+        {
+          "name": "Carta contemplada",
+          "url": "https://sanida.com.br/financas/consorcio/carta-contemplada/"
+        }
+      ]
+    },
+    "melhor-consorcio": {
+      "enabled": true,
+      "page_type": "landing",
+      "output_file": "melhor-consorcio.json",
+      "public_path": "/financas/consorcio/melhor-consorcio.php",
+      "php_template": "/public_html/financas/consorcio/melhor-consorcio.php",
+      "canonical": "https://sanida.com.br/financas/consorcio/melhor-consorcio.php",
+      "title": "Melhor consórcio: como comparar administradoras e produtos",
+      "meta_description": "Descubra como comparar administradoras, taxa, prazo e contexto regulatório para decidir qual pode ser o melhor consórcio para o seu objetivo.",
+      "h1": "Melhor consórcio não é uma resposta única",
+      "primary_intent": "melhor_consorcio_generico",
+      "target_segments": [
+        "carro",
+        "moto",
+        "imobiliario"
+      ],
+      "primary_keywords": [
+        "melhor consórcio",
+        "qual é o melhor consórcio",
+        "melhor consórcio do brasil",
+        "qual o melhor consórcio"
+      ],
+      "secondary_keywords": [
+        "melhores consorcios",
+        "melhor empresa de consorcio",
+        "qual a melhor empresa de consórcio",
+        "consórcio mais confiável"
+      ],
+      "hero": {
+        "eyebrow": "Landing por intenção genérica",
+        "title": "O melhor consórcio depende do objetivo, da faixa de crédito e da comparação",
+        "subtitle": "A página cruza sinais institucionais, taxa, prazo e comparabilidade para responder uma busca ampla sem simplificação rasa.",
+        "cta_primary_label": "Ver melhores opções",
+        "cta_secondary_label": "Ver ranking"
+      },
+      "intro_focus": [
+        "intencao_generica",
+        "metodologia_de_comparacao",
+        "evitar_resposta_absoluta",
+        "decisao_orientada_por_contexto"
+      ],
+      "render_blocks": {
+        "hero": true,
+        "intro": true,
+        "institution_cards": true,
+        "product_cards": true,
+        "comparison_table": true,
+        "ranking_block": true,
+        "scenario_block": true,
+        "faq": true
+      },
+      "ranking_context": {
+        "enabled": true,
+        "mode": "institution_score_with_regulatory_context",
+        "max_items": 10
+      },
+      "faq_topics": [
+        "qual é o melhor consórcio",
+        "como comparar administradoras",
+        "menor taxa define o melhor consórcio",
+        "como usar o ranking regulatório"
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Início",
+          "url": "https://sanida.com.br/"
+        },
+        {
+          "name": "Negócios e Finanças",
+          "url": "https://sanida.com.br/financas/"
+        },
+        {
+          "name": "Consórcio",
+          "url": "https://sanida.com.br/financas/consorcio/"
+        },
+        {
+          "name": "Melhor consórcio",
+          "url": "https://sanida.com.br/financas/consorcio/melhor-consorcio.php"
+        }
+      ]
+    },
+    "consorcio-ou-financiamento": {
+      "enabled": true,
+      "page_type": "landing",
+      "output_file": "consorcio-ou-financiamento.json",
+      "public_path": "/financas/consorcio/consorcio-ou-financiamento.php",
+      "php_template": "/public_html/financas/consorcio/consorcio-ou-financiamento.php",
+      "canonical": "https://sanida.com.br/financas/consorcio/consorcio-ou-financiamento.php",
+      "title": "Consórcio ou financiamento: compare custo, prazo e contexto",
+      "meta_description": "Compare consórcio ou financiamento com apoio de contexto setorial, prazo, taxa de administração e leitura prática por objetivo.",
+      "h1": "Consórcio ou financiamento: a resposta depende do contexto",
+      "primary_intent": "comparacao_modalidade",
+      "target_segments": [
+        "carro",
+        "imobiliario"
+      ],
+      "primary_keywords": [
+        "consórcio ou financiamento",
+        "financiamento ou consorcio",
+        "qual é melhor consórcio ou financiamento",
+        "qual melhor consorcio ou financiamento"
+      ],
+      "secondary_keywords": [
+        "comparativo consórcio x financiamento",
+        "consorcio ou financiamento de carro",
+        "consorcio ou financiamento imobiliario",
+        "qual vale mais a pena consorcio ou financiamento"
+      ],
+      "hero": {
+        "eyebrow": "Landing comparativa",
+        "title": "Consórcio e financiamento não se comparam só pelo preço aparente",
+        "subtitle": "A página organiza cenários, custo de oportunidade, prazo e sinais de contexto para responder uma das maiores intenções do cluster.",
+        "cta_primary_label": "Ver comparativo",
+        "cta_secondary_label": "Ver carro"
+      },
+      "intro_focus": [
+        "comparacao_de_modalidade",
+        "cenarios",
+        "custo_de_oportunidade",
+        "prazo_e_planejamento"
+      ],
+      "render_blocks": {
+        "hero": true,
+        "intro": true,
+        "institution_cards": false,
+        "product_cards": true,
+        "comparison_table": true,
+        "ranking_block": false,
+        "scenario_block": true,
+        "faq": true
+      },
+      "scenario_profiles": [
+        "planejamento_sem_urgencia",
+        "necessidade_imediata",
+        "carro",
+        "imovel"
+      ],
+      "faq_topics": [
+        "consórcio ou financiamento é melhor",
+        "qual compensa mais",
+        "como comparar custo e prazo",
+        "quando o financiamento faz mais sentido"
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Início",
+          "url": "https://sanida.com.br/"
+        },
+        {
+          "name": "Negócios e Finanças",
+          "url": "https://sanida.com.br/financas/"
+        },
+        {
+          "name": "Consórcio",
+          "url": "https://sanida.com.br/financas/consorcio/"
+        },
+        {
+          "name": "Consórcio ou financiamento",
+          "url": "https://sanida.com.br/financas/consorcio/consorcio-ou-financiamento.php"
+        }
+      ]
+    },
+    "ranking-administradoras": {
+      "enabled": true,
+      "page_type": "landing",
+      "output_file": "ranking-administradoras.json",
+      "public_path": "/financas/consorcio/ranking-administradoras.php",
+      "php_template": "/public_html/financas/consorcio/ranking-administradoras.php",
+      "canonical": "https://sanida.com.br/financas/consorcio/ranking-administradoras.php",
+      "title": "Ranking de administradoras de consórcio: contexto regulatório e comparação",
+      "meta_description": "Veja ranking de administradoras de consórcio com contexto do Banco Central, reclamações, consistência e leitura comparativa institucional.",
+      "h1": "Ranking de administradoras de consórcio com leitura contextual",
+      "primary_intent": "ranking_administradoras",
+      "target_segments": [
+        "carro",
+        "moto",
+        "imobiliario"
+      ],
+      "primary_keywords": [
+        "ranking administradoras de consórcio",
+        "ranking consórcio banco central",
+        "ranking de reclamações banco central consórcios",
+        "ranking de administradoras de consórcio banco central"
+      ],
+      "secondary_keywords": [
+        "ranking banco central consorcio",
+        "ranking de consorcio banco central",
+        "ranking consorcios banco central",
+        "ranking das administradoras de consórcio"
+      ],
+      "hero": {
+        "eyebrow": "Landing institucional",
+        "title": "Ranking regulatório ajuda, mas precisa de contexto",
+        "subtitle": "A página organiza ranking, consistência, completude e sinais institucionais para evitar leitura simplista de lista bruta.",
+        "cta_primary_label": "Ver ranking",
+        "cta_secondary_label": "Ver melhor consórcio"
+      },
+      "intro_focus": [
+        "ranking_regulatorio",
+        "contexto_de_reclamacoes",
+        "nao_confundir_ranking_com_recomendacao",
+        "comparacao_institucional"
+      ],
+      "render_blocks": {
+        "hero": true,
+        "intro": true,
+        "institution_cards": true,
+        "product_cards": false,
+        "comparison_table": true,
+        "ranking_block": true,
+        "scenario_block": false,
+        "faq": true
+      },
+      "ranking_context": {
+        "enabled": true,
+        "mode": "full_regulatory_context",
+        "max_items": 20
+      },
+      "faq_topics": [
+        "como funciona o ranking do banco central",
+        "ranking de reclamações define confiabilidade",
+        "como comparar administradoras",
+        "o que significa não estar rankeada"
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Início",
+          "url": "https://sanida.com.br/"
+        },
+        {
+          "name": "Negócios e Finanças",
+          "url": "https://sanida.com.br/financas/"
+        },
+        {
+          "name": "Consórcio",
+          "url": "https://sanida.com.br/financas/consorcio/"
+        },
+        {
+          "name": "Ranking administradoras",
+          "url": "https://sanida.com.br/financas/consorcio/ranking-administradoras.php"
+        }
+      ]
+    },
+    "menor-taxa": {
+      "enabled": true,
+      "page_type": "landing",
+      "output_file": "menor-taxa.json",
+      "public_path": "/financas/consorcio/menor-taxa.php",
+      "php_template": "/public_html/financas/consorcio/menor-taxa.php",
+      "canonical": "https://sanida.com.br/financas/consorcio/menor-taxa.php",
+      "title": "Qual consórcio tem a menor taxa: compare sem cair em simplificação",
+      "meta_description": "Veja quais grupos e administradoras aparecem com menor taxa de administração no comparador, com leitura de prazo, faixa de crédito e contexto.",
+      "h1": "Menor taxa de consórcio não deve ser lida isoladamente",
+      "primary_intent": "menor_taxa",
+      "target_segments": [
+        "carro",
+        "moto",
+        "imobiliario"
+      ],
+      "primary_keywords": [
+        "qual consórcio tem a menor taxa",
+        "qual a menor taxa de administração de consórcio",
+        "qual o consórcio com a menor taxa",
+        "qual o consorcio com menor taxa de administração"
+      ],
+      "secondary_keywords": [
+        "qual a menor taxa de consorcio",
+        "qual a taxa de administração de consorcio mais barata",
+        "consorcio com menor juros",
+        "consorcio mais barato"
+      ],
+      "hero": {
+        "eyebrow": "Landing por filtro",
+        "title": "Menor taxa só faz sentido dentro do cluster certo",
+        "subtitle": "A página organiza taxa de administração por segmento, faixa de crédito e prazo, sem transformar taxa isolada em resposta absoluta.",
+        "cta_primary_label": "Ver menor taxa",
+        "cta_secondary_label": "Comparar produtos"
+      },
+      "intro_focus": [
+        "foco_em_taxa",
+        "taxa_dentro_do_cluster",
+        "comparabilidade",
+        "evitar_simplificacao"
+      ],
+      "render_blocks": {
+        "hero": true,
+        "intro": true,
+        "institution_cards": true,
+        "product_cards": true,
+        "comparison_table": true,
+        "ranking_block": false,
+        "scenario_block": true,
+        "faq": true
+      },
+      "sorting_profile": "menor_taxa",
+      "faq_topics": [
+        "qual consórcio tem a menor taxa",
+        "menor taxa é o melhor consórcio",
+        "como comparar taxa entre segmentos",
+        "o que observar além da taxa"
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Início",
+          "url": "https://sanida.com.br/"
+        },
+        {
+          "name": "Negócios e Finanças",
+          "url": "https://sanida.com.br/financas/"
+        },
+        {
+          "name": "Consórcio",
+          "url": "https://sanida.com.br/financas/consorcio/"
+        },
+        {
+          "name": "Menor taxa",
+          "url": "https://sanida.com.br/financas/consorcio/menor-taxa.php"
+        }
+      ]
+    }
+  }
+}
