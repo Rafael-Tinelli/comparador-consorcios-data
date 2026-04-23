@@ -5,6 +5,7 @@ Coletor do cadastro de administradoras / sedes de consórcio via BCB Olinda ODat
 Responsabilidades desta etapa:
 - ler config/sources.json
 - buscar a fonte bc_cadastro_admins com paginação OData
+- tentar fallback oficial em CSV quando o JSON falhar
 - gerar um raw canônico em data/raw/bc/cadastro/latest.json
 - gerar uma versão normalizada em data/stage/cadastro/instituicoes_cadastro.json
 - evitar reescrita desnecessária quando o conteúdo não mudou
@@ -16,11 +17,14 @@ Este coletor não gera data/dist. Isso fica para o build-read-models.
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
+import io
 import json
 import os
 import re
 import sys
+import time
 from copy import deepcopy
 from datetime import datetime, timezone
 from pathlib import Path
@@ -138,7 +142,6 @@ def extract_odata_records(payload: Dict[str, Any]) -> List[Dict[str, Any]]:
     if isinstance(payload.get("value"), list):
         return payload["value"]
 
-    # Compatibilidade defensiva com payloads OData antigos.
     d_obj = payload.get("d")
     if isinstance(d_obj, dict):
         results = d_obj.get("results")
@@ -148,55 +151,110 @@ def extract_odata_records(payload: Dict[str, Any]) -> List[Dict[str, Any]]:
     raise ValueError("Resposta OData sem lista de registros em 'value' ou 'd.results'.")
 
 
-def fetch_paginated_odata(
+def fetch_paginated_odata_resilient(
     session: requests.Session,
     endpoint: str,
     default_params: Dict[str, Any],
     pagination_param: str,
     headers: Dict[str, str],
-) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
-    all_records: List[Dict[str, Any]] = []
-    page_meta: List[Dict[str, Any]] = []
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], str]:
+    """
+    Tenta OData JSON com lotes decrescentes.
+    Retorna (records, page_meta, mode_used).
+    """
+    base_top = int(default_params.get("$top", 1000) or 1000)
+    candidate_tops = [base_top, 200, 100, 50]
 
-    params_base = deepcopy(default_params)
-    top = int(params_base.get("$top", 1000) or 1000)
-    skip = int(params_base.get("$skip", 0) or 0)
+    seen: set[int] = set()
+    candidate_tops = [value for value in candidate_tops if not (value in seen or seen.add(value))]
 
-    while True:
-        params = deepcopy(params_base)
-        params[pagination_param] = skip
+    last_error: Optional[Exception] = None
 
-        response = session.get(
-            endpoint,
-            params=params,
-            headers=headers,
-            timeout=getattr(session, "request_timeout", 60),
-        )
-        response.raise_for_status()
+    for top in candidate_tops:
+        try:
+            all_records: List[Dict[str, Any]] = []
+            page_meta: List[Dict[str, Any]] = []
+            skip = int(default_params.get("$skip", 0) or 0)
 
-        payload = response.json()
-        records = extract_odata_records(payload)
+            while True:
+                params = deepcopy(default_params)
+                params["$format"] = "json"
+                params["$top"] = top
+                params[pagination_param] = skip
 
-        page_meta.append(
-            {
-                "skip": skip,
-                "returned_records": len(records),
-                "url": response.url,
-                "status_code": response.status_code,
-            }
-        )
+                response = session.get(
+                    endpoint,
+                    params=params,
+                    headers=headers,
+                    timeout=getattr(session, "request_timeout", 60),
+                )
+                response.raise_for_status()
 
-        if not records:
-            break
+                payload = response.json()
+                records = extract_odata_records(payload)
 
-        all_records.extend(records)
+                page_meta.append(
+                    {
+                        "mode": "odata-json",
+                        "skip": skip,
+                        "top": top,
+                        "returned_records": len(records),
+                        "url": response.url,
+                        "status_code": response.status_code,
+                    }
+                )
 
-        if len(records) < top:
-            break
+                if not records:
+                    break
 
-        skip += len(records)
+                all_records.extend(records)
 
-    return all_records, page_meta
+                if len(records) < top:
+                    break
+
+                skip += len(records)
+
+            return all_records, page_meta, "odata-json"
+
+        except Exception as exc:
+            last_error = exc
+            time.sleep(2)
+
+    if last_error:
+        raise last_error
+
+    raise RuntimeError("Falha inesperada ao coletar OData JSON.")
+
+
+def fetch_csv_fallback(
+    session: requests.Session,
+    endpoint: str,
+    headers: Dict[str, str],
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], str]:
+    params = {"$format": "text/csv"}
+    headers_csv = dict(headers)
+    headers_csv["Accept"] = "text/csv"
+
+    response = session.get(
+        endpoint,
+        params=params,
+        headers=headers_csv,
+        timeout=getattr(session, "request_timeout", 60),
+    )
+    response.raise_for_status()
+
+    text = response.text.lstrip("\ufeff")
+    rows = list(csv.DictReader(io.StringIO(text)))
+
+    page_meta = [
+        {
+            "mode": "odata-csv-fallback",
+            "returned_records": len(rows),
+            "url": response.url,
+            "status_code": response.status_code,
+        }
+    ]
+    return rows, page_meta, "odata-csv-fallback"
 
 
 def build_lookup(record: Dict[str, Any]) -> Dict[str, Any]:
@@ -345,7 +403,7 @@ def normalize_record(record: Dict[str, Any], index: int) -> Dict[str, Any]:
     trade_name_text = normalize_spaces(trade_name)
     cnpj_digits = digits_only(cnpj)
 
-    normalized = {
+    return {
         "source_record_index": index,
         "institution_id": institution_id_text,
         "institution_name": institution_name_text,
@@ -364,8 +422,6 @@ def normalize_record(record: Dict[str, Any], index: int) -> Dict[str, Any]:
         "source_fields_present": sorted(record.keys()),
     }
 
-    return normalized
-
 
 def build_stage_payload(
     *,
@@ -375,6 +431,7 @@ def build_stage_payload(
     page_meta: List[Dict[str, Any]],
     raw_hash: str,
     collected_at: str,
+    mode_used: str,
 ) -> Dict[str, Any]:
     normalized_items = [normalize_record(record, index + 1) for index, record in enumerate(records)]
     normalized_items.sort(
@@ -385,19 +442,19 @@ def build_stage_payload(
         )
     )
 
-    stage_payload = {
+    return {
         "metadata": {
             "source": source_name,
             "collector": "collectors/bc_cadastro_admins.py",
             "collected_at": collected_at,
             "endpoint": endpoint,
+            "mode_used": mode_used,
             "record_count": len(normalized_items),
             "raw_hash": raw_hash,
             "page_count": len(page_meta),
         },
         "items": normalized_items,
     }
-    return stage_payload
 
 
 def read_existing_hash(stage_file: Path) -> Optional[str]:
@@ -466,13 +523,21 @@ def main() -> int:
     collected_at = utc_now_iso()
     session = build_session(timeout_seconds=timeout_seconds)
 
-    records, page_meta = fetch_paginated_odata(
-        session=session,
-        endpoint=endpoint,
-        default_params=default_params,
-        pagination_param=pagination_param,
-        headers=headers,
-    )
+    mode_used = "unknown"
+    try:
+        records, page_meta, mode_used = fetch_paginated_odata_resilient(
+            session=session,
+            endpoint=endpoint,
+            default_params=default_params,
+            pagination_param=pagination_param,
+            headers=headers,
+        )
+    except Exception:
+        records, page_meta, mode_used = fetch_csv_fallback(
+            session=session,
+            endpoint=endpoint,
+            headers=headers,
+        )
 
     raw_payload = {
         "metadata": {
@@ -480,6 +545,7 @@ def main() -> int:
             "collector": "collectors/bc_cadastro_admins.py",
             "collected_at": collected_at,
             "endpoint": endpoint,
+            "mode_used": mode_used,
             "params": default_params,
             "page_count": len(page_meta),
             "record_count": len(records),
@@ -496,6 +562,7 @@ def main() -> int:
         page_meta=page_meta,
         raw_hash=raw_hash,
         collected_at=collected_at,
+        mode_used=mode_used,
     )
 
     stage_items_hash = sha256_of(stage_payload["items"])
@@ -510,6 +577,7 @@ def main() -> int:
         "record_count": len(records),
         "raw_hash": raw_hash,
         "stage_items_hash": stage_items_hash,
+        "mode_used": mode_used,
         "endpoint": endpoint,
         "raw_file": str(raw_file),
         "stage_file": str(stage_file),
@@ -531,6 +599,7 @@ def main() -> int:
                 "source": args.source,
                 "changed": changed,
                 "records": len(records),
+                "mode_used": mode_used,
                 "raw_file": str(raw_file),
                 "stage_file": str(stage_file),
                 "runtime_file": str(runtime_file),
