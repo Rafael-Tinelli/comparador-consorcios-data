@@ -9,6 +9,9 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 concurrency:
   group: coleta-bc-cadastro
   cancel-in-progress: false
@@ -20,12 +23,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: "pip"
@@ -50,7 +53,7 @@ jobs:
 
       - name: Upload collector outputs
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: bc-cadastro-output
           path: |
@@ -60,14 +63,19 @@ jobs:
           if-no-files-found: warn
           retention-days: 15
 
+      - name: Fail if degraded mode was used
+        if: steps.collect.outputs.mode_used != 'odata-json'
+        run: |
+          echo "Falha: a coleta não concluiu pelo caminho primário OData JSON."
+          echo "mode_used=${{ steps.collect.outputs.mode_used }}"
+          exit 1
+
       - name: Commit changed outputs
-        if: steps.collect.outputs.changed == 'true'
+        if: steps.collect.outputs.changed == 'true' && steps.collect.outputs.mode_used == 'odata-json'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # data/raw e data/stage estão ignorados localmente no projeto,
-          # então aqui usamos git add -f apenas para os artefatos canônicos.
           git add -f \
             data/raw/bc/cadastro/latest.json \
             data/stage/cadastro/instituicoes_cadastro.json
