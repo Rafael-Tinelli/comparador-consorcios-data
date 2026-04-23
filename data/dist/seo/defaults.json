@@ -254,55 +254,80 @@
   ],
   "series_highlights": [
     {
-      "key": "taxa_media_credito_imobiliario_pf",
-      "label": "Taxa média de crédito imobiliário PF",
-      "value": null,
-      "date": null,
+      "key": "selic_meta",
+      "label": "Meta Selic",
+      "value": 14.75,
+      "date": "29/04/2026",
       "unit": "% a.a.",
-      "frequency": "monthly"
-    },
-    {
-      "key": "taxa_media_credito_livre_pf",
-      "label": "Taxa média de crédito livre PF",
-      "value": null,
-      "date": null,
-      "unit": "% a.a.",
-      "frequency": "monthly"
-    },
-    {
-      "key": "taxa_media_financiamento_veiculos_pf",
-      "label": "Taxa média de financiamento de veículos PF",
-      "value": null,
-      "date": null,
-      "unit": "% a.a.",
-      "frequency": "monthly"
+      "frequency": "daily"
     },
     {
       "key": "cdi",
       "label": "CDI",
-      "value": null,
-      "date": null,
+      "value": 0.054266,
+      "date": "22/04/2026",
       "unit": "% a.d.",
       "frequency": "daily"
     },
     {
       "key": "ipca",
       "label": "IPCA",
-      "value": null,
-      "date": null,
+      "value": 0.88,
+      "date": "01/03/2026",
       "unit": "% a.m.",
       "frequency": "monthly"
     },
     {
-      "key": "selic_meta",
-      "label": "Meta Selic",
-      "value": null,
-      "date": null,
+      "key": "taxa_media_credito_livre_pf",
+      "label": "Taxa média de crédito livre PF",
+      "value": 62.02,
+      "date": "01/02/2026",
       "unit": "% a.a.",
-      "frequency": "daily"
+      "frequency": "monthly"
+    },
+    {
+      "key": "taxa_media_financiamento_veiculos_pf",
+      "label": "Taxa média de financiamento de veículos PF",
+      "value": 27.28,
+      "date": "01/02/2026",
+      "unit": "% a.a.",
+      "frequency": "monthly"
+    },
+    {
+      "key": "taxa_media_credito_imobiliario_pf",
+      "label": "Taxa média de crédito imobiliário PF",
+      "value": 1.11,
+      "date": "01/02/2026",
+      "unit": "% a.a.",
+      "frequency": "monthly"
     }
   ],
   "scenario_highlights": [
+    {
+      "key": "consorcio_ou_financiamento_veiculos",
+      "headline": "Veículos: comparar consórcio com financiamento segue essencial",
+      "description": "Taxa média observada no financiamento de veículos PF: 27.28. Meta Selic: 14.75. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
+      "evidence": {
+        "taxa_financiamento_veiculos_pf": 27.28,
+        "selic_meta": 14.75
+      }
+    },
+    {
+      "key": "imobiliario_contexto",
+      "headline": "Imobiliário: a taxa de crédito continua sendo referência prática",
+      "description": "A taxa média de crédito imobiliário PF observada foi 1.11. Isso ajuda a contextualizar buscas por consórcio imobiliário e cenários de custo de oportunidade.",
+      "evidence": {
+        "taxa_credito_imobiliario_pf": 1.11
+      }
+    },
+    {
+      "key": "credito_livre_contexto",
+      "headline": "Crédito livre PF segue como baliza macro para decisão",
+      "description": "A taxa média de crédito livre PF observada foi 62.02. O usuário tende a comparar consórcio com alternativas de crédito mesmo quando a busca começa por produto.",
+      "evidence": {
+        "taxa_credito_livre_pf": 62.02
+      }
+    },
     {
       "key": "abac_contexto_setorial",
       "headline": "Boletim setorial da ABAC disponível como apoio interpretativo",
@@ -312,5 +337,5 @@
       }
     }
   ],
-  "meta_hash": "8bb96377477c6f3f0174b1f1e27a613aaded758afd0a49950da7be32ca93e7ab"
+  "meta_hash": "6868afd4f0a41da55bf0e81926b920471579e09d6cf0aaa4fc9b32a342e1b630"
 }
