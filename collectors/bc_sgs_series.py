@@ -3,11 +3,11 @@
 Coletor de séries SGS do BCB.
 
 Estratégia desta versão:
-- abandona a dependência de range histórico como caminho principal;
-- usa o endpoint de "últimos N valores" para todas as séries habilitadas;
-- define N por frequência (daily/monthly/etc.), com override opcional via config;
+- usa o endpoint de "últimos N valores" do SGS;
+- aplica clamp de N em 20, conforme limite documentado;
+- mantém mode_used = "sgs-json-range" por compatibilidade com o workflow 03 já instalado;
 - grava raw, stage e runtime;
-- mantém mode_used compatível com o workflow já existente.
+- falha de forma explícita quando o endpoint responder HTML/erro em vez de JSON.
 """
 
 from __future__ import annotations
@@ -27,14 +27,17 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 
-# Mantido por compatibilidade com o workflow 03 já instalado.
+# Mantido por compatibilidade com o workflow 03 já existente.
 MODE_USED = "sgs-json-range"
 
+# O endpoint "ultimos/N" do SGS é limitado a 20.
+MAX_LATEST_POINTS = 20
+
 DEFAULT_POINTS_BY_FREQUENCY = {
-    "daily": 180,
-    "monthly": 120,
-    "quarterly": 40,
-    "weekly": 80,
+    "daily": 20,
+    "monthly": 20,
+    "quarterly": 20,
+    "weekly": 20,
     "yearly": 20,
     "annual": 20,
 }
@@ -172,7 +175,6 @@ def iter_enabled_series(series_map: Dict[str, Any]) -> List[Dict[str, Any]]:
                     "frequency": item.get("frequency"),
                     "category": item.get("category"),
                     "notes": item.get("notes"),
-                    "data_inicial": item.get("data_inicial"),
                 }
             )
 
@@ -186,15 +188,21 @@ def preview_text(text: str, limit: int = 320) -> str:
     return " ".join((text or "").split())[:limit]
 
 
+def clamp_points(points: int) -> int:
+    if points < 1:
+        return 1
+    if points > MAX_LATEST_POINTS:
+        return MAX_LATEST_POINTS
+    return points
+
+
 def points_to_request(series_def: Dict[str, Any], api_cfg: Dict[str, Any]) -> int:
     override_by_key = api_cfg.get("latest_points_by_key", {})
     if isinstance(override_by_key, dict):
         value = override_by_key.get(series_def["key"])
         if value is not None:
             try:
-                points = int(value)
-                if points > 0:
-                    return points
+                return clamp_points(int(value))
             except Exception:
                 pass
 
@@ -205,24 +213,15 @@ def points_to_request(series_def: Dict[str, Any], api_cfg: Dict[str, Any]) -> in
         value = override_by_frequency.get(frequency)
         if value is not None:
             try:
-                points = int(value)
-                if points > 0:
-                    return points
+                return clamp_points(int(value))
             except Exception:
                 pass
 
-    if frequency in DEFAULT_POINTS_BY_FREQUENCY:
-        return DEFAULT_POINTS_BY_FREQUENCY[frequency]
-
-    fallback = api_cfg.get("latest_points_default", 60)
+    default_value = DEFAULT_POINTS_BY_FREQUENCY.get(frequency, api_cfg.get("latest_points_default", 12))
     try:
-        fallback_points = int(fallback)
-        if fallback_points > 0:
-            return fallback_points
+        return clamp_points(int(default_value))
     except Exception:
-        pass
-
-    return 60
+        return 12
 
 
 def fetch_series_latest(
@@ -325,18 +324,22 @@ def normalize_series_points(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return values
 
 
-def build_series_entry(series_def: Dict[str, Any], rows: List[Dict[str, Any]], request_meta: Dict[str, Any], points_requested: int) -> Dict[str, Any]:
+def build_series_entry(
+    series_def: Dict[str, Any],
+    rows: List[Dict[str, Any]],
+    request_meta: Dict[str, Any],
+    points_requested: int,
+) -> Dict[str, Any]:
     values = normalize_series_points(rows)
 
     latest_value = None
     latest_date = None
+    first_date = None
 
     if values:
-        last = values[-1]
-        latest_value = last.get("value")
-        latest_date = last.get("date")
-
-    first_date = values[0]["date"] if values else None
+        first_date = values[0].get("date")
+        latest_date = values[-1].get("date")
+        latest_value = values[-1].get("value")
 
     return {
         "group": series_def["group"],
@@ -484,7 +487,12 @@ def main() -> int:
                 }
             )
 
-            entry = build_series_entry(series_def, payload_rows, request_meta, points_requested)
+            entry = build_series_entry(
+                series_def=series_def,
+                rows=payload_rows,
+                request_meta=request_meta,
+                points_requested=points_requested,
+            )
             point_count_total += entry["points"]
             series_entries.append(entry)
 
