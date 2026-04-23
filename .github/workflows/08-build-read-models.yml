@@ -1,0 +1,101 @@
+name: 08 · Build Read Models
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - "01 · Coleta BC Cadastro"
+      - "02 · Coleta BC Filiais"
+      - "03 · Coleta BC Series"
+      - "04 · Coleta ConsorcioBD"
+      - "05 · Coleta ConsorcioBD Trimestral"
+      - "06 · Coleta Ranking Reclamações"
+      - "07 · Coleta ABAC"
+    types:
+      - completed
+  schedule:
+    # 07:20 BRT = 10:20 UTC
+    - cron: "20 10 * * *"
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+concurrency:
+  group: build-read-models
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Ensure dist and runtime directories
+        run: |
+          mkdir -p data/dist/global
+          mkdir -p data/dist/seo
+          mkdir -p data/runtime
+
+      - name: Build read models
+        id: build
+        run: |
+          python transform/build_read_models.py \
+            --config config/sources.json \
+            --scoring config/scoring_rules.json \
+            --product-rules config/product_rules.json \
+            --seo-routes config/seo_routes.json
+
+      - name: Upload build outputs
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: build-read-models-output
+          path: |
+            data/dist/global/*.json
+            data/dist/seo/*.json
+            data/runtime/build_read_models.json
+          if-no-files-found: warn
+          retention-days: 15
+
+      - name: Fail if mode used is not homologated
+        if: steps.build.outputs.mode_used != 'build-read-models'
+        run: |
+          echo "Falha: o build não concluiu pelo modo homologado."
+          echo "mode_used=${{ steps.build.outputs.mode_used }}"
+          exit 1
+
+      - name: Commit changed outputs
+        if: steps.build.outputs.changed == 'true' && steps.build.outputs.mode_used == 'build-read-models'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -f data/dist/global/*.json data/dist/seo/*.json
+
+          if git diff --cached --quiet; then
+            echo "Sem diff rastreável para commit."
+            exit 0
+          fi
+
+          git commit -m "chore(build): atualiza read models"
+          git push
