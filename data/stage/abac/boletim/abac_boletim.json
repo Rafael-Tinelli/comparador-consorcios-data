@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "source": "abac_boletim",
+    "collector": "collectors/abac_boletim.py",
+    "collected_at": "2026-04-23T16:28:16+00:00",
+    "mode_used": "materials-page-download",
+    "resource_sha256": "c8020c91124182a1ea429f720e5ca46863ef57749271ee7353e771ac007cd372"
+  },
+  "selected": {
+    "period_label": "Fevereiro/26",
+    "year": 2026,
+    "month": 2,
+    "download_url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F177489141602-BOLETIM-FEV26.pdf",
+    "download_meta": {
+      "status_code": 200,
+      "final_url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F177489141602-BOLETIM-FEV26.pdf",
+      "content_type": ",application/pdf",
+      "content_length": "367154",
+      "last_modified": "Mon, 30 Mar 2026 17:23:41 GMT",
+      "etag": "\"9d55eb371f70de8239b25762a83b6915\""
+    }
+  },
+  "top_candidates": [
+    {
+      "period_label": "Fevereiro/26",
+      "year": 2026,
+      "month": 2,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F177489141602-BOLETIM-FEV26.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Janeiro/26",
+      "year": 2026,
+      "month": 1,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F177341983701-BOLETIM-JAN26.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Dezembro/25",
+      "year": 2025,
+      "month": 12,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F177005878212-BOLETIM-DEZ25_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Novembro/25",
+      "year": 2025,
+      "month": 11,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F176615646211-BOLETIM-NOV25_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Outubro/25",
+      "year": 2025,
+      "month": 10,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F176470756410-BOLETIM-OUT25_ABAC.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Setembro/25",
+      "year": 2025,
+      "month": 9,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F176168034709-BOLETIM-SET25_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Agosto/25",
+      "year": 2025,
+      "month": 8,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F175882591108-BOLETIM-AGO25_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Julho/25",
+      "year": 2025,
+      "month": 7,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F175699306307-BOLETIM-JUL25_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Junho/25",
+      "year": 2025,
+      "month": 6,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F175370690006-BOLETIM-JUN25.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Maio/25",
+      "year": 2025,
+      "month": 5,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F175103319805-BOLETIM-MAI25_v3.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Abril/25",
+      "year": 2025,
+      "month": 4,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F174888393604-BOLETIM-ABR25.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Abril/25",
+      "year": 2025,
+      "month": 4,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F174594447203-BOLETIM-MAR25_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Fevereiro/25",
+      "year": 2025,
+      "month": 2,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F174345461302-BOLETIM-FEV25_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Janeiro/25",
+      "year": 2025,
+      "month": 1,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F174171685401-BOLETIM-JAN25.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Dezembro/24",
+      "year": 2024,
+      "month": 12,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F173806801112-BOLETIM-DEZ24_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Novembro/24",
+      "year": 2024,
+      "month": 11,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F173497523411-BOLETIM-NOV24_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Outubro/24",
+      "year": 2024,
+      "month": 10,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F173281919410-BOLETIM-OUT24_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Setembro/24",
+      "year": 2024,
+      "month": 9,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F173015181909-BOLETIM-SET24_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Agosto/24",
+      "year": 2024,
+      "month": 8,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F172718913008-BOLETIM-AGO24_v2.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Julho/24",
+      "year": 2024,
+      "month": 7,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F172435835507-BOLETIM-JUL24_v1.pdf",
+      "link_text": "BAIXAR"
+    }
+  ]
+}
