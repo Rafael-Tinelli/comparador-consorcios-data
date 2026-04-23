@@ -8,11 +8,12 @@
         "key": "selic_meta",
         "label": "Meta Selic",
         "source": "BCB/SGS",
-        "serie": null,
+        "serie": 432,
         "unit": "% a.a.",
         "frequency": "daily",
         "category": "juros",
         "enabled": true,
+        "data_inicial": "01/01/2017",
         "notes": "Usada como contexto macroeconômico para custo de oportunidade e comparação com financiamento."
       },
       {
@@ -23,8 +24,8 @@
         "unit": "% a.a.",
         "frequency": "daily",
         "category": "juros",
-        "enabled": true,
-        "notes": "Indicador auxiliar de mercado."
+        "enabled": false,
+        "notes": "Desabilitada até confirmação inequívoca do código SGS em fonte oficial do BCB."
       },
       {
         "key": "ipca",
@@ -34,8 +35,8 @@
         "unit": "% a.m.",
         "frequency": "monthly",
         "category": "inflacao",
-        "enabled": true,
-        "notes": "Importante para contexto de poder de compra e comparação temporal."
+        "enabled": false,
+        "notes": "Desabilitada até confirmação inequívoca do código SGS do IPCA cheio em fonte oficial do BCB."
       },
       {
         "key": "inpc",
@@ -54,7 +55,7 @@
         "key": "taxa_media_credito_livre_pf",
         "label": "Taxa média de crédito livre PF",
         "source": "BCB/SGS",
-        "serie": null,
+        "serie": 20740,
         "unit": "% a.a.",
         "frequency": "monthly",
         "category": "credito",
@@ -65,7 +66,7 @@
         "key": "taxa_media_financiamento_veiculos_pf",
         "label": "Taxa média de financiamento de veículos PF",
         "source": "BCB/SGS",
-        "serie": null,
+        "serie": 20749,
         "unit": "% a.a.",
         "frequency": "monthly",
         "category": "credito",
@@ -76,7 +77,7 @@
         "key": "taxa_media_credito_imobiliario_pf",
         "label": "Taxa média de crédito imobiliário PF",
         "source": "BCB/SGS",
-        "serie": null,
+        "serie": 25497,
         "unit": "% a.a.",
         "frequency": "monthly",
         "category": "credito",
@@ -89,7 +90,7 @@
         "key": "inadimplencia_pf",
         "label": "Inadimplência PF",
         "source": "BCB/SGS",
-        "serie": null,
+        "serie": 21112,
         "unit": "%",
         "frequency": "monthly",
         "category": "risco",
