@@ -2,14 +2,14 @@
 """
 Coletor do ranking de reclamações - Consórcios.
 
-Estratégia:
-- consulta o endpoint oficial que lista todos os rankings;
-- encontra o registro mais recente do tipo Consorcios;
-- usa a URL direta do próprio listing quando existir;
-- faz fallback para a URL padrão documentada;
-- baixa o CSV;
+Estratégia desta versão:
+- abandona dependência crítica do endpoint de listagem;
+- usa o padrão oficial documentado do recurso de Consórcios:
+  .../ranking/arquivo?ano={ano}&periodicidade=SEMESTRAL&periodo={periodo}&tipo=Consorcios
+- faz probing retroativo por semestres;
+- baixa o CSV mais recente disponível;
 - grava raw, stage e runtime;
-- só considera sucesso quando mode_used = "listing-api-download".
+- só considera sucesso quando mode_used = "direct-content-download".
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -74,19 +74,6 @@ def get_source_config(config: Dict[str, Any], source_name: str) -> Dict[str, Any
         raise KeyError(f"Fonte '{source_name}' não encontrada em config/sources.json.") from exc
 
 
-def normalize_spaces(value: Optional[str]) -> Optional[str]:
-    if value is None:
-        return None
-    text = str(value).strip()
-    text = re.sub(r"\s+", " ", text)
-    return text or None
-
-
-def normalize_match_text(value: Optional[str]) -> str:
-    text = normalize_spaces(value) or ""
-    return text.lower()
-
-
 def build_session(timeout_seconds: int) -> requests.Session:
     retry = Retry(
         total=3,
@@ -120,144 +107,143 @@ def preview_text(text: str, limit: int = 350) -> str:
     return compact[:limit]
 
 
-def json_request(session: requests.Session, url: str, headers: Dict[str, str]) -> Any:
-    response = session.get(
-        url,
-        headers=headers,
-        timeout=getattr(session, "request_timeout", 60),
-        allow_redirects=True,
-    )
-    response.raise_for_status()
+def candidate_looks_valid_from_headers(
+    *,
+    status_code: Optional[int],
+    content_type: Optional[str],
+    content_length: Optional[str],
+    min_size_bytes: int,
+) -> bool:
+    if status_code != 200:
+        return False
 
-    if not response.text.strip():
-        raise ValueError(f"Endpoint JSON retornou corpo vazio: {url}")
+    ct = (content_type or "").lower()
+    if "text/html" in ct:
+        return False
 
-    return response.json()
+    if content_length:
+        try:
+            if int(content_length) < min_size_bytes:
+                return False
+        except Exception:
+            pass
 
-
-def extract_candidate_records(payload: Any) -> List[Dict[str, Any]]:
-    records: List[Dict[str, Any]] = []
-
-    def walk(node: Any) -> None:
-        if isinstance(node, dict):
-            keys_lower = {str(k).lower() for k in node.keys()}
-            if any(k in keys_lower for k in ("ano", "anocalendario")) and any(
-                k in keys_lower for k in ("periodo", "periodicidade", "numeroperiodicidade", "numero_periodicidade")
-            ):
-                records.append(node)
-
-            for value in node.values():
-                walk(value)
-
-        elif isinstance(node, list):
-            for item in node:
-                walk(item)
-
-    walk(payload)
-    return records
+    return True
 
 
-def pick_first_value(record: Dict[str, Any], names: Iterable[str]) -> Optional[Any]:
-    lowered = {str(k).lower(): k for k in record.keys()}
-    for name in names:
-        key = lowered.get(name.lower())
-        if key is not None:
-            return record.get(key)
-    return None
-
-
-def parse_int_like(value: Any) -> Optional[int]:
-    if value is None:
-        return None
-    text = str(value).strip()
-    match = re.search(r"\d+", text)
-    if not match:
-        return None
+def probe_head(
+    session: requests.Session,
+    url: str,
+    headers: Dict[str, str],
+    min_size_bytes: int,
+) -> Dict[str, Any]:
     try:
-        return int(match.group(0))
-    except Exception:
-        return None
+        response = session.head(
+            url,
+            headers=headers,
+            timeout=getattr(session, "request_timeout", 60),
+            allow_redirects=True,
+        )
+        result = {
+            "method": "HEAD",
+            "status_code": response.status_code,
+            "final_url": response.url,
+            "content_type": response.headers.get("Content-Type"),
+            "content_length": response.headers.get("Content-Length"),
+        }
+        result["ok"] = candidate_looks_valid_from_headers(
+            status_code=result["status_code"],
+            content_type=result["content_type"],
+            content_length=result["content_length"],
+            min_size_bytes=min_size_bytes,
+        )
+        return result
+    except Exception as exc:
+        return {
+            "method": "HEAD",
+            "status_code": None,
+            "final_url": url,
+            "content_type": None,
+            "content_length": None,
+            "ok": False,
+            "error": str(exc),
+        }
 
 
-def find_url_in_record(record: Dict[str, Any]) -> Optional[str]:
-    for key, value in record.items():
-        if value is None:
-            continue
-        if isinstance(value, str) and value.startswith("http"):
-            return value
+def probe_get(
+    session: requests.Session,
+    url: str,
+    headers: Dict[str, str],
+    min_size_bytes: int,
+) -> Dict[str, Any]:
+    try:
+        response = session.get(
+            url,
+            headers=headers,
+            timeout=getattr(session, "request_timeout", 90),
+            allow_redirects=True,
+            stream=True,
+        )
 
-    for key, value in record.items():
-        if isinstance(value, dict):
-            url = find_url_in_record(value)
-            if url:
-                return url
+        first_chunk = b""
+        try:
+            for chunk in response.iter_content(chunk_size=4096):
+                if chunk:
+                    first_chunk = chunk
+                    break
+        finally:
+            response.close()
 
-    return None
+        result = {
+            "method": "GET",
+            "status_code": response.status_code,
+            "final_url": response.url,
+            "content_type": response.headers.get("Content-Type"),
+            "content_length": response.headers.get("Content-Length"),
+            "first_chunk_sha256": sha256_of_bytes(first_chunk) if first_chunk else None,
+            "first_chunk_preview_hex": first_chunk[:32].hex() if first_chunk else None,
+        }
+        result["ok"] = candidate_looks_valid_from_headers(
+            status_code=result["status_code"],
+            content_type=result["content_type"],
+            content_length=result["content_length"],
+            min_size_bytes=min_size_bytes,
+        )
+        return result
+    except Exception as exc:
+        return {
+            "method": "GET",
+            "status_code": None,
+            "final_url": url,
+            "content_type": None,
+            "content_length": None,
+            "ok": False,
+            "error": str(exc),
+        }
 
 
-def record_is_target(record: Dict[str, Any], tipo_alvo: str) -> bool:
-    normalized_target = normalize_match_text(tipo_alvo)
-    serialized = stable_json_dumps(record).lower()
-    return normalized_target in serialized
+def iter_semesters(reference_year: int, semesters_back: int) -> List[Tuple[int, int]]:
+    items: List[Tuple[int, int]] = []
+    year = reference_year
+    period = 2
+
+    for _ in range(semesters_back):
+        items.append((year, period))
+        period -= 1
+        if period == 0:
+            period = 2
+            year -= 1
+
+    return items
 
 
-def periodicity_rank(value: Optional[str]) -> int:
-    text = normalize_match_text(value)
-    if "mensal" in text:
-        return 3
-    if "trimestral" in text:
-        return 2
-    if "semestral" in text:
-        return 1
-    return 0
-
-
-def build_candidate_from_record(
-    record: Dict[str, Any],
-    tipo_alvo: str,
-    download_template: str,
-) -> Optional[Dict[str, Any]]:
-    if not record_is_target(record, tipo_alvo):
-        return None
-
-    ano = parse_int_like(pick_first_value(record, ["ano", "anoCalendario"]))
-    periodo = parse_int_like(pick_first_value(record, ["periodo", "numero_periodicidade", "numeroPeriodicidade"]))
-    periodicidade_raw = pick_first_value(record, ["periodicidade", "tipoPeriodicidade", "descricaoPeriodicidade"])
-    periodicidade = normalize_spaces(periodicidade_raw)
-
-    if ano is None or periodo is None:
-        return None
-
-    direct_url = find_url_in_record(record)
-    fallback_url = download_template.format(
-        ano=ano,
-        periodicidade=(periodicidade or "SEMESTRAL"),
-        periodo=periodo,
+def render_url(download_template: str, year: int, period: int, periodicidade: str, tipo: str) -> str:
+    return download_template.format(
+        ano=year,
+        periodicidade=periodicidade,
+        periodo=period,
+        tipo=tipo,
     )
-
-    return {
-        "ano": ano,
-        "periodo": periodo,
-        "periodicidade": periodicidade or "SEMESTRAL",
-        "direct_url": direct_url,
-        "download_url": direct_url or fallback_url,
-        "record": record,
-    }
-
-
-def choose_latest_candidate(candidates: List[Dict[str, Any]]) -> Dict[str, Any]:
-    if not candidates:
-        raise ValueError("Nenhum ranking de Consorcios foi identificado no listing oficial.")
-
-    candidates.sort(
-        key=lambda item: (
-            item["ano"],
-            periodicity_rank(item.get("periodicidade")),
-            item["periodo"],
-        ),
-        reverse=True,
-    )
-    return candidates[0]
 
 
 def download_csv(
@@ -350,7 +336,7 @@ def main() -> int:
     runtime_dir.mkdir(parents=True, exist_ok=True)
 
     collected_at = utc_now_iso()
-    mode_used = "listing-api-failed"
+    mode_used = "direct-probe-failed"
 
     if not source_cfg.get("enabled", False):
         runtime_payload = {
@@ -370,7 +356,11 @@ def main() -> int:
         return 0
 
     api_cfg = source_cfg["api"]
-    tipo_alvo = api_cfg.get("tipo_alvo", "Consorcios")
+    periodicidade = api_cfg.get("periodicidade", "SEMESTRAL")
+    tipo = api_cfg.get("tipo", "Consorcios")
+    semesters_back = int(api_cfg.get("probe_semesters_back", 10))
+    min_size_bytes = int(api_cfg.get("min_size_bytes", 200))
+    http_methods = [m.upper() for m in api_cfg.get("http_methods", ["HEAD", "GET"])]
 
     user_agent = defaults.get(
         "user_agent",
@@ -379,167 +369,181 @@ def main() -> int:
     timeout_seconds = int(defaults.get("timeout_seconds", 60))
     session = build_session(timeout_seconds=timeout_seconds)
 
-    json_headers = {
-        "Accept": "application/json",
-        "User-Agent": user_agent,
-    }
-    download_headers = {
+    headers = {
         "Accept": "*/*",
         "User-Agent": user_agent,
         "Referer": source_cfg["official_page_url"],
     }
 
-    try:
-        listing_payload = json_request(session, api_cfg["list_endpoint"], json_headers)
-        extracted_records = extract_candidate_records(listing_payload)
+    current_year = datetime.now(timezone.utc).year
+    probe_results: List[Dict[str, Any]] = []
+    selected_candidate: Optional[Dict[str, Any]] = None
+    selected_probe: Optional[Dict[str, Any]] = None
 
-        candidates: List[Dict[str, Any]] = []
-        for record in extracted_records:
-            candidate = build_candidate_from_record(
-                record=record,
-                tipo_alvo=tipo_alvo,
-                download_template=api_cfg["download_endpoint_template"],
-            )
-            if candidate:
-                candidates.append(candidate)
-
-        selected = choose_latest_candidate(candidates)
-        binary, download_meta, csv_meta = download_csv(
-            session=session,
-            url=selected["download_url"],
-            headers=download_headers,
+    for year, period in iter_semesters(current_year, semesters_back):
+        url = render_url(
+            download_template=api_cfg["download_endpoint_template"],
+            year=year,
+            period=period,
+            periodicidade=periodicidade,
+            tipo=tipo,
         )
-
-        previous_sha = read_existing_source_sha(raw_source_file)
-        current_sha = sha256_of_bytes(binary)
-        changed = previous_sha != current_sha
-        mode_used = "listing-api-download"
-
-        raw_payload = {
-            "metadata": {
-                "source": args.source,
-                "collector": "collectors/bc_ranking_reclamacoes.py",
-                "collected_at": collected_at,
-                "mode_used": mode_used,
-                "listing_endpoint": api_cfg["list_endpoint"],
-                "resource_sha256": current_sha,
-                "candidate_count": len(candidates),
-                "extracted_record_count": len(extracted_records),
-            },
-            "selected": {
-                "ano": selected["ano"],
-                "periodo": selected["periodo"],
-                "periodicidade": selected["periodicidade"],
-                "download_url": selected["download_url"],
-                "direct_url_from_listing": selected["direct_url"],
-                "download_meta": download_meta,
-                "csv_meta": csv_meta,
-                "source_record": selected["record"],
-            },
-            "top_candidates": candidates[:20],
+        candidate = {
+            "ano": year,
+            "periodo": period,
+            "periodicidade": periodicidade,
+            "tipo": tipo,
+            "url": url,
         }
 
-        stage_payload = {
-            "metadata": {
-                "source": args.source,
-                "collector": "collectors/bc_ranking_reclamacoes.py",
-                "collected_at": collected_at,
-                "mode_used": mode_used,
-                "resource_sha256": current_sha,
-            },
-            "selected": {
-                "ano": selected["ano"],
-                "periodo": selected["periodo"],
-                "periodicidade": selected["periodicidade"],
-                "download_url": selected["download_url"],
-                "download_meta": download_meta,
-                "csv_meta": csv_meta,
-            },
-            "top_candidates": candidates[:20],
-        }
+        probes: List[Dict[str, Any]] = []
+        head_result: Optional[Dict[str, Any]] = None
+        get_result: Optional[Dict[str, Any]] = None
 
+        if "HEAD" in http_methods:
+            head_result = probe_head(session, url, headers, min_size_bytes)
+            probes.append(head_result)
+
+        if head_result and head_result.get("ok"):
+            selected_candidate = candidate
+            selected_probe = head_result
+            probe_results.append({"candidate": candidate, "probes": probes})
+            break
+
+        if "GET" in http_methods:
+            get_result = probe_get(session, url, headers, min_size_bytes)
+            probes.append(get_result)
+
+        probe_results.append({"candidate": candidate, "probes": probes})
+
+        if get_result and get_result.get("ok"):
+            selected_candidate = candidate
+            selected_probe = get_result
+            break
+
+    if not selected_candidate:
         runtime_payload = {
             "source": args.source,
             "last_checked_at": collected_at,
-            "last_changed_at": collected_at if changed else None,
-            "changed": changed,
+            "changed": False,
             "mode_used": mode_used,
-            "candidate_count": len(candidates),
-            "selected_ano": selected["ano"],
-            "selected_periodo": selected["periodo"],
-            "selected_periodicidade": selected["periodicidade"],
-            "selected_url": selected["download_url"],
+            "probe_results": probe_results,
+            "raw_file": str(raw_file),
+            "raw_source_file": str(raw_source_file),
+            "stage_file": str(stage_file),
+        }
+        dump_json(runtime_file, runtime_payload)
+        append_github_output("changed", "false")
+        append_github_output("records", str(len(probe_results)))
+        append_github_output("mode_used", mode_used)
+        raise ValueError("Nenhum ranking de Consórcios foi localizado pelo padrão direto documentado.")
+
+    binary, download_meta, csv_meta = download_csv(
+        session=session,
+        url=selected_candidate["url"],
+        headers=headers,
+    )
+
+    previous_sha = read_existing_source_sha(raw_source_file)
+    current_sha = sha256_of_bytes(binary)
+    changed = previous_sha != current_sha
+    mode_used = "direct-content-download"
+
+    raw_payload = {
+        "metadata": {
+            "source": args.source,
+            "collector": "collectors/bc_ranking_reclamacoes.py",
+            "collected_at": collected_at,
+            "mode_used": mode_used,
             "resource_sha256": current_sha,
-            "raw_file": str(raw_file),
-            "raw_source_file": str(raw_source_file),
-            "stage_file": str(stage_file),
-        }
+            "probe_count": len(probe_results),
+        },
+        "selected": {
+            "ano": selected_candidate["ano"],
+            "periodo": selected_candidate["periodo"],
+            "periodicidade": selected_candidate["periodicidade"],
+            "tipo": selected_candidate["tipo"],
+            "download_url": selected_candidate["url"],
+            "selected_probe": selected_probe,
+            "download_meta": download_meta,
+            "csv_meta": csv_meta,
+        },
+        "probe_results": probe_results,
+    }
 
-        if changed:
-            raw_source_file.write_bytes(binary)
-            dump_json(raw_file, raw_payload)
-            dump_json(stage_file, stage_payload)
+    stage_payload = {
+        "metadata": {
+            "source": args.source,
+            "collector": "collectors/bc_ranking_reclamacoes.py",
+            "collected_at": collected_at,
+            "mode_used": mode_used,
+            "resource_sha256": current_sha,
+        },
+        "selected": {
+            "ano": selected_candidate["ano"],
+            "periodo": selected_candidate["periodo"],
+            "periodicidade": selected_candidate["periodicidade"],
+            "tipo": selected_candidate["tipo"],
+            "download_url": selected_candidate["url"],
+            "download_meta": download_meta,
+            "csv_meta": csv_meta,
+        },
+        "probe_results": probe_results,
+    }
 
-        dump_json(runtime_file, runtime_payload)
+    runtime_payload = {
+        "source": args.source,
+        "last_checked_at": collected_at,
+        "last_changed_at": collected_at if changed else None,
+        "changed": changed,
+        "mode_used": mode_used,
+        "selected_ano": selected_candidate["ano"],
+        "selected_periodo": selected_candidate["periodo"],
+        "selected_periodicidade": selected_candidate["periodicidade"],
+        "selected_tipo": selected_candidate["tipo"],
+        "selected_url": selected_candidate["url"],
+        "resource_sha256": current_sha,
+        "raw_file": str(raw_file),
+        "raw_source_file": str(raw_source_file),
+        "stage_file": str(stage_file),
+    }
 
-        append_github_output("changed", "true" if changed else "false")
-        append_github_output("records", str(len(candidates)))
-        append_github_output("stage_hash", sha256_of(stage_payload))
-        append_github_output("mode_used", mode_used)
+    if changed:
+        raw_source_file.write_bytes(binary)
+        dump_json(raw_file, raw_payload)
+        dump_json(stage_file, stage_payload)
 
-        print(
-            json.dumps(
-                {
-                    "source": args.source,
-                    "changed": changed,
-                    "records": len(candidates),
-                    "mode_used": mode_used,
-                    "raw_file": str(raw_file),
-                    "raw_source_file": str(raw_source_file),
-                    "stage_file": str(stage_file),
-                    "runtime_file": str(runtime_file),
-                },
-                ensure_ascii=False,
-            )
+    dump_json(runtime_file, runtime_payload)
+
+    append_github_output("changed", "true" if changed else "false")
+    append_github_output("records", str(len(probe_results)))
+    append_github_output("stage_hash", sha256_of(stage_payload))
+    append_github_output("mode_used", mode_used)
+
+    print(
+        json.dumps(
+            {
+                "source": args.source,
+                "changed": changed,
+                "records": len(probe_results),
+                "mode_used": mode_used,
+                "raw_file": str(raw_file),
+                "raw_source_file": str(raw_source_file),
+                "stage_file": str(stage_file),
+                "runtime_file": str(runtime_file),
+            },
+            ensure_ascii=False,
         )
-        return 0
-
-    except requests.HTTPError as exc:
-        runtime_payload = {
-            "source": args.source,
-            "last_checked_at": collected_at,
-            "changed": False,
-            "mode_used": mode_used,
-            "error": f"Erro HTTP ao coletar ranking de reclamações: {exc}",
-            "raw_file": str(raw_file),
-            "raw_source_file": str(raw_source_file),
-            "stage_file": str(stage_file),
-        }
-        dump_json(runtime_file, runtime_payload)
-        append_github_output("changed", "false")
-        append_github_output("records", "0")
-        append_github_output("mode_used", mode_used)
-        print(f"Erro HTTP ao coletar ranking de reclamações: {exc}", file=sys.stderr)
-        return 1
-
-    except Exception as exc:
-        runtime_payload = {
-            "source": args.source,
-            "last_checked_at": collected_at,
-            "changed": False,
-            "mode_used": mode_used,
-            "error": str(exc),
-            "raw_file": str(raw_file),
-            "raw_source_file": str(raw_source_file),
-            "stage_file": str(stage_file),
-        }
-        dump_json(runtime_file, runtime_payload)
-        append_github_output("changed", "false")
-        append_github_output("records", "0")
-        append_github_output("mode_used", mode_used)
-        print(f"Falha no coletor bc_ranking_reclamacoes: {exc}", file=sys.stderr)
-        return 1
+    )
+    return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except requests.HTTPError as exc:
+        print(f"Erro HTTP ao coletar ranking de reclamações: {exc}", file=sys.stderr)
+        raise SystemExit(1)
+    except Exception as exc:
+        print(f"Falha no coletor bc_ranking_reclamacoes: {exc}", file=sys.stderr)
+        raise SystemExit(1)
