@@ -259,34 +259,31 @@
     "abac_boletim": {
       "enabled": true,
       "provider": "ABAC",
-      "category": "boletim_setorial",
+      "category": "mercado_setorial",
       "collector": "collectors/abac_boletim.py",
-      "official_page_url": "https://abac.org.br/sistema-downloads/",
+      "official_page_url": "https://materiais.abac.org.br/boletim-sistema-de-consorcios",
       "discovery": {
-        "type": "html_post_discovery",
-        "entry_pages": [
-          "https://abac.org.br/sistema-downloads/",
-          "https://blog.abac.org.br/tag/materiais-da-abac",
-          "https://blog.abac.org.br/downloads/"
+        "page_url": "https://materiais.abac.org.br/boletim-sistema-de-consorcios",
+        "allowed_host_substrings": [
+          "d335luupugsy2.cloudfront.net",
+          "materiais.abac.org.br"
         ],
-        "match_any": [
-          "Boletim do Sistema de Consórcios",
-          "boletim do sistema de consórcios",
-          "Sistema de Consórcios"
-        ],
-        "preferred_categories": [
-          "Downloads",
-          "Drops de Mercado"
+        "link_text_contains": "BAIXAR",
+        "probe_top_candidates": 8,
+        "min_size_bytes": 50000,
+        "http_methods": [
+          "HEAD",
+          "GET"
         ]
       },
       "schedule": {
         "kind": "monthly",
-        "day_of_month": 8,
-        "time_brt": "07:00"
+        "day_of_month": 15,
+        "time_brt": "06:50"
       },
       "storage": {
         "raw_dir": "data/raw/abac/boletim",
-        "stage_dir": "data/stage/abac_boletim"
+        "stage_dir": "data/stage/abac/boletim"
       },
       "publish_on_change": true,
       "critical": false
