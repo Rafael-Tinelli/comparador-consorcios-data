@@ -1,0 +1,160 @@
+name: 10 · Validate HostGator Pull
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - "09 · HostGator Pull Ready"
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  HOSTGATOR_PULL_PUBLIC_BASE_URL: ${{ vars.HOSTGATOR_PULL_PUBLIC_BASE_URL }}
+
+concurrency:
+  group: validate-hostgator-pull
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Validate local contract and optional public probe
+        id: validate
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+          from pathlib import Path
+
+          deploy = json.loads(Path("config/deploy.json").read_text(encoding="utf-8"))
+          local_meta = json.loads(Path("data/dist/global/meta.json").read_text(encoding="utf-8"))
+
+          errors = []
+          warnings = []
+          public_base_url = (os.environ.get("HOSTGATOR_PULL_PUBLIC_BASE_URL") or "").strip().rstrip("/")
+
+          artifacts = deploy.get("artifacts", {})
+          global_files = artifacts.get("global", [])
+          seo_files = artifacts.get("seo", [])
+
+          for filename in global_files:
+              path = Path("data/dist/global") / filename
+              if not path.exists():
+                  errors.append(f"Local ausente: {path}")
+
+          for filename in seo_files:
+              path = Path("data/dist/seo") / filename
+              if not path.exists():
+                  errors.append(f"Local ausente: {path}")
+
+          mode_used = "local-contract-validation"
+
+          public_checks = {
+              "enabled": bool(public_base_url),
+              "base_url": public_base_url or None,
+              "remote_meta_ok": None,
+              "remote_build_timestamp_matches": None,
+              "checked_files": []
+          }
+
+          if public_base_url:
+              mode_used = "public-probe-validation"
+              try:
+                  meta_url = f"{public_base_url}/global/meta.json"
+                  with urllib.request.urlopen(meta_url, timeout=30) as response:
+                      remote_meta = json.loads(response.read().decode("utf-8"))
+
+                  public_checks["remote_meta_ok"] = True
+                  public_checks["remote_build_timestamp_matches"] = (
+                      remote_meta.get("build_timestamp") == local_meta.get("build_timestamp")
+                  )
+
+                  if not public_checks["remote_build_timestamp_matches"]:
+                      errors.append(
+                          "Meta remoto divergente: build_timestamp remoto diferente do local."
+                      )
+
+                  def probe(url: str):
+                      req = urllib.request.Request(url, method="GET")
+                      with urllib.request.urlopen(req, timeout=30) as resp:
+                          return resp.status, resp.headers.get("Content-Type")
+
+                  for filename in global_files:
+                      url = f"{public_base_url}/global/{filename}"
+                      status, ctype = probe(url)
+                      public_checks["checked_files"].append({
+                          "url": url,
+                          "status": status,
+                          "content_type": ctype
+                      })
+                      if status != 200:
+                          errors.append(f"Falha no probe público: {url} -> {status}")
+
+                  for filename in seo_files:
+                      url = f"{public_base_url}/seo/{filename}"
+                      status, ctype = probe(url)
+                      public_checks["checked_files"].append({
+                          "url": url,
+                          "status": status,
+                          "content_type": ctype
+                      })
+                      if status != 200:
+                          errors.append(f"Falha no probe público: {url} -> {status}")
+
+              except Exception as exc:
+                  errors.append(f"Falha ao validar publicação pública no HostGator: {exc}")
+          else:
+              warnings.append(
+                  "HOSTGATOR_PULL_PUBLIC_BASE_URL não configurado; validação remota foi pulada."
+              )
+
+          report = {
+              "mode_used": mode_used,
+              "status": "ok" if not errors else "error",
+              "errors": errors,
+              "warnings": warnings,
+              "local_meta_build_timestamp": local_meta.get("build_timestamp"),
+              "local_meta_pipeline_version": local_meta.get("pipeline_version"),
+              "public_checks": public_checks,
+          }
+
+          Path("data/runtime").mkdir(parents=True, exist_ok=True)
+          Path("data/runtime/validate_hostgator_pull.json").write_text(
+              json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8"
+          )
+
+          github_output = os.environ.get("GITHUB_OUTPUT")
+          if github_output:
+              with open(github_output, "a", encoding="utf-8") as fh:
+                  fh.write(f"mode_used={mode_used}\n")
+                  fh.write(f"records={len(global_files) + len(seo_files)}\n")
+
+          if errors:
+              raise SystemExit("\n".join(errors))
+          PY
+
+      - name: Upload validation artifact
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: validate-hostgator-pull
+          path: |
+            data/runtime/validate_hostgator_pull.json
+            data/dist/global/meta.json
+          if-no-files-found: warn
+          retention-days: 15
