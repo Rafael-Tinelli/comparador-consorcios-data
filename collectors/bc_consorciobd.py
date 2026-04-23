@@ -1,38 +1,37 @@
 #!/usr/bin/env python3
 """
-Coletor do ConsorcioBD (BCB) por descoberta de links na página oficial.
+Coletor do ConsorcioBD (BCB) por probing de URLs diretas de conteúdo.
 
-Esta versão foi endurecida para diagnóstico:
-- salva snapshot do HTML recebido;
-- tenta descobrir candidatos por <a href> e por regex no HTML bruto;
-- grava runtime mesmo quando falha;
-- expõe evidências mínimas para depuração sem chute.
+Estratégia desta versão:
+- não depende da página SPA como fonte primária de descoberta;
+- tenta URLs diretas parametrizadas por competência;
+- usa HEAD e, quando necessário, GET de prova;
+- baixa o recurso escolhido e grava latest_source.bin;
+- salva runtime mesmo em falha;
+- usa a página oficial apenas como diagnóstico auxiliar.
 
-Este coletor não gera data/dist. Isso fica para o build-read-models.
+Sucesso real:
+- mode_used = "direct-content-download"
 """
 
 from __future__ import annotations
 
 import argparse
 import csv
-import hashlib
 import io
 import json
-import os
 import re
 import sys
 import zipfile
-from copy import deepcopy
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urlparse
 
 import requests
 from bs4 import BeautifulSoup
 from openpyxl import load_workbook
 from requests.adapters import HTTPAdapter
-from unidecode import unidecode
 from urllib3.util.retry import Retry
 
 
@@ -53,10 +52,13 @@ def dump_json(path: Path, data: Any) -> None:
 
 
 def append_github_output(name: str, value: str) -> None:
-    github_output = os.environ.get("GITHUB_OUTPUT")
-    if not github_output:
+    github_output = Path(sys.argv[0]).parent  # placeholder to satisfy type checker
+    env_path = Path(
+        __import__("os").environ.get("GITHUB_OUTPUT", "")
+    )
+    if not env_path or str(env_path) == ".":
         return
-    with open(github_output, "a", encoding="utf-8") as fh:
+    with env_path.open("a", encoding="utf-8") as fh:
         fh.write(f"{name}={value}\n")
 
 
@@ -64,12 +66,14 @@ def stable_json_dumps(data: Any) -> str:
     return json.dumps(data, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
 
-def sha256_of_bytes(data: bytes) -> str:
-    return hashlib.sha256(data).hexdigest()
-
-
 def sha256_of(data: Any) -> str:
+    import hashlib
     return hashlib.sha256(stable_json_dumps(data).encode("utf-8")).hexdigest()
+
+
+def sha256_of_bytes(data: bytes) -> str:
+    import hashlib
+    return hashlib.sha256(data).hexdigest()
 
 
 def normalize_spaces(value: Optional[str]) -> Optional[str]:
@@ -80,10 +84,9 @@ def normalize_spaces(value: Optional[str]) -> Optional[str]:
     return text or None
 
 
-def normalized_match_text(value: str) -> str:
-    text = unidecode(str(value or "")).lower()
-    text = re.sub(r"\s+", " ", text)
-    return text.strip()
+def preview_text(text: str, limit: int = 500) -> str:
+    compact = " ".join((text or "").split())
+    return compact[:limit]
 
 
 def get_source_config(config: Dict[str, Any], source_name: str) -> Dict[str, Any]:
@@ -112,214 +115,28 @@ def build_session(timeout_seconds: int) -> requests.Session:
     return session
 
 
-def guess_extension_from_url(url: str, accept_extensions: List[str]) -> Optional[str]:
-    path = urlparse(url).path.lower()
-    for ext in accept_extensions:
-        if path.endswith(ext.lower()):
-            return ext.lower()
-    return None
+def month_iter(reference: date, months_back: int) -> List[Tuple[int, int]]:
+    items: List[Tuple[int, int]] = []
+    year = reference.year
+    month = reference.month
+
+    for _ in range(months_back):
+        items.append((year, month))
+        month -= 1
+        if month == 0:
+            month = 12
+            year -= 1
+    return items
 
 
-def infer_temporal_rank(text: str) -> Tuple[int, int, int]:
-    text_norm = str(text)
-
-    patterns = [
-        r"(20\d{2})[-_/](\d{1,2})[-_/](\d{1,2})",
-        r"(\d{1,2})[-_/](\d{1,2})[-_/](20\d{2})",
-        r"(20\d{2})(\d{2})(\d{2})",
-        r"(20\d{2})[-_/](\d{1,2})",
-        r"(20\d{2})(\d{2})",
-    ]
-
-    for pattern in patterns:
-        match = re.search(pattern, text_norm)
-        if not match:
-            continue
-
-        parts = match.groups()
-        if len(parts) == 3:
-            a, b, c = parts
-            if len(a) == 4 and a.startswith("20"):
-                year, month, day = int(a), int(b), int(c)
-            elif len(c) == 4 and c.startswith("20"):
-                day, month, year = int(a), int(b), int(c)
-            else:
-                continue
-            month = max(1, min(month, 12))
-            day = max(1, min(day, 31))
-            return year, month, day
-
-        if len(parts) == 2:
-            year, month = int(parts[0]), int(parts[1])
-            month = max(1, min(month, 12))
-            return year, month, 1
-
-    year_match = re.search(r"(20\d{2})", text_norm)
-    if year_match:
-        return int(year_match.group(1)), 1, 1
-
-    return 0, 0, 0
-
-
-def build_candidate(
-    *,
-    index: int,
-    href: str,
-    resolved_url: str,
-    text_blob: str,
-    accept_extensions: List[str],
-    match_any: List[str],
-    source_kind: str,
-) -> Optional[Dict[str, Any]]:
-    ext = guess_extension_from_url(resolved_url, accept_extensions)
-    if not ext:
-        return None
-
-    text_norm = normalized_match_text(text_blob)
-    match_terms = [normalized_match_text(term) for term in match_any]
-    matched_terms = [term for term in match_terms if term and term in text_norm]
-    if not matched_terms:
-        return None
-
-    score = 0
-    score += 100 * len(matched_terms)
-
-    if "consorciobd" in text_norm:
-        score += 50
-
-    if ext == ".zip":
-        score += 20
-    elif ext == ".xlsx":
-        score += 10
-    elif ext == ".csv":
-        score += 5
-
-    temporal_rank = infer_temporal_rank(text_blob)
-
-    return {
-        "index": index,
-        "source_kind": source_kind,
-        "href": href,
-        "resolved_url": resolved_url,
-        "text_blob": normalize_spaces(text_blob) or "",
-        "extension": ext,
-        "matched_terms": matched_terms,
-        "score": score,
-        "temporal_rank": list(temporal_rank),
-    }
-
-
-def discover_candidates_from_anchors(
-    html: str,
-    page_url: str,
-    accept_extensions: List[str],
-    match_any: List[str],
-) -> List[Dict[str, Any]]:
-    soup = BeautifulSoup(html, "lxml")
-    candidates: List[Dict[str, Any]] = []
-
-    for index, anchor in enumerate(soup.find_all("a", href=True), start=1):
-        href = normalize_spaces(anchor.get("href"))
-        if not href:
-            continue
-        resolved_url = urljoin(page_url, href)
-        link_text = normalize_spaces(anchor.get_text(" ", strip=True)) or ""
-        text_blob = f"{resolved_url} {link_text}"
-
-        candidate = build_candidate(
-            index=index,
-            href=href,
-            resolved_url=resolved_url,
-            text_blob=text_blob,
-            accept_extensions=accept_extensions,
-            match_any=match_any,
-            source_kind="anchor",
-        )
-        if candidate:
-            candidates.append(candidate)
-
-    return candidates
-
-
-def discover_candidates_from_raw_html(
-    html: str,
-    page_url: str,
-    accept_extensions: List[str],
-    match_any: List[str],
-) -> List[Dict[str, Any]]:
-    candidates: List[Dict[str, Any]] = []
-    seen_urls: set[str] = set()
-
-    url_pattern = re.compile(
-        r"""(?P<url>
-            https?://[^\s"'<>]+
-            |
-            /[^\s"'<>]+
-        )""",
-        re.IGNORECASE | re.VERBOSE,
+def render_pattern(pattern: str, base_url: str, year: int, month: int) -> str:
+    yyyymm = f"{year}{month:02d}"
+    return pattern.format(
+        base_url=base_url.rstrip("/"),
+        yyyy=f"{year}",
+        mm=f"{month:02d}",
+        yyyymm=yyyymm,
     )
-
-    for index, match in enumerate(url_pattern.finditer(html), start=1):
-        raw_url = match.group("url")
-        if not raw_url:
-            continue
-
-        resolved_url = urljoin(page_url, raw_url)
-        if resolved_url in seen_urls:
-            continue
-        seen_urls.add(resolved_url)
-
-        start = max(0, match.start() - 250)
-        end = min(len(html), match.end() + 250)
-        context = html[start:end]
-        text_blob = f"{resolved_url} {context}"
-
-        candidate = build_candidate(
-            index=index,
-            href=raw_url,
-            resolved_url=resolved_url,
-            text_blob=text_blob,
-            accept_extensions=accept_extensions,
-            match_any=match_any,
-            source_kind="raw_html",
-        )
-        if candidate:
-            candidates.append(candidate)
-
-    return candidates
-
-
-def dedupe_and_sort_candidates(candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    deduped: Dict[str, Dict[str, Any]] = {}
-
-    for item in candidates:
-        key = item["resolved_url"]
-        current = deduped.get(key)
-        if current is None:
-            deduped[key] = item
-            continue
-
-        current_rank = (tuple(current["temporal_rank"]), current["score"], -current["index"])
-        new_rank = (tuple(item["temporal_rank"]), item["score"], -item["index"])
-        if new_rank > current_rank:
-            deduped[key] = item
-
-    final = list(deduped.values())
-    final.sort(
-        key=lambda item: (
-            tuple(item["temporal_rank"]),
-            item["score"],
-            -item["index"],
-        ),
-        reverse=True,
-    )
-    return final
-
-
-def select_candidate(candidates: List[Dict[str, Any]]) -> Dict[str, Any]:
-    if not candidates:
-        raise ValueError("Nenhum candidato compatível encontrado na página oficial do ConsorcioBD.")
-    return candidates[0]
 
 
 def detect_csv_delimiter(text: str) -> str:
@@ -328,9 +145,7 @@ def detect_csv_delimiter(text: str) -> str:
         dialect = csv.Sniffer().sniff(sample, delimiters=",;|\t")
         return dialect.delimiter
     except Exception:
-        if sample.count(";") > sample.count(","):
-            return ";"
-        return ","
+        return ";" if sample.count(";") > sample.count(",") else ","
 
 
 def inspect_binary_payload(binary: bytes, content_type: Optional[str]) -> Dict[str, Any]:
@@ -340,26 +155,30 @@ def inspect_binary_payload(binary: bytes, content_type: Optional[str]) -> Dict[s
         "size_bytes": len(binary),
     }
 
+    # ZIP / XLSX
     if binary.startswith(b"PK\x03\x04"):
         try:
             with zipfile.ZipFile(io.BytesIO(binary)) as zf:
                 members = zf.namelist()
                 info["archive_members"] = members
 
-                if any(name.lower().endswith((".xlsx", ".xlsm", ".xltx", ".xltm")) for name in members):
-                    info["detected_format"] = "zip_with_excel"
-                elif any(name.lower().endswith(".csv") for name in members):
+                lower_members = [name.lower() for name in members]
+                if any(name.endswith(".csv") for name in lower_members):
                     info["detected_format"] = "zip_with_csv"
-                else:
-                    try:
-                        wb = load_workbook(io.BytesIO(binary), read_only=True, data_only=True)
-                        info["detected_format"] = "xlsx"
-                        info["workbook_sheets"] = list(wb.sheetnames)
-                        wb.close()
-                        return info
-                    except Exception:
-                        info["detected_format"] = "zip"
-                return info
+                    return info
+                if any(name.endswith((".xlsx", ".xlsm", ".xltx", ".xltm")) for name in lower_members):
+                    info["detected_format"] = "zip_with_excel"
+                    return info
+
+                try:
+                    wb = load_workbook(io.BytesIO(binary), read_only=True, data_only=True)
+                    info["detected_format"] = "xlsx"
+                    info["workbook_sheets"] = list(wb.sheetnames)
+                    wb.close()
+                    return info
+                except Exception:
+                    info["detected_format"] = "zip"
+                    return info
         except Exception:
             pass
 
@@ -372,25 +191,132 @@ def inspect_binary_payload(binary: bytes, content_type: Optional[str]) -> Dict[s
         except Exception:
             pass
 
-    try:
-        for encoding in ("utf-8-sig", "utf-8", "latin-1", "cp1252"):
-            try:
-                text = binary.decode(encoding)
-                delimiter = detect_csv_delimiter(text)
-                reader = csv.reader(io.StringIO(text), delimiter=delimiter)
-                header = next(reader, [])
-                if header:
-                    info["detected_format"] = "csv"
-                    info["csv_encoding"] = encoding
-                    info["csv_delimiter"] = delimiter
-                    info["csv_header"] = header[:50]
-                    return info
-            except Exception:
-                continue
-    except Exception:
-        pass
+    # CSV puro
+    for encoding in ("utf-8-sig", "utf-8", "latin-1", "cp1252"):
+        try:
+            text = binary.decode(encoding)
+            delimiter = detect_csv_delimiter(text)
+            reader = csv.reader(io.StringIO(text), delimiter=delimiter)
+            header = next(reader, [])
+            if header:
+                info["detected_format"] = "csv"
+                info["csv_encoding"] = encoding
+                info["csv_delimiter"] = delimiter
+                info["csv_header"] = header[:50]
+                return info
+        except Exception:
+            continue
 
     return info
+
+
+def response_looks_like_file(resp: requests.Response) -> bool:
+    content_type = (resp.headers.get("Content-Type") or "").lower()
+    if "text/html" in content_type:
+        return False
+    if resp.status_code != 200:
+        return False
+    return True
+
+
+def probe_head(session: requests.Session, url: str, headers: Dict[str, str]) -> Dict[str, Any]:
+    try:
+        resp = session.head(
+            url,
+            headers=headers,
+            timeout=getattr(session, "request_timeout", 60),
+            allow_redirects=True,
+        )
+        return {
+            "method": "HEAD",
+            "ok": response_looks_like_file(resp),
+            "status_code": resp.status_code,
+            "final_url": resp.url,
+            "content_type": resp.headers.get("Content-Type"),
+            "content_length": resp.headers.get("Content-Length"),
+        }
+    except Exception as exc:
+        return {
+            "method": "HEAD",
+            "ok": False,
+            "status_code": None,
+            "final_url": url,
+            "content_type": None,
+            "content_length": None,
+            "error": str(exc),
+        }
+
+
+def probe_get(session: requests.Session, url: str, headers: Dict[str, str]) -> Dict[str, Any]:
+    try:
+        resp = session.get(
+            url,
+            headers=headers,
+            timeout=getattr(session, "request_timeout", 90),
+            allow_redirects=True,
+            stream=True,
+        )
+        first_chunk = b""
+        try:
+            for chunk in resp.iter_content(chunk_size=4096):
+                if chunk:
+                    first_chunk = chunk
+                    break
+        finally:
+            resp.close()
+
+        content_type = (resp.headers.get("Content-Type") or "").lower()
+        looks_file = resp.status_code == 200 and "text/html" not in content_type
+
+        return {
+            "method": "GET",
+            "ok": looks_file,
+            "status_code": resp.status_code,
+            "final_url": resp.url,
+            "content_type": resp.headers.get("Content-Type"),
+            "content_length": resp.headers.get("Content-Length"),
+            "first_chunk_sha256": sha256_of_bytes(first_chunk) if first_chunk else None,
+            "first_chunk_preview_hex": first_chunk[:32].hex() if first_chunk else None,
+        }
+    except Exception as exc:
+        return {
+            "method": "GET",
+            "ok": False,
+            "status_code": None,
+            "final_url": url,
+            "content_type": None,
+            "content_length": None,
+            "error": str(exc),
+        }
+
+
+def build_probe_candidates(
+    direct_cfg: Dict[str, Any],
+    reference_date: date,
+) -> List[Dict[str, Any]]:
+    base_url = direct_cfg["base_url"]
+    patterns = direct_cfg["candidate_patterns"]
+    months_back = int(direct_cfg.get("probe_months_back", 12))
+
+    candidates: List[Dict[str, Any]] = []
+    index = 0
+
+    for year, month in month_iter(reference_date, months_back):
+        for pattern in patterns:
+            index += 1
+            url = render_pattern(pattern, base_url, year, month)
+            candidates.append(
+                {
+                    "index": index,
+                    "year": year,
+                    "month": month,
+                    "yyyymm": f"{year}{month:02d}",
+                    "pattern": pattern,
+                    "url": url,
+                }
+            )
+
+    return candidates
 
 
 def read_existing_source_sha(path: Path) -> Optional[str]:
@@ -399,13 +325,42 @@ def read_existing_source_sha(path: Path) -> Optional[str]:
     return sha256_of_bytes(path.read_bytes())
 
 
-def preview_text(text: str, limit: int = 500) -> str:
-    compact = " ".join((text or "").split())
-    return compact[:limit]
+def fetch_diagnostic_page(
+    session: requests.Session,
+    page_url: str,
+    headers: Dict[str, str],
+    snapshot_file: Path,
+) -> Dict[str, Any]:
+    try:
+        resp = session.get(
+            page_url,
+            headers=headers,
+            timeout=getattr(session, "request_timeout", 60),
+            allow_redirects=True,
+        )
+        html = resp.text or ""
+        snapshot_file.write_text(html, encoding="utf-8")
+        soup = BeautifulSoup(html, "lxml")
+        script_srcs = [normalize_spaces(tag.get("src")) for tag in soup.find_all("script", src=True)]
+        return {
+            "status_code": resp.status_code,
+            "final_url": resp.url,
+            "content_type": resp.headers.get("Content-Type"),
+            "html_preview": preview_text(html),
+            "script_srcs": [src for src in script_srcs if src][:20],
+            "snapshot_file": str(snapshot_file),
+        }
+    except Exception as exc:
+        return {
+            "error": str(exc),
+            "snapshot_file": str(snapshot_file),
+        }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Coletor do ConsorcioBD por descoberta HTML.")
+    import os
+
+    parser = argparse.ArgumentParser(description="Coletor do ConsorcioBD por URLs diretas.")
     parser.add_argument("--config", required=True, help="Caminho para config/sources.json")
     parser.add_argument("--source", default="bc_consorciobd", help="Nome da fonte em config/sources.json")
     args = parser.parse_args()
@@ -415,11 +370,8 @@ def main() -> int:
     source_cfg = get_source_config(config, args.source)
     defaults = config.get("defaults", {})
 
-    discovery_cfg = source_cfg["discovery"]
-    storage_cfg = source_cfg["storage"]
-
-    raw_dir = Path(storage_cfg["raw_dir"])
-    stage_dir = Path(storage_cfg["stage_dir"])
+    raw_dir = Path(source_cfg["storage"]["raw_dir"])
+    stage_dir = Path(source_cfg["storage"]["stage_dir"])
     runtime_dir = Path("data/runtime")
 
     raw_file = raw_dir / "latest.json"
@@ -432,252 +384,247 @@ def main() -> int:
     stage_dir.mkdir(parents=True, exist_ok=True)
     runtime_dir.mkdir(parents=True, exist_ok=True)
 
+    collected_at = utc_now_iso()
+    mode_used = "direct-probe-failed"
+
     if not source_cfg.get("enabled", False):
-        dump_json(
-            runtime_file,
-            {
-                "source": args.source,
-                "last_checked_at": utc_now_iso(),
-                "changed": False,
-                "mode_used": "disabled",
-                "raw_file": str(raw_file),
-                "raw_binary_file": str(raw_binary_file),
-                "stage_file": str(stage_file),
-                "snapshot_file": str(snapshot_file),
-            },
-        )
+        runtime_payload = {
+            "source": args.source,
+            "last_checked_at": collected_at,
+            "changed": False,
+            "mode_used": "disabled",
+            "raw_file": str(raw_file),
+            "raw_binary_file": str(raw_binary_file),
+            "stage_file": str(stage_file),
+            "snapshot_file": str(snapshot_file),
+        }
+        dump_json(runtime_file, runtime_payload)
         append_github_output("changed", "false")
         append_github_output("records", "0")
         append_github_output("mode_used", "disabled")
         print(f"Fonte '{args.source}' está desabilitada.")
         return 0
 
-    page_url = discovery_cfg["page_url"]
-    accept_extensions = discovery_cfg.get("accept_extensions", [".zip", ".csv", ".xlsx"])
-    match_any = discovery_cfg.get("match_any", ["ConsorcioBD", "consorciobd"])
+    direct_cfg = source_cfg["direct_download"]
+    diag_cfg = source_cfg.get("diagnostic_page", {})
 
     user_agent = defaults.get(
         "user_agent",
         "comparador-consorcios-data/1.0 (+https://sanida.com.br/financas/consorcio/)",
     )
     timeout_seconds = int(defaults.get("timeout_seconds", 60))
+    session = build_session(timeout_seconds=timeout_seconds)
 
-    headers_html = {
-        "Accept": "text/html,application/xhtml+xml",
-        "User-Agent": user_agent,
-    }
-    headers_file = {
+    head_headers = {
         "Accept": "*/*",
         "User-Agent": user_agent,
     }
+    page_headers = {
+        "Accept": "text/html,application/xhtml+xml",
+        "User-Agent": user_agent,
+    }
 
-    collected_at = utc_now_iso()
-    session = build_session(timeout_seconds=timeout_seconds)
+    reference_date = datetime.now(timezone.utc).date()
+    candidates = build_probe_candidates(direct_cfg, reference_date)
+    probe_results: List[Dict[str, Any]] = []
 
-    mode_used = "html-link-discovery-failed"
-    changed = False
-    candidate_count = 0
+    selected_candidate: Optional[Dict[str, Any]] = None
+    selected_probe: Optional[Dict[str, Any]] = None
 
-    try:
-        page_response = session.get(
-            page_url,
-            headers=headers_html,
-            timeout=getattr(session, "request_timeout", 60),
-        )
-        page_response.raise_for_status()
+    methods = [m.upper() for m in direct_cfg.get("http_methods", ["HEAD", "GET"])]
 
-        html_text = page_response.text or ""
-        snapshot_file.write_text(html_text, encoding="utf-8")
+    for candidate in candidates:
+        result_entry = {
+            "candidate": candidate,
+            "probes": [],
+        }
 
-        anchor_candidates = discover_candidates_from_anchors(
-            html=html_text,
-            page_url=page_url,
-            accept_extensions=accept_extensions,
-            match_any=match_any,
-        )
-        raw_html_candidates = discover_candidates_from_raw_html(
-            html=html_text,
-            page_url=page_url,
-            accept_extensions=accept_extensions,
-            match_any=match_any,
-        )
-        candidates = dedupe_and_sort_candidates(anchor_candidates + raw_html_candidates)
-        candidate_count = len(candidates)
+        head_result: Optional[Dict[str, Any]] = None
+        get_result: Optional[Dict[str, Any]] = None
 
-        if not candidates:
-            runtime_payload = {
-                "source": args.source,
-                "last_checked_at": collected_at,
-                "changed": False,
-                "mode_used": mode_used,
-                "page_url": page_url,
-                "candidate_count": 0,
-                "html_preview": preview_text(html_text),
-                "snapshot_file": str(snapshot_file),
-                "raw_file": str(raw_file),
-                "raw_binary_file": str(raw_binary_file),
-                "stage_file": str(stage_file),
-            }
-            dump_json(runtime_file, runtime_payload)
-            append_github_output("changed", "false")
-            append_github_output("records", "0")
-            append_github_output("mode_used", mode_used)
-            raise ValueError(
-                "Nenhum candidato compatível encontrado na página oficial do ConsorcioBD. "
-                f"Snapshot salvo em {snapshot_file}."
+        if "HEAD" in methods:
+            head_result = probe_head(session, candidate["url"], head_headers)
+            result_entry["probes"].append(head_result)
+
+        head_ok = bool(head_result and head_result.get("ok"))
+
+        if not head_ok and "GET" in methods:
+            # GET de prova só entra quando HEAD não confirma
+            get_result = probe_get(session, candidate["url"], head_headers)
+            result_entry["probes"].append(get_result)
+
+        get_ok = bool(get_result and get_result.get("ok"))
+
+        probe_results.append(result_entry)
+
+        if head_ok:
+            selected_candidate = candidate
+            selected_probe = head_result
+            break
+
+        if get_ok:
+            selected_candidate = candidate
+            selected_probe = get_result
+            break
+
+    if not selected_candidate:
+        diagnostic_page = {}
+        if diag_cfg.get("enabled", True):
+            diagnostic_page = fetch_diagnostic_page(
+                session=session,
+                page_url=diag_cfg.get("page_url") or source_cfg["official_page_url"],
+                headers=page_headers,
+                snapshot_file=snapshot_file,
             )
-
-        selected = select_candidate(candidates)
-
-        download_response = session.get(
-            selected["resolved_url"],
-            headers=headers_file,
-            timeout=getattr(session, "request_timeout", 120),
-            allow_redirects=True,
-        )
-        download_response.raise_for_status()
-
-        binary = download_response.content
-        if not binary:
-            raise ValueError("O recurso selecionado do ConsorcioBD retornou conteúdo vazio.")
-
-        source_sha = sha256_of_bytes(binary)
-        previous_source_sha = read_existing_source_sha(raw_binary_file)
-        changed = previous_source_sha != source_sha
-        mode_used = "html-link-download"
-
-        inspection = inspect_binary_payload(binary, download_response.headers.get("Content-Type"))
-
-        selected_resource = {
-            "page_url": page_url,
-            "selected_candidate": selected,
-            "final_url": download_response.url,
-            "original_content_type": download_response.headers.get("Content-Type"),
-            "original_content_length": download_response.headers.get("Content-Length"),
-            "sha256": source_sha,
-            "inspection": inspection,
-        }
-
-        raw_payload = {
-            "metadata": {
-                "source": args.source,
-                "collector": "collectors/bc_consorciobd.py",
-                "collected_at": collected_at,
-                "mode_used": mode_used,
-                "page_url": page_url,
-                "candidate_count": len(candidates),
-                "resource_sha256": source_sha,
-            },
-            "selected_resource": selected_resource,
-            "candidates": candidates,
-        }
-
-        stage_payload = {
-            "metadata": {
-                "source": args.source,
-                "collector": "collectors/bc_consorciobd.py",
-                "collected_at": collected_at,
-                "mode_used": mode_used,
-                "page_url": page_url,
-                "candidate_count": len(candidates),
-                "resource_sha256": source_sha,
-            },
-            "resource": selected_resource,
-            "candidates": candidates,
-        }
 
         runtime_payload = {
             "source": args.source,
             "last_checked_at": collected_at,
-            "last_changed_at": collected_at if changed else None,
-            "changed": changed,
+            "changed": False,
             "mode_used": mode_used,
-            "page_url": page_url,
-            "candidate_count": len(candidates),
-            "resource_sha256": source_sha,
-            "selected_url": selected["resolved_url"],
-            "final_url": download_response.url,
-            "snapshot_file": str(snapshot_file),
+            "probe_count": len(probe_results),
+            "probe_results": probe_results[:40],
+            "diagnostic_page": diagnostic_page,
             "raw_file": str(raw_file),
             "raw_binary_file": str(raw_binary_file),
             "stage_file": str(stage_file),
+            "snapshot_file": str(snapshot_file),
         }
-
-        if changed:
-            raw_binary_file.write_bytes(binary)
-            dump_json(raw_file, raw_payload)
-            dump_json(stage_file, stage_payload)
-
         dump_json(runtime_file, runtime_payload)
-
-        append_github_output("changed", "true" if changed else "false")
-        append_github_output("records", str(len(candidates)))
-        append_github_output("stage_hash", sha256_of(stage_payload))
+        append_github_output("changed", "false")
+        append_github_output("records", str(len(probe_results)))
         append_github_output("mode_used", mode_used)
-
-        print(
-            json.dumps(
-                {
-                    "source": args.source,
-                    "changed": changed,
-                    "records": len(candidates),
-                    "mode_used": mode_used,
-                    "raw_file": str(raw_file),
-                    "raw_binary_file": str(raw_binary_file),
-                    "stage_file": str(stage_file),
-                    "runtime_file": str(runtime_file),
-                    "snapshot_file": str(snapshot_file),
-                },
-                ensure_ascii=False,
-            )
+        raise ValueError(
+            "Nenhuma URL direta homologável respondeu como arquivo válido para o ConsorcioBD. "
+            f"Runtime salvo em {runtime_file}."
         )
-        return 0
 
-    except requests.HTTPError as exc:
-        dump_json(
-            runtime_file,
+    # Download completo do candidato escolhido
+    download_resp = session.get(
+        selected_candidate["url"],
+        headers=head_headers,
+        timeout=getattr(session, "request_timeout", 180),
+        allow_redirects=True,
+    )
+    download_resp.raise_for_status()
+
+    binary = download_resp.content
+    if not binary:
+        runtime_payload = {
+            "source": args.source,
+            "last_checked_at": collected_at,
+            "changed": False,
+            "mode_used": mode_used,
+            "selected_candidate": selected_candidate,
+            "selected_probe": selected_probe,
+            "error": "O download final retornou corpo vazio.",
+            "raw_file": str(raw_file),
+            "raw_binary_file": str(raw_binary_file),
+            "stage_file": str(stage_file),
+            "snapshot_file": str(snapshot_file),
+        }
+        dump_json(runtime_file, runtime_payload)
+        append_github_output("changed", "false")
+        append_github_output("records", str(len(probe_results)))
+        append_github_output("mode_used", mode_used)
+        raise ValueError("O recurso selecionado do ConsorcioBD retornou conteúdo vazio.")
+
+    source_sha = sha256_of_bytes(binary)
+    previous_source_sha = read_existing_source_sha(raw_binary_file)
+    changed = previous_source_sha != source_sha
+    mode_used = "direct-content-download"
+
+    inspection = inspect_binary_payload(binary, download_resp.headers.get("Content-Type"))
+
+    selected_resource = {
+        "selected_candidate": selected_candidate,
+        "selected_probe": selected_probe,
+        "final_url": download_resp.url,
+        "status_code": download_resp.status_code,
+        "content_type": download_resp.headers.get("Content-Type"),
+        "content_length": download_resp.headers.get("Content-Length"),
+        "sha256": source_sha,
+        "inspection": inspection,
+    }
+
+    raw_payload = {
+        "metadata": {
+            "source": args.source,
+            "collector": "collectors/bc_consorciobd.py",
+            "collected_at": collected_at,
+            "mode_used": mode_used,
+            "probe_count": len(probe_results),
+            "resource_sha256": source_sha,
+        },
+        "selected_resource": selected_resource,
+        "probe_results": probe_results,
+    }
+
+    stage_payload = {
+        "metadata": {
+            "source": args.source,
+            "collector": "collectors/bc_consorciobd.py",
+            "collected_at": collected_at,
+            "mode_used": mode_used,
+            "probe_count": len(probe_results),
+            "resource_sha256": source_sha,
+        },
+        "resource": selected_resource,
+        "probe_results": probe_results,
+    }
+
+    runtime_payload = {
+        "source": args.source,
+        "last_checked_at": collected_at,
+        "last_changed_at": collected_at if changed else None,
+        "changed": changed,
+        "mode_used": mode_used,
+        "probe_count": len(probe_results),
+        "resource_sha256": source_sha,
+        "selected_url": selected_candidate["url"],
+        "final_url": download_resp.url,
+        "raw_file": str(raw_file),
+        "raw_binary_file": str(raw_binary_file),
+        "stage_file": str(stage_file),
+        "snapshot_file": str(snapshot_file),
+    }
+
+    if changed:
+        raw_binary_file.write_bytes(binary)
+        dump_json(raw_file, raw_payload)
+        dump_json(stage_file, stage_payload)
+
+    dump_json(runtime_file, runtime_payload)
+
+    append_github_output("changed", "true" if changed else "false")
+    append_github_output("records", str(len(probe_results)))
+    append_github_output("stage_hash", sha256_of(stage_payload))
+    append_github_output("mode_used", mode_used)
+
+    print(
+        json.dumps(
             {
                 "source": args.source,
-                "last_checked_at": collected_at,
-                "changed": False,
+                "changed": changed,
+                "records": len(probe_results),
                 "mode_used": mode_used,
-                "page_url": page_url,
-                "candidate_count": candidate_count,
-                "error": f"Erro HTTP ao coletar ConsorcioBD: {exc}",
-                "snapshot_file": str(snapshot_file),
                 "raw_file": str(raw_file),
                 "raw_binary_file": str(raw_binary_file),
                 "stage_file": str(stage_file),
+                "runtime_file": str(runtime_file),
             },
+            ensure_ascii=False,
         )
-        append_github_output("changed", "false")
-        append_github_output("records", "0")
-        append_github_output("mode_used", mode_used)
-        print(f"Erro HTTP ao coletar ConsorcioBD: {exc}", file=sys.stderr)
-        return 1
-    except Exception as exc:
-        dump_json(
-            runtime_file,
-            {
-                "source": args.source,
-                "last_checked_at": collected_at,
-                "changed": False,
-                "mode_used": mode_used,
-                "page_url": page_url,
-                "candidate_count": candidate_count,
-                "error": str(exc),
-                "snapshot_file": str(snapshot_file),
-                "raw_file": str(raw_file),
-                "raw_binary_file": str(raw_binary_file),
-                "stage_file": str(stage_file),
-            },
-        )
-        append_github_output("changed", "false")
-        append_github_output("records", "0")
-        append_github_output("mode_used", mode_used)
-        print(f"Falha no coletor bc_consorciobd: {exc}", file=sys.stderr)
-        return 1
+    )
+    return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    try:
+        raise SystemExit(main())
+    except requests.HTTPError as exc:
+        print(f"Erro HTTP ao coletar ConsorcioBD: {exc}", file=sys.stderr)
+        raise SystemExit(1)
+    except Exception as exc:
+        print(f"Falha no coletor bc_consorciobd: {exc}", file=sys.stderr)
+        raise SystemExit(1)
