@@ -2,14 +2,12 @@
 """
 Coletor do cadastro de administradoras / sedes de consórcio via BCB Olinda OData.
 
-Responsabilidades desta etapa:
-- ler config/sources.json
-- buscar a fonte bc_cadastro_admins com paginação OData
-- tentar fallback oficial em CSV quando o JSON falhar
-- gerar um raw canônico em data/raw/bc/cadastro/latest.json
-- gerar uma versão normalizada em data/stage/cadastro/instituicoes_cadastro.json
-- evitar reescrita desnecessária quando o conteúdo não mudou
-- expor changed=true/false para o GitHub Actions via GITHUB_OUTPUT
+Regras desta versão:
+- tenta OData JSON primeiro;
+- tenta lotes menores se o endpoint estiver instável;
+- usa fallback oficial CSV apenas para diagnóstico e continuidade técnica;
+- expõe mode_used no GITHUB_OUTPUT;
+- permite ao workflow falhar explicitamente se houver modo degradado.
 
 Este coletor não gera data/dist. Isso fica para o build-read-models.
 """
@@ -158,12 +156,8 @@ def fetch_paginated_odata_resilient(
     pagination_param: str,
     headers: Dict[str, str],
 ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], str]:
-    """
-    Tenta OData JSON com lotes decrescentes.
-    Retorna (records, page_meta, mode_used).
-    """
-    base_top = int(default_params.get("$top", 1000) or 1000)
-    candidate_tops = [base_top, 200, 100, 50]
+    base_top = int(default_params.get("$top", 200) or 200)
+    candidate_tops = [base_top, 100, 50]
 
     seen: set[int] = set()
     candidate_tops = [value for value in candidate_tops if not (value in seen or seen.add(value))]
@@ -276,23 +270,11 @@ def infer_active(status_text: Optional[str]) -> Optional[bool]:
 
     text = unidecode(status_text).upper()
 
-    negative_markers = [
-        "INATIV",
-        "CANCEL",
-        "SUSPENS",
-        "ENCERR",
-        "BAIXA",
-        "EXTINT",
-    ]
+    negative_markers = ["INATIV", "CANCEL", "SUSPENS", "ENCERR", "BAIXA", "EXTINT"]
     if any(marker in text for marker in negative_markers):
         return False
 
-    positive_markers = [
-        "ATIV",
-        "AUTORIZ",
-        "FUNCION",
-        "REGULAR",
-    ]
+    positive_markers = ["ATIV", "AUTORIZ", "FUNCION", "REGULAR"]
     if any(marker in text for marker in positive_markers):
         return True
 
@@ -302,100 +284,25 @@ def infer_active(status_text: Optional[str]) -> Optional[bool]:
 def normalize_record(record: Dict[str, Any], index: int) -> Dict[str, Any]:
     institution_id = pick_first(
         record,
-        [
-            "Codigo",
-            "Código",
-            "CodigoInstituicao",
-            "CódigoInstituicao",
-            "Codigo_IF",
-            "CodInst",
-            "CodIf",
-            "ISPB",
-        ],
+        ["Codigo", "Código", "CodigoInstituicao", "CódigoInstituicao", "Codigo_IF", "CodInst", "CodIf", "ISPB"],
     )
     institution_name = pick_first(
         record,
-        [
-            "NomeInstituicao",
-            "Nome Instituicao",
-            "Nome",
-            "Instituicao",
-            "Instituição",
-            "NomeIF",
-            "NomeFantasia",
-            "NomeReduzido",
-        ],
+        ["NomeInstituicao", "Nome Instituicao", "Nome", "Instituicao", "Instituição", "NomeIF", "NomeFantasia", "NomeReduzido"],
     )
-    trade_name = pick_first(
-        record,
-        [
-            "NomeFantasia",
-            "NomeReduzido",
-            "NomeAbreviado",
-        ],
-    )
-    cnpj = pick_first(
-        record,
-        [
-            "CNPJ",
-            "Cnpj",
-            "NumeroCNPJ",
-            "NúmeroCNPJ",
-            "CNPJCompleto",
-        ],
-    )
-    segment = pick_first(
-        record,
-        [
-            "Segmento",
-            "TipoInstituicao",
-            "TipoInstituição",
-            "Classe",
-            "Categoria",
-        ],
-    )
-    conglomerate_name = pick_first(
-        record,
-        [
-            "NomeConglomerado",
-            "Conglomerado",
-            "NomeGrupo",
-            "Grupo",
-        ],
-    )
+    trade_name = pick_first(record, ["NomeFantasia", "NomeReduzido", "NomeAbreviado"])
+    cnpj = pick_first(record, ["CNPJ", "Cnpj", "NumeroCNPJ", "NúmeroCNPJ", "CNPJCompleto"])
+    segment = pick_first(record, ["Segmento", "TipoInstituicao", "TipoInstituição", "Classe", "Categoria"])
+    conglomerate_name = pick_first(record, ["NomeConglomerado", "Conglomerado", "NomeGrupo", "Grupo"])
     status_text = pick_first(
         record,
-        [
-            "Situacao",
-            "Situação",
-            "Status",
-            "SituacaoRegistro",
-            "SituaçãoRegistro",
-            "SituacaoInstituicao",
-            "SituaçãoInstituição",
-        ],
+        ["Situacao", "Situação", "Status", "SituacaoRegistro", "SituaçãoRegistro", "SituacaoInstituicao", "SituaçãoInstituição"],
     )
-    city = pick_first(
-        record,
-        [
-            "Municipio",
-            "Município",
-            "Cidade",
-            "NomeMunicipio",
-            "NomeMunicípio",
-        ],
-    )
+    city = pick_first(record, ["Municipio", "Município", "Cidade", "NomeMunicipio", "NomeMunicípio"])
     uf = pick_first(record, ["UF", "Uf", "SiglaUF", "SiglaUf"])
     start_date = pick_first(
         record,
-        [
-            "DataInicio",
-            "DataInício",
-            "DataAutorizacao",
-            "DataAutorização",
-            "InicioOperacao",
-            "InícioOperação",
-        ],
+        ["DataInicio", "DataInício", "DataAutorizacao", "DataAutorização", "InicioOperacao", "InícioOperação"],
     )
 
     institution_id_text = normalize_spaces(institution_id)
@@ -488,6 +395,7 @@ def main() -> int:
         print(f"Fonte '{args.source}' está desabilitada.")
         append_github_output("changed", "false")
         append_github_output("records", "0")
+        append_github_output("mode_used", "disabled")
         return 0
 
     api_cfg = source_cfg["api"]
@@ -592,6 +500,7 @@ def main() -> int:
     append_github_output("changed", "true" if changed else "false")
     append_github_output("records", str(len(records)))
     append_github_output("stage_hash", stage_items_hash)
+    append_github_output("mode_used", mode_used)
 
     print(
         json.dumps(
