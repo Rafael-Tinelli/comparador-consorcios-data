@@ -24,17 +24,28 @@
       "collector": "collectors/bc_cadastro_admins.py",
       "official_page_url": "https://dadosabertos.bcb.gov.br/dataset/relacao-de-instituicoes-em-funcionamento-no-pais/resource/a711488d-51ec-4364-ac8f-24c33efd9aa1",
       "api": {
-        "type": "odata",
+        "type": "odata_csv",
         "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Instituicoes_em_funcionamento/versao/v1/odata/SedesConsorcios",
         "default_params": {
-          "$format": "json",
-          "$top": 200,
-          "$skip": 0
-        },
-        "pagination_param": "$skip",
-        "fallback_formats": [
-          "text/csv"
-        ]
+          "$format": "text/csv"
+        }
+      },
+      "csv": {
+        "delimiter": "auto",
+        "encoding_candidates": [
+          "utf-8-sig",
+          "utf-8",
+          "latin-1",
+          "cp1252"
+        ],
+        "expected_min_rows_absolute": 50,
+        "expected_min_ratio_against_previous": 0.9,
+        "required_normalized_fields_any": [
+          "institution_id",
+          "institution_name",
+          "cnpj"
+        ],
+        "minimum_non_empty_required_field_ratio": 0.7
       },
       "schedule": {
         "kind": "daily",
