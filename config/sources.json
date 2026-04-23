@@ -65,22 +65,30 @@
       "collector": "collectors/bc_filiais.py",
       "official_page_url": "https://dadosabertos.bcb.gov.br/dataset/filiais-de-administradoras-de-consorcio",
       "api": {
-        "type": "odata",
+        "type": "odata_csv",
         "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais",
         "default_params": {
-          "$format": "json",
-          "$top": 1000,
-          "$skip": 0
-        },
-        "pagination_param": "$skip"
+          "$format": "text/csv"
+        }
       },
-      "discovery": {
-        "type": "portal_resource_discovery",
-        "dataset_page": "https://dadosabertos.bcb.gov.br/dataset/filiais-de-administradoras-de-consorcio",
-        "preferred_formats": [
-          "json",
-          "csv"
-        ]
+      "csv": {
+        "delimiter": "auto",
+        "encoding_candidates": [
+          "utf-8-sig",
+          "utf-8",
+          "latin-1",
+          "cp1252"
+        ],
+        "expected_min_rows_absolute": 20,
+        "expected_min_ratio_against_previous": 0.85,
+        "required_normalized_fields_any": [
+          "institution_id",
+          "institution_name",
+          "unit_code",
+          "city",
+          "uf"
+        ],
+        "minimum_non_empty_required_field_ratio": 0.7
       },
       "schedule": {
         "kind": "daily",
