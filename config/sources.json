@@ -133,67 +133,28 @@
       "provider": "BCB",
       "category": "base_setorial",
       "collector": "collectors/bc_consorciobd.py",
-      "official_page_url": "https://www.bcb.gov.br/estabilidadefinanceira/consorciobd",
-      "catalog_api": {
-        "base_url": "https://dadosabertos.bcb.gov.br",
-        "package_search_endpoint": "/api/3/action/package_search",
-        "rows": 100,
-        "search_terms": [
-          "consorciobd",
-          "\"bancos de dados de consórcios\"",
-          "\"banco de dados de consórcios\"",
-          "\"métricas segmentos\" consórcio",
-          "\"métricas bens imóveis\" consórcio",
-          "\"métricas bens moveis\" consórcio"
+      "official_page_url": "https://www.bcb.gov.br/fis/Consorcios/port/consorcio_banco_de_dados.asp?frame=1",
+      "direct_download": {
+        "base_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD",
+        "http_methods": [
+          "HEAD",
+          "GET"
         ],
-        "preferred_package_terms": [
-          "consorciobd",
-          "bancos de dados de consórcios",
-          "banco de dados de consórcios",
-          "métricas segmentos",
-          "métricas bens imóveis grupos",
-          "métricas bens moveis grupos"
-        ],
-        "exclude_package_terms": [
-          "filiais",
-          "administradora de consórcio por tipo",
-          "cotas ativas",
-          "região",
-          "tipo de administradora",
-          "sgs",
-          "série"
-        ],
-        "preferred_resource_terms": [
-          "métricas segmentos",
-          "métricas bens imóveis grupos",
-          "métricas bens moveis grupos",
-          "consorcio"
-        ],
-        "exclude_resource_terms": [
-          "api",
-          "odata",
-          "json de metadados",
-          "html",
-          "wsdl"
-        ],
-        "allowed_resource_formats": [
-          "XLSX",
-          "XLS",
-          "CSV",
-          "ZIP"
-        ],
-        "preferred_resource_formats": [
-          "XLSX",
-          "ZIP",
-          "CSV",
-          "XLS"
-        ],
-        "candidate_limit": 50,
-        "package_summary_limit": 50
+        "families": [
+          {
+            "key": "dados_consolidados",
+            "label": "Dados Consolidados",
+            "filename_pattern": "{yyyymm}Consorcios.zip",
+            "publish_frequency": "monthly",
+            "probe_months_back": 8,
+            "min_size_bytes": 1024,
+            "enabled": true
+          }
+        ]
       },
       "schedule": {
         "kind": "monthly",
-        "day_of_month": 5,
+        "day_of_month": 12,
         "time_brt": "06:00"
       },
       "storage": {
