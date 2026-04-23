@@ -134,18 +134,22 @@
       "category": "base_setorial",
       "collector": "collectors/bc_consorciobd.py",
       "official_page_url": "https://www.bcb.gov.br/estabilidadefinanceira/consorciobd",
-      "discovery": {
-        "type": "html_link_discovery",
-        "page_url": "https://www.bcb.gov.br/estabilidadefinanceira/consorciobd",
-        "accept_extensions": [
-          ".zip",
-          ".csv",
-          ".xlsx"
+      "direct_download": {
+        "base_url": "https://www.bcb.gov.br/content/estabilidadefinanceira/cosif",
+        "candidate_patterns": [
+          "{base_url}/balancetes/{yyyymm}CONSORCIO.CSV.ZIP",
+          "{base_url}/balancetes/{yyyymm}CONSORCIO.csv.zip",
+          "{base_url}/balancetes/{yyyymm}consorcio.csv.zip"
         ],
-        "match_any": [
-          "ConsorcioBD",
-          "consorciobd"
+        "probe_months_back": 12,
+        "http_methods": [
+          "HEAD",
+          "GET"
         ]
+      },
+      "diagnostic_page": {
+        "enabled": true,
+        "page_url": "https://www.bcb.gov.br/estabilidadefinanceira/consorciobd"
       },
       "schedule": {
         "kind": "monthly",
