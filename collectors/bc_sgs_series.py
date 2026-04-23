@@ -2,12 +2,12 @@
 """
 Coletor de séries SGS do BCB.
 
-Ajustes principais desta versão:
-- sempre envia dataInicial e dataFinal;
-- quebra consultas longas em janelas menores;
-- falha de forma explícita quando o endpoint responder HTML/erro em vez de JSON;
+Estratégia desta versão:
+- abandona a dependência de range histórico como caminho principal;
+- usa o endpoint de "últimos N valores" para todas as séries habilitadas;
+- define N por frequência (daily/monthly/etc.), com override opcional via config;
 - grava raw, stage e runtime;
-- só considera sucesso quando mode_used = "sgs-json-range".
+- mantém mode_used compatível com o workflow já existente.
 """
 
 from __future__ import annotations
@@ -18,25 +18,30 @@ import json
 import os
 import re
 import sys
-from datetime import date, datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Tuple
+from typing import Any, Dict, List, Optional
 
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 
+# Mantido por compatibilidade com o workflow 03 já instalado.
 MODE_USED = "sgs-json-range"
-DEFAULT_MAX_DAYS_PER_REQUEST = 3650
+
+DEFAULT_POINTS_BY_FREQUENCY = {
+    "daily": 180,
+    "monthly": 120,
+    "quarterly": 40,
+    "weekly": 80,
+    "yearly": 20,
+    "annual": 20,
+}
 
 
 def utc_now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-
-
-def today_utc() -> date:
-    return datetime.now(timezone.utc).date()
 
 
 def load_json(path: Path) -> Any:
@@ -79,16 +84,11 @@ def normalize_spaces(value: Optional[str]) -> Optional[str]:
     return text or None
 
 
-def parse_br_date(value: str) -> date:
-    return datetime.strptime(value, "%d/%m/%Y").date()
-
-
-def format_br_date(value: date) -> str:
-    return value.strftime("%d/%m/%Y")
-
-
-def format_iso_date(value: date) -> str:
-    return value.isoformat()
+def normalize_key(value: Optional[str]) -> str:
+    text = str(value or "").strip().lower()
+    text = re.sub(r"[^a-z0-9]+", "_", text)
+    text = re.sub(r"_+", "_", text).strip("_")
+    return text
 
 
 def parse_float_br(value: Any) -> Optional[float]:
@@ -150,14 +150,17 @@ def iter_enabled_series(series_map: Dict[str, Any]) -> List[Dict[str, Any]]:
     for group_name, items in groups.items():
         if not isinstance(items, list):
             continue
+
         for item in items:
             if not isinstance(item, dict):
                 continue
             if not item.get("enabled", False):
                 continue
+
             serie = item.get("serie")
             if serie in (None, "", 0):
                 continue
+
             enabled_items.append(
                 {
                     "group": group_name,
@@ -179,42 +182,61 @@ def iter_enabled_series(series_map: Dict[str, Any]) -> List[Dict[str, Any]]:
     return enabled_items
 
 
-def build_date_chunks(start_date: date, end_date: date, max_days: int) -> List[Tuple[date, date]]:
-    if end_date < start_date:
-        raise ValueError(f"Intervalo inválido: data_final {end_date} menor que data_inicial {start_date}.")
-    if max_days < 1:
-        raise ValueError("max_days deve ser >= 1.")
-
-    chunks: List[Tuple[date, date]] = []
-    current_start = start_date
-
-    while current_start <= end_date:
-        current_end = min(current_start + timedelta(days=max_days - 1), end_date)
-        chunks.append((current_start, current_end))
-        current_start = current_end + timedelta(days=1)
-
-    return chunks
-
-
 def preview_text(text: str, limit: int = 320) -> str:
     return " ".join((text or "").split())[:limit]
 
 
-def fetch_series_chunk(
+def points_to_request(series_def: Dict[str, Any], api_cfg: Dict[str, Any]) -> int:
+    override_by_key = api_cfg.get("latest_points_by_key", {})
+    if isinstance(override_by_key, dict):
+        value = override_by_key.get(series_def["key"])
+        if value is not None:
+            try:
+                points = int(value)
+                if points > 0:
+                    return points
+            except Exception:
+                pass
+
+    override_by_frequency = api_cfg.get("latest_points_by_frequency", {})
+    frequency = normalize_key(series_def.get("frequency")) or "default"
+
+    if isinstance(override_by_frequency, dict):
+        value = override_by_frequency.get(frequency)
+        if value is not None:
+            try:
+                points = int(value)
+                if points > 0:
+                    return points
+            except Exception:
+                pass
+
+    if frequency in DEFAULT_POINTS_BY_FREQUENCY:
+        return DEFAULT_POINTS_BY_FREQUENCY[frequency]
+
+    fallback = api_cfg.get("latest_points_default", 60)
+    try:
+        fallback_points = int(fallback)
+        if fallback_points > 0:
+            return fallback_points
+    except Exception:
+        pass
+
+    return 60
+
+
+def fetch_series_latest(
     *,
     session: requests.Session,
-    endpoint_template: str,
+    latest_endpoint_template: str,
     serie: int,
+    points: int,
     default_params: Dict[str, Any],
-    start_date: date,
-    end_date: date,
     user_agent: str,
 ) -> Dict[str, Any]:
-    url = endpoint_template.format(serie=serie)
+    url = latest_endpoint_template.format(serie=serie, ultimos=points)
     params = dict(default_params or {})
     params["formato"] = params.get("formato") or "json"
-    params["dataInicial"] = format_br_date(start_date)
-    params["dataFinal"] = format_br_date(end_date)
 
     headers = {
         "Accept": "application/json, text/plain, */*",
@@ -231,7 +253,6 @@ def fetch_series_chunk(
     response.raise_for_status()
 
     text = response.text or ""
-    content_type = (response.headers.get("Content-Type") or "").lower()
 
     try:
         payload = response.json()
@@ -258,15 +279,14 @@ def fetch_series_chunk(
             "url": response.url,
             "status_code": response.status_code,
             "content_type": response.headers.get("Content-Type"),
-            "requested_start": format_br_date(start_date),
-            "requested_end": format_br_date(end_date),
+            "requested_points": points,
         },
         "payload": payload,
     }
 
 
 def normalize_series_points(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    points_by_iso: Dict[str, Dict[str, Any]] = {}
+    points_by_date: Dict[str, Dict[str, Any]] = {}
 
     for row in rows:
         if not isinstance(row, dict):
@@ -278,39 +298,45 @@ def normalize_series_points(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         if raw_date in (None, ""):
             continue
 
-        try:
-            parsed_date = parse_br_date(str(raw_date))
-        except Exception:
-            continue
-
-        iso_date = format_iso_date(parsed_date)
+        raw_date_str = str(raw_date).strip()
         value = parse_float_br(raw_value)
 
-        points_by_iso[iso_date] = {
-            "date": iso_date,
-            "data": format_br_date(parsed_date),
+        points_by_date[raw_date_str] = {
+            "date": raw_date_str,
+            "data": raw_date_str,
             "value": value,
             "raw_value": raw_value,
         }
 
-    return [points_by_iso[key] for key in sorted(points_by_iso.keys())]
+    def sort_key(item: Dict[str, Any]) -> tuple:
+        raw = item["date"]
+        try:
+            dt = datetime.strptime(raw, "%d/%m/%Y")
+            return (0, dt)
+        except Exception:
+            try:
+                dt = datetime.strptime(raw, "%Y-%m-%d")
+                return (0, dt)
+            except Exception:
+                return (1, raw)
+
+    values = list(points_by_date.values())
+    values.sort(key=sort_key)
+    return values
 
 
-def build_series_entry(series_def: Dict[str, Any], all_rows: List[Dict[str, Any]], requests_meta: List[Dict[str, Any]]) -> Dict[str, Any]:
-    values = normalize_series_points(all_rows)
+def build_series_entry(series_def: Dict[str, Any], rows: List[Dict[str, Any]], request_meta: Dict[str, Any], points_requested: int) -> Dict[str, Any]:
+    values = normalize_series_points(rows)
 
     latest_value = None
     latest_date = None
-    latest_date_br = None
 
     if values:
         last = values[-1]
         latest_value = last.get("value")
         latest_date = last.get("date")
-        latest_date_br = last.get("data")
 
     first_date = values[0]["date"] if values else None
-    first_date_br = values[0]["data"] if values else None
 
     return {
         "group": series_def["group"],
@@ -322,16 +348,14 @@ def build_series_entry(series_def: Dict[str, Any], all_rows: List[Dict[str, Any]
         "frequency": series_def.get("frequency"),
         "category": series_def.get("category"),
         "notes": series_def.get("notes"),
-        "data_inicial_consulta": requests_meta[0]["requested_start"] if requests_meta else None,
-        "data_final_consulta": requests_meta[-1]["requested_end"] if requests_meta else None,
+        "collection_strategy": "latest_n",
+        "requested_points": points_requested,
         "points": len(values),
         "first_date": first_date,
-        "first_date_br": first_date_br,
         "latest_date": latest_date,
-        "latest_date_br": latest_date_br,
         "latest_value": latest_value,
         "values": values,
-        "requests": requests_meta,
+        "request": request_meta,
     }
 
 
@@ -355,6 +379,7 @@ def build_fingerprint(series_entries: List[Dict[str, Any]]) -> Dict[str, Any]:
 def previous_content_hash(stage_file: Path) -> Optional[str]:
     if not stage_file.exists():
         return None
+
     try:
         payload = load_json(stage_file)
         if isinstance(payload, dict):
@@ -368,6 +393,7 @@ def previous_content_hash(stage_file: Path) -> Optional[str]:
                 return sha256_data(build_fingerprint(series_entries))
     except Exception:
         return None
+
     return None
 
 
@@ -419,15 +445,12 @@ def main() -> int:
     )
 
     api_cfg = source_cfg.get("api", {})
-    endpoint_template = api_cfg.get("endpoint_template")
     default_params = dict(api_cfg.get("default_params", {}))
 
-    if not endpoint_template:
-        raise ValueError("config/sources.json: bc_sgs_series.api.endpoint_template ausente.")
-
-    max_days = int(api_cfg.get("max_days_per_request", DEFAULT_MAX_DAYS_PER_REQUEST))
-    if max_days < 1:
-        max_days = DEFAULT_MAX_DAYS_PER_REQUEST
+    latest_endpoint_template = api_cfg.get(
+        "latest_endpoint_template",
+        "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{serie}/dados/ultimos/{ultimos}",
+    )
 
     series_map = load_series_map(series_map_file)
     series_defs = iter_enabled_series(series_map)
@@ -438,37 +461,30 @@ def main() -> int:
 
     try:
         for series_def in series_defs:
-            start_value = normalize_spaces(series_def.get("data_inicial")) or "01/01/2017"
-            end_date = today_utc()
-            start_date = parse_br_date(start_value)
+            points_requested = points_to_request(series_def, api_cfg)
 
-            chunks = build_date_chunks(start_date, end_date, max_days=max_days)
-            all_rows: List[Dict[str, Any]] = []
-            requests_meta: List[Dict[str, Any]] = []
+            result = fetch_series_latest(
+                session=session,
+                latest_endpoint_template=latest_endpoint_template,
+                serie=series_def["serie"],
+                points=points_requested,
+                default_params=default_params,
+                user_agent=user_agent,
+            )
 
-            for chunk_start, chunk_end in chunks:
-                result = fetch_series_chunk(
-                    session=session,
-                    endpoint_template=endpoint_template,
-                    serie=series_def["serie"],
-                    default_params=default_params,
-                    start_date=chunk_start,
-                    end_date=chunk_end,
-                    user_agent=user_agent,
-                )
-                payload_rows = result["payload"]
-                requests_meta.append(result["request"])
-                request_log.append(
-                    {
-                        "key": series_def["key"],
-                        "serie": series_def["serie"],
-                        **result["request"],
-                        "rows_returned": len(payload_rows),
-                    }
-                )
-                all_rows.extend(payload_rows)
+            payload_rows = result["payload"]
+            request_meta = result["request"]
 
-            entry = build_series_entry(series_def, all_rows, requests_meta)
+            request_log.append(
+                {
+                    "key": series_def["key"],
+                    "serie": series_def["serie"],
+                    **request_meta,
+                    "rows_returned": len(payload_rows),
+                }
+            )
+
+            entry = build_series_entry(series_def, payload_rows, request_meta, points_requested)
             point_count_total += entry["points"]
             series_entries.append(entry)
 
@@ -549,7 +565,7 @@ def main() -> int:
             "source": args.source,
             "last_checked_at": collected_at,
             "changed": False,
-            "mode_used": "sgs-json-range-failed",
+            "mode_used": "sgs-json-latest-failed",
             "error": f"Erro HTTP ao coletar séries SGS: {exc}",
             "raw_file": str(raw_file),
             "stage_file": str(stage_file),
@@ -557,7 +573,7 @@ def main() -> int:
         dump_json(runtime_file, runtime_payload)
         append_github_output("changed", "false")
         append_github_output("records", "0")
-        append_github_output("mode_used", "sgs-json-range-failed")
+        append_github_output("mode_used", "sgs-json-latest-failed")
         print(f"Erro HTTP ao coletar séries SGS: {exc}", file=sys.stderr)
         return 1
 
@@ -566,7 +582,7 @@ def main() -> int:
             "source": args.source,
             "last_checked_at": collected_at,
             "changed": False,
-            "mode_used": "sgs-json-range-failed",
+            "mode_used": "sgs-json-latest-failed",
             "error": str(exc),
             "raw_file": str(raw_file),
             "stage_file": str(stage_file),
@@ -574,7 +590,7 @@ def main() -> int:
         dump_json(runtime_file, runtime_payload)
         append_github_output("changed", "false")
         append_github_output("records", "0")
-        append_github_output("mode_used", "sgs-json-range-failed")
+        append_github_output("mode_used", "sgs-json-latest-failed")
         print(f"Falha no coletor bc_sgs_series: {exc}", file=sys.stderr)
         return 1
 
