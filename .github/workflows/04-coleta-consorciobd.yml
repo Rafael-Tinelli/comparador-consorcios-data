@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   schedule:
     # 06:00 BRT = 09:00 UTC
-    - cron: "0 9 5 * *"
+    # Rodando no dia 12 para ficar depois da janela informada pelo BCB
+    - cron: "0 9 12 * *"
 
 permissions:
   contents: write
@@ -19,7 +20,7 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -65,14 +66,14 @@ jobs:
           retention-days: 15
 
       - name: Fail if mode used is not homologated
-        if: steps.collect.outputs.mode_used != 'ckan-api-resource-download'
+        if: steps.collect.outputs.mode_used != 'direct-content-download'
         run: |
           echo "Falha: a coleta não concluiu pelo modo homologado."
           echo "mode_used=${{ steps.collect.outputs.mode_used }}"
           exit 1
 
       - name: Commit changed outputs
-        if: steps.collect.outputs.changed == 'true' && steps.collect.outputs.mode_used == 'ckan-api-resource-download'
+        if: steps.collect.outputs.changed == 'true' && steps.collect.outputs.mode_used == 'direct-content-download'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -87,5 +88,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore(data): atualiza ConsorcioBD"
+          git commit -m "chore(data): atualiza ConsorcioBD mensal"
           git push
