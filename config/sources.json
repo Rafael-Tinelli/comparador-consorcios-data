@@ -230,23 +230,25 @@
     "bc_ranking_reclamacoes": {
       "enabled": true,
       "provider": "BCB",
-      "category": "ranking_reclamacoes",
+      "category": "reputacao",
       "collector": "collectors/bc_ranking_reclamacoes.py",
       "official_page_url": "https://www.bcb.gov.br/meubc/rankingreclamacoes",
-      "explanation_url": "https://www.bcb.gov.br/meubc/rankingreclamacoesentenda",
-      "current_ranking_url": "https://www3.bcb.gov.br/ranking/consorcio.do",
-      "legacy_index_url": "https://www3.bcb.gov.br/ranking/idxcn.do",
+      "api": {
+        "list_endpoint": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking",
+        "download_endpoint_template": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano={ano}&periodicidade={periodicidade}&periodo={periodo}&tipo=Consorcios",
+        "tipo_alvo": "Consorcios"
+      },
       "schedule": {
-        "kind": "daily",
-        "time_brt": "06:40",
-        "regulatory_periodicity": "semiannual"
+        "kind": "monthly",
+        "day_of_month": 7,
+        "time_brt": "06:40"
       },
       "storage": {
         "raw_dir": "data/raw/bc/ranking_reclamacoes",
         "stage_dir": "data/stage/ranking_reclamacoes"
       },
       "publish_on_change": true,
-      "critical": false
+      "critical": true
     },
     "abac_boletim": {
       "enabled": true,
