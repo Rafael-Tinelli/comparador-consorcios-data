@@ -2,13 +2,12 @@
 """
 Coletor de séries do Banco Central via SGS JSON.
 
-Decisão desta implementação:
-- usa exclusivamente o endpoint oficial SGS em JSON;
-- não mascara sucesso parcial;
-- falha se nenhuma série válida estiver configurada;
-- falha se uma série habilitada/configurada não retornar dados válidos;
-- gera artefatos em raw, stage e runtime;
-- só considera sucesso quando mode_used = "sgs-json".
+Objetivos desta versão:
+- usar exclusivamente o endpoint oficial SGS em JSON;
+- falhar de forma transparente, informando qual série devolveu corpo inválido;
+- não mascarar fallback;
+- gerar artefatos em raw, stage e runtime;
+- só considerar sucesso quando mode_used = "sgs-json".
 
 Este coletor não gera data/dist. Isso fica para o build-read-models.
 """
@@ -22,6 +21,7 @@ import os
 import sys
 from copy import deepcopy
 from datetime import datetime, timezone
+from json import JSONDecodeError
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
@@ -112,7 +112,13 @@ def parse_sgs_value(value: Any) -> float:
     text = str(value).strip()
     if not text:
         raise ValueError("Valor SGS vazio.")
-    text = text.replace(".", "").replace(",", ".") if "," in text and "." in text else text.replace(",", ".")
+
+    # 1.234,56 -> 1234.56
+    if "," in text and "." in text:
+        text = text.replace(".", "").replace(",", ".")
+    else:
+        text = text.replace(",", ".")
+
     return float(text)
 
 
@@ -204,6 +210,40 @@ def build_request_params(default_params: Dict[str, Any], series_cfg: Dict[str, A
     return params
 
 
+def preview_text(text: str, limit: int = 300) -> str:
+    compact = " ".join(text.split())
+    return compact[:limit]
+
+
+def decode_json_response(response: requests.Response, series_cfg: Dict[str, Any]) -> List[Dict[str, Any]]:
+    text = response.text or ""
+    stripped = text.strip()
+
+    if not stripped:
+        raise ValueError(
+            f"Série '{series_cfg['key']}' ({series_cfg['serie']}) retornou corpo vazio. "
+            f"status={response.status_code} content_type={response.headers.get('Content-Type')!r} url={response.url}"
+        )
+
+    try:
+        payload = response.json()
+    except JSONDecodeError:
+        raise ValueError(
+            f"Série '{series_cfg['key']}' ({series_cfg['serie']}) retornou corpo não-JSON. "
+            f"status={response.status_code} content_type={response.headers.get('Content-Type')!r} "
+            f"url={response.url} preview={preview_text(stripped)!r}"
+        )
+
+    if not isinstance(payload, list):
+        raise ValueError(
+            f"Série '{series_cfg['key']}' ({series_cfg['serie']}) retornou payload inesperado; "
+            f"esperado list, recebido {type(payload).__name__}. "
+            f"status={response.status_code} content_type={response.headers.get('Content-Type')!r} url={response.url}"
+        )
+
+    return payload
+
+
 def fetch_sgs_series(
     session: requests.Session,
     endpoint_template: str,
@@ -222,11 +262,7 @@ def fetch_sgs_series(
     )
     response.raise_for_status()
 
-    payload = response.json()
-    if not isinstance(payload, list):
-        raise ValueError(
-            f"A série '{series_cfg['key']}' retornou payload inesperado; esperado list, recebido {type(payload).__name__}."
-        )
+    payload = decode_json_response(response, series_cfg)
 
     normalized_points: List[Dict[str, Any]] = []
     dropped_points = 0
@@ -253,11 +289,12 @@ def fetch_sgs_series(
     normalized_points.sort(key=lambda x: x["date"])
 
     if not normalized_points:
-        raise ValueError(f"A série '{series_cfg['key']}' não retornou pontos válidos.")
+        raise ValueError(f"A série '{series_cfg['key']}' ({series_cfg['serie']}) não retornou pontos válidos.")
 
     fetch_meta = {
         "url": response.url,
         "status_code": response.status_code,
+        "content_type": response.headers.get("Content-Type"),
         "returned_points_raw": len(payload),
         "returned_points_valid": len(normalized_points),
         "dropped_points": dropped_points,
