@@ -1,0 +1,743 @@
+{
+  "metadata": {
+    "generated_at": "2026-04-23T17:16:42+00:00",
+    "count": 147
+  },
+  "items": [
+    {
+      "type": "instituicao",
+      "label": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "HS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BREITKOPF ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "PRIMO ROSSI ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SPONCHIADO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CLUBE NAVAL - CAIXA BENEFICIENTE",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONSHOP ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "GRAVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "MASSEY FERGUSON ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "MYCON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "RODOBENS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SERRANA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SINOSSERRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "TRIÂNGULO ADMINISTRADORA DE CONSÓRCIOS S/A",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "UNAFISCO - ASSOCIAÇÃO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ALPHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ANCORA ADMINISTRADORA DE CONSORCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ASSOCIACAO DOS JUIZES DO RIO GRANDE DO SUL",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BBC ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BRQUALY ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CAMVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CARLESSI ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CICAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CIMAVEL ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CNP CONSÓRCIO S.A. ADMINISTRADORA DE CONSÓRCIOS",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "COMAUTO ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONBRAV - ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONESUL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONSÓRCIO NACIONAL VOLKSWAGEN - ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "FARROUPILHA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "FEDERACAO NAC. DE ASSOCIACOES DOS SERVIDORES DO BCO CENTRAL",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "FERRAZ ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "FRA-FREIRE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "GAMBATTO ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "GMAC ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "GROSCON ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "H. ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "IRMÃOS DE MARCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ITAÚ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "KLUBI ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "KSK ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "LUIZA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "MAGGI ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "OPÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "PORTOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "RANDON ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "REDE OESTE ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "REDENÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "RESERVA ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "RIVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SANTA FÉ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SCANIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SERELLO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SICOOB ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SIMPALA LANÇADORA E ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SM ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "SOLUÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "TARRAF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "TRADIÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "TÁGIDE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "UNIÃO CATARINENSE ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "VALTRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "VINAC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "VIVIANI ADMINISTRADORA DE CONSÓRCIO NACIONAL LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "VOLVO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "XS5 ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "YAMAHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ZEMA ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ADMINISTRADORA DE CONSORCIOS SICREDI LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ADMINISTRADORA DE CONSÓRCIO RCI BRASIL LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ADMINISTRADORA DE CONSÓRCIO UNICOOB LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ADMINISTRADORA DE CONSÓRCIOS BECKER LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BANRISUL S.A. - ADMINISTRADORA DE CONSÓRCIOS",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BB ADMINISTRADORA DE CONSORCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "BP ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CNF - ADMINISTRADORA DE CONSÓRCIOS NACIONAL LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONBR ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONSCLIC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONVEF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "COOPERATIVA MISTA ROMA - (ANTIGA JOCKEY , PROIBIDA DE COMERCIALIZAR COTAS NO ESTADO DE GOIÁS ATÉ 19/10/2027",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "DESTAQUE ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "EVOY ADMINISTRADORA DE CONSORCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "FANCAR ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "FF ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "FIEL PADUA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "FINAMA ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "FIPAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "FUNDACAO HABITACIONAL DO EXERCITO - FHE",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "GAP ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ICONSÓRCIO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ITAÚ UNIBANCO VEÍCULOS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "M.I6 ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "MENEGALLI ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "MOTOASA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "MULTIMARCAS ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "NANUQUE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "NOVOTEMPO ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "PROMOVE ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "QUALINVEST ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "TOYOTA ADMINISTRADORA DE CONSÓRCIOS DO BRASIL LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "UNECONSORCIO ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "VANGUARDA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "instituicao",
+      "label": "ÁPICE ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php"
+    },
+    {
+      "type": "produto",
+      "label": "Defaults",
+      "target": "/financas/consorcio/defaults/"
+    },
+    {
+      "type": "produto",
+      "label": "Families",
+      "target": "/financas/consorcio/"
+    },
+    {
+      "type": "produto",
+      "label": "Segment_Aliases",
+      "target": "/financas/consorcio/"
+    },
+    {
+      "type": "produto",
+      "label": "Subsegment_Aliases",
+      "target": "/financas/consorcio/"
+    },
+    {
+      "type": "produto",
+      "label": "Field_Mapping",
+      "target": "/financas/consorcio/"
+    },
+    {
+      "type": "produto",
+      "label": "Normalization",
+      "target": "/financas/consorcio/"
+    },
+    {
+      "type": "produto",
+      "label": "Publication_Rules",
+      "target": "/financas/consorcio/"
+    },
+    {
+      "type": "produto",
+      "label": "Comparison_Rules",
+      "target": "/financas/consorcio/"
+    },
+    {
+      "type": "produto",
+      "label": "Sorting_Defaults",
+      "target": "/financas/consorcio/"
+    },
+    {
+      "type": "produto",
+      "label": "Ui_Filters",
+      "target": "/financas/consorcio/"
+    },
+    {
+      "type": "produto",
+      "label": "Route_Visibility",
+      "target": "/financas/consorcio/"
+    },
+    {
+      "type": "produto",
+      "label": "Flags",
+      "target": "/financas/consorcio/"
+    },
+    {
+      "type": "rota",
+      "label": "Site",
+      "target": "/financas/consorcio/site/"
+    },
+    {
+      "type": "rota",
+      "label": "Defaults",
+      "target": "/financas/consorcio/defaults/"
+    },
+    {
+      "type": "rota",
+      "label": "Routes",
+      "target": "/financas/consorcio/routes/"
+    }
+  ]
+}

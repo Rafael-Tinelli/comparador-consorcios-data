@@ -1,0 +1,2114 @@
+{
+  "metadata": {
+    "generated_at": "2026-04-23T17:16:42+00:00",
+    "count": 132
+  },
+  "items": [
+    {
+      "institution_id": null,
+      "cnpj": "58113812",
+      "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "normalized_name": "embracon_administradora_de_consorcio_s_a",
+      "status": null,
+      "branch_count": 92,
+      "ufs": [
+        "AL",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MG",
+        "MS",
+        "MT",
+        "PA",
+        "PB",
+        "PE",
+        "PR",
+        "RJ",
+        "RN",
+        "RS",
+        "SC",
+        "SE",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 70.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "02010478",
+      "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "normalized_name": "bancorbras_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 16,
+      "ufs": [
+        "AL",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MG",
+        "PA",
+        "PB",
+        "RS",
+        "SC",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 69.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "48041735",
+      "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "porto_seguro_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 16,
+      "ufs": [
+        "DF",
+        "ES",
+        "GO",
+        "MG",
+        "PR",
+        "RJ",
+        "RS",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 69.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "47820097",
+      "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "gaplan_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "MT",
+        "PR",
+        "SC",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "62354055",
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "remaza_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "57723801",
+      "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "suzuki_motos_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "BA",
+        "MG",
+        "PA",
+        "RO",
+        "RS",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "68318773",
+      "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
+      "normalized_name": "canopus_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 11,
+      "ufs": [
+        "BA",
+        "CE",
+        "ES",
+        "MG",
+        "MT",
+        "PA",
+        "PE",
+        "RJ",
+        "RS",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 63.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "60732997",
+      "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
+      "normalized_name": "unifisa_administradora_nacional_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 10,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 62.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "14723388",
+      "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "br_consorcios_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 5,
+      "ufs": [
+        "MG",
+        "PR",
+        "SE",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 56.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "59395061",
+      "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "disal_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 5,
+      "ufs": [
+        "BA",
+        "MT",
+        "PE",
+        "RJ",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 56.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "85322204",
+      "institution_name": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "globo_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 5,
+      "ufs": [
+        "PR",
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 56.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "73516106",
+      "institution_name": "HS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "normalized_name": "hs_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 5,
+      "ufs": [
+        "PR",
+        "RS",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 56.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "76515071",
+      "institution_name": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "servopa_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 5,
+      "ufs": [
+        "PR"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 56.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "73235962",
+      "institution_name": "BREITKOPF ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "breitkopf_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 4,
+      "ufs": [
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 54.8
+    },
+    {
+      "institution_id": null,
+      "cnpj": "51597300",
+      "institution_name": "PRIMO ROSSI ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "primo_rossi_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 4,
+      "ufs": [
+        "MG",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 54.8
+    },
+    {
+      "institution_id": null,
+      "cnpj": "23767155",
+      "institution_name": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "recon_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 4,
+      "ufs": [
+        "CE",
+        "GO",
+        "MG",
+        "PA"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 54.8
+    },
+    {
+      "institution_id": null,
+      "cnpj": "87636635",
+      "institution_name": "SPONCHIADO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "sponchiado_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 4,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 54.8
+    },
+    {
+      "institution_id": null,
+      "cnpj": "91341925",
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
+      "normalized_name": "administradora_de_consorcio_spengler_ltda",
+      "status": null,
+      "branch_count": 3,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 53.6
+    },
+    {
+      "institution_id": null,
+      "cnpj": "84911098",
+      "institution_name": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "normalized_name": "ademicon_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "PR",
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "33868654",
+      "institution_name": "CLUBE NAVAL - CAIXA BENEFICIENTE",
+      "normalized_name": "clube_naval_caixa_beneficiente",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "RJ"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "44196293",
+      "institution_name": "CONSHOP ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "normalized_name": "conshop_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "08570707",
+      "institution_name": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
+      "normalized_name": "eldorado_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "RN"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "91338228",
+      "institution_name": "GRAVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "gravel_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "45793395",
+      "institution_name": "MASSEY FERGUSON ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "massey_ferguson_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "27268770",
+      "institution_name": "MYCON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "normalized_name": "mycon_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "ES",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "51855716",
+      "institution_name": "RODOBENS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "rodobens_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "89472310",
+      "institution_name": "SERRANA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "serrana_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "87852273",
+      "institution_name": "SINOSSERRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "sinosserra_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "54708839",
+      "institution_name": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
+      "normalized_name": "sperta_administradora_de_consorcio_nacional_ltda",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "78199262",
+      "institution_name": "TRIÂNGULO ADMINISTRADORA DE CONSÓRCIOS S/A",
+      "normalized_name": "triangulo_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "PR"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "50586247",
+      "institution_name": "UNAFISCO - ASSOCIAÇÃO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
+      "normalized_name": "unafisco_associacao_nacional_dos_auditores_fiscais_da_receita_federal_do_brasil",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 52.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "45441789",
+      "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
+      "normalized_name": "administradora_de_consorcio_nacional_honda_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "90982679",
+      "institution_name": "ALPHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "alpha_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "60375243",
+      "institution_name": "ANCORA ADMINISTRADORA DE CONSORCIOS S.A.",
+      "normalized_name": "ancora_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "03832228",
+      "institution_name": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
+      "normalized_name": "apec_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "MG"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "13548938",
+      "institution_name": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
+      "normalized_name": "associacao_bahiana_de_medicina_abm",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "BA"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "92965748",
+      "institution_name": "ASSOCIACAO DOS JUIZES DO RIO GRANDE DO SUL",
+      "normalized_name": "associacao_dos_juizes_do_rio_grande_do_sul",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "71045363",
+      "institution_name": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "bamaq_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "MG"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "36770683",
+      "institution_name": "BBC ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "bbc_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "52568821",
+      "institution_name": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "bradesco_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "03762395",
+      "institution_name": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
+      "normalized_name": "brenner_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "06046109",
+      "institution_name": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "brisa_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "MG"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "45713971",
+      "institution_name": "BRQUALY ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "brqualy_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "72461643",
+      "institution_name": "CAMVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "camvel_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "95783262",
+      "institution_name": "CARLESSI ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "carlessi_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "00266031",
+      "institution_name": "CICAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "cical_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "GO"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "13170428",
+      "institution_name": "CIMAVEL ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "cimavel_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SE"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "05349595",
+      "institution_name": "CNP CONSÓRCIO S.A. ADMINISTRADORA DE CONSÓRCIOS",
+      "normalized_name": "cnp_consorcio_s_a_administradora_de_consorcios",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "44474674",
+      "institution_name": "COMAUTO ADMINISTRADORA DE CONSORCIO LTDA",
+      "normalized_name": "comauto_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "07336852",
+      "institution_name": "CONBRAV - ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "conbrav_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "CE"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "92459213",
+      "institution_name": "CONESUL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "conesul_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "47658539",
+      "institution_name": "CONSÓRCIO NACIONAL VOLKSWAGEN - ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "consorcio_nacional_volkswagen_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "91107581",
+      "institution_name": "FARROUPILHA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "farroupilha_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "33350620",
+      "institution_name": "FEDERACAO NAC. DE ASSOCIACOES DOS SERVIDORES DO BCO CENTRAL",
+      "normalized_name": "federacao_nac_de_associacoes_dos_servidores_do_bco_central",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "DF"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "00600262",
+      "institution_name": "FERRAZ ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "ferraz_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "DF"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "44479061",
+      "institution_name": "FRA-FREIRE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "fra_freire_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "04751943",
+      "institution_name": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "francauto_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "82942400",
+      "institution_name": "GAMBATTO ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "normalized_name": "gambatto_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "49937055",
+      "institution_name": "GMAC ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "gmac_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "26228270",
+      "institution_name": "GROSCON ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "normalized_name": "groscon_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "03586655",
+      "institution_name": "H. ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "h_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "PR"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "03403333",
+      "institution_name": "IRMÃOS DE MARCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "irmaos_de_marco_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "00000776",
+      "institution_name": "ITAÚ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "itau_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "41629070",
+      "institution_name": "KLUBI ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "klubi_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "62798475",
+      "institution_name": "KSK ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "ksk_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "60250776",
+      "institution_name": "LUIZA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "luiza_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "04250224",
+      "institution_name": "MAGGI ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "maggi_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "46349106",
+      "institution_name": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
+      "normalized_name": "mercabenco_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "20919916",
+      "institution_name": "OPÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "opcao_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "MG"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "87433413",
+      "institution_name": "PORTOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "portobens_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "91108027",
+      "institution_name": "RANDON ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "randon_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "92002609",
+      "institution_name": "REDE OESTE ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "normalized_name": "rede_oeste_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "PR"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "62246228",
+      "institution_name": "REDENÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "redencao_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RN"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "28904092",
+      "institution_name": "RESERVA ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "normalized_name": "reserva_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RJ"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "80402746",
+      "institution_name": "RIVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "rivel_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "PR"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "80674393",
+      "institution_name": "SANTA FÉ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "santa_fe_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "55942312",
+      "institution_name": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "santander_brasil_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "96479258",
+      "institution_name": "SCANIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "scania_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "94187879",
+      "institution_name": "SERELLO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "serello_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "16551061",
+      "institution_name": "SICOOB ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "sicoob_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "DF"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "87945218",
+      "institution_name": "SIMPALA LANÇADORA E ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "simpala_lancadora_e_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "26253658",
+      "institution_name": "SM ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "sm_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "MG"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "04058605",
+      "institution_name": "SOLUÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "solucao_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "ES"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "53211488",
+      "institution_name": "TARRAF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "tarraf_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "59956185",
+      "institution_name": "TRADIÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "tradicao_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "05551841",
+      "institution_name": "TÁGIDE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "tagide_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "PA"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "83553883",
+      "institution_name": "UNIÃO CATARINENSE ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "uniao_catarinense_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "56360266",
+      "institution_name": "VALTRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "valtra_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "49995293",
+      "institution_name": "VINAC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "vinac_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "22245020",
+      "institution_name": "VIVIANI ADMINISTRADORA DE CONSÓRCIO NACIONAL LTDA.",
+      "normalized_name": "viviani_administradora_de_consorcio_nacional_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "74118381",
+      "institution_name": "VOLVO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "volvo_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "PR"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "40011095",
+      "institution_name": "XS5 ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "normalized_name": "xs5_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "47458153",
+      "institution_name": "YAMAHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "yamaha_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "23367634",
+      "institution_name": "ZEMA ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "normalized_name": "zema_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "MG"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "06044551",
+      "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
+      "normalized_name": "administradora_de_consorcio_nacional_gazin_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "07808907",
+      "institution_name": "ADMINISTRADORA DE CONSORCIOS SICREDI LTDA",
+      "normalized_name": "administradora_de_consorcios_sicredi_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "59999300",
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA.",
+      "normalized_name": "administradora_de_consorcio_nacional_vime_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "73230674",
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO RCI BRASIL LTDA",
+      "normalized_name": "administradora_de_consorcio_rci_brasil_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "12228808",
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO UNICOOB LTDA",
+      "normalized_name": "administradora_de_consorcio_unicoob_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "03828278",
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIOS BECKER LTDA.",
+      "normalized_name": "administradora_de_consorcios_becker_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "92692979",
+      "institution_name": "BANRISUL S.A. - ADMINISTRADORA DE CONSÓRCIOS",
+      "normalized_name": "banrisul_s_a_administradora_de_consorcios",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "06043050",
+      "institution_name": "BB ADMINISTRADORA DE CONSORCIOS S.A.",
+      "normalized_name": "bb_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "06181431",
+      "institution_name": "BP ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "normalized_name": "bp_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "59129403",
+      "institution_name": "CNF - ADMINISTRADORA DE CONSÓRCIOS NACIONAL LTDA.",
+      "normalized_name": "cnf_administradora_de_consorcios_nacional_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "75770164",
+      "institution_name": "CONBR ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "normalized_name": "conbr_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "56103171",
+      "institution_name": "CONSCLIC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "consclic_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "58919903",
+      "institution_name": "CONVEF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "convef_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "61550836",
+      "institution_name": "COOPERATIVA MISTA ROMA - (ANTIGA JOCKEY , PROIBIDA DE COMERCIALIZAR COTAS NO ESTADO DE GOIÁS ATÉ 19/10/2027",
+      "normalized_name": "cooperativa_mista_roma_antiga_jockey_proibida_de_comercializar_cotas_no_estado_de_goias_ate_19_10_2027",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "05794450",
+      "institution_name": "DESTAQUE ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "destaque_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "40513064",
+      "institution_name": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
+      "normalized_name": "eutbem_administradora_de_consorcio_s_a",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "42735881",
+      "institution_name": "EVOY ADMINISTRADORA DE CONSORCIO LTDA.",
+      "normalized_name": "evoy_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "11747606",
+      "institution_name": "FANCAR ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "fancar_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "62534158",
+      "institution_name": "FF ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "normalized_name": "ff_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "06940240",
+      "institution_name": "FIEL PADUA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "fiel_padua_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "45725975",
+      "institution_name": "FINAMA ADMINISTRADORA DE CONSORCIO LTDA",
+      "normalized_name": "finama_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "78688462",
+      "institution_name": "FIPAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "fipal_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "00643742",
+      "institution_name": "FUNDACAO HABITACIONAL DO EXERCITO - FHE",
+      "normalized_name": "fundacao_habitacional_do_exercito_fhe",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "45700892",
+      "institution_name": "GAP ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "gap_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "61029190",
+      "institution_name": "ICONSÓRCIO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "iconsorcio_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "42421776",
+      "institution_name": "ITAÚ UNIBANCO VEÍCULOS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "itau_unibanco_veiculos_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "58860976",
+      "institution_name": "M.I6 ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "m_i6_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "76853043",
+      "institution_name": "MENEGALLI ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "menegalli_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "05126027",
+      "institution_name": "MOTOASA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "motoasa_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "04124922",
+      "institution_name": "MULTIMARCAS ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "normalized_name": "multimarcas_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "05652765",
+      "institution_name": "NANUQUE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "nanuque_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "05395814",
+      "institution_name": "NOVOTEMPO ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "normalized_name": "novotempo_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "09111444",
+      "institution_name": "PROMOVE ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "promove_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "27836377",
+      "institution_name": "QUALINVEST ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "qualinvest_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "43707203",
+      "institution_name": "TOYOTA ADMINISTRADORA DE CONSÓRCIOS DO BRASIL LTDA.",
+      "normalized_name": "toyota_administradora_de_consorcios_do_brasil_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "46931655",
+      "institution_name": "UNECONSORCIO ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "uneconsorcio_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "57236840",
+      "institution_name": "VANGUARDA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "vanguarda_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "03762583",
+      "institution_name": "ÁPICE ADMINISTRADORA DE CONSORCIO LTDA",
+      "normalized_name": "apice_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 50.0
+    }
+  ]
+}

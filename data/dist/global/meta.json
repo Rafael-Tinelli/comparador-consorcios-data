@@ -1,0 +1,23 @@
+{
+  "project": {
+    "name": "comparador-consorcios-data",
+    "generated_at": "2026-04-23T17:16:42+00:00"
+  },
+  "counts": {
+    "instituicoes": 132,
+    "produtos": 12,
+    "rankings": 0,
+    "cenarios": 1,
+    "autocomplete": 147,
+    "seo_routes": 3
+  },
+  "source_runtime": {},
+  "hashes": {
+    "instituicoes": "7491b76441f1d1f50a45bb9f5ad678d24e7e83c7b8a273dea0ba1ee0ada42a83",
+    "produtos": "ac6863669823b865929ccc063ab3aed09e3de9e5bf6fb05a309dc6f4040b5bb2",
+    "rankings": "ec27be27f0d90503a4bf8d3882ce4ea336de8346511c24592cc19c18858add7e",
+    "series": "5a42ca4227a722adef9916f78502a8a06605bcbde9b58186b1cc14092bb65883",
+    "cenarios": "35c1ac25b49d23e4dfb8e195cb50801f57c516722ffabbe7187369de5ed9ffca",
+    "autocomplete": "6b93b0f09c9c4f48e7eb5d8faefac48a26e6ece2cb4448473613a14455fd7961"
+  }
+}

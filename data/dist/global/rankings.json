@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "generated_at": "2026-04-23T17:16:42+00:00",
+    "count": 0,
+    "source_meta": {
+      "encoding": "latin-1",
+      "delimiter": ";",
+      "row_count": 125,
+      "headers": [
+        "ano",
+        "semestre",
+        "cnpj_ac",
+        "administradora_de_consorcio",
+        "indice",
+        "quantidade_de_reclamacoes_reguladas_procedentes",
+        "quantidade_de_reclamacoes_reguladas_outras",
+        "quantidade_de_reclamacoes_nao_reguladas",
+        "quantidade_total_de_reclamacoes",
+        "quantidade_de_clientes_consorciados",
+        ""
+      ],
+      "preview": "Ano;Semestre;CNPJ AC;Administradora de consórcio;Índice;Quantidade de reclamações reguladas procedentes;Quantidade de reclamações reguladas - outras;Quantidade de reclamações não reguladas;Quantidade total de reclamações;Quantidade de clientes  Consorciados; 2025;2º;84911098;ADEMICON ADMINISTRADORA",
+      "exists": true
+    }
+  },
+  "items": []
+}

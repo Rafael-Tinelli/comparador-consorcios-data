@@ -1,0 +1,357 @@
+{
+  "metadata": {
+    "generated_at": "2026-04-23T17:16:42+00:00",
+    "count": 12,
+    "monthly_summary": {
+      "exists": true,
+      "members": [
+        {
+          "member": "202602Bens_Imoveis_Grupos.csv",
+          "row_count": 2714,
+          "headers": [
+            "nome_da_administradora",
+            "cnpj_da_administradora",
+            "data_base",
+            "codigo_do_grupo",
+            "codigo_do_segmento",
+            "numero_da_assembleia_geral_ordinaria",
+            "valor_medio_do_bem",
+            "indice_de_correcao",
+            "taxa_de_administracao",
+            "prazo_do_grupo_em_meses",
+            "quantidade_de_cotas_ativas_em_dia",
+            "quantidade_de_cotas_ativas_contempladas_inadimplentes",
+            "quantidade_de_cotas_ativas_nao_contempladas_inadimplentes",
+            "quantidade_de_cotas_ativas_contempladas_no_mes",
+            "quantidade_de_cotas_excluidas",
+            "quantidade_de_cotas_ativas_quitadas",
+            "quantidade_de_cotas_ativas_com_credito_pendente_de_utilizacao"
+          ]
+        },
+        {
+          "member": "202602Segmentos_Consolidados.csv",
+          "row_count": 768,
+          "headers": [
+            "nome_da_administradora",
+            "cnpj_da_administradora",
+            "data_base",
+            "codigo_do_segmento",
+            "taxa_de_administracao",
+            "quantidade_de_grupos_ativos",
+            "quantidade_de_grupos_constituidos_no_mes",
+            "quantidade_de_grupos_encerrados_no_mes",
+            "quantidade_de_cotas_comercializadas_no_mes",
+            "quantidade_de_cotas_excluidas_a_comercializar",
+            "quantidade_acumulada_de_cotas_ativas_contempladas",
+            "quantidade_de_cotas_ativas_nao_contempladas",
+            "quantidade_de_cotas_ativas_contempladas_no_mes",
+            "quantidade_de_cotas_ativas_em_dia",
+            "quantidade_de_cotas_ativas_contempladas_inadimplentes",
+            "quantidade_de_cotas_ativas_nao_contempladas_inadimplentes",
+            "quantidade_de_cotas_excluidas",
+            "quantidade_de_cotas_ativas_quitadas",
+            "quantidade_de_cotas_ativas_com_credito_pendente_de_utilizacao"
+          ]
+        }
+      ],
+      "headers_union": [
+        "cnpj_da_administradora",
+        "codigo_do_grupo",
+        "codigo_do_segmento",
+        "data_base",
+        "indice_de_correcao",
+        "nome_da_administradora",
+        "numero_da_assembleia_geral_ordinaria",
+        "prazo_do_grupo_em_meses",
+        "quantidade_acumulada_de_cotas_ativas_contempladas",
+        "quantidade_de_cotas_ativas_com_credito_pendente_de_utilizacao",
+        "quantidade_de_cotas_ativas_contempladas_inadimplentes",
+        "quantidade_de_cotas_ativas_contempladas_no_mes",
+        "quantidade_de_cotas_ativas_em_dia",
+        "quantidade_de_cotas_ativas_nao_contempladas",
+        "quantidade_de_cotas_ativas_nao_contempladas_inadimplentes",
+        "quantidade_de_cotas_ativas_quitadas",
+        "quantidade_de_cotas_comercializadas_no_mes",
+        "quantidade_de_cotas_excluidas",
+        "quantidade_de_cotas_excluidas_a_comercializar",
+        "quantidade_de_grupos_ativos",
+        "quantidade_de_grupos_constituidos_no_mes",
+        "quantidade_de_grupos_encerrados_no_mes",
+        "taxa_de_administracao",
+        "valor_medio_do_bem"
+      ],
+      "row_count_total": 3482
+    },
+    "uf_summary": {
+      "exists": true,
+      "members": [
+        {
+          "member": "Significado_dos_campos_UF.csv",
+          "row_count": 14,
+          "headers": [
+            "codigo",
+            "descricao",
+            "criterio"
+          ]
+        },
+        {
+          "member": "202512Consorcios_UF.csv",
+          "row_count": 7622,
+          "headers": [
+            "data_base",
+            "cnpj_da_administradora",
+            "nome_da_administradora",
+            "codigo_do_segmento",
+            "unidade_da_federacao_do_consorciado",
+            "quantidade_de_consorciados_ativos_contemplados_por_lance",
+            "quantidade_de_consorciados_ativos_contemplados_por_sorteio",
+            "quantidade_de_consorciados_ativos_nao_contemplados",
+            "quantidade_de_consorciados_excluidos_contemplados",
+            "quantidade_de_consorciados_excluidos_nao_contemplados",
+            "quantidade_de_consorciados_ativos_contemplados_por_lance_no_trimestre",
+            "quantidade_de_consorciados_ativos_contemplados_por_sorteio_no_trimestre",
+            "quantidade_de_consorciados_excluidos_contemplados_no_trimestre",
+            "quantidade_de_adesoes_no_trimestre"
+          ]
+        }
+      ],
+      "headers_union": [
+        "cnpj_da_administradora",
+        "codigo",
+        "codigo_do_segmento",
+        "criterio",
+        "data_base",
+        "descricao",
+        "nome_da_administradora",
+        "quantidade_de_adesoes_no_trimestre",
+        "quantidade_de_consorciados_ativos_contemplados_por_lance",
+        "quantidade_de_consorciados_ativos_contemplados_por_lance_no_trimestre",
+        "quantidade_de_consorciados_ativos_contemplados_por_sorteio",
+        "quantidade_de_consorciados_ativos_contemplados_por_sorteio_no_trimestre",
+        "quantidade_de_consorciados_ativos_nao_contemplados",
+        "quantidade_de_consorciados_excluidos_contemplados",
+        "quantidade_de_consorciados_excluidos_contemplados_no_trimestre",
+        "quantidade_de_consorciados_excluidos_nao_contemplados",
+        "unidade_da_federacao_do_consorciado"
+      ],
+      "row_count_total": 7636
+    },
+    "adm_summary": {
+      "exists": true,
+      "members": [
+        {
+          "member": "202412Doc_4010_Consorcios_Administradoras.csv",
+          "row_count": 123,
+          "headers": [
+            "data_base",
+            "documento",
+            "cnpj_da_administradora",
+            "nome_da_administradora"
+          ]
+        },
+        {
+          "member": "202412Doc_4010_Consorcios_Saldos_Consolidados.csv",
+          "row_count": 500,
+          "headers": [
+            "data_base",
+            "documento",
+            "codigo_da_conta",
+            "nome_da_conta",
+            "saldo_consolidado"
+          ]
+        },
+        {
+          "member": "202412Doc_4110_Consorcios_Administradoras.csv",
+          "row_count": 127,
+          "headers": [
+            "data_base",
+            "documento",
+            "cnpj_da_administradora",
+            "nome_da_administradora"
+          ]
+        },
+        {
+          "member": "202412Doc_4110_Consorcios_Saldos_Consolidados.csv",
+          "row_count": 72,
+          "headers": [
+            "data_base",
+            "documento",
+            "codigo_da_conta",
+            "nome_da_conta",
+            "saldo_consolidado"
+          ]
+        }
+      ],
+      "headers_union": [
+        "cnpj_da_administradora",
+        "codigo_da_conta",
+        "data_base",
+        "documento",
+        "nome_da_administradora",
+        "nome_da_conta",
+        "saldo_consolidado"
+      ],
+      "row_count_total": 822
+    }
+  },
+  "items": [
+    {
+      "key": "defaults",
+      "label": "Defaults",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [
+        "defaults"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "key": "families",
+      "label": "Families",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "key": "segment_aliases",
+      "label": "Segment_Aliases",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "key": "subsegment_aliases",
+      "label": "Subsegment_Aliases",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "key": "field_mapping",
+      "label": "Field_Mapping",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "key": "normalization",
+      "label": "Normalization",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "key": "publication_rules",
+      "label": "Publication_Rules",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "key": "comparison_rules",
+      "label": "Comparison_Rules",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "key": "sorting_defaults",
+      "label": "Sorting_Defaults",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "key": "ui_filters",
+      "label": "Ui_Filters",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "key": "route_visibility",
+      "label": "Route_Visibility",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "key": "flags",
+      "label": "Flags",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    }
+  ]
+}

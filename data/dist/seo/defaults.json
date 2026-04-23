@@ -1,0 +1,316 @@
+{
+  "route": {
+    "key": "defaults",
+    "slug": "defaults",
+    "title": "Defaults",
+    "path": "/financas/consorcio/defaults/",
+    "primary_keyword": "Defaults"
+  },
+  "snapshot": {
+    "instituicoes_count": 132,
+    "ranking_count": 0,
+    "products_count": 12
+  },
+  "top_instituicoes": [
+    {
+      "institution_id": null,
+      "cnpj": "58113812",
+      "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "normalized_name": "embracon_administradora_de_consorcio_s_a",
+      "status": null,
+      "branch_count": 92,
+      "ufs": [
+        "AL",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MG",
+        "MS",
+        "MT",
+        "PA",
+        "PB",
+        "PE",
+        "PR",
+        "RJ",
+        "RN",
+        "RS",
+        "SC",
+        "SE",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 70.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "02010478",
+      "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "normalized_name": "bancorbras_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 16,
+      "ufs": [
+        "AL",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MG",
+        "PA",
+        "PB",
+        "RS",
+        "SC",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 69.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "48041735",
+      "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "porto_seguro_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 16,
+      "ufs": [
+        "DF",
+        "ES",
+        "GO",
+        "MG",
+        "PR",
+        "RJ",
+        "RS",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 69.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "47820097",
+      "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "gaplan_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "MT",
+        "PR",
+        "SC",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "62354055",
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "remaza_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "57723801",
+      "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "suzuki_motos_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "BA",
+        "MG",
+        "PA",
+        "RO",
+        "RS",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "68318773",
+      "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
+      "normalized_name": "canopus_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 11,
+      "ufs": [
+        "BA",
+        "CE",
+        "ES",
+        "MG",
+        "MT",
+        "PA",
+        "PE",
+        "RJ",
+        "RS",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 63.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "60732997",
+      "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
+      "normalized_name": "unifisa_administradora_nacional_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 10,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 62.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "14723388",
+      "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "br_consorcios_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 5,
+      "ufs": [
+        "MG",
+        "PR",
+        "SE",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 56.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "59395061",
+      "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "disal_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 5,
+      "ufs": [
+        "BA",
+        "MT",
+        "PE",
+        "RJ",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "score": 56.0
+    }
+  ],
+  "top_rankings": [],
+  "related_products": [
+    {
+      "key": "defaults",
+      "label": "Defaults",
+      "aliases": [],
+      "intents": [],
+      "matched_aliases_in_sources": [],
+      "related_routes": [
+        "defaults"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    }
+  ],
+  "series_highlights": [
+    {
+      "key": "taxa_media_credito_imobiliario_pf",
+      "label": "Taxa média de crédito imobiliário PF",
+      "value": null,
+      "date": null,
+      "unit": "% a.a.",
+      "frequency": "monthly"
+    },
+    {
+      "key": "taxa_media_credito_livre_pf",
+      "label": "Taxa média de crédito livre PF",
+      "value": null,
+      "date": null,
+      "unit": "% a.a.",
+      "frequency": "monthly"
+    },
+    {
+      "key": "taxa_media_financiamento_veiculos_pf",
+      "label": "Taxa média de financiamento de veículos PF",
+      "value": null,
+      "date": null,
+      "unit": "% a.a.",
+      "frequency": "monthly"
+    },
+    {
+      "key": "cdi",
+      "label": "CDI",
+      "value": null,
+      "date": null,
+      "unit": "% a.d.",
+      "frequency": "daily"
+    },
+    {
+      "key": "ipca",
+      "label": "IPCA",
+      "value": null,
+      "date": null,
+      "unit": "% a.m.",
+      "frequency": "monthly"
+    },
+    {
+      "key": "selic_meta",
+      "label": "Meta Selic",
+      "value": null,
+      "date": null,
+      "unit": "% a.a.",
+      "frequency": "daily"
+    }
+  ],
+  "scenario_highlights": [
+    {
+      "key": "abac_contexto_setorial",
+      "headline": "Boletim setorial da ABAC disponível como apoio interpretativo",
+      "description": "O boletim mais recente identificado foi Fevereiro/26. Ele entra como contexto complementar, sem substituir a base oficial do BCB.",
+      "evidence": {
+        "abac_period": "Fevereiro/26"
+      }
+    }
+  ],
+  "meta_hash": "7491b76441f1d1f50a45bb9f5ad678d24e7e83c7b8a273dea0ba1ee0ada42a83"
+}
