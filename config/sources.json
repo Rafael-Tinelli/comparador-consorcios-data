@@ -28,10 +28,13 @@
         "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Instituicoes_em_funcionamento/versao/v1/odata/SedesConsorcios",
         "default_params": {
           "$format": "json",
-          "$top": 1000,
+          "$top": 200,
           "$skip": 0
         },
-        "pagination_param": "$skip"
+        "pagination_param": "$skip",
+        "fallback_formats": [
+          "text/csv"
+        ]
       },
       "schedule": {
         "kind": "daily",
