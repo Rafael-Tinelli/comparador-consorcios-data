@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Coletor do cadastro de administradoras / sedes de consórcio via BCB Olinda OData.
+Coletor do cadastro de administradoras / sedes de consórcio via BCB Olinda em CSV.
 
-Regras desta versão:
-- tenta OData JSON primeiro;
-- tenta lotes menores se o endpoint estiver instável;
-- usa fallback oficial CSV apenas para diagnóstico e continuidade técnica;
-- expõe mode_used no GITHUB_OUTPUT;
-- permite ao workflow falhar explicitamente se houver modo degradado.
+Decisão homologada:
+- este coletor usa exclusivamente o formato oficial CSV do recurso;
+- não tenta OData JSON;
+- não trata CSV como fallback;
+- valida integridade mínima antes de aceitar a carga;
+- bloqueia regressões fortes de volume e schema crítico.
 
 Este coletor não gera data/dist. Isso fica para o build-read-models.
 """
@@ -22,7 +22,6 @@ import json
 import os
 import re
 import sys
-import time
 from copy import deepcopy
 from datetime import datetime, timezone
 from pathlib import Path
@@ -136,121 +135,6 @@ def get_source_config(config: Dict[str, Any], source_name: str) -> Dict[str, Any
         raise KeyError(f"Fonte '{source_name}' não encontrada em config/sources.json.") from exc
 
 
-def extract_odata_records(payload: Dict[str, Any]) -> List[Dict[str, Any]]:
-    if isinstance(payload.get("value"), list):
-        return payload["value"]
-
-    d_obj = payload.get("d")
-    if isinstance(d_obj, dict):
-        results = d_obj.get("results")
-        if isinstance(results, list):
-            return results
-
-    raise ValueError("Resposta OData sem lista de registros em 'value' ou 'd.results'.")
-
-
-def fetch_paginated_odata_resilient(
-    session: requests.Session,
-    endpoint: str,
-    default_params: Dict[str, Any],
-    pagination_param: str,
-    headers: Dict[str, str],
-) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], str]:
-    base_top = int(default_params.get("$top", 200) or 200)
-    candidate_tops = [base_top, 100, 50]
-
-    seen: set[int] = set()
-    candidate_tops = [value for value in candidate_tops if not (value in seen or seen.add(value))]
-
-    last_error: Optional[Exception] = None
-
-    for top in candidate_tops:
-        try:
-            all_records: List[Dict[str, Any]] = []
-            page_meta: List[Dict[str, Any]] = []
-            skip = int(default_params.get("$skip", 0) or 0)
-
-            while True:
-                params = deepcopy(default_params)
-                params["$format"] = "json"
-                params["$top"] = top
-                params[pagination_param] = skip
-
-                response = session.get(
-                    endpoint,
-                    params=params,
-                    headers=headers,
-                    timeout=getattr(session, "request_timeout", 60),
-                )
-                response.raise_for_status()
-
-                payload = response.json()
-                records = extract_odata_records(payload)
-
-                page_meta.append(
-                    {
-                        "mode": "odata-json",
-                        "skip": skip,
-                        "top": top,
-                        "returned_records": len(records),
-                        "url": response.url,
-                        "status_code": response.status_code,
-                    }
-                )
-
-                if not records:
-                    break
-
-                all_records.extend(records)
-
-                if len(records) < top:
-                    break
-
-                skip += len(records)
-
-            return all_records, page_meta, "odata-json"
-
-        except Exception as exc:
-            last_error = exc
-            time.sleep(2)
-
-    if last_error:
-        raise last_error
-
-    raise RuntimeError("Falha inesperada ao coletar OData JSON.")
-
-
-def fetch_csv_fallback(
-    session: requests.Session,
-    endpoint: str,
-    headers: Dict[str, str],
-) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], str]:
-    params = {"$format": "text/csv"}
-    headers_csv = dict(headers)
-    headers_csv["Accept"] = "text/csv"
-
-    response = session.get(
-        endpoint,
-        params=params,
-        headers=headers_csv,
-        timeout=getattr(session, "request_timeout", 60),
-    )
-    response.raise_for_status()
-
-    text = response.text.lstrip("\ufeff")
-    rows = list(csv.DictReader(io.StringIO(text)))
-
-    page_meta = [
-        {
-            "mode": "odata-csv-fallback",
-            "returned_records": len(rows),
-            "url": response.url,
-            "status_code": response.status_code,
-        }
-    ]
-    return rows, page_meta, "odata-csv-fallback"
-
-
 def build_lookup(record: Dict[str, Any]) -> Dict[str, Any]:
     return {normalize_key(key): value for key, value in record.items()}
 
@@ -279,6 +163,78 @@ def infer_active(status_text: Optional[str]) -> Optional[bool]:
         return True
 
     return None
+
+
+def detect_delimiter(text: str, configured: str) -> str:
+    if configured and configured != "auto":
+        return configured
+
+    sample = text[:10000]
+    try:
+        dialect = csv.Sniffer().sniff(sample, delimiters=",;|\t")
+        return dialect.delimiter
+    except Exception:
+        if sample.count(";") > sample.count(","):
+            return ";"
+        return ","
+
+
+def decode_csv_bytes(content: bytes, encoding_candidates: List[str]) -> Tuple[str, str]:
+    last_error: Optional[Exception] = None
+    for encoding in encoding_candidates:
+        try:
+            return content.decode(encoding), encoding
+        except Exception as exc:
+            last_error = exc
+
+    if last_error:
+        raise last_error
+    raise RuntimeError("Não foi possível decodificar o CSV.")
+
+
+def fetch_csv(
+    session: requests.Session,
+    endpoint: str,
+    default_params: Dict[str, Any],
+    headers: Dict[str, str],
+    csv_cfg: Dict[str, Any],
+) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    params = deepcopy(default_params)
+    params["$format"] = "text/csv"
+
+    headers_csv = dict(headers)
+    headers_csv["Accept"] = "text/csv"
+
+    response = session.get(
+        endpoint,
+        params=params,
+        headers=headers_csv,
+        timeout=getattr(session, "request_timeout", 60),
+    )
+    response.raise_for_status()
+
+    text, encoding_used = decode_csv_bytes(
+        response.content,
+        csv_cfg.get("encoding_candidates", ["utf-8-sig", "utf-8", "latin-1", "cp1252"]),
+    )
+    text = text.lstrip("\ufeff")
+
+    delimiter = detect_delimiter(text, csv_cfg.get("delimiter", "auto"))
+    rows = list(csv.DictReader(io.StringIO(text), delimiter=delimiter))
+
+    meta = {
+        "mode": "odata-csv",
+        "url": response.url,
+        "status_code": response.status_code,
+        "delimiter": delimiter,
+        "encoding_used": encoding_used,
+        "returned_records": len(rows),
+        "response_headers": {
+            "content_type": response.headers.get("Content-Type"),
+            "content_length": response.headers.get("Content-Length"),
+        },
+    }
+    return rows, meta
 
 
 def normalize_record(record: Dict[str, Any], index: int) -> Dict[str, Any]:
@@ -330,15 +286,70 @@ def normalize_record(record: Dict[str, Any], index: int) -> Dict[str, Any]:
     }
 
 
+def count_previous_stage_items(stage_file: Path) -> Optional[int]:
+    if not stage_file.exists():
+        return None
+    try:
+        data = load_json(stage_file)
+    except Exception:
+        return None
+    items = data.get("items")
+    if not isinstance(items, list):
+        return None
+    return len(items)
+
+
+def validate_row_volume(
+    current_count: int,
+    previous_count: Optional[int],
+    expected_min_rows_absolute: int,
+    expected_min_ratio_against_previous: float,
+) -> None:
+    if current_count < expected_min_rows_absolute:
+        raise ValueError(
+            f"Quantidade de registros insuficiente: {current_count} < {expected_min_rows_absolute}."
+        )
+
+    if previous_count and previous_count > 0:
+        ratio = current_count / previous_count
+        if ratio < expected_min_ratio_against_previous:
+            raise ValueError(
+                "Queda anormal de volume detectada: "
+                f"{current_count} registros vs {previous_count} anteriores "
+                f"(ratio={ratio:.4f} < {expected_min_ratio_against_previous:.4f})."
+            )
+
+
+def validate_required_normalized_fields(
+    normalized_items: List[Dict[str, Any]],
+    field_names: List[str],
+    minimum_ratio: float,
+) -> None:
+    if not normalized_items:
+        raise ValueError("Nenhum item normalizado foi gerado.")
+
+    non_empty = 0
+    for item in normalized_items:
+        if any(item.get(field_name) for field_name in field_names):
+            non_empty += 1
+
+    ratio = non_empty / len(normalized_items)
+    if ratio < minimum_ratio:
+        raise ValueError(
+            "Cobertura insuficiente dos campos normalizados críticos: "
+            f"{ratio:.4f} < {minimum_ratio:.4f}."
+        )
+
+
 def build_stage_payload(
     *,
     source_name: str,
     endpoint: str,
     records: List[Dict[str, Any]],
-    page_meta: List[Dict[str, Any]],
     raw_hash: str,
     collected_at: str,
     mode_used: str,
+    fetch_meta: Dict[str, Any],
 ) -> Dict[str, Any]:
     normalized_items = [normalize_record(record, index + 1) for index, record in enumerate(records)]
     normalized_items.sort(
@@ -351,16 +362,16 @@ def build_stage_payload(
 
     return {
         "metadata": {
-            "source": source_name,
-            "collector": "collectors/bc_cadastro_admins.py",
-            "collected_at": collected_at,
-            "endpoint": endpoint,
-            "mode_used": mode_used,
-            "record_count": len(normalized_items),
-            "raw_hash": raw_hash,
-            "page_count": len(page_meta),
+          "source": source_name,
+          "collector": "collectors/bc_cadastro_admins.py",
+          "collected_at": collected_at,
+          "endpoint": endpoint,
+          "mode_used": mode_used,
+          "record_count": len(normalized_items),
+          "raw_hash": raw_hash,
+          "fetch_meta": fetch_meta
         },
-        "items": normalized_items,
+        "items": normalized_items
     }
 
 
@@ -381,7 +392,7 @@ def read_existing_hash(stage_file: Path) -> Optional[str]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Coletor do cadastro BC / SedesConsorcios.")
+    parser = argparse.ArgumentParser(description="Coletor do cadastro BC / SedesConsorcios via CSV.")
     parser.add_argument("--config", required=True, help="Caminho para config/sources.json")
     parser.add_argument("--source", default="bc_cadastro_admins", help="Nome da fonte em config/sources.json")
     args = parser.parse_args()
@@ -390,6 +401,7 @@ def main() -> int:
     config = load_json(config_path)
     source_cfg = get_source_config(config, args.source)
     defaults = config.get("defaults", {})
+    csv_cfg = source_cfg.get("csv", {})
 
     if not source_cfg.get("enabled", False):
         print(f"Fonte '{args.source}' está desabilitada.")
@@ -403,7 +415,6 @@ def main() -> int:
 
     endpoint = api_cfg["endpoint"]
     default_params = deepcopy(api_cfg.get("default_params", {}))
-    pagination_param = api_cfg.get("pagination_param", "$skip")
 
     raw_dir = Path(storage_cfg["raw_dir"])
     stage_dir = Path(storage_cfg["stage_dir"])
@@ -424,28 +435,51 @@ def main() -> int:
     timeout_seconds = int(defaults.get("timeout_seconds", 60))
 
     headers = {
-        "Accept": "application/json",
+        "Accept": "text/csv",
         "User-Agent": user_agent,
     }
 
     collected_at = utc_now_iso()
     session = build_session(timeout_seconds=timeout_seconds)
 
-    mode_used = "unknown"
-    try:
-        records, page_meta, mode_used = fetch_paginated_odata_resilient(
-            session=session,
-            endpoint=endpoint,
-            default_params=default_params,
-            pagination_param=pagination_param,
-            headers=headers,
-        )
-    except Exception:
-        records, page_meta, mode_used = fetch_csv_fallback(
-            session=session,
-            endpoint=endpoint,
-            headers=headers,
-        )
+    records, fetch_meta = fetch_csv(
+        session=session,
+        endpoint=endpoint,
+        default_params=default_params,
+        headers=headers,
+        csv_cfg=csv_cfg,
+    )
+    mode_used = "odata-csv"
+
+    raw_hash = sha256_of(records)
+    stage_payload = build_stage_payload(
+        source_name=args.source,
+        endpoint=endpoint,
+        records=records,
+        raw_hash=raw_hash,
+        collected_at=collected_at,
+        mode_used=mode_used,
+        fetch_meta=fetch_meta,
+    )
+
+    normalized_items = stage_payload["items"]
+    previous_count = count_previous_stage_items(stage_file)
+
+    validate_row_volume(
+        current_count=len(normalized_items),
+        previous_count=previous_count,
+        expected_min_rows_absolute=int(csv_cfg.get("expected_min_rows_absolute", 50)),
+        expected_min_ratio_against_previous=float(csv_cfg.get("expected_min_ratio_against_previous", 0.9)),
+    )
+
+    validate_required_normalized_fields(
+        normalized_items=normalized_items,
+        field_names=csv_cfg.get(
+            "required_normalized_fields_any",
+            ["institution_id", "institution_name", "cnpj"],
+        ),
+        minimum_ratio=float(csv_cfg.get("minimum_non_empty_required_field_ratio", 0.7)),
+    )
 
     raw_payload = {
         "metadata": {
@@ -455,23 +489,11 @@ def main() -> int:
             "endpoint": endpoint,
             "mode_used": mode_used,
             "params": default_params,
-            "page_count": len(page_meta),
             "record_count": len(records),
+            "fetch_meta": fetch_meta,
         },
-        "pages": page_meta,
         "records": records,
     }
-
-    raw_hash = sha256_of(records)
-    stage_payload = build_stage_payload(
-        source_name=args.source,
-        endpoint=endpoint,
-        records=records,
-        page_meta=page_meta,
-        raw_hash=raw_hash,
-        collected_at=collected_at,
-        mode_used=mode_used,
-    )
 
     stage_items_hash = sha256_of(stage_payload["items"])
     previous_stage_hash = read_existing_hash(stage_file)
@@ -489,6 +511,12 @@ def main() -> int:
         "endpoint": endpoint,
         "raw_file": str(raw_file),
         "stage_file": str(stage_file),
+        "validation": {
+            "expected_min_rows_absolute": int(csv_cfg.get("expected_min_rows_absolute", 50)),
+            "expected_min_ratio_against_previous": float(csv_cfg.get("expected_min_ratio_against_previous", 0.9)),
+            "previous_count": previous_count,
+            "current_count": len(normalized_items),
+        },
     }
 
     if changed:
@@ -523,7 +551,7 @@ if __name__ == "__main__":
     try:
         raise SystemExit(main())
     except requests.HTTPError as exc:
-        print(f"Erro HTTP ao coletar cadastro BC: {exc}", file=sys.stderr)
+        print(f"Erro HTTP ao coletar cadastro BC em CSV: {exc}", file=sys.stderr)
         raise SystemExit(1)
     except Exception as exc:
         print(f"Falha no coletor bc_cadastro_admins: {exc}", file=sys.stderr)
