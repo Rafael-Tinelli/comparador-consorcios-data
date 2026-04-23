@@ -65,7 +65,7 @@ jobs:
           retention-days: 15
 
       - name: Fail if mode used is not homologated
-        if: steps.collect.outputs.mode_used != 'html-link-download'
+        if: steps.collect.outputs.mode_used != 'direct-content-download'
         run: |
           echo "Falha: a coleta não concluiu pelo modo homologado."
           echo "mode_used=${{ steps.collect.outputs.mode_used }}"
