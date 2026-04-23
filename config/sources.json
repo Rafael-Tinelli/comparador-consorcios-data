@@ -167,33 +167,57 @@
     "bc_consorciobd_trimestral": {
       "enabled": true,
       "provider": "BCB",
-      "category": "base_setorial_trimestral",
+      "category": "base_setorial",
       "collector": "collectors/bc_consorciobd_trimestral.py",
-      "official_page_url": "https://www.bcb.gov.br/estabilidadefinanceira/consorciobd",
-      "discovery": {
-        "type": "html_link_discovery",
-        "page_url": "https://www.bcb.gov.br/estabilidadefinanceira/consorciobd",
-        "accept_extensions": [
-          ".zip",
-          ".csv",
-          ".xlsx"
+      "official_page_url": "https://www.bcb.gov.br/fis/Consorcios/port/consorcio_banco_de_dados.asp?frame=1",
+      "direct_download": {
+        "base_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD",
+        "http_methods": [
+          "HEAD",
+          "GET"
         ],
-        "match_any": [
-          "Bens móveis",
-          "bens moveis",
-          "Grupos",
-          "grupos"
+        "families": [
+          {
+            "key": "uf",
+            "label": "Dados por Unidade da Federação",
+            "filename_pattern": "{yyyymm}Consorcios_UF.zip",
+            "publish_frequency": "quarterly",
+            "allowed_months": [
+              3,
+              6,
+              9,
+              12
+            ],
+            "probe_months_back": 24,
+            "min_size_bytes": 1024,
+            "enabled": true
+          },
+          {
+            "key": "adm",
+            "label": "Dados Contábeis Consolidados",
+            "filename_pattern": "{yyyymm}Consorcios_ADM.zip",
+            "publish_frequency": "quarterly",
+            "allowed_months": [
+              3,
+              6,
+              9,
+              12
+            ],
+            "probe_months_back": 24,
+            "min_size_bytes": 1024,
+            "enabled": true
+          }
         ]
       },
       "schedule": {
         "kind": "quarterly",
         "months": [
-          1,
-          4,
-          7,
-          10
+          2,
+          5,
+          8,
+          11
         ],
-        "day_of_month": 7,
+        "day_of_month": 12,
         "time_brt": "06:20"
       },
       "storage": {
@@ -201,7 +225,7 @@
         "stage_dir": "data/stage/consorciobd_trimestral"
       },
       "publish_on_change": true,
-      "critical": false
+      "critical": true
     },
     "bc_ranking_reclamacoes": {
       "enabled": true,
