@@ -1,35 +1,34 @@
 #!/usr/bin/env python3
 """
-Coletor do ConsorcioBD (BCB) por probing de URLs diretas de conteúdo.
+Coletor do ConsorcioBD (BCB) via portal oficial de Dados Abertos (CKAN API).
 
 Estratégia desta versão:
-- não depende da página SPA como fonte primária de descoberta;
-- tenta URLs diretas parametrizadas por competência;
-- usa HEAD e, quando necessário, GET de prova;
-- baixa o recurso escolhido e grava latest_source.bin;
-- salva runtime mesmo em falha;
-- usa a página oficial apenas como diagnóstico auxiliar.
-
-Sucesso real:
-- mode_used = "direct-content-download"
+- abandona scraping da SPA pública;
+- consulta o portal oficial de dados abertos via API CKAN;
+- pesquisa datasets/recursos de consórcio por termos configuráveis;
+- seleciona o melhor recurso por score;
+- baixa o recurso escolhido;
+- grava latest_source.bin, latest.json, consorciobd_catalog.json e runtime;
+- só considera sucesso quando mode_used = "ckan-api-resource-download".
 """
 
 from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import io
 import json
+import os
 import re
 import sys
 import zipfile
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
 
 import requests
-from bs4 import BeautifulSoup
 from openpyxl import load_workbook
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
@@ -52,13 +51,10 @@ def dump_json(path: Path, data: Any) -> None:
 
 
 def append_github_output(name: str, value: str) -> None:
-    github_output = Path(sys.argv[0]).parent  # placeholder to satisfy type checker
-    env_path = Path(
-        __import__("os").environ.get("GITHUB_OUTPUT", "")
-    )
-    if not env_path or str(env_path) == ".":
+    github_output = os.environ.get("GITHUB_OUTPUT")
+    if not github_output:
         return
-    with env_path.open("a", encoding="utf-8") as fh:
+    with open(github_output, "a", encoding="utf-8") as fh:
         fh.write(f"{name}={value}\n")
 
 
@@ -67,12 +63,10 @@ def stable_json_dumps(data: Any) -> str:
 
 
 def sha256_of(data: Any) -> str:
-    import hashlib
     return hashlib.sha256(stable_json_dumps(data).encode("utf-8")).hexdigest()
 
 
 def sha256_of_bytes(data: bytes) -> str:
-    import hashlib
     return hashlib.sha256(data).hexdigest()
 
 
@@ -84,7 +78,14 @@ def normalize_spaces(value: Optional[str]) -> Optional[str]:
     return text or None
 
 
-def preview_text(text: str, limit: int = 500) -> str:
+def normalize_match_text(value: Optional[str]) -> str:
+    text = normalize_spaces(value) or ""
+    text = text.lower()
+    text = re.sub(r"\s+", " ", text)
+    return text
+
+
+def preview_text(text: str, limit: int = 400) -> str:
     compact = " ".join((text or "").split())
     return compact[:limit]
 
@@ -115,30 +116,6 @@ def build_session(timeout_seconds: int) -> requests.Session:
     return session
 
 
-def month_iter(reference: date, months_back: int) -> List[Tuple[int, int]]:
-    items: List[Tuple[int, int]] = []
-    year = reference.year
-    month = reference.month
-
-    for _ in range(months_back):
-        items.append((year, month))
-        month -= 1
-        if month == 0:
-            month = 12
-            year -= 1
-    return items
-
-
-def render_pattern(pattern: str, base_url: str, year: int, month: int) -> str:
-    yyyymm = f"{year}{month:02d}"
-    return pattern.format(
-        base_url=base_url.rstrip("/"),
-        yyyy=f"{year}",
-        mm=f"{month:02d}",
-        yyyymm=yyyymm,
-    )
-
-
 def detect_csv_delimiter(text: str) -> str:
     sample = text[:10000]
     try:
@@ -155,7 +132,6 @@ def inspect_binary_payload(binary: bytes, content_type: Optional[str]) -> Dict[s
         "size_bytes": len(binary),
     }
 
-    # ZIP / XLSX
     if binary.startswith(b"PK\x03\x04"):
         try:
             with zipfile.ZipFile(io.BytesIO(binary)) as zf:
@@ -166,7 +142,7 @@ def inspect_binary_payload(binary: bytes, content_type: Optional[str]) -> Dict[s
                 if any(name.endswith(".csv") for name in lower_members):
                     info["detected_format"] = "zip_with_csv"
                     return info
-                if any(name.endswith((".xlsx", ".xlsm", ".xltx", ".xltm")) for name in lower_members):
+                if any(name.endswith((".xlsx", ".xlsm", ".xltx", ".xltm", ".xls")) for name in lower_members):
                     info["detected_format"] = "zip_with_excel"
                     return info
 
@@ -191,7 +167,6 @@ def inspect_binary_payload(binary: bytes, content_type: Optional[str]) -> Dict[s
         except Exception:
             pass
 
-    # CSV puro
     for encoding in ("utf-8-sig", "utf-8", "latin-1", "cp1252"):
         try:
             text = binary.decode(encoding)
@@ -210,113 +185,196 @@ def inspect_binary_payload(binary: bytes, content_type: Optional[str]) -> Dict[s
     return info
 
 
-def response_looks_like_file(resp: requests.Response) -> bool:
-    content_type = (resp.headers.get("Content-Type") or "").lower()
-    if "text/html" in content_type:
-        return False
-    if resp.status_code != 200:
-        return False
-    return True
+def get_extension_from_url(url: str) -> Optional[str]:
+    path = urlparse(url).path.lower()
+    for ext in (".zip", ".csv", ".xlsx", ".xls", ".json"):
+        if path.endswith(ext):
+            return ext
+    return None
 
 
-def probe_head(session: requests.Session, url: str, headers: Dict[str, str]) -> Dict[str, Any]:
-    try:
-        resp = session.head(
-            url,
-            headers=headers,
-            timeout=getattr(session, "request_timeout", 60),
-            allow_redirects=True,
-        )
-        return {
-            "method": "HEAD",
-            "ok": response_looks_like_file(resp),
-            "status_code": resp.status_code,
-            "final_url": resp.url,
-            "content_type": resp.headers.get("Content-Type"),
-            "content_length": resp.headers.get("Content-Length"),
-        }
-    except Exception as exc:
-        return {
-            "method": "HEAD",
-            "ok": False,
-            "status_code": None,
-            "final_url": url,
-            "content_type": None,
-            "content_length": None,
-            "error": str(exc),
-        }
+def ckan_package_search(
+    session: requests.Session,
+    base_url: str,
+    endpoint: str,
+    query: str,
+    rows: int,
+    headers: Dict[str, str],
+) -> Dict[str, Any]:
+    url = urljoin(base_url.rstrip("/") + "/", endpoint.lstrip("/"))
+    response = session.get(
+        url,
+        params={"q": query, "rows": rows},
+        headers=headers,
+        timeout=getattr(session, "request_timeout", 60),
+    )
+    response.raise_for_status()
+
+    payload = response.json()
+    if not isinstance(payload, dict) or not payload.get("success"):
+        raise ValueError(f"Resposta inválida do CKAN package_search para query={query!r}.")
+
+    result = payload.get("result")
+    if not isinstance(result, dict):
+        raise ValueError(f"Resposta CKAN sem campo result para query={query!r}.")
+
+    return result
 
 
-def probe_get(session: requests.Session, url: str, headers: Dict[str, str]) -> Dict[str, Any]:
-    try:
-        resp = session.get(
-            url,
-            headers=headers,
-            timeout=getattr(session, "request_timeout", 90),
-            allow_redirects=True,
-            stream=True,
-        )
-        first_chunk = b""
-        try:
-            for chunk in resp.iter_content(chunk_size=4096):
-                if chunk:
-                    first_chunk = chunk
-                    break
-        finally:
-            resp.close()
+def score_text(text: str, preferred_terms: List[str], exclude_terms: List[str]) -> int:
+    score = 0
+    text_norm = normalize_match_text(text)
 
-        content_type = (resp.headers.get("Content-Type") or "").lower()
-        looks_file = resp.status_code == 200 and "text/html" not in content_type
+    for term in preferred_terms:
+        term_norm = normalize_match_text(term)
+        if term_norm and term_norm in text_norm:
+            score += 50
 
-        return {
-            "method": "GET",
-            "ok": looks_file,
-            "status_code": resp.status_code,
-            "final_url": resp.url,
-            "content_type": resp.headers.get("Content-Type"),
-            "content_length": resp.headers.get("Content-Length"),
-            "first_chunk_sha256": sha256_of_bytes(first_chunk) if first_chunk else None,
-            "first_chunk_preview_hex": first_chunk[:32].hex() if first_chunk else None,
-        }
-    except Exception as exc:
-        return {
-            "method": "GET",
-            "ok": False,
-            "status_code": None,
-            "final_url": url,
-            "content_type": None,
-            "content_length": None,
-            "error": str(exc),
-        }
+    for term in exclude_terms:
+        term_norm = normalize_match_text(term)
+        if term_norm and term_norm in text_norm:
+            score -= 80
+
+    return score
 
 
-def build_probe_candidates(
-    direct_cfg: Dict[str, Any],
-    reference_date: date,
-) -> List[Dict[str, Any]]:
-    base_url = direct_cfg["base_url"]
-    patterns = direct_cfg["candidate_patterns"]
-    months_back = int(direct_cfg.get("probe_months_back", 12))
+def format_rank(fmt: Optional[str], preferred_formats: List[str]) -> int:
+    if not fmt:
+        return 0
+    fmt_upper = fmt.upper()
+    for index, item in enumerate(preferred_formats):
+        if fmt_upper == item.upper():
+            return max(1, len(preferred_formats) - index)
+    return 0
 
-    candidates: List[Dict[str, Any]] = []
-    index = 0
 
-    for year, month in month_iter(reference_date, months_back):
-        for pattern in patterns:
-            index += 1
-            url = render_pattern(pattern, base_url, year, month)
-            candidates.append(
-                {
-                    "index": index,
-                    "year": year,
-                    "month": month,
-                    "yyyymm": f"{year}{month:02d}",
-                    "pattern": pattern,
-                    "url": url,
-                }
-            )
+def build_package_summary(pkg: Dict[str, Any]) -> Dict[str, Any]:
+    org = pkg.get("organization") or {}
+    return {
+        "name": pkg.get("name"),
+        "title": pkg.get("title"),
+        "organization_name": org.get("name"),
+        "organization_title": org.get("title"),
+        "metadata_modified": pkg.get("metadata_modified"),
+        "resources_count": len(pkg.get("resources") or []),
+    }
 
-    return candidates
+
+def build_resource_candidate(
+    package: Dict[str, Any],
+    resource: Dict[str, Any],
+    cfg: Dict[str, Any],
+    package_query: str,
+) -> Optional[Dict[str, Any]]:
+    url = normalize_spaces(resource.get("url"))
+    if not url:
+        return None
+
+    resource_format = normalize_spaces(resource.get("format")) or ""
+    ext = get_extension_from_url(url)
+
+    allowed_formats = [x.upper() for x in cfg.get("allowed_resource_formats", [])]
+    if resource_format:
+        if allowed_formats and resource_format.upper() not in allowed_formats and not ext:
+            return None
+    elif allowed_formats and ext is None:
+        return None
+
+    package_title = normalize_spaces(package.get("title")) or ""
+    package_name = normalize_spaces(package.get("name")) or ""
+    package_notes = normalize_spaces(package.get("notes")) or ""
+    org = package.get("organization") or {}
+    org_name = normalize_spaces(org.get("name")) or ""
+    org_title = normalize_spaces(org.get("title")) or ""
+
+    resource_name = normalize_spaces(resource.get("name")) or ""
+    resource_desc = normalize_spaces(resource.get("description")) or ""
+
+    package_blob = " | ".join([package_title, package_name, package_notes, org_name, org_title])
+    resource_blob = " | ".join([resource_name, resource_desc, url, resource_format])
+
+    score = 0
+    score += score_text(
+        package_blob,
+        cfg.get("preferred_package_terms", []),
+        cfg.get("exclude_package_terms", []),
+    )
+    score += score_text(
+        resource_blob,
+        cfg.get("preferred_resource_terms", []),
+        cfg.get("exclude_resource_terms", []),
+    )
+    score += format_rank(resource_format or ext or "", cfg.get("preferred_resource_formats", [])) * 10
+
+    if normalize_match_text(package_query) in normalize_match_text(package_blob + " " + resource_blob):
+        score += 15
+
+    if ext in (".xlsx", ".zip", ".csv", ".xls"):
+        score += 10
+
+    candidate = {
+        "score": score,
+        "query": package_query,
+        "package": build_package_summary(package),
+        "resource": {
+            "id": resource.get("id"),
+            "name": resource_name,
+            "description": resource_desc,
+            "format": resource_format,
+            "url": url,
+            "extension": ext,
+            "last_modified": resource.get("last_modified"),
+            "created": resource.get("created"),
+        },
+    }
+    return candidate
+
+
+def dedupe_candidates(candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    deduped: Dict[str, Dict[str, Any]] = {}
+    for item in candidates:
+        key = item["resource"]["url"]
+        current = deduped.get(key)
+        if current is None or item["score"] > current["score"]:
+            deduped[key] = item
+
+    final = list(deduped.values())
+    final.sort(
+        key=lambda x: (
+            x["score"],
+            x["package"].get("metadata_modified") or "",
+            x["resource"].get("last_modified") or "",
+            x["resource"].get("created") or "",
+        ),
+        reverse=True,
+    )
+    return final
+
+
+def download_selected_resource(
+    session: requests.Session,
+    url: str,
+    headers: Dict[str, str],
+) -> Tuple[bytes, Dict[str, Any]]:
+    response = session.get(
+        url,
+        headers=headers,
+        timeout=getattr(session, "request_timeout", 180),
+        allow_redirects=True,
+    )
+    response.raise_for_status()
+
+    binary = response.content
+    if not binary:
+        raise ValueError("O recurso selecionado retornou conteúdo vazio.")
+
+    meta = {
+        "status_code": response.status_code,
+        "final_url": response.url,
+        "content_type": response.headers.get("Content-Type"),
+        "content_length": response.headers.get("Content-Length"),
+    }
+    return binary, meta
 
 
 def read_existing_source_sha(path: Path) -> Optional[str]:
@@ -325,48 +383,13 @@ def read_existing_source_sha(path: Path) -> Optional[str]:
     return sha256_of_bytes(path.read_bytes())
 
 
-def fetch_diagnostic_page(
-    session: requests.Session,
-    page_url: str,
-    headers: Dict[str, str],
-    snapshot_file: Path,
-) -> Dict[str, Any]:
-    try:
-        resp = session.get(
-            page_url,
-            headers=headers,
-            timeout=getattr(session, "request_timeout", 60),
-            allow_redirects=True,
-        )
-        html = resp.text or ""
-        snapshot_file.write_text(html, encoding="utf-8")
-        soup = BeautifulSoup(html, "lxml")
-        script_srcs = [normalize_spaces(tag.get("src")) for tag in soup.find_all("script", src=True)]
-        return {
-            "status_code": resp.status_code,
-            "final_url": resp.url,
-            "content_type": resp.headers.get("Content-Type"),
-            "html_preview": preview_text(html),
-            "script_srcs": [src for src in script_srcs if src][:20],
-            "snapshot_file": str(snapshot_file),
-        }
-    except Exception as exc:
-        return {
-            "error": str(exc),
-            "snapshot_file": str(snapshot_file),
-        }
-
-
 def main() -> int:
-    import os
-
-    parser = argparse.ArgumentParser(description="Coletor do ConsorcioBD por URLs diretas.")
+    parser = argparse.ArgumentParser(description="Coletor do ConsorcioBD via API CKAN.")
     parser.add_argument("--config", required=True, help="Caminho para config/sources.json")
     parser.add_argument("--source", default="bc_consorciobd", help="Nome da fonte em config/sources.json")
     args = parser.parse_args()
 
-    config_path = Path(args.config)
-    config = load_json(config_path)
+    config = load_json(Path(args.config))
     source_cfg = get_source_config(config, args.source)
     defaults = config.get("defaults", {})
 
@@ -378,14 +401,13 @@ def main() -> int:
     raw_binary_file = raw_dir / "latest_source.bin"
     stage_file = stage_dir / "consorciobd_catalog.json"
     runtime_file = runtime_dir / "bc_consorciobd.json"
-    snapshot_file = raw_dir / "page_snapshot.html"
 
     raw_dir.mkdir(parents=True, exist_ok=True)
     stage_dir.mkdir(parents=True, exist_ok=True)
     runtime_dir.mkdir(parents=True, exist_ok=True)
 
     collected_at = utc_now_iso()
-    mode_used = "direct-probe-failed"
+    mode_used = "ckan-api-search-failed"
 
     if not source_cfg.get("enabled", False):
         runtime_payload = {
@@ -396,7 +418,6 @@ def main() -> int:
             "raw_file": str(raw_file),
             "raw_binary_file": str(raw_binary_file),
             "stage_file": str(stage_file),
-            "snapshot_file": str(snapshot_file),
         }
         dump_json(runtime_file, runtime_payload)
         append_github_output("changed", "false")
@@ -405,9 +426,7 @@ def main() -> int:
         print(f"Fonte '{args.source}' está desabilitada.")
         return 0
 
-    direct_cfg = source_cfg["direct_download"]
-    diag_cfg = source_cfg.get("diagnostic_page", {})
-
+    api_cfg = source_cfg["catalog_api"]
     user_agent = defaults.get(
         "user_agent",
         "comparador-consorcios-data/1.0 (+https://sanida.com.br/financas/consorcio/)",
@@ -415,216 +434,221 @@ def main() -> int:
     timeout_seconds = int(defaults.get("timeout_seconds", 60))
     session = build_session(timeout_seconds=timeout_seconds)
 
-    head_headers = {
-        "Accept": "*/*",
-        "User-Agent": user_agent,
-    }
-    page_headers = {
-        "Accept": "text/html,application/xhtml+xml",
+    headers = {
+        "Accept": "application/json",
         "User-Agent": user_agent,
     }
 
-    reference_date = datetime.now(timezone.utc).date()
-    candidates = build_probe_candidates(direct_cfg, reference_date)
-    probe_results: List[Dict[str, Any]] = []
+    search_terms = api_cfg.get("search_terms", [])
+    if not search_terms:
+        raise ValueError("catalog_api.search_terms não pode estar vazio em config/sources.json.")
 
-    selected_candidate: Optional[Dict[str, Any]] = None
-    selected_probe: Optional[Dict[str, Any]] = None
+    rows = int(api_cfg.get("rows", 100))
+    package_summaries: List[Dict[str, Any]] = []
+    resource_candidates: List[Dict[str, Any]] = []
+    query_debug: List[Dict[str, Any]] = []
 
-    methods = [m.upper() for m in direct_cfg.get("http_methods", ["HEAD", "GET"])]
-
-    for candidate in candidates:
-        result_entry = {
-            "candidate": candidate,
-            "probes": [],
-        }
-
-        head_result: Optional[Dict[str, Any]] = None
-        get_result: Optional[Dict[str, Any]] = None
-
-        if "HEAD" in methods:
-            head_result = probe_head(session, candidate["url"], head_headers)
-            result_entry["probes"].append(head_result)
-
-        head_ok = bool(head_result and head_result.get("ok"))
-
-        if not head_ok and "GET" in methods:
-            # GET de prova só entra quando HEAD não confirma
-            get_result = probe_get(session, candidate["url"], head_headers)
-            result_entry["probes"].append(get_result)
-
-        get_ok = bool(get_result and get_result.get("ok"))
-
-        probe_results.append(result_entry)
-
-        if head_ok:
-            selected_candidate = candidate
-            selected_probe = head_result
-            break
-
-        if get_ok:
-            selected_candidate = candidate
-            selected_probe = get_result
-            break
-
-    if not selected_candidate:
-        diagnostic_page = {}
-        if diag_cfg.get("enabled", True):
-            diagnostic_page = fetch_diagnostic_page(
+    try:
+        for query in search_terms:
+            result = ckan_package_search(
                 session=session,
-                page_url=diag_cfg.get("page_url") or source_cfg["official_page_url"],
-                headers=page_headers,
-                snapshot_file=snapshot_file,
+                base_url=api_cfg["base_url"],
+                endpoint=api_cfg["package_search_endpoint"],
+                query=query,
+                rows=rows,
+                headers=headers,
             )
 
-        runtime_payload = {
-            "source": args.source,
-            "last_checked_at": collected_at,
-            "changed": False,
-            "mode_used": mode_used,
-            "probe_count": len(probe_results),
-            "probe_results": probe_results[:40],
-            "diagnostic_page": diagnostic_page,
-            "raw_file": str(raw_file),
-            "raw_binary_file": str(raw_binary_file),
-            "stage_file": str(stage_file),
-            "snapshot_file": str(snapshot_file),
-        }
-        dump_json(runtime_file, runtime_payload)
-        append_github_output("changed", "false")
-        append_github_output("records", str(len(probe_results)))
-        append_github_output("mode_used", mode_used)
-        raise ValueError(
-            "Nenhuma URL direta homologável respondeu como arquivo válido para o ConsorcioBD. "
-            f"Runtime salvo em {runtime_file}."
-        )
+            results = result.get("results") or []
+            if not isinstance(results, list):
+                results = []
 
-    # Download completo do candidato escolhido
-    download_resp = session.get(
-        selected_candidate["url"],
-        headers=head_headers,
-        timeout=getattr(session, "request_timeout", 180),
-        allow_redirects=True,
-    )
-    download_resp.raise_for_status()
+            query_debug.append(
+                {
+                    "query": query,
+                    "count": result.get("count"),
+                    "returned": len(results),
+                }
+            )
 
-    binary = download_resp.content
-    if not binary:
-        runtime_payload = {
-            "source": args.source,
-            "last_checked_at": collected_at,
-            "changed": False,
-            "mode_used": mode_used,
-            "selected_candidate": selected_candidate,
-            "selected_probe": selected_probe,
-            "error": "O download final retornou corpo vazio.",
-            "raw_file": str(raw_file),
-            "raw_binary_file": str(raw_binary_file),
-            "stage_file": str(stage_file),
-            "snapshot_file": str(snapshot_file),
-        }
-        dump_json(runtime_file, runtime_payload)
-        append_github_output("changed", "false")
-        append_github_output("records", str(len(probe_results)))
-        append_github_output("mode_used", mode_used)
-        raise ValueError("O recurso selecionado do ConsorcioBD retornou conteúdo vazio.")
+            for pkg in results:
+                if not isinstance(pkg, dict):
+                    continue
 
-    source_sha = sha256_of_bytes(binary)
-    previous_source_sha = read_existing_source_sha(raw_binary_file)
-    changed = previous_source_sha != source_sha
-    mode_used = "direct-content-download"
+                package_summaries.append(build_package_summary(pkg))
 
-    inspection = inspect_binary_payload(binary, download_resp.headers.get("Content-Type"))
+                resources = pkg.get("resources") or []
+                if not isinstance(resources, list):
+                    continue
 
-    selected_resource = {
-        "selected_candidate": selected_candidate,
-        "selected_probe": selected_probe,
-        "final_url": download_resp.url,
-        "status_code": download_resp.status_code,
-        "content_type": download_resp.headers.get("Content-Type"),
-        "content_length": download_resp.headers.get("Content-Length"),
-        "sha256": source_sha,
-        "inspection": inspection,
-    }
+                for resource in resources:
+                    if not isinstance(resource, dict):
+                        continue
+                    candidate = build_resource_candidate(
+                        package=pkg,
+                        resource=resource,
+                        cfg=api_cfg,
+                        package_query=query,
+                    )
+                    if candidate:
+                        resource_candidates.append(candidate)
 
-    raw_payload = {
-        "metadata": {
-            "source": args.source,
-            "collector": "collectors/bc_consorciobd.py",
-            "collected_at": collected_at,
-            "mode_used": mode_used,
-            "probe_count": len(probe_results),
-            "resource_sha256": source_sha,
-        },
-        "selected_resource": selected_resource,
-        "probe_results": probe_results,
-    }
+        resource_candidates = dedupe_candidates(resource_candidates)
+        package_summaries = package_summaries[: api_cfg.get("package_summary_limit", 50)]
 
-    stage_payload = {
-        "metadata": {
-            "source": args.source,
-            "collector": "collectors/bc_consorciobd.py",
-            "collected_at": collected_at,
-            "mode_used": mode_used,
-            "probe_count": len(probe_results),
-            "resource_sha256": source_sha,
-        },
-        "resource": selected_resource,
-        "probe_results": probe_results,
-    }
-
-    runtime_payload = {
-        "source": args.source,
-        "last_checked_at": collected_at,
-        "last_changed_at": collected_at if changed else None,
-        "changed": changed,
-        "mode_used": mode_used,
-        "probe_count": len(probe_results),
-        "resource_sha256": source_sha,
-        "selected_url": selected_candidate["url"],
-        "final_url": download_resp.url,
-        "raw_file": str(raw_file),
-        "raw_binary_file": str(raw_binary_file),
-        "stage_file": str(stage_file),
-        "snapshot_file": str(snapshot_file),
-    }
-
-    if changed:
-        raw_binary_file.write_bytes(binary)
-        dump_json(raw_file, raw_payload)
-        dump_json(stage_file, stage_payload)
-
-    dump_json(runtime_file, runtime_payload)
-
-    append_github_output("changed", "true" if changed else "false")
-    append_github_output("records", str(len(probe_results)))
-    append_github_output("stage_hash", sha256_of(stage_payload))
-    append_github_output("mode_used", mode_used)
-
-    print(
-        json.dumps(
-            {
+        if not resource_candidates:
+            runtime_payload = {
                 "source": args.source,
-                "changed": changed,
-                "records": len(probe_results),
+                "last_checked_at": collected_at,
+                "changed": False,
                 "mode_used": mode_used,
+                "query_debug": query_debug,
+                "package_summaries": package_summaries,
+                "candidate_count": 0,
                 "raw_file": str(raw_file),
                 "raw_binary_file": str(raw_binary_file),
                 "stage_file": str(stage_file),
-                "runtime_file": str(runtime_file),
-            },
-            ensure_ascii=False,
+            }
+            dump_json(runtime_file, runtime_payload)
+            append_github_output("changed", "false")
+            append_github_output("records", "0")
+            append_github_output("mode_used", mode_used)
+            raise ValueError("Nenhum recurso compatível foi encontrado via CKAN API para o ConsorcioBD.")
+
+        selected = resource_candidates[0]
+        binary, download_meta = download_selected_resource(
+            session=session,
+            url=selected["resource"]["url"],
+            headers={"Accept": "*/*", "User-Agent": user_agent},
         )
-    )
-    return 0
+
+        source_sha = sha256_of_bytes(binary)
+        previous_source_sha = read_existing_source_sha(raw_binary_file)
+        changed = previous_source_sha != source_sha
+        mode_used = "ckan-api-resource-download"
+
+        inspection = inspect_binary_payload(binary, download_meta.get("content_type"))
+
+        selected_resource = {
+            "selected_candidate": selected,
+            "download_meta": download_meta,
+            "sha256": source_sha,
+            "inspection": inspection,
+        }
+
+        raw_payload = {
+            "metadata": {
+                "source": args.source,
+                "collector": "collectors/bc_consorciobd.py",
+                "collected_at": collected_at,
+                "mode_used": mode_used,
+                "query_count": len(search_terms),
+                "candidate_count": len(resource_candidates),
+                "resource_sha256": source_sha,
+            },
+            "query_debug": query_debug,
+            "selected_resource": selected_resource,
+            "top_candidates": resource_candidates[: api_cfg.get("candidate_limit", 50)],
+        }
+
+        stage_payload = {
+            "metadata": {
+                "source": args.source,
+                "collector": "collectors/bc_consorciobd.py",
+                "collected_at": collected_at,
+                "mode_used": mode_used,
+                "query_count": len(search_terms),
+                "candidate_count": len(resource_candidates),
+                "resource_sha256": source_sha,
+            },
+            "selected_resource": selected_resource,
+            "top_candidates": resource_candidates[: api_cfg.get("candidate_limit", 50)],
+            "query_debug": query_debug,
+        }
+
+        runtime_payload = {
+            "source": args.source,
+            "last_checked_at": collected_at,
+            "last_changed_at": collected_at if changed else None,
+            "changed": changed,
+            "mode_used": mode_used,
+            "candidate_count": len(resource_candidates),
+            "query_debug": query_debug,
+            "selected_url": selected["resource"]["url"],
+            "final_url": download_meta.get("final_url"),
+            "resource_sha256": source_sha,
+            "raw_file": str(raw_file),
+            "raw_binary_file": str(raw_binary_file),
+            "stage_file": str(stage_file),
+        }
+
+        if changed:
+            raw_binary_file.write_bytes(binary)
+            dump_json(raw_file, raw_payload)
+            dump_json(stage_file, stage_payload)
+
+        dump_json(runtime_file, runtime_payload)
+
+        append_github_output("changed", "true" if changed else "false")
+        append_github_output("records", str(len(resource_candidates)))
+        append_github_output("stage_hash", sha256_of(stage_payload))
+        append_github_output("mode_used", mode_used)
+
+        print(
+            json.dumps(
+                {
+                    "source": args.source,
+                    "changed": changed,
+                    "records": len(resource_candidates),
+                    "mode_used": mode_used,
+                    "raw_file": str(raw_file),
+                    "raw_binary_file": str(raw_binary_file),
+                    "stage_file": str(stage_file),
+                    "runtime_file": str(runtime_file),
+                },
+                ensure_ascii=False,
+            )
+        )
+        return 0
+
+    except requests.HTTPError as exc:
+        runtime_payload = {
+            "source": args.source,
+            "last_checked_at": collected_at,
+            "changed": False,
+            "mode_used": mode_used,
+            "query_debug": query_debug,
+            "error": f"Erro HTTP ao coletar ConsorcioBD via CKAN API: {exc}",
+            "raw_file": str(raw_file),
+            "raw_binary_file": str(raw_binary_file),
+            "stage_file": str(stage_file),
+        }
+        dump_json(runtime_file, runtime_payload)
+        append_github_output("changed", "false")
+        append_github_output("records", "0")
+        append_github_output("mode_used", mode_used)
+        print(f"Erro HTTP ao coletar ConsorcioBD via CKAN API: {exc}", file=sys.stderr)
+        return 1
+
+    except Exception as exc:
+        runtime_payload = {
+            "source": args.source,
+            "last_checked_at": collected_at,
+            "changed": False,
+            "mode_used": mode_used,
+            "query_debug": query_debug,
+            "error": str(exc),
+            "raw_file": str(raw_file),
+            "raw_binary_file": str(raw_binary_file),
+            "stage_file": str(stage_file),
+        }
+        dump_json(runtime_file, runtime_payload)
+        append_github_output("changed", "false")
+        append_github_output("records", "0")
+        append_github_output("mode_used", mode_used)
+        print(f"Falha no coletor bc_consorciobd: {exc}", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":
-    try:
-        raise SystemExit(main())
-    except requests.HTTPError as exc:
-        print(f"Erro HTTP ao coletar ConsorcioBD: {exc}", file=sys.stderr)
-        raise SystemExit(1)
-    except Exception as exc:
-        print(f"Falha no coletor bc_consorciobd: {exc}", file=sys.stderr)
-        raise SystemExit(1)
+    raise SystemExit(main())
