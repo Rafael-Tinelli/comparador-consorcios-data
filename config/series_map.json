@@ -20,23 +20,24 @@
         "key": "cdi",
         "label": "CDI",
         "source": "BCB/SGS",
-        "serie": null,
-        "unit": "% a.a.",
+        "serie": 12,
+        "unit": "% a.d.",
         "frequency": "daily",
         "category": "juros",
-        "enabled": false,
-        "notes": "Desabilitada até confirmação inequívoca do código SGS em fonte oficial do BCB."
+        "enabled": true,
+        "data_inicial": "01/01/2017",
+        "notes": "Série primitiva diária do CDI. Preferida em relação às versões mensais ou anualizadas, pois preserva granularidade máxima para cálculos locais."
       },
       {
         "key": "ipca",
         "label": "IPCA",
         "source": "BCB/SGS",
-        "serie": null,
+        "serie": 433,
         "unit": "% a.m.",
         "frequency": "monthly",
         "category": "inflacao",
-        "enabled": false,
-        "notes": "Desabilitada até confirmação inequívoca do código SGS do IPCA cheio em fonte oficial do BCB."
+        "enabled": true,
+        "notes": "IPCA cheio mensal. Preferido em relação ao IPCA-15 e ao acumulado em 12 meses para manter a série base primária."
       },
       {
         "key": "inpc",
