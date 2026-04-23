@@ -1,0 +1,136 @@
+{
+  "metadata": {
+    "source": "bc_consorciobd",
+    "collector": "collectors/bc_consorciobd.py",
+    "collected_at": "2026-04-23T15:00:14+00:00",
+    "mode_used": "direct-content-download",
+    "probe_count": 3,
+    "resource_sha256": "f9a15d561904367b3743fdee7dd3886293abd3e927a2d921c5a7b5617c91bf2e"
+  },
+  "resource": {
+    "family_key": "dados_consolidados",
+    "family_label": "Dados Consolidados",
+    "selected_candidate": {
+      "family_key": "dados_consolidados",
+      "family_label": "Dados Consolidados",
+      "year": 2026,
+      "month": 2,
+      "yyyymm": "202602",
+      "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202602Consorcios.zip"
+    },
+    "selected_probe": {
+      "method": "HEAD",
+      "status_code": 200,
+      "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202602Consorcios.zip",
+      "content_type": "application/x-zip-compressed",
+      "content_length": "106212",
+      "ok": true
+    },
+    "download_meta": {
+      "status_code": 200,
+      "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202602Consorcios.zip",
+      "content_type": "application/x-zip-compressed",
+      "content_length": "106212",
+      "last_modified": "Sat, 11 Apr 2026 02:37:52 GMT",
+      "etag": "\"25f9a3315cc9dc1:0\""
+    },
+    "sha256": "f9a15d561904367b3743fdee7dd3886293abd3e927a2d921c5a7b5617c91bf2e",
+    "inspection": {
+      "detected_format": "zip_with_csv",
+      "content_type": "application/x-zip-compressed",
+      "size_bytes": 106212,
+      "archive_members": [
+        "Significado_dos_campos_e_metricas.xlsx",
+        "202602Bens_Imoveis_Grupos.csv",
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "archive_members_preview": [
+        "Significado_dos_campos_e_metricas.xlsx",
+        "202602Bens_Imoveis_Grupos.csv",
+        "202602Segmentos_Consolidados.csv"
+      ]
+    }
+  },
+  "probe_results": [
+    {
+      "candidate": {
+        "family_key": "dados_consolidados",
+        "family_label": "Dados Consolidados",
+        "year": 2026,
+        "month": 4,
+        "yyyymm": "202604",
+        "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202604Consorcios.zip"
+      },
+      "probes": [
+        {
+          "method": "HEAD",
+          "status_code": 404,
+          "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202604Consorcios.zip",
+          "content_type": "text/html",
+          "content_length": "6245",
+          "ok": false
+        },
+        {
+          "method": "GET",
+          "status_code": 404,
+          "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202604Consorcios.zip",
+          "content_type": "text/html",
+          "content_length": "6245",
+          "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
+          "first_chunk_preview_hex": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227074",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "family_key": "dados_consolidados",
+        "family_label": "Dados Consolidados",
+        "year": 2026,
+        "month": 3,
+        "yyyymm": "202603",
+        "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios.zip"
+      },
+      "probes": [
+        {
+          "method": "HEAD",
+          "status_code": 404,
+          "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios.zip",
+          "content_type": "text/html",
+          "content_length": "6245",
+          "ok": false
+        },
+        {
+          "method": "GET",
+          "status_code": 404,
+          "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios.zip",
+          "content_type": "text/html",
+          "content_length": "6245",
+          "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
+          "first_chunk_preview_hex": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227074",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "family_key": "dados_consolidados",
+        "family_label": "Dados Consolidados",
+        "year": 2026,
+        "month": 2,
+        "yyyymm": "202602",
+        "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202602Consorcios.zip"
+      },
+      "probes": [
+        {
+          "method": "HEAD",
+          "status_code": 200,
+          "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202602Consorcios.zip",
+          "content_type": "application/x-zip-compressed",
+          "content_length": "106212",
+          "ok": true
+        }
+      ]
+    }
+  ]
+}
