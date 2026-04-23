@@ -24,12 +24,14 @@ import os
 import re
 import sys
 import zipfile
-from collections import Counter, defaultdict
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 from unidecode import unidecode
+
+PIPELINE_VERSION = "2.1.0"
 
 
 def utc_now_iso() -> str:
@@ -699,7 +701,6 @@ def build_cenarios(
     rankings_payload: Dict[str, Any],
     abac_payload: Optional[Dict[str, Any]],
 ) -> Dict[str, Any]:
-    institutions = instituicoes_payload.get("items", [])
     rankings = rankings_payload.get("items", [])
 
     def series_value(key: str) -> Optional[float]:
@@ -843,8 +844,74 @@ def build_autocomplete(
     }
 
 
+def get_build_context() -> Dict[str, Any]:
+    return {
+        "pipeline_version": PIPELINE_VERSION,
+        "build_timestamp": utc_now_iso(),
+        "git_sha": os.environ.get("GITHUB_SHA"),
+        "git_ref": os.environ.get("GITHUB_REF"),
+        "github_repository": os.environ.get("GITHUB_REPOSITORY"),
+        "run_id": os.environ.get("GITHUB_RUN_ID"),
+        "run_attempt": os.environ.get("GITHUB_RUN_ATTEMPT"),
+    }
+
+
+def build_freshness(runtime_sources: Dict[str, Any]) -> Dict[str, Any]:
+    latest_checked = None
+    latest_changed = None
+    changed_sources = 0
+
+    for item in runtime_sources.values():
+        checked = item.get("last_checked_at")
+        changed = item.get("last_changed_at")
+        if checked and (latest_checked is None or checked > latest_checked):
+            latest_checked = checked
+        if changed and (latest_changed is None or changed > latest_changed):
+            latest_changed = changed
+        if item.get("changed") is True:
+            changed_sources += 1
+
+    return {
+        "latest_source_check_at": latest_checked,
+        "latest_source_change_at": latest_changed,
+        "changed_sources_count": changed_sources,
+        "runtime_sources_count": len(runtime_sources),
+    }
+
+
+def build_artifact_manifest(
+    global_payloads: Dict[str, Any],
+    seo_payloads: Dict[str, Dict[str, Any]],
+) -> Dict[str, Any]:
+    manifest = {"global": [], "seo": []}
+
+    for filename, payload in global_payloads.items():
+        text = dump_json_text(payload)
+        manifest["global"].append(
+            {
+                "file": filename,
+                "sha256": sha256_text(text),
+                "size_bytes": len(text.encode("utf-8")),
+            }
+        )
+
+    for slug, payload in seo_payloads.items():
+        filename = f"{slug}.json"
+        text = dump_json_text(payload)
+        manifest["seo"].append(
+            {
+                "file": filename,
+                "sha256": sha256_text(text),
+                "size_bytes": len(text.encode("utf-8")),
+            }
+        )
+
+    return manifest
+
+
 def build_meta(
     *,
+    build_context: Dict[str, Any],
     instituicoes_payload: Dict[str, Any],
     produtos_payload: Dict[str, Any],
     rankings_payload: Dict[str, Any],
@@ -853,11 +920,21 @@ def build_meta(
     autocomplete_payload: Dict[str, Any],
     seo_payloads: Dict[str, Any],
     runtime_sources: Dict[str, Any],
+    artifact_manifest: Dict[str, Any],
 ) -> Dict[str, Any]:
+    freshness = build_freshness(runtime_sources)
+
     return {
+        "build_timestamp": build_context["build_timestamp"],
+        "pipeline_version": build_context["pipeline_version"],
         "project": {
             "name": "comparador-consorcios-data",
-            "generated_at": utc_now_iso(),
+            "generated_at": build_context["build_timestamp"],
+            "git_sha": build_context.get("git_sha"),
+            "git_ref": build_context.get("git_ref"),
+            "github_repository": build_context.get("github_repository"),
+            "run_id": build_context.get("run_id"),
+            "run_attempt": build_context.get("run_attempt"),
         },
         "counts": {
             "instituicoes": len(instituicoes_payload.get("items", [])),
@@ -868,6 +945,8 @@ def build_meta(
             "seo_routes": len(seo_payloads),
         },
         "source_runtime": runtime_sources,
+        "freshness": freshness,
+        "artifacts": artifact_manifest,
         "hashes": {
             "instituicoes": sha256_text(dump_json_text(instituicoes_payload)),
             "produtos": sha256_text(dump_json_text(produtos_payload)),
@@ -969,6 +1048,7 @@ def main() -> int:
     scoring_rules = load_scoring_rules(Path(args.scoring))
     product_rules = load_product_rules(Path(args.product_rules))
     seo_routes = load_seo_routes(Path(args.seo_routes))
+    build_context = get_build_context()
 
     cadastro_stage = stage_base / "cadastro" / "instituicoes_cadastro.json"
     filiais_stage = stage_base / "filiais" / "filiais.json"
@@ -990,6 +1070,7 @@ def main() -> int:
             "last_checked_at": utc_now_iso(),
             "changed": False,
             "mode_used": "build-read-models-failed",
+            "pipeline_version": PIPELINE_VERSION,
             "error": message,
         }
         write_json_if_changed(runtime_file, runtime_payload)
@@ -1017,6 +1098,7 @@ def main() -> int:
     autocomplete_payload = build_autocomplete(instituicoes_payload, produtos_payload, seo_routes)
 
     runtime_sources = load_runtime_summary(runtime_dir)
+
     seo_payloads = build_seo_payloads(
         seo_routes=seo_routes,
         instituicoes_payload=instituicoes_payload,
@@ -1027,7 +1109,20 @@ def main() -> int:
         meta_payload={"hashes": {"instituicoes": sha256_text(dump_json_text(instituicoes_payload))}},
     )
 
+    artifact_manifest = build_artifact_manifest(
+        global_payloads={
+            "instituicoes.json": instituicoes_payload,
+            "produtos.json": produtos_payload,
+            "rankings.json": rankings_payload,
+            "series.json": series_payload,
+            "cenarios.json": cenarios_payload,
+            "autocomplete.json": autocomplete_payload,
+        },
+        seo_payloads=seo_payloads,
+    )
+
     meta_payload = build_meta(
+        build_context=build_context,
         instituicoes_payload=instituicoes_payload,
         produtos_payload=produtos_payload,
         rankings_payload=rankings_payload,
@@ -1036,6 +1131,7 @@ def main() -> int:
         autocomplete_payload=autocomplete_payload,
         seo_payloads=seo_payloads,
         runtime_sources=runtime_sources,
+        artifact_manifest=artifact_manifest,
     )
 
     changed = False
@@ -1055,6 +1151,7 @@ def main() -> int:
         "last_changed_at": utc_now_iso() if changed else None,
         "changed": changed,
         "mode_used": "build-read-models",
+        "pipeline_version": PIPELINE_VERSION,
         "counts": {
             "instituicoes": len(instituicoes_payload.get("items", [])),
             "produtos": len(produtos_payload.get("items", [])),
@@ -1064,6 +1161,7 @@ def main() -> int:
         "outputs": {
             "global_dir": str(dist_global_dir),
             "seo_dir": str(dist_seo_dir),
+            "meta_file": str(dist_global_dir / "meta.json"),
         },
     }
     write_json_if_changed(runtime_file, runtime_payload)
