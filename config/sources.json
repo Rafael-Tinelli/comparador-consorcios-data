@@ -232,11 +232,17 @@
       "provider": "BCB",
       "category": "reputacao",
       "collector": "collectors/bc_ranking_reclamacoes.py",
-      "official_page_url": "https://www.bcb.gov.br/meubc/rankingreclamacoes",
+      "official_page_url": "https://www.bcb.gov.br/estabilidadefinanceira/rankingsbc",
       "api": {
-        "list_endpoint": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking",
-        "download_endpoint_template": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano={ano}&periodicidade={periodicidade}&periodo={periodo}&tipo=Consorcios",
-        "tipo_alvo": "Consorcios"
+        "download_endpoint_template": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano={ano}&periodicidade={periodicidade}&periodo={periodo}&tipo={tipo}",
+        "tipo": "Consorcios",
+        "periodicidade": "SEMESTRAL",
+        "probe_semesters_back": 10,
+        "min_size_bytes": 200,
+        "http_methods": [
+          "HEAD",
+          "GET"
+        ]
       },
       "schedule": {
         "kind": "monthly",
