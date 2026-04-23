@@ -1,0 +1,150 @@
+name: 09 · HostGator Pull Ready
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - "08 · Build Read Models"
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+concurrency:
+  group: hostgator-pull-ready
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Validate pull contract
+        id: validate
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          deploy = json.loads(Path("config/deploy.json").read_text(encoding="utf-8"))
+          meta = json.loads(Path("data/dist/global/meta.json").read_text(encoding="utf-8"))
+
+          errors = []
+
+          if deploy.get("deploy_mode") != "hostgator_pull_cron":
+              errors.append("config/deploy.json: deploy_mode deve ser 'hostgator_pull_cron'.")
+
+          source = deploy.get("source", {})
+          if not source.get("base_raw_url"):
+              errors.append("config/deploy.json: source.base_raw_url ausente.")
+
+          artifacts = deploy.get("artifacts", {})
+          global_files = artifacts.get("global", [])
+          seo_files = artifacts.get("seo", [])
+
+          if not global_files:
+              errors.append("config/deploy.json: artifacts.global vazio.")
+          if not seo_files:
+              errors.append("config/deploy.json: artifacts.seo vazio.")
+
+          for filename in global_files:
+              path = Path("data/dist/global") / filename
+              if not path.exists():
+                  errors.append(f"Arquivo global ausente: {path}")
+              elif path.stat().st_size == 0:
+                  errors.append(f"Arquivo global vazio: {path}")
+
+          for filename in seo_files:
+              path = Path("data/dist/seo") / filename
+              if not path.exists():
+                  errors.append(f"Arquivo SEO ausente: {path}")
+              elif path.stat().st_size == 0:
+                  errors.append(f"Arquivo SEO vazio: {path}")
+
+          required_meta_fields = [
+              "build_timestamp",
+              "pipeline_version",
+              "project",
+              "counts",
+              "source_runtime",
+              "hashes",
+              "artifacts",
+              "freshness"
+          ]
+          for field in required_meta_fields:
+              if field not in meta:
+                  errors.append(f"meta.json: campo obrigatório ausente: {field}")
+
+          if errors:
+              report = {
+                  "mode_used": "hostgator-pull-invalid",
+                  "status": "error",
+                  "errors": errors,
+              }
+              Path("data/runtime").mkdir(parents=True, exist_ok=True)
+              Path("data/runtime/hostgator_pull_ready.json").write_text(
+                  json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+                  encoding="utf-8"
+              )
+              github_output = os.environ.get("GITHUB_OUTPUT")
+              if github_output:
+                  with open(github_output, "a", encoding="utf-8") as fh:
+                      fh.write("mode_used=hostgator-pull-invalid\n")
+                      fh.write("records=0\n")
+              raise SystemExit("\n".join(errors))
+
+          report = {
+              "mode_used": "hostgator-pull-ready",
+              "status": "ok",
+              "repository": os.environ.get("GITHUB_REPOSITORY"),
+              "ref": os.environ.get("GITHUB_REF"),
+              "sha": os.environ.get("GITHUB_SHA"),
+              "global_files": global_files,
+              "seo_files": seo_files,
+              "meta_build_timestamp": meta.get("build_timestamp"),
+              "meta_pipeline_version": meta.get("pipeline_version"),
+          }
+
+          Path("data/runtime").mkdir(parents=True, exist_ok=True)
+          Path("data/runtime/hostgator_pull_ready.json").write_text(
+              json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8"
+          )
+
+          github_output = os.environ.get("GITHUB_OUTPUT")
+          if github_output:
+              with open(github_output, "a", encoding="utf-8") as fh:
+                  fh.write("mode_used=hostgator-pull-ready\n")
+                  fh.write(f"records={len(global_files) + len(seo_files)}\n")
+          PY
+
+      - name: Upload pull readiness artifact
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: hostgator-pull-ready
+          path: |
+            data/dist/global/*.json
+            data/dist/seo/*.json
+            data/runtime/hostgator_pull_ready.json
+          if-no-files-found: warn
+          retention-days: 15
+
+      - name: Fail if mode used is not homologated
+        if: steps.validate.outputs.mode_used != 'hostgator-pull-ready'
+        run: |
+          echo "Falha: o contrato pull não ficou pronto."
+          echo "mode_used=${{ steps.validate.outputs.mode_used }}"
+          exit 1
