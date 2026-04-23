@@ -63,15 +63,15 @@ jobs:
           if-no-files-found: warn
           retention-days: 15
 
-      - name: Fail if mode used is not homologated SGS JSON
-        if: steps.collect.outputs.mode_used != 'sgs-json'
+      - name: Fail if mode used is not homologated
+        if: steps.collect.outputs.mode_used != 'sgs-json-range'
         run: |
           echo "Falha: a coleta não concluiu pelo modo homologado."
           echo "mode_used=${{ steps.collect.outputs.mode_used }}"
           exit 1
 
       - name: Commit changed outputs
-        if: steps.collect.outputs.changed == 'true' && steps.collect.outputs.mode_used == 'sgs-json'
+        if: steps.collect.outputs.changed == 'true' && steps.collect.outputs.mode_used == 'sgs-json-range'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
