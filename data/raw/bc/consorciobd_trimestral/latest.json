@@ -1,0 +1,329 @@
+{
+  "metadata": {
+    "source": "bc_consorciobd_trimestral",
+    "collector": "collectors/bc_consorciobd_trimestral.py",
+    "collected_at": "2026-04-23T15:58:05+00:00",
+    "mode_used": "direct-content-download",
+    "family_count": 2
+  },
+  "resources": [
+    {
+      "family_key": "uf",
+      "family_label": "Dados por Unidade da Federação",
+      "selected_candidate": {
+        "family_key": "uf",
+        "family_label": "Dados por Unidade da Federação",
+        "year": 2025,
+        "month": 12,
+        "yyyymm": "202512",
+        "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_UF.zip"
+      },
+      "selected_probe": {
+        "method": "HEAD",
+        "status_code": 200,
+        "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_UF.zip",
+        "content_type": "application/x-zip-compressed",
+        "content_length": "104829",
+        "ok": true
+      },
+      "download_meta": {
+        "status_code": 200,
+        "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_UF.zip",
+        "content_type": "application/x-zip-compressed",
+        "content_length": "104829",
+        "last_modified": "Sat, 11 Apr 2026 02:37:52 GMT",
+        "etag": "\"ac96a1315cc9dc1:0\""
+      },
+      "inspection": {
+        "detected_format": "zip_with_csv",
+        "content_type": "application/x-zip-compressed",
+        "size_bytes": 104829,
+        "archive_members": [
+          "Significado_dos_campos_UF.csv",
+          "202512Consorcios_UF.csv"
+        ],
+        "archive_members_preview": [
+          "Significado_dos_campos_UF.csv",
+          "202512Consorcios_UF.csv"
+        ]
+      },
+      "sha256": "9110a9df026159544b0fbb54335b5b22975ddb3d42035dfe618f18e2eed16f93",
+      "binary_file": "data/raw/bc/consorciobd_trimestral/latest_uf.bin",
+      "changed": true
+    },
+    {
+      "family_key": "adm",
+      "family_label": "Dados Contábeis Consolidados",
+      "selected_candidate": {
+        "family_key": "adm",
+        "family_label": "Dados Contábeis Consolidados",
+        "year": 2024,
+        "month": 12,
+        "yyyymm": "202412",
+        "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202412Consorcios_ADM.zip"
+      },
+      "selected_probe": {
+        "method": "HEAD",
+        "status_code": 200,
+        "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202412Consorcios_ADM.zip",
+        "content_type": "application/x-zip-compressed",
+        "content_length": "17868",
+        "ok": true
+      },
+      "download_meta": {
+        "status_code": 200,
+        "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202412Consorcios_ADM.zip",
+        "content_type": "application/x-zip-compressed",
+        "content_length": "17868",
+        "last_modified": "Sun, 11 Jan 2026 02:37:25 GMT",
+        "etag": "\"217dde38a382dc1:0\""
+      },
+      "inspection": {
+        "detected_format": "zip_with_csv",
+        "content_type": "application/x-zip-compressed",
+        "size_bytes": 17868,
+        "archive_members": [
+          "202412Doc_4010_Consorcios_Administradoras.csv",
+          "202412Doc_4010_Consorcios_Saldos_Consolidados.csv",
+          "202412Doc_4110_Consorcios_Administradoras.csv",
+          "202412Doc_4110_Consorcios_Saldos_Consolidados.csv"
+        ],
+        "archive_members_preview": [
+          "202412Doc_4010_Consorcios_Administradoras.csv",
+          "202412Doc_4010_Consorcios_Saldos_Consolidados.csv",
+          "202412Doc_4110_Consorcios_Administradoras.csv",
+          "202412Doc_4110_Consorcios_Saldos_Consolidados.csv"
+        ]
+      },
+      "sha256": "b47f18b6bae337e580392ab12d5c79357282f99a211b90758e107a1676afadc6",
+      "binary_file": "data/raw/bc/consorciobd_trimestral/latest_adm.bin",
+      "changed": true
+    }
+  ],
+  "probe_results_by_family": {
+    "uf": [
+      {
+        "candidate": {
+          "family_key": "uf",
+          "family_label": "Dados por Unidade da Federação",
+          "year": 2026,
+          "month": 3,
+          "yyyymm": "202603",
+          "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_UF.zip"
+        },
+        "probes": [
+          {
+            "method": "HEAD",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_UF.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "ok": false
+          },
+          {
+            "method": "GET",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_UF.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
+            "first_chunk_preview_hex": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227074",
+            "ok": false
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "family_key": "uf",
+          "family_label": "Dados por Unidade da Federação",
+          "year": 2025,
+          "month": 12,
+          "yyyymm": "202512",
+          "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_UF.zip"
+        },
+        "probes": [
+          {
+            "method": "HEAD",
+            "status_code": 200,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_UF.zip",
+            "content_type": "application/x-zip-compressed",
+            "content_length": "104829",
+            "ok": true
+          }
+        ]
+      }
+    ],
+    "adm": [
+      {
+        "candidate": {
+          "family_key": "adm",
+          "family_label": "Dados Contábeis Consolidados",
+          "year": 2026,
+          "month": 3,
+          "yyyymm": "202603",
+          "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_ADM.zip"
+        },
+        "probes": [
+          {
+            "method": "HEAD",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_ADM.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "ok": false
+          },
+          {
+            "method": "GET",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_ADM.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
+            "first_chunk_preview_hex": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227074",
+            "ok": false
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "family_key": "adm",
+          "family_label": "Dados Contábeis Consolidados",
+          "year": 2025,
+          "month": 12,
+          "yyyymm": "202512",
+          "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_ADM.zip"
+        },
+        "probes": [
+          {
+            "method": "HEAD",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_ADM.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "ok": false
+          },
+          {
+            "method": "GET",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_ADM.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
+            "first_chunk_preview_hex": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227074",
+            "ok": false
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "family_key": "adm",
+          "family_label": "Dados Contábeis Consolidados",
+          "year": 2025,
+          "month": 9,
+          "yyyymm": "202509",
+          "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202509Consorcios_ADM.zip"
+        },
+        "probes": [
+          {
+            "method": "HEAD",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202509Consorcios_ADM.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "ok": false
+          },
+          {
+            "method": "GET",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202509Consorcios_ADM.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
+            "first_chunk_preview_hex": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227074",
+            "ok": false
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "family_key": "adm",
+          "family_label": "Dados Contábeis Consolidados",
+          "year": 2025,
+          "month": 6,
+          "yyyymm": "202506",
+          "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202506Consorcios_ADM.zip"
+        },
+        "probes": [
+          {
+            "method": "HEAD",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202506Consorcios_ADM.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "ok": false
+          },
+          {
+            "method": "GET",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202506Consorcios_ADM.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
+            "first_chunk_preview_hex": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227074",
+            "ok": false
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "family_key": "adm",
+          "family_label": "Dados Contábeis Consolidados",
+          "year": 2025,
+          "month": 3,
+          "yyyymm": "202503",
+          "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202503Consorcios_ADM.zip"
+        },
+        "probes": [
+          {
+            "method": "HEAD",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202503Consorcios_ADM.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "ok": false
+          },
+          {
+            "method": "GET",
+            "status_code": 404,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202503Consorcios_ADM.zip",
+            "content_type": "text/html",
+            "content_length": "6245",
+            "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
+            "first_chunk_preview_hex": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227074",
+            "ok": false
+          }
+        ]
+      },
+      {
+        "candidate": {
+          "family_key": "adm",
+          "family_label": "Dados Contábeis Consolidados",
+          "year": 2024,
+          "month": 12,
+          "yyyymm": "202412",
+          "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202412Consorcios_ADM.zip"
+        },
+        "probes": [
+          {
+            "method": "HEAD",
+            "status_code": 200,
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202412Consorcios_ADM.zip",
+            "content_type": "application/x-zip-compressed",
+            "content_length": "17868",
+            "ok": true
+          }
+        ]
+      }
+    ]
+  }
+}
