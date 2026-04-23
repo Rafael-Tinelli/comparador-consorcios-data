@@ -1,37 +1,48 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "environment": "production",
   "timezone": "America/Sao_Paulo",
   "deploy_enabled": true,
-  "validate_after_deploy": true,
+  "deploy_mode": "hostgator_pull_cron",
+  "validate_after_publish": true,
   "rollback_enabled": true,
+
   "project": {
     "name": "comparador-consorcios-data",
     "artifact_source_base": "data/dist",
     "artifact_source_global_dir": "data/dist/global",
-    "artifact_source_seo_dir": "data/dist/seo"
+    "artifact_source_seo_dir": "data/dist/seo",
+    "manifest_strategy": "use_global_meta_json"
   },
+
+  "source": {
+    "provider": "github_raw",
+    "repository": "Rafael-Tinelli/comparador-consorcios-data",
+    "branch": "main",
+    "base_raw_url": "https://raw.githubusercontent.com/Rafael-Tinelli/comparador-consorcios-data/main/data/dist",
+    "manifest_relative_path": "global/meta.json",
+    "global_relative_dir": "global",
+    "seo_relative_dir": "seo",
+    "notes": "O servidor consulta primeiro global/meta.json. Se houver mudança, baixa os demais JSONs."
+  },
+
   "target": {
     "hostgator": {
-      "host": "SEU_HOST_SSH",
-      "port": 22,
-      "username": "SEU_USUARIO",
-      "auth_method": "ssh_key",
-      "ssh_key_secret_name": "HOSTGATOR_SSH_KEY",
-      "known_hosts_secret_name": "HOSTGATOR_KNOWN_HOSTS",
       "base_dir": "/home1/SEU_USUARIO/consorcio-data",
+      "releases_dir": "/home1/SEU_USUARIO/consorcio-data/releases",
       "current_dir": "/home1/SEU_USUARIO/consorcio-data/current",
-      "backup_dir": "/home1/SEU_USUARIO/consorcio-data/backup",
+      "tmp_dir": "/home1/SEU_USUARIO/consorcio-data/_tmp",
       "logs_dir": "/home1/SEU_USUARIO/consorcio-data/logs",
-      "incoming_dir": "/home1/SEU_USUARIO/consorcio-data/_incoming",
-      "tmp_extract_dir": "/home1/SEU_USUARIO/consorcio-data/_tmp_extract"
+      "state_dir": "/home1/SEU_USUARIO/consorcio-data/state",
+      "state_file": "/home1/SEU_USUARIO/consorcio-data/state/current_manifest.json"
     },
     "public_frontend": {
       "base_dir": "/public_html/financas/consorcio",
       "deploy_frontend_files": false,
-      "notes": "O frontend PHP/CSS/JS permanece no HostGator e não faz parte do deploy de dados da v1."
+      "notes": "O frontend PHP/CSS/JS permanece no HostGator e não faz parte da publicação de dados."
     }
   },
+
   "artifacts": {
     "global": [
       "instituicoes.json",
@@ -43,43 +54,32 @@
       "meta.json"
     ],
     "seo": [
-      "home-consorcio.json",
-      "carro.json",
-      "moto.json",
-      "imobiliario.json",
-      "carta-contemplada.json",
-      "melhor-consorcio.json",
-      "consorcio-ou-financiamento.json",
-      "ranking-administradoras.json",
-      "menor-taxa.json"
+      "defaults.json",
+      "routes.json",
+      "site.json"
     ]
   },
-  "transport": {
-    "strategy": "scp_bundle",
-    "bundle_name": "consorcio-data-deploy.tar.gz",
-    "compression": "gzip",
-    "upload_to_incoming_dir": true,
-    "delete_incoming_before_upload": true,
-    "verify_remote_bundle_exists": true
+
+  "pull": {
+    "strategy": "manifest_then_download",
+    "download_mode": "file_by_file",
+    "publish_only_on_change": true,
+    "require_complete_release": true,
+    "compare_using": "sha256_or_generated_at",
+    "cron_recommended": "*/30 * * * *",
+    "timeout_seconds": 60,
+    "retry_count": 3,
+    "user_agent": "comparador-consorcios-cron/1.0",
+    "atomic_publish": "directory_swap",
+    "keep_releases": 10
   },
-  "release": {
-    "strategy": "backup_then_replace_current",
-    "create_timestamped_backup": true,
-    "backup_timestamp_format": "%Y-%m-%d__%H-%M-%S",
-    "replace_mode": "directory_swap",
-    "preserve_last_n_backups": 10,
-    "delete_old_backups_after_preserve_limit": true,
-    "write_deploy_log": true,
-    "write_validate_log": true
-  },
+
   "validation": {
     "enabled": true,
     "fail_if_any_expected_file_missing": true,
     "fail_if_any_expected_file_is_empty": true,
-    "fail_if_meta_missing_build_timestamp": true,
-    "fail_if_meta_missing_pipeline_version": true,
     "fail_if_json_invalid": true,
-    "required_paths_after_deploy": [
+    "required_paths_after_publish": [
       "/home1/SEU_USUARIO/consorcio-data/current/global/instituicoes.json",
       "/home1/SEU_USUARIO/consorcio-data/current/global/produtos.json",
       "/home1/SEU_USUARIO/consorcio-data/current/global/rankings.json",
@@ -87,93 +87,66 @@
       "/home1/SEU_USUARIO/consorcio-data/current/global/cenarios.json",
       "/home1/SEU_USUARIO/consorcio-data/current/global/autocomplete.json",
       "/home1/SEU_USUARIO/consorcio-data/current/global/meta.json",
-      "/home1/SEU_USUARIO/consorcio-data/current/seo/home-consorcio.json",
-      "/home1/SEU_USUARIO/consorcio-data/current/seo/carro.json",
-      "/home1/SEU_USUARIO/consorcio-data/current/seo/moto.json",
-      "/home1/SEU_USUARIO/consorcio-data/current/seo/imobiliario.json",
-      "/home1/SEU_USUARIO/consorcio-data/current/seo/carta-contemplada.json",
-      "/home1/SEU_USUARIO/consorcio-data/current/seo/melhor-consorcio.json",
-      "/home1/SEU_USUARIO/consorcio-data/current/seo/consorcio-ou-financiamento.json",
-      "/home1/SEU_USUARIO/consorcio-data/current/seo/ranking-administradoras.json",
-      "/home1/SEU_USUARIO/consorcio-data/current/seo/menor-taxa.json"
+      "/home1/SEU_USUARIO/consorcio-data/current/seo/defaults.json",
+      "/home1/SEU_USUARIO/consorcio-data/current/seo/routes.json",
+      "/home1/SEU_USUARIO/consorcio-data/current/seo/site.json"
     ],
     "meta_checks": {
       "path": "/home1/SEU_USUARIO/consorcio-data/current/global/meta.json",
       "required_fields": [
-        "build_timestamp",
-        "pipeline_version",
-        "sources",
-        "freshness"
+        "project",
+        "counts",
+        "source_runtime",
+        "hashes"
       ]
     }
   },
+
   "rollback": {
     "enabled": true,
     "trigger_on_validation_failure": true,
     "trigger_on_missing_required_files": true,
     "trigger_on_invalid_json": true,
-    "rollback_source": "latest_backup",
+    "rollback_source": "previous_release",
     "write_rollback_log_entry": true
   },
+
   "logs": {
-    "deploy_log_file": "/home1/SEU_USUARIO/consorcio-data/logs/deploy.log",
+    "publish_log_file": "/home1/SEU_USUARIO/consorcio-data/logs/publish.log",
     "validate_log_file": "/home1/SEU_USUARIO/consorcio-data/logs/validate.log",
+    "rollback_log_file": "/home1/SEU_USUARIO/consorcio-data/logs/rollback.log",
     "log_format": "text",
     "include_timestamp": true,
     "include_release_id": true,
     "include_changed_files_count": true
   },
+
   "workflow_integration": {
+    "build_workflow_file": ".github/workflows/08-build-read-models.yml",
     "deploy_workflow_file": ".github/workflows/09-deploy-hostgator.yml",
     "validate_workflow_file": ".github/workflows/10-validate-hostgator.yml",
-    "run_deploy_only_after_successful_build": true,
-    "run_validate_immediately_after_deploy": true,
+    "run_server_pull_independently_of_github": true,
+    "publish_only_after_successful_build": true,
     "publish_only_on_change": true
   },
+
   "remote_commands": {
-    "prepare_directories": [
-      "mkdir -p /home1/SEU_USUARIO/consorcio-data",
-      "mkdir -p /home1/SEU_USUARIO/consorcio-data/current",
-      "mkdir -p /home1/SEU_USUARIO/consorcio-data/backup",
-      "mkdir -p /home1/SEU_USUARIO/consorcio-data/logs",
-      "mkdir -p /home1/SEU_USUARIO/consorcio-data/_incoming",
-      "mkdir -p /home1/SEU_USUARIO/consorcio-data/_tmp_extract"
-    ],
-    "before_release": [
-      "rm -rf /home1/SEU_USUARIO/consorcio-data/_tmp_extract/*"
-    ],
-    "extract_bundle": [
-      "tar -xzf /home1/SEU_USUARIO/consorcio-data/_incoming/consorcio-data-deploy.tar.gz -C /home1/SEU_USUARIO/consorcio-data/_tmp_extract"
-    ],
-    "backup_current_if_exists": [
-      "if [ -d /home1/SEU_USUARIO/consorcio-data/current/global ] || [ -d /home1/SEU_USUARIO/consorcio-data/current/seo ]; then cp -R /home1/SEU_USUARIO/consorcio-data/current /home1/SEU_USUARIO/consorcio-data/backup/${RELEASE_ID}; fi"
-    ],
-    "replace_current": [
-      "rm -rf /home1/SEU_USUARIO/consorcio-data/current/global",
-      "rm -rf /home1/SEU_USUARIO/consorcio-data/current/seo",
-      "mkdir -p /home1/SEU_USUARIO/consorcio-data/current",
-      "cp -R /home1/SEU_USUARIO/consorcio-data/_tmp_extract/global /home1/SEU_USUARIO/consorcio-data/current/global",
-      "cp -R /home1/SEU_USUARIO/consorcio-data/_tmp_extract/seo /home1/SEU_USUARIO/consorcio-data/current/seo"
-    ],
-    "cleanup": [
-      "rm -rf /home1/SEU_USUARIO/consorcio-data/_tmp_extract/*",
-      "rm -f /home1/SEU_USUARIO/consorcio-data/_incoming/consorcio-data-deploy.tar.gz"
+    "notes": [
+      "A publicação passa a ser feita por script local no HostGator acionado por cron.",
+      "O script consulta primeiro global/meta.json no GitHub Raw.",
+      "Se houver nova versão, baixa os JSONs para uma pasta temporária.",
+      "Depois valida, cria release local e troca current de forma atômica."
     ]
   },
+
   "secrets": {
-    "required": [
-      "HOSTGATOR_SSH_HOST",
-      "HOSTGATOR_SSH_USER",
-      "HOSTGATOR_SSH_KEY",
-      "HOSTGATOR_KNOWN_HOSTS"
-    ],
-    "optional": [
-      "HOSTGATOR_SSH_PORT"
-    ]
+    "required": [],
+    "optional": []
   },
+
   "safety_flags": {
     "never_delete_base_dir": true,
-    "never_touch_public_html_in_data_deploy": true,
+    "never_touch_public_html_in_data_publish": true,
     "never_publish_partial_current": true,
     "never_skip_validation_when_enabled": true
   }
