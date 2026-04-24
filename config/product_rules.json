@@ -1,11 +1,12 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "currency": "BRL",
   "locale": "pt-BR",
   "defaults": {
     "enabled": true,
     "publish_only_if_active_institution": true,
-    "drop_records_without_institution_id": true,
+    "drop_records_without_institution_id": false,
+    "drop_records_without_cnpj_root": true,
     "drop_records_without_segment": true,
     "drop_records_without_credit_value": false,
     "drop_records_without_term_months": false,
@@ -28,6 +29,8 @@
         "AUTO",
         "AUTOMOVEL",
         "AUTOMÓVEL",
+        "VEICULO",
+        "VEÍCULO",
         "VEICULO LEVE",
         "VEÍCULO LEVE",
         "CARRO",
@@ -227,15 +230,29 @@
     "REFORMA": "reforma"
   },
   "field_mapping": {
+    "source_institution_id_candidates": [
+      "cnpj_root",
+      "cnpj_da_administradora",
+      "cnpj_ac",
+      "cnpj"
+    ],
+    "source_institution_name_candidates": [
+      "nome_da_administradora",
+      "administradora_de_consorcio",
+      "administradora",
+      "institution_name"
+    ],
     "source_product_name_candidates": [
       "nome_produto",
       "produto",
       "modalidade",
       "grupo_modalidade",
       "descricao",
-      "descrição"
+      "descrição",
+      "categoria_label"
     ],
     "source_segment_candidates": [
+      "codigo_do_segmento",
       "segmento",
       "modalidade",
       "tipo_bem",
@@ -249,6 +266,7 @@
       "descrição_bem"
     ],
     "source_credit_value_candidates": [
+      "valor_medio_do_bem",
       "credito_valor",
       "valor_credito",
       "valor_carta",
@@ -258,6 +276,7 @@
       "valor_referencia"
     ],
     "source_term_months_candidates": [
+      "prazo_do_grupo_em_meses",
       "prazo",
       "prazo_meses",
       "duracao_meses",
@@ -266,6 +285,7 @@
       "vigência_meses"
     ],
     "source_admin_fee_percent_candidates": [
+      "taxa_de_administracao",
       "taxa_administracao",
       "taxa_admin",
       "taxa_adm",
@@ -436,7 +456,7 @@
   ],
   "publication_rules": {
     "require_minimum_fields": [
-      "institution_id",
+      "cnpj_root",
       "segment"
     ],
     "prefer_records_with": [
@@ -529,6 +549,8 @@
       "carta-contemplada"
     ],
     "do_not_infer_contract_conditions_not_present_in_source": true,
-    "do_not_rank_products_without_minimum_comparable_fields": true
+    "do_not_rank_products_without_minimum_comparable_fields": true,
+    "cnpj_root_is_internal_only": true,
+    "do_not_display_cnpj_root_as_full_cnpj": true
   }
 }
