@@ -31,7 +31,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 from unidecode import unidecode
 
-PIPELINE_VERSION = "2.1.0"
+PIPELINE_VERSION = "2.2.0"
 
 
 def utc_now_iso() -> str:
@@ -257,6 +257,13 @@ def summarize_zip_csv(path: Path) -> Dict[str, Any]:
 
 
 def load_product_rules(path: Path) -> List[Dict[str, Any]]:
+    """
+    Carrega regras semânticas de produtos.
+
+    Importante: este arquivo é apoio de SEO/intenção. Ele NÃO é o read model
+    comercial do widget. O read model real de produtos é gerado em build_products()
+    a partir do ConsorcioBD.
+    """
     payload = try_load_json(path)
     if payload is None:
         return fallback_product_rules()
@@ -266,36 +273,55 @@ def load_product_rules(path: Path) -> List[Dict[str, Any]]:
             items = payload["products"]
         elif isinstance(payload.get("rules"), list):
             items = payload["rules"]
+        elif isinstance(payload.get("items"), list):
+            items = payload["items"]
         else:
             items = []
             for key, value in payload.items():
-                if isinstance(value, dict):
-                    row = {"key": key, **value}
-                    items.append(row)
+                if not isinstance(value, dict):
+                    continue
+                if not any(k in value for k in ("label", "name", "aliases", "keywords", "intents", "intent_keywords")):
+                    continue
+                items.append({"key": key, **value})
     elif isinstance(payload, list):
         items = payload
     else:
         items = []
 
     normalized_items = []
+    seen = set()
+
     for item in items:
         if not isinstance(item, dict):
             continue
+
         key = item.get("key") or slugify(item.get("label") or item.get("name") or "produto")
-        label = item.get("label") or item.get("name") or key.replace("-", " ").title()
+        key = normalize_key(str(key))
+
+        if not key or key in seen:
+            continue
+
+        seen.add(key)
+
+        label = item.get("label") or item.get("name") or key.replace("_", " ").title()
         aliases = item.get("aliases") or item.get("keywords") or []
         intents = item.get("intents") or item.get("intent_keywords") or []
+
+        if isinstance(aliases, str):
+            aliases = [aliases]
+        if isinstance(intents, str):
+            intents = [intents]
+
         normalized_items.append(
             {
-                "key": normalize_key(str(key)),
+                "key": key,
                 "label": str(label),
-                "aliases": [str(x) for x in aliases],
-                "intents": [str(x) for x in intents],
+                "aliases": [str(x) for x in aliases if str(x).strip()],
+                "intents": [str(x) for x in intents if str(x).strip()],
             }
         )
 
     return normalized_items or fallback_product_rules()
-
 
 def fallback_product_rules() -> List[Dict[str, Any]]:
     return [
@@ -307,6 +333,12 @@ def fallback_product_rules() -> List[Dict[str, Any]]:
 
 
 def load_seo_routes(path: Path) -> List[Dict[str, Any]]:
+    """
+    Carrega rotas SEO.
+
+    Se o arquivo estiver em formato técnico/configuração, NÃO transforma chaves como
+    defaults/routes/families em páginas. Nesse caso usa fallback estável.
+    """
     payload = try_load_json(path)
     if payload is None:
         return fallback_seo_routes()
@@ -316,42 +348,71 @@ def load_seo_routes(path: Path) -> List[Dict[str, Any]]:
             items = payload["routes"]
         elif isinstance(payload.get("seo_routes"), list):
             items = payload["seo_routes"]
+        elif isinstance(payload.get("items"), list):
+            items = payload["items"]
+        elif isinstance(payload.get("pages"), list):
+            items = payload["pages"]
         else:
             items = []
             for key, value in payload.items():
-                if isinstance(value, dict):
-                    items.append({"key": key, **value})
+                if not isinstance(value, dict):
+                    continue
+                if not any(k in value for k in ("path", "slug", "title", "primary_keyword", "keyword")):
+                    continue
+                items.append({"key": key, **value})
     elif isinstance(payload, list):
         items = payload
     else:
         items = []
 
+    blocked_slugs = {
+        "defaults", "routes", "families", "segment-aliases", "subsegment-aliases",
+        "field-mapping", "normalization", "publication-rules", "comparison-rules",
+        "sorting-defaults", "ui-filters", "route-visibility", "flags",
+    }
+
     normalized_items = []
+    seen_paths = set()
+    seen_slugs = set()
+
     for item in items:
         if not isinstance(item, dict):
             continue
+
         key = item.get("key") or item.get("slug") or item.get("file") or item.get("name")
         if not key:
             continue
-        slug = str(item.get("slug") or item.get("file") or key)
-        slug = slug.replace(".json", "").strip("/")
+
+        raw_slug = str(item.get("slug") or item.get("file") or key)
+        slug = slugify(raw_slug.replace(".json", "").strip("/"))
+
+        if slug in blocked_slugs:
+            continue
+
         title = item.get("title") or item.get("label") or slug.replace("-", " ").title()
-        path_value = item.get("path") or f"/financas/consorcio/{slug}/"
+        path_value = str(item.get("path") or f"/financas/consorcio/{slug}/")
+
         if slug in ("melhor-consorcio", "consorcio-ou-financiamento", "ranking-administradoras", "menor-taxa"):
-            path_value = item.get("path") or f"/financas/consorcio/{slug}.php"
+            path_value = str(item.get("path") or f"/financas/consorcio/{slug}.php")
+
+        if slug in seen_slugs or path_value in seen_paths:
+            continue
+
+        seen_slugs.add(slug)
+        seen_paths.add(path_value)
 
         normalized_items.append(
             {
                 "key": normalize_key(str(key)),
                 "slug": slug,
                 "title": str(title),
-                "path": str(path_value),
+                "path": path_value,
                 "primary_keyword": str(item.get("primary_keyword") or item.get("keyword") or title),
+                "description": item.get("description") or item.get("meta_description"),
             }
         )
 
     return normalized_items or fallback_seo_routes()
-
 
 def fallback_seo_routes() -> List[Dict[str, Any]]:
     return [
@@ -483,6 +544,18 @@ def extract_latest_series_map(series_payload: Dict[str, Any]) -> Dict[str, Dict[
 
 
 def load_ranking_rows(csv_path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    """
+    Lê o ranking de reclamações de consórcios do Banco Central.
+
+    O CSV real vem com colunas como:
+    - Ano
+    - Semestre
+    - CNPJ AC
+    - Administradora de consórcio
+    - Índice
+    - Quantidade total de reclamações
+    - Quantidade de clientes – Consorciados
+    """
     if not csv_path.exists():
         return [], {"exists": False}
 
@@ -490,10 +563,12 @@ def load_ranking_rows(csv_path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, A
     rows, meta = parse_csv_bytes(binary)
 
     parsed = []
-    for row in rows:
+    for idx, row in enumerate(rows, start=1):
         name = pick_value(
             row,
             [
+                "administradora_de_consorcio",
+                "nome_da_administradora",
                 "instituicao",
                 "nome",
                 "administradora",
@@ -502,25 +577,66 @@ def load_ranking_rows(csv_path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, A
                 "razao_social",
             ],
         )
+
         if not name:
             continue
+
+        cnpj_root = pick_value(row, ["cnpj_ac", "cnpj", "cnpj_da_administradora"])
+        cnpj_root = re.sub(r"\D+", "", str(cnpj_root or "")) or None
+
+        index_value = try_float(pick_value(row, ["indice", "indice_reclamacoes", "indice_de_reclamacoes"]))
+        regulated_procedent = try_int(
+            pick_value(row, ["quantidade_de_reclamacoes_reguladas_procedentes", "reclamacoes_reguladas_procedentes"])
+        )
+        regulated_other = try_int(
+            pick_value(row, ["quantidade_de_reclamacoes_reguladas_outras", "reclamacoes_reguladas_outras"])
+        )
+        unregulated = try_int(
+            pick_value(row, ["quantidade_de_reclamacoes_nao_reguladas", "reclamacoes_nao_reguladas"])
+        )
+        total_complaints = try_int(
+            pick_value(row, ["quantidade_total_de_reclamacoes", "total_de_reclamacoes", "reclamacoes", "qtde_reclamacoes"])
+        )
+        clients = try_int(
+            pick_value(
+                row,
+                [
+                    "quantidade_de_clientes_consorciados",
+                    "clientes_consorciados",
+                    "clientes",
+                    "quantidade_clientes",
+                    "base_clientes",
+                ],
+            )
+        )
+
+        position = try_int(pick_value(row, ["posicao", "ranking", "classificacao"])) or idx
 
         parsed.append(
             {
                 "institution_name": str(name),
                 "normalized_name": normalize_text(str(name)),
-                "position": try_int(pick_value(row, ["posicao", "ranking", "classificacao"])),
-                "index_value": try_float(pick_value(row, ["indice", "indice_reclamacoes", "indice_de_reclamacoes"])),
-                "complaints": try_int(pick_value(row, ["reclamacoes_reguladas_procedentes", "reclamacoes", "qtde_reclamacoes"])),
-                "clients": try_int(pick_value(row, ["clientes", "quantidade_clientes", "base_clientes"])),
+                "cnpj": cnpj_root,
+                "cnpj_root": cnpj_root,
+                "position": position,
+                "index_value": index_value,
+                "complaints_regulated_procedent": regulated_procedent,
+                "complaints_regulated_other": regulated_other,
+                "complaints_unregulated": unregulated,
+                "complaints": total_complaints,
+                "clients": clients,
+                "ano": try_int(pick_value(row, ["ano"])),
+                "semestre": str(pick_value(row, ["semestre"]) or "").strip() or None,
                 "raw": row,
             }
         )
 
-    parsed.sort(key=lambda x: (x["position"] is None, x["position"] or 999999))
-    meta["exists"] = True
-    return parsed, meta
+    parsed.sort(key=lambda x: (x["position"] is None, x["position"] or 999999, x.get("institution_name") or ""))
 
+    meta["exists"] = True
+    meta["parsed_count"] = len(parsed)
+
+    return parsed, meta
 
 def build_branch_counts(branches: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
     by_name: Dict[str, Dict[str, Any]] = defaultdict(lambda: {"branch_count": 0, "ufs": set(), "cities": set()})
@@ -544,12 +660,17 @@ def build_branch_counts(branches: List[Dict[str, Any]]) -> Dict[str, Dict[str, A
 
 def build_ranking_lookup(rankings: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
     lookup = {}
-    for row in rankings:
-        key = row["normalized_name"]
-        if key and key not in lookup:
-            lookup[key] = row
-    return lookup
 
+    for row in rankings:
+        cnpj = row.get("cnpj_root") or row.get("cnpj")
+        if cnpj:
+            lookup[f"cnpj:{cnpj}"] = row
+
+        key = row.get("normalized_name")
+        if key and f"name:{key}" not in lookup:
+            lookup[f"name:{key}"] = row
+
+    return lookup
 
 def compute_institution_score(
     *,
@@ -595,10 +716,18 @@ def build_instituicoes(
     ranking_lookup = build_ranking_lookup(rankings)
 
     items = []
+
     for inst in cadastro:
         key = inst["normalized_name"]
+        cnpj_root = re.sub(r"\D+", "", str(inst.get("cnpj") or "")) or None
         branch_info = branch_counts.get(key, {})
-        ranking_info = ranking_lookup.get(key, {})
+
+        ranking_info = {}
+        if cnpj_root and f"cnpj:{cnpj_root}" in ranking_lookup:
+            ranking_info = ranking_lookup[f"cnpj:{cnpj_root}"]
+        elif f"name:{key}" in ranking_lookup:
+            ranking_info = ranking_lookup[f"name:{key}"]
+
         score = compute_institution_score(
             status=inst.get("status"),
             branch_count=branch_info.get("branch_count", 0),
@@ -609,7 +738,8 @@ def build_instituicoes(
         items.append(
             {
                 "institution_id": inst.get("institution_id"),
-                "cnpj": inst.get("cnpj"),
+                "cnpj": cnpj_root,
+                "cnpj_root": cnpj_root,
                 "institution_name": inst["institution_name"],
                 "normalized_name": key,
                 "status": inst.get("status"),
@@ -619,6 +749,8 @@ def build_instituicoes(
                 "ranking_position": ranking_info.get("position"),
                 "ranking_index": ranking_info.get("index_value"),
                 "ranking_complaints": ranking_info.get("complaints"),
+                "ranking_clients": ranking_info.get("clients"),
+                "ranking_complaints_regulated_procedent": ranking_info.get("complaints_regulated_procedent"),
                 "score": score,
             }
         )
@@ -632,7 +764,6 @@ def build_instituicoes(
         },
         "items": items,
     }
-
 
 def build_rankings(rankings: List[Dict[str, Any]], ranking_meta: Dict[str, Any]) -> Dict[str, Any]:
     return {
@@ -655,12 +786,9 @@ def build_products(
     """
     Gera produtos reais a partir do ConsorcioBD mensal do Banco Central.
 
-    Observação:
-    - product_rules continua sendo usado como apoio semântico/SEO.
-    - A base operacional do produto vem dos CSVs do arquivo:
-      data/raw/bc/consorciobd/latest_source.bin
+    product_rules é mantido apenas como apoio semântico/SEO em semantic_products.
+    Os itens principais de produtos.json vêm dos CSVs oficiais do ConsorcioBD.
     """
-
     raw_zip_path = Path("data/raw/bc/consorciobd/latest_source.bin")
     generated_at = utc_now_iso()
 
@@ -679,29 +807,25 @@ def build_products(
         "3": "imobiliario",
         "4": "servicos",
         "5": "eletroeletronicos",
-        "6": "outros-bens-moveis",
+        "6": "outros_bens_moveis",
     }
 
     def infer_segment_from_member(member_name: str, row: Dict[str, Any]) -> Tuple[str, str]:
         member_norm = normalize_text(member_name)
-
         codigo = str(pick_value(row, ["codigo_do_segmento", "segmento", "codigo_segmento"]) or "").strip()
         codigo = re.sub(r"\D+", "", codigo)
 
         if "imoveis" in member_norm or "imovel" in member_norm:
             return "imobiliario", "Consórcio de imóveis"
-
         if "moto" in member_norm:
             return "motos", "Consórcio de motocicletas"
-
         if "veiculo" in member_norm or "automovel" in member_norm or "auto" in member_norm:
             return "veiculos", "Consórcio de veículos"
-
         if "servico" in member_norm:
             return "servicos", "Consórcio de serviços"
 
         if codigo:
-            key = segment_keys.get(codigo, f"segmento-{codigo}")
+            key = segment_keys.get(codigo, f"segmento_{codigo}")
             label = segment_labels.get(codigo, f"Consórcio — segmento {codigo}")
             return key, label
 
@@ -721,24 +845,24 @@ def build_products(
                     continue
 
                 member_norm = normalize_text(member)
-
                 if "significado" in member_norm or "layout" in member_norm:
                     continue
 
                 with zf.open(member, "r") as fh:
-                    binary = fh.read()
-
-                rows, _meta = parse_csv_bytes(binary)
+                    rows, _meta = parse_csv_bytes(fh.read())
 
                 for row in rows:
-                    cnpj = str(pick_value(row, ["cnpj_da_administradora", "cnpj", "cnpj_ac"]) or "").strip()
-                    cnpj = re.sub(r"\D+", "", cnpj)
+                    cnpj_root = re.sub(
+                        r"\D+",
+                        "",
+                        str(pick_value(row, ["cnpj_da_administradora", "cnpj", "cnpj_ac"]) or ""),
+                    ) or None
 
                     nome_admin = normalize_spaces(
                         pick_value(row, ["nome_da_administradora", "administradora_de_consorcio", "administradora"])
                     )
 
-                    if not cnpj and not nome_admin:
+                    if not cnpj_root and not nome_admin:
                         continue
 
                     categoria_key, categoria_label = infer_segment_from_member(member, row)
@@ -767,16 +891,17 @@ def build_products(
                         try_float(pick_value(row, ["quantidade_de_cotas_ativas_nao_contempladas_inadimplentes"])) or 0.0
                     )
 
-                    group_key = f"{cnpj or normalize_text(nome_admin)}::{categoria_key}"
+                    group_key = f"{cnpj_root or normalize_text(nome_admin)}::{categoria_key}"
 
                     if group_key not in groups:
                         groups[group_key] = {
-                            "key": group_key,
-                            "categoria": categoria_key,
+                            "key": categoria_key,
+                            "categoria_key": categoria_key,
                             "categoria_label": categoria_label,
                             "nome": categoria_label,
                             "label": categoria_label,
-                            "cnpj_da_administradora": cnpj or None,
+                            "cnpj_da_administradora": cnpj_root,
+                            "cnpj_root": cnpj_root,
                             "nome_da_administradora": nome_admin,
                             "data_base": pick_value(row, ["data_base"]),
                             "codigo_do_segmento": pick_value(row, ["codigo_do_segmento"]),
@@ -805,11 +930,9 @@ def build_products(
                     if taxa is not None:
                         item["_taxa_total"] += taxa * cotas_ativas
                         item["_taxa_weight"] += cotas_ativas
-
                     if prazo is not None:
                         item["_prazo_total"] += prazo * cotas_ativas
                         item["_prazo_weight"] += cotas_ativas
-
                     if valor_bem is not None:
                         item["_valor_total"] += valor_bem * cotas_ativas
                         item["_valor_weight"] += cotas_ativas
@@ -821,16 +944,16 @@ def build_products(
         prazo_medio = weighted_average(item["_prazo_total"], item["_prazo_weight"])
         valor_medio = weighted_average(item["_valor_total"], item["_valor_weight"])
 
-        source_members = sorted(item["source_members"])
-
         clean = {
-            "id": slugify(f"{item.get('cnpj_da_administradora') or item.get('nome_da_administradora')}-{item['categoria']}"),
-            "key": item["categoria"],
+            "id": slugify(f"{item.get('cnpj_root') or item.get('nome_da_administradora')}-{item['categoria_key']}"),
+            "key": item["categoria_key"],
             "nome": item["nome"],
             "label": item["label"],
-            "categoria": item["categoria"],
+            "categoria": item["categoria_label"],
+            "categoria_key": item["categoria_key"],
             "categoria_label": item["categoria_label"],
             "cnpj_da_administradora": item.get("cnpj_da_administradora"),
+            "cnpj_root": item.get("cnpj_root"),
             "nome_da_administradora": item.get("nome_da_administradora"),
             "data_base": item.get("data_base"),
             "codigo_do_segmento": item.get("codigo_do_segmento"),
@@ -845,7 +968,7 @@ def build_products(
             "quantidade_de_cotas_ativas_contempladas_no_mes": int(item["quantidade_de_cotas_ativas_contempladas_no_mes"]) if item["quantidade_de_cotas_ativas_contempladas_no_mes"] else None,
             "quantidade_de_cotas_inadimplentes": int(item["quantidade_de_cotas_inadimplentes"]) if item["quantidade_de_cotas_inadimplentes"] else None,
             "row_count": item["row_count"],
-            "source_members": source_members,
+            "source_members": sorted(item["source_members"]),
             "source_coverage": {
                 "monthly_consolidated": monthly_summary.get("exists", False),
                 "quarterly_uf": uf_summary.get("exists", False),
@@ -855,21 +978,15 @@ def build_products(
 
         items.append(clean)
 
-    items.sort(
-        key=lambda x: (
-            x.get("categoria_label") or "",
-            x.get("nome_da_administradora") or "",
-            x.get("cnpj_da_administradora") or "",
-        )
-    )
+    items.sort(key=lambda x: (x.get("categoria_label") or "", x.get("nome_da_administradora") or ""))
 
     semantic_products = []
     route_slugs = [route["slug"] for route in seo_routes]
 
     for product in product_rules:
         aliases = [normalize_text(product["label"])] + [normalize_text(x) for x in product.get("aliases", [])]
-
         related_routes = []
+
         for slug in route_slugs:
             slug_norm = normalize_text(slug)
             if product["key"] in slug_norm or any(alias and alias in slug_norm for alias in aliases):
@@ -898,7 +1015,6 @@ def build_products(
         "items": items,
         "semantic_products": semantic_products,
     }
-
 
 def build_cenarios(
     latest_series: Dict[str, Dict[str, Any]],
@@ -994,51 +1110,48 @@ def build_autocomplete(
     suggestions = []
     seen = set()
 
-    for item in instituicoes_payload.get("items", [])[:150]:
-        label = item["institution_name"]
-        key = ("instituicao", normalize_text(label))
+    def add(kind: str, label: Any, target: str, extra: Optional[Dict[str, Any]] = None) -> None:
+        label = normalize_spaces(str(label)) if label is not None else None
+        if not label:
+            return
+
+        key = (kind, normalize_text(label), target)
         if key in seen:
-            continue
+            return
+
         seen.add(key)
-        suggestions.append(
-            {
-                "type": "instituicao",
-                "label": label,
-                "target": "/financas/consorcio/ranking-administradoras.php",
-            }
+        row = {"type": kind, "label": label, "target": target}
+        if extra:
+            row.update(extra)
+        suggestions.append(row)
+
+    for item in instituicoes_payload.get("items", [])[:150]:
+        add(
+            "instituicao",
+            item.get("institution_name"),
+            "/financas/consorcio/ranking-administradoras.php",
+            {"cnpj_root": item.get("cnpj_root") or item.get("cnpj")},
         )
 
     for item in produtos_payload.get("items", []):
-        label = item["label"]
-        key = ("produto", normalize_text(label))
-        if key in seen:
-            continue
-        seen.add(key)
-        target = None
+        add(
+            "produto",
+            item.get("categoria_label") or item.get("label") or item.get("nome"),
+            "/financas/consorcio/",
+            {"categoria_key": item.get("categoria_key") or item.get("key")},
+        )
+
+    for item in produtos_payload.get("semantic_products", []):
         related_routes = item.get("related_routes") or []
+        target = "/financas/consorcio/"
         if related_routes:
             slug = related_routes[0]
             target = f"/financas/consorcio/{slug}/" if slug not in ("melhor-consorcio", "consorcio-ou-financiamento", "ranking-administradoras", "menor-taxa") else f"/financas/consorcio/{slug}.php"
-        suggestions.append(
-            {
-                "type": "produto",
-                "label": label,
-                "target": target or "/financas/consorcio/",
-            }
-        )
+
+        add("produto", item.get("label"), target, {"semantic": True})
 
     for route in seo_routes:
-        key = ("rota", normalize_text(route["title"]))
-        if key in seen:
-            continue
-        seen.add(key)
-        suggestions.append(
-            {
-                "type": "rota",
-                "label": route["title"],
-                "target": route["path"],
-            }
-        )
+        add("rota", route["title"], route["path"], {"primary_keyword": route.get("primary_keyword")})
 
     return {
         "metadata": {
@@ -1047,7 +1160,6 @@ def build_autocomplete(
         },
         "items": suggestions,
     }
-
 
 def get_build_context() -> Dict[str, Any]:
     return {
@@ -1174,21 +1286,37 @@ def build_seo_payloads(
 ) -> Dict[str, Dict[str, Any]]:
     institutions = instituicoes_payload.get("items", [])
     products = produtos_payload.get("items", [])
+    semantic_products = produtos_payload.get("semantic_products", [])
     rankings = rankings_payload.get("items", [])
     cenarios = cenarios_payload.get("items", [])
 
     payloads = {}
+
     for route in seo_routes:
         slug = route["slug"]
         slug_norm = normalize_text(slug)
 
         related_products = []
+
         for product in products:
-            if product["key"] in slug_norm or any(normalize_text(alias) in slug_norm for alias in product.get("aliases", [])):
+            product_key = product.get("categoria_key") or product.get("key") or ""
+            product_label = normalize_text(product.get("categoria_label") or product.get("label") or product.get("nome") or "")
+
+            if product_key and product_key in slug_norm:
+                related_products.append(product)
+            elif product_label and product_label in slug_norm:
                 related_products.append(product)
 
+        for product in semantic_products:
+            aliases = [normalize_text(product.get("label") or "")] + [normalize_text(alias) for alias in product.get("aliases", [])]
+            if product.get("key") in slug_norm or any(alias and alias in slug_norm for alias in aliases):
+                if product not in related_products:
+                    related_products.append(product)
+
         if not related_products and slug in ("carro", "moto", "imobiliario"):
-            related_products = [p for p in products if p["key"] == slug]
+            key_map = {"carro": "veiculos", "moto": "motos", "imobiliario": "imobiliario"}
+            wanted = key_map.get(slug)
+            related_products = [p for p in products if p.get("categoria_key") == wanted][:50]
 
         route_payload = {
             "route": route,
@@ -1199,15 +1327,15 @@ def build_seo_payloads(
             },
             "top_instituicoes": institutions[:10],
             "top_rankings": rankings[:10],
-            "related_products": related_products,
+            "related_products": related_products[:80],
             "series_highlights": list(latest_series.values())[:10],
             "scenario_highlights": cenarios[:5],
             "meta_hash": meta_payload["hashes"]["instituicoes"],
         }
+
         payloads[slug] = route_payload
 
     return payloads
-
 
 def load_runtime_summary(runtime_dir: Path) -> Dict[str, Any]:
     summary = {}
