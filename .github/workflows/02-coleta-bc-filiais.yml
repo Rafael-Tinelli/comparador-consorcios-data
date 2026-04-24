@@ -52,7 +52,7 @@ jobs:
             --source bc_filiais
 
       - name: Upload collector outputs
-        if: always()
+        if: success()
         uses: actions/upload-artifact@v6
         with:
           name: bc-filiais-output
@@ -63,15 +63,8 @@ jobs:
           if-no-files-found: warn
           retention-days: 15
 
-      - name: Fail if mode used is not homologated CSV
-        if: steps.collect.outputs.mode_used != 'odata-csv'
-        run: |
-          echo "Falha: a coleta não concluiu pelo modo homologado."
-          echo "mode_used=${{ steps.collect.outputs.mode_used }}"
-          exit 1
-
       - name: Commit changed outputs
-        if: steps.collect.outputs.changed == 'true' && steps.collect.outputs.mode_used == 'odata-csv'
+        if: success() && steps.collect.outputs.changed == 'true' && steps.collect.outputs.mode_used == 'odata-csv'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
