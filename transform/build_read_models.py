@@ -652,14 +652,222 @@ def build_products(
     uf_summary: Dict[str, Any],
     adm_summary: Dict[str, Any],
 ) -> Dict[str, Any]:
-    route_slugs = [route["slug"] for route in seo_routes]
-    source_headers = " ".join(monthly_summary.get("headers_union", []) + uf_summary.get("headers_union", []) + adm_summary.get("headers_union", []))
-    source_headers_norm = normalize_text(source_headers)
+    """
+    Gera produtos reais a partir do ConsorcioBD mensal do Banco Central.
+
+    Observação:
+    - product_rules continua sendo usado como apoio semântico/SEO.
+    - A base operacional do produto vem dos CSVs do arquivo:
+      data/raw/bc/consorciobd/latest_source.bin
+    """
+
+    raw_zip_path = Path("data/raw/bc/consorciobd/latest_source.bin")
+    generated_at = utc_now_iso()
+
+    segment_labels = {
+        "1": "Consórcio de veículos",
+        "2": "Consórcio de motocicletas",
+        "3": "Consórcio de imóveis",
+        "4": "Consórcio de serviços",
+        "5": "Consórcio de eletroeletrônicos",
+        "6": "Consórcio de outros bens móveis",
+    }
+
+    segment_keys = {
+        "1": "veiculos",
+        "2": "motos",
+        "3": "imobiliario",
+        "4": "servicos",
+        "5": "eletroeletronicos",
+        "6": "outros-bens-moveis",
+    }
+
+    def infer_segment_from_member(member_name: str, row: Dict[str, Any]) -> Tuple[str, str]:
+        member_norm = normalize_text(member_name)
+
+        codigo = str(pick_value(row, ["codigo_do_segmento", "segmento", "codigo_segmento"]) or "").strip()
+        codigo = re.sub(r"\D+", "", codigo)
+
+        if "imoveis" in member_norm or "imovel" in member_norm:
+            return "imobiliario", "Consórcio de imóveis"
+
+        if "moto" in member_norm:
+            return "motos", "Consórcio de motocicletas"
+
+        if "veiculo" in member_norm or "automovel" in member_norm or "auto" in member_norm:
+            return "veiculos", "Consórcio de veículos"
+
+        if "servico" in member_norm:
+            return "servicos", "Consórcio de serviços"
+
+        if codigo:
+            key = segment_keys.get(codigo, f"segmento-{codigo}")
+            label = segment_labels.get(codigo, f"Consórcio — segmento {codigo}")
+            return key, label
+
+        return "consorcio", "Consórcio"
+
+    def weighted_average(total_value: float, total_weight: float) -> Optional[float]:
+        if total_weight <= 0:
+            return None
+        return round(total_value / total_weight, 4)
+
+    groups: Dict[str, Dict[str, Any]] = {}
+
+    if raw_zip_path.exists():
+        with zipfile.ZipFile(raw_zip_path, "r") as zf:
+            for member in zf.namelist():
+                if not member.lower().endswith(".csv"):
+                    continue
+
+                member_norm = normalize_text(member)
+
+                if "significado" in member_norm or "layout" in member_norm:
+                    continue
+
+                with zf.open(member, "r") as fh:
+                    binary = fh.read()
+
+                rows, _meta = parse_csv_bytes(binary)
+
+                for row in rows:
+                    cnpj = str(pick_value(row, ["cnpj_da_administradora", "cnpj", "cnpj_ac"]) or "").strip()
+                    cnpj = re.sub(r"\D+", "", cnpj)
+
+                    nome_admin = normalize_spaces(
+                        pick_value(row, ["nome_da_administradora", "administradora_de_consorcio", "administradora"])
+                    )
+
+                    if not cnpj and not nome_admin:
+                        continue
+
+                    categoria_key, categoria_label = infer_segment_from_member(member, row)
+
+                    taxa = try_float(pick_value(row, ["taxa_de_administracao", "taxa_administracao"]))
+                    prazo = try_float(pick_value(row, ["prazo_do_grupo_em_meses", "prazo_meses", "prazo"]))
+                    valor_bem = try_float(pick_value(row, ["valor_medio_do_bem", "valor_credito", "valor_medio"]))
+
+                    cotas_ativas = try_float(
+                        pick_value(
+                            row,
+                            [
+                                "quantidade_de_cotas_ativas_em_dia",
+                                "quantidade_de_cotas_ativas_nao_contempladas",
+                                "quantidade_acumulada_de_cotas_ativas_contempladas",
+                                "quantidade_de_cotas_comercializadas_no_mes",
+                            ],
+                        )
+                    ) or 1.0
+
+                    grupos_ativos = try_float(pick_value(row, ["quantidade_de_grupos_ativos"])) or 0.0
+                    contempladas_mes = try_float(pick_value(row, ["quantidade_de_cotas_ativas_contempladas_no_mes"])) or 0.0
+                    inadimplentes = (
+                        try_float(pick_value(row, ["quantidade_de_cotas_ativas_contempladas_inadimplentes"])) or 0.0
+                    ) + (
+                        try_float(pick_value(row, ["quantidade_de_cotas_ativas_nao_contempladas_inadimplentes"])) or 0.0
+                    )
+
+                    group_key = f"{cnpj or normalize_text(nome_admin)}::{categoria_key}"
+
+                    if group_key not in groups:
+                        groups[group_key] = {
+                            "key": group_key,
+                            "categoria": categoria_key,
+                            "categoria_label": categoria_label,
+                            "nome": categoria_label,
+                            "label": categoria_label,
+                            "cnpj_da_administradora": cnpj or None,
+                            "nome_da_administradora": nome_admin,
+                            "data_base": pick_value(row, ["data_base"]),
+                            "codigo_do_segmento": pick_value(row, ["codigo_do_segmento"]),
+                            "source_members": set(),
+                            "row_count": 0,
+                            "quantidade_de_grupos_ativos": 0.0,
+                            "quantidade_de_cotas_ativas_em_dia": 0.0,
+                            "quantidade_de_cotas_ativas_contempladas_no_mes": 0.0,
+                            "quantidade_de_cotas_inadimplentes": 0.0,
+                            "_taxa_total": 0.0,
+                            "_taxa_weight": 0.0,
+                            "_prazo_total": 0.0,
+                            "_prazo_weight": 0.0,
+                            "_valor_total": 0.0,
+                            "_valor_weight": 0.0,
+                        }
+
+                    item = groups[group_key]
+                    item["source_members"].add(member)
+                    item["row_count"] += 1
+                    item["quantidade_de_grupos_ativos"] += grupos_ativos
+                    item["quantidade_de_cotas_ativas_em_dia"] += cotas_ativas
+                    item["quantidade_de_cotas_ativas_contempladas_no_mes"] += contempladas_mes
+                    item["quantidade_de_cotas_inadimplentes"] += inadimplentes
+
+                    if taxa is not None:
+                        item["_taxa_total"] += taxa * cotas_ativas
+                        item["_taxa_weight"] += cotas_ativas
+
+                    if prazo is not None:
+                        item["_prazo_total"] += prazo * cotas_ativas
+                        item["_prazo_weight"] += cotas_ativas
+
+                    if valor_bem is not None:
+                        item["_valor_total"] += valor_bem * cotas_ativas
+                        item["_valor_weight"] += cotas_ativas
 
     items = []
+
+    for item in groups.values():
+        taxa_media = weighted_average(item["_taxa_total"], item["_taxa_weight"])
+        prazo_medio = weighted_average(item["_prazo_total"], item["_prazo_weight"])
+        valor_medio = weighted_average(item["_valor_total"], item["_valor_weight"])
+
+        source_members = sorted(item["source_members"])
+
+        clean = {
+            "id": slugify(f"{item.get('cnpj_da_administradora') or item.get('nome_da_administradora')}-{item['categoria']}"),
+            "key": item["categoria"],
+            "nome": item["nome"],
+            "label": item["label"],
+            "categoria": item["categoria"],
+            "categoria_label": item["categoria_label"],
+            "cnpj_da_administradora": item.get("cnpj_da_administradora"),
+            "nome_da_administradora": item.get("nome_da_administradora"),
+            "data_base": item.get("data_base"),
+            "codigo_do_segmento": item.get("codigo_do_segmento"),
+            "taxa_de_administracao": taxa_media,
+            "taxa_administracao": taxa_media,
+            "prazo_do_grupo_em_meses": prazo_medio,
+            "prazo_meses": prazo_medio,
+            "valor_medio_do_bem": valor_medio,
+            "valor_credito": valor_medio,
+            "quantidade_de_grupos_ativos": int(item["quantidade_de_grupos_ativos"]) if item["quantidade_de_grupos_ativos"] else None,
+            "quantidade_de_cotas_ativas_em_dia": int(item["quantidade_de_cotas_ativas_em_dia"]) if item["quantidade_de_cotas_ativas_em_dia"] else None,
+            "quantidade_de_cotas_ativas_contempladas_no_mes": int(item["quantidade_de_cotas_ativas_contempladas_no_mes"]) if item["quantidade_de_cotas_ativas_contempladas_no_mes"] else None,
+            "quantidade_de_cotas_inadimplentes": int(item["quantidade_de_cotas_inadimplentes"]) if item["quantidade_de_cotas_inadimplentes"] else None,
+            "row_count": item["row_count"],
+            "source_members": source_members,
+            "source_coverage": {
+                "monthly_consolidated": monthly_summary.get("exists", False),
+                "quarterly_uf": uf_summary.get("exists", False),
+                "quarterly_adm": adm_summary.get("exists", False),
+            },
+        }
+
+        items.append(clean)
+
+    items.sort(
+        key=lambda x: (
+            x.get("categoria_label") or "",
+            x.get("nome_da_administradora") or "",
+            x.get("cnpj_da_administradora") or "",
+        )
+    )
+
+    semantic_products = []
+    route_slugs = [route["slug"] for route in seo_routes]
+
     for product in product_rules:
         aliases = [normalize_text(product["label"])] + [normalize_text(x) for x in product.get("aliases", [])]
-        matched_aliases = [alias for alias in aliases if alias and alias in source_headers_norm]
 
         related_routes = []
         for slug in route_slugs:
@@ -667,31 +875,28 @@ def build_products(
             if product["key"] in slug_norm or any(alias and alias in slug_norm for alias in aliases):
                 related_routes.append(slug)
 
-        items.append(
+        semantic_products.append(
             {
                 "key": product["key"],
                 "label": product["label"],
                 "aliases": product.get("aliases", []),
                 "intents": product.get("intents", []),
-                "matched_aliases_in_sources": matched_aliases,
                 "related_routes": related_routes,
-                "source_coverage": {
-                    "monthly_consolidated": monthly_summary.get("exists", False),
-                    "quarterly_uf": uf_summary.get("exists", False),
-                    "quarterly_adm": adm_summary.get("exists", False),
-                },
             }
         )
 
     return {
         "metadata": {
-            "generated_at": utc_now_iso(),
+            "generated_at": generated_at,
             "count": len(items),
+            "semantic_products_count": len(semantic_products),
+            "source": "Banco Central do Brasil — ConsorcioBD",
             "monthly_summary": monthly_summary,
             "uf_summary": uf_summary,
             "adm_summary": adm_summary,
         },
         "items": items,
+        "semantic_products": semantic_products,
     }
 
 
