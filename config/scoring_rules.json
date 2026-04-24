@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "currency": "BRL",
   "locale": "pt-BR",
   "score_scale": {
@@ -12,26 +12,35 @@
     "clamp_final_score": true,
     "require_explainability": true,
     "publish_scores_only_for_comparable_records": true,
-    "minimum_data_completeness_to_score_product": 0.45,
-    "minimum_data_completeness_to_score_institution": 0.35,
+    "minimum_data_completeness_to_score_product": 0.35,
+    "minimum_data_completeness_to_score_institution": 0.30,
     "null_metric_strategy": "ignore_and_reweight_with_penalty",
-    "null_metric_penalty_factor": 0.92,
+    "null_metric_penalty_factor": 0.94,
     "outlier_winsorization": {
       "enabled": true,
       "lower_percentile": 0.02,
       "upper_percentile": 0.98
     }
   },
+  "instituicoes": {
+    "base_score": 50,
+    "active_bonus": 12,
+    "branch_weight": 1.2,
+    "ranking_weight": 14,
+    "ranking_max_position": 20,
+    "branch_cap": 20
+  },
   "institution_score": {
     "enabled": true,
     "label": "score_instituicao",
-    "description": "Score institucional orientado à confiabilidade operacional, qualidade regulatória e utilidade comparativa.",
+    "description": "Score institucional orientado à confiabilidade operacional, contexto regulatório e utilidade comparativa. Usa cnpj_root apenas como identificador técnico interno.",
+    "identity_field": "cnpj_root",
     "weights": {
-      "cadastro_regular": 0.22,
-      "ranking_reclamacoes": 0.26,
-      "completude_dados": 0.14,
+      "cadastro_regular": 0.20,
+      "ranking_reclamacoes": 0.24,
+      "completude_dados": 0.16,
       "amplitude_portfolio": 0.10,
-      "presenca_operacional": 0.08,
+      "presenca_operacional": 0.10,
       "recencia_base": 0.08,
       "consistencia_dados": 0.12
     },
@@ -41,10 +50,11 @@
         "source_priority": [
           "instituicoes.json"
         ],
+        "field": "status_text",
         "rules": {
           "ativa_regular": 100,
           "ativa_com_restricao": 65,
-          "desconhecida": 40,
+          "desconhecida": 45,
           "inativa": 0
         }
       },
@@ -53,6 +63,7 @@
         "source_priority": [
           "rankings.json"
         ],
+        "join_field": "cnpj_root",
         "rules": {
           "best_percentile_score": 100,
           "median_percentile_score": 55,
@@ -64,11 +75,10 @@
       "completude_dados": {
         "type": "field_completeness",
         "fields": [
-          "institution_id",
+          "cnpj_root",
           "institution_name",
-          "segmentos_ativos",
-          "status_cadastral",
-          "uf_sede"
+          "status",
+          "ufs"
         ],
         "scoring": {
           "all_present": 100,
@@ -82,7 +92,9 @@
           "segments_considered": [
             "carro",
             "moto",
-            "imobiliario"
+            "imobiliario",
+            "veiculos",
+            "motos"
           ],
           "score_by_distinct_segment_count": {
             "0": 0,
@@ -94,6 +106,7 @@
       },
       "presenca_operacional": {
         "type": "count_normalized",
+        "field": "branch_count",
         "description": "Usa sede/filiais apenas como sinal secundário, sem supervalorizar capilaridade.",
         "rules": {
           "0": 20,
@@ -127,25 +140,25 @@
   "product_score": {
     "enabled": true,
     "label": "score_produto",
-    "description": "Score de comparabilidade e atratividade relativa dentro do cluster correto.",
+    "description": "Score de comparabilidade e atratividade relativa dentro do cluster correto, sem chamar taxa menor de melhor consórcio de forma absoluta.",
+    "identity_field": "cnpj_root",
     "weights": {
-      "comparabilidade": 0.22,
-      "taxa_administracao": 0.24,
-      "prazo": 0.12,
-      "parcela_estimativa": 0.14,
+      "comparabilidade": 0.24,
+      "taxa_administracao": 0.26,
+      "prazo": 0.14,
+      "valor_credito": 0.10,
       "completude_dados": 0.14,
-      "consistencia_dados": 0.08,
+      "consistencia_dados": 0.06,
       "suporte_institucional": 0.06
     },
     "metrics": {
       "comparabilidade": {
         "type": "field_completeness_weighted",
         "fields": {
-          "segment": 0.20,
-          "credit_value": 0.25,
+          "segment": 0.25,
+          "credit_value": 0.30,
           "term_months": 0.20,
-          "admin_fee_percent": 0.25,
-          "institution_id": 0.10
+          "admin_fee_percent": 0.25
         },
         "score_if_all_present": 100
       },
@@ -172,29 +185,24 @@
           "null_score": 45
         }
       },
-      "parcela_estimativa": {
-        "type": "inverse_percentile_by_cluster",
+      "valor_credito": {
+        "type": "contextual_presence_and_range",
         "cluster_key": "comparison_cluster_key",
-        "field": "installment_value",
+        "field": "credit_value",
         "rules": {
-          "enabled_only_if_field_present_in_cluster_min_share": 0.35,
-          "best_percentile_score": 95,
-          "median_percentile_score": 55,
-          "worst_percentile_score": 20,
-          "null_score": 45
+          "present_score": 80,
+          "null_score": 45,
+          "do_not_prefer_higher_value_as_absolute": true
         }
       },
       "completude_dados": {
         "type": "field_completeness",
         "fields": [
-          "institution_id",
+          "cnpj_root",
           "segment",
           "credit_value",
           "term_months",
-          "admin_fee_percent",
-          "reserve_fund_percent",
-          "join_fee_percent",
-          "installment_value"
+          "admin_fee_percent"
         ],
         "scoring": {
           "all_present": 100,
@@ -409,7 +417,7 @@
       },
       "missing_ranking_snapshot": {
         "target": "institution_score",
-        "subtract": 4
+        "subtract": 2
       },
       "critical_data_conflict": {
         "target": "both",
@@ -461,6 +469,8 @@
     "do_not_equate_score_with_regulatory_recommendation": true,
     "do_not_score_editorial_only_routes": true,
     "do_not_compare_products_from_different_segments_in_same_cluster": true,
-    "do_not_publish_final_score_if_no_core_comparability": true
+    "do_not_publish_final_score_if_no_core_comparability": true,
+    "cnpj_root_is_internal_only": true,
+    "do_not_display_cnpj_root_as_full_cnpj": true
   }
 }
