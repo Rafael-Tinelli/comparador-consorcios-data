@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "generated_at": "2026-04-23T19:01:45+00:00",
-    "count": 132
+    "generated_at": "2026-04-24T09:53:23+00:00",
+    "count": 131
   },
   "items": [
     {
@@ -495,22 +495,6 @@
       "cnpj": "89472310",
       "institution_name": "SERRANA ADMINISTRADORA DE CONSORCIOS LTDA",
       "normalized_name": "serrana_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 2,
-      "ufs": [
-        "RS"
-      ],
-      "cities_sample": [],
-      "ranking_position": null,
-      "ranking_index": null,
-      "ranking_complaints": null,
-      "score": 52.4
-    },
-    {
-      "institution_id": null,
-      "cnpj": "87852273",
-      "institution_name": "SINOSSERRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "normalized_name": "sinosserra_administradora_de_consorcios_ltda",
       "status": null,
       "branch_count": 2,
       "ufs": [

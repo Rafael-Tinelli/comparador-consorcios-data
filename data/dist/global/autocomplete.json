@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "generated_at": "2026-04-23T19:01:45+00:00",
-    "count": 147
+    "generated_at": "2026-04-24T09:53:23+00:00",
+    "count": 146
   },
   "items": [
     {
@@ -137,11 +137,6 @@
     {
       "type": "instituicao",
       "label": "SERRANA ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SINOSSERRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php"
     },
     {

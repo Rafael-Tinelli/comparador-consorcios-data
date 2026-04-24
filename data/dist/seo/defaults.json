@@ -7,7 +7,7 @@
     "primary_keyword": "Defaults"
   },
   "snapshot": {
-    "instituicoes_count": 132,
+    "instituicoes_count": 131,
     "ranking_count": 0,
     "products_count": 12
   },
@@ -337,5 +337,5 @@
       }
     }
   ],
-  "meta_hash": "6868afd4f0a41da55bf0e81926b920471579e09d6cf0aaa4fc9b32a342e1b630"
+  "meta_hash": "64b2be2f793b730258a6a898aad23207488169e048af9e00f7d517dfdc75cfb1"
 }
