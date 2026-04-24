@@ -7,7 +7,8 @@ Decisão desta implementação:
 - não tenta OData JSON;
 - não trata CSV como fallback;
 - valida integridade mínima antes de aceitar a carga;
-- bloqueia regressões fortes de volume e schema crítico.
+- bloqueia regressões fortes de volume e schema crítico;
+- reintenta automaticamente quando a fonte retorna carga vazia ou insuficiente.
 
 Este coletor não gera data/dist. Isso fica para o build-read-models.
 """
@@ -22,6 +23,7 @@ import json
 import os
 import re
 import sys
+import time
 from copy import deepcopy
 from datetime import datetime, timezone
 from pathlib import Path
@@ -237,6 +239,73 @@ def fetch_csv(
         },
     }
     return rows, meta
+
+
+def fetch_csv_with_semantic_retry(
+    *,
+    session: requests.Session,
+    endpoint: str,
+    default_params: Dict[str, Any],
+    headers: Dict[str, str],
+    csv_cfg: Dict[str, Any],
+    minimum_acceptable_rows: int,
+    max_attempts: int,
+    backoff_seconds: int,
+) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    attempts = max(1, int(max_attempts))
+    sleep_base = max(1, int(backoff_seconds))
+
+    last_error: Optional[Exception] = None
+    last_rows: List[Dict[str, Any]] = []
+    last_meta: Dict[str, Any] = {}
+
+    for attempt in range(1, attempts + 1):
+        try:
+            rows, meta = fetch_csv(
+                session=session,
+                endpoint=endpoint,
+                default_params=default_params,
+                headers=headers,
+                csv_cfg=csv_cfg,
+            )
+            meta["attempt"] = attempt
+            meta["max_attempts"] = attempts
+
+            if len(rows) >= minimum_acceptable_rows:
+                return rows, meta
+
+            last_rows = rows
+            last_meta = meta
+            last_error = ValueError(
+                "Quantidade de registros insuficiente na tentativa "
+                f"{attempt}/{attempts}: {len(rows)} < {minimum_acceptable_rows}."
+            )
+            print(str(last_error), file=sys.stderr)
+        except Exception as exc:
+            last_error = exc
+            print(
+                f"Falha ao buscar CSV de filiais na tentativa {attempt}/{attempts}: {exc}",
+                file=sys.stderr,
+            )
+
+        if attempt < attempts:
+            sleep_seconds = sleep_base * attempt
+            print(
+                f"Aguardando {sleep_seconds}s antes da próxima tentativa...",
+                file=sys.stderr,
+            )
+            time.sleep(sleep_seconds)
+
+    if last_rows:
+        raise ValueError(
+            "Quantidade de registros insuficiente após "
+            f"{attempts} tentativas: {len(last_rows)} < {minimum_acceptable_rows}."
+        )
+
+    if last_error:
+        raise last_error
+
+    raise RuntimeError("Falha desconhecida ao coletar filiais BC.")
 
 
 def normalize_record(record: Dict[str, Any], index: int) -> Dict[str, Any]:
@@ -565,6 +634,10 @@ def main() -> int:
         "comparador-consorcios-data/1.0 (+https://sanida.com.br/financas/consorcio/)",
     )
     timeout_seconds = int(defaults.get("timeout_seconds", 60))
+    semantic_retry_attempts = max(1, int(defaults.get("retry_attempts", 3)))
+    semantic_retry_backoff_seconds = max(1, int(defaults.get("retry_backoff_seconds", 5)))
+    expected_min_rows_absolute = int(csv_cfg.get("expected_min_rows_absolute", 20))
+    expected_min_ratio_against_previous = float(csv_cfg.get("expected_min_ratio_against_previous", 0.85))
 
     headers = {
         "Accept": "text/csv",
@@ -574,12 +647,15 @@ def main() -> int:
     collected_at = utc_now_iso()
     session = build_session(timeout_seconds=timeout_seconds)
 
-    records, fetch_meta = fetch_csv(
+    records, fetch_meta = fetch_csv_with_semantic_retry(
         session=session,
         endpoint=endpoint,
         default_params=default_params,
         headers=headers,
         csv_cfg=csv_cfg,
+        minimum_acceptable_rows=expected_min_rows_absolute,
+        max_attempts=semantic_retry_attempts,
+        backoff_seconds=semantic_retry_backoff_seconds,
     )
     mode_used = "odata-csv"
 
@@ -600,8 +676,8 @@ def main() -> int:
     validate_row_volume(
         current_count=len(normalized_items),
         previous_count=previous_count,
-        expected_min_rows_absolute=int(csv_cfg.get("expected_min_rows_absolute", 20)),
-        expected_min_ratio_against_previous=float(csv_cfg.get("expected_min_ratio_against_previous", 0.85)),
+        expected_min_rows_absolute=expected_min_rows_absolute,
+        expected_min_ratio_against_previous=expected_min_ratio_against_previous,
     )
 
     validate_required_normalized_fields(
@@ -644,10 +720,12 @@ def main() -> int:
         "raw_file": str(raw_file),
         "stage_file": str(stage_file),
         "validation": {
-            "expected_min_rows_absolute": int(csv_cfg.get("expected_min_rows_absolute", 20)),
-            "expected_min_ratio_against_previous": float(csv_cfg.get("expected_min_ratio_against_previous", 0.85)),
+            "expected_min_rows_absolute": expected_min_rows_absolute,
+            "expected_min_ratio_against_previous": expected_min_ratio_against_previous,
             "previous_count": previous_count,
             "current_count": len(normalized_items),
+            "semantic_retry_attempts": semantic_retry_attempts,
+            "semantic_retry_backoff_seconds": semantic_retry_backoff_seconds,
         },
     }
 
