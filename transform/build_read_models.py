@@ -4,6 +4,9 @@ Build dos read models do comparador de consórcios.
 
 Gera:
 - data/dist/global/instituicoes.json
+- data/dist/global/administradoras.json
+- data/dist/global/segmentos.json
+- data/dist/global/ofertas.json
 - data/dist/global/produtos.json
 - data/dist/global/rankings.json
 - data/dist/global/series.json
@@ -31,7 +34,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 from unidecode import unidecode
 
-PIPELINE_VERSION = "2.2.0"
+PIPELINE_VERSION = "3.0.0"
 
 
 def utc_now_iso() -> str:
@@ -871,6 +874,16 @@ def build_products(
                     prazo = try_float(pick_value(row, ["prazo_do_grupo_em_meses", "prazo_meses", "prazo"]))
                     valor_bem = try_float(pick_value(row, ["valor_medio_do_bem", "valor_credito", "valor_medio"]))
 
+                    # Não publicar zeros/fallbacks como se fossem informação comercial real.
+                    # No ConsorcioBD, ausência de campo ou zero em linha consolidada pode significar
+                    # inexistência de dado útil para comparação, não uma taxa/prazo/valor real.
+                    if taxa is not None and taxa <= 0:
+                        taxa = None
+                    if prazo is not None and prazo <= 0:
+                        prazo = None
+                    if valor_bem is not None and valor_bem <= 0:
+                        valor_bem = None
+
                     cotas_ativas = try_float(
                         pick_value(
                             row,
@@ -881,15 +894,24 @@ def build_products(
                                 "quantidade_de_cotas_comercializadas_no_mes",
                             ],
                         )
-                    ) or 1.0
+                    )
 
-                    grupos_ativos = try_float(pick_value(row, ["quantidade_de_grupos_ativos"])) or 0.0
-                    contempladas_mes = try_float(pick_value(row, ["quantidade_de_cotas_ativas_contempladas_no_mes"])) or 0.0
+                    grupos_ativos = try_float(pick_value(row, ["quantidade_de_grupos_ativos"]))
+                    contempladas_mes = try_float(pick_value(row, ["quantidade_de_cotas_ativas_contempladas_no_mes"]))
                     inadimplentes = (
                         try_float(pick_value(row, ["quantidade_de_cotas_ativas_contempladas_inadimplentes"])) or 0.0
                     ) + (
                         try_float(pick_value(row, ["quantidade_de_cotas_ativas_nao_contempladas_inadimplentes"])) or 0.0
                     )
+
+                    has_operational_signal = any(
+                        value is not None and value > 0
+                        for value in (taxa, prazo, valor_bem, cotas_ativas, grupos_ativos, contempladas_mes, inadimplentes)
+                    )
+                    if not has_operational_signal:
+                        continue
+
+                    weight = cotas_ativas if cotas_ativas is not None and cotas_ativas > 0 else 1.0
 
                     group_key = f"{cnpj_root or normalize_text(nome_admin)}::{categoria_key}"
 
@@ -922,20 +944,20 @@ def build_products(
                     item = groups[group_key]
                     item["source_members"].add(member)
                     item["row_count"] += 1
-                    item["quantidade_de_grupos_ativos"] += grupos_ativos
-                    item["quantidade_de_cotas_ativas_em_dia"] += cotas_ativas
-                    item["quantidade_de_cotas_ativas_contempladas_no_mes"] += contempladas_mes
-                    item["quantidade_de_cotas_inadimplentes"] += inadimplentes
+                    item["quantidade_de_grupos_ativos"] += grupos_ativos or 0.0
+                    item["quantidade_de_cotas_ativas_em_dia"] += cotas_ativas or 0.0
+                    item["quantidade_de_cotas_ativas_contempladas_no_mes"] += contempladas_mes or 0.0
+                    item["quantidade_de_cotas_inadimplentes"] += inadimplentes or 0.0
 
                     if taxa is not None:
-                        item["_taxa_total"] += taxa * cotas_ativas
-                        item["_taxa_weight"] += cotas_ativas
+                        item["_taxa_total"] += taxa * weight
+                        item["_taxa_weight"] += weight
                     if prazo is not None:
-                        item["_prazo_total"] += prazo * cotas_ativas
-                        item["_prazo_weight"] += cotas_ativas
+                        item["_prazo_total"] += prazo * weight
+                        item["_prazo_weight"] += weight
                     if valor_bem is not None:
-                        item["_valor_total"] += valor_bem * cotas_ativas
-                        item["_valor_weight"] += cotas_ativas
+                        item["_valor_total"] += valor_bem * weight
+                        item["_valor_weight"] += weight
 
     items = []
 
@@ -1014,6 +1036,328 @@ def build_products(
         },
         "items": items,
         "semantic_products": semantic_products,
+    }
+
+
+def safe_div(numerator: Optional[float], denominator: Optional[float]) -> Optional[float]:
+    if numerator is None or denominator is None or denominator <= 0:
+        return None
+    return numerator / denominator
+
+
+def percentile_score(value: Optional[float], values: List[float], *, inverse: bool = False, log_scale: bool = False) -> Optional[float]:
+    if value is None or not values:
+        return None
+
+    valid = [v for v in values if v is not None and v >= 0]
+    if not valid:
+        return None
+
+    if log_scale:
+        import math
+        value = math.log1p(max(value, 0))
+        valid = [math.log1p(max(v, 0)) for v in valid]
+
+    low = min(valid)
+    high = max(valid)
+    if high == low:
+        return 50.0
+
+    raw = (value - low) / (high - low) * 100
+    raw = max(0.0, min(100.0, raw))
+    if inverse:
+        raw = 100.0 - raw
+    return round(raw, 2)
+
+
+def build_administradoras(
+    instituicoes_payload: Dict[str, Any],
+    produtos_payload: Dict[str, Any],
+    rankings_payload: Dict[str, Any],
+) -> Dict[str, Any]:
+    """
+    Novo contrato principal do modelo híbrido.
+
+    administradoras.json é o read model público de ranking/diagnóstico.
+    Ele usa cnpj_root como chave técnica, mas não pressupõe CNPJ completo.
+    """
+    products_by_cnpj: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    for product in produtos_payload.get("items", []):
+        cnpj = product.get("cnpj_root") or product.get("cnpj_da_administradora")
+        if cnpj:
+            products_by_cnpj[str(cnpj)].append(product)
+
+    rankings_by_cnpj: Dict[str, Dict[str, Any]] = {}
+    rankings_by_name: Dict[str, Dict[str, Any]] = {}
+    for ranking in rankings_payload.get("items", []):
+        cnpj = ranking.get("cnpj_root") or ranking.get("cnpj")
+        if cnpj:
+            rankings_by_cnpj[str(cnpj)] = ranking
+        name_key = ranking.get("normalized_name")
+        if name_key and name_key not in rankings_by_name:
+            rankings_by_name[str(name_key)] = ranking
+
+    operational_rows = []
+    for products in products_by_cnpj.values():
+        cotas = sum((p.get("quantidade_de_cotas_ativas_em_dia") or 0) for p in products)
+        grupos = sum((p.get("quantidade_de_grupos_ativos") or 0) for p in products)
+        contempl = sum((p.get("quantidade_de_cotas_ativas_contempladas_no_mes") or 0) for p in products)
+        inad = sum((p.get("quantidade_de_cotas_inadimplentes") or 0) for p in products)
+        operational_rows.append({"cotas": cotas, "grupos": grupos, "contemplacoes": contempl, "inadimplentes": inad})
+
+    cotas_values = [x["cotas"] for x in operational_rows if x["cotas"] > 0]
+    grupos_values = [x["grupos"] for x in operational_rows if x["grupos"] > 0]
+    contemplacoes_values = [x["contemplacoes"] for x in operational_rows if x["contemplacoes"] > 0]
+    inad_ratios = [safe_div(x["inadimplentes"], x["cotas"]) for x in operational_rows]
+    inad_ratio_values = [x for x in inad_ratios if x is not None]
+    ranking_index_values = [r.get("index_value") for r in rankings_payload.get("items", []) if r.get("index_value") is not None]
+    branch_values = [i.get("branch_count") for i in instituicoes_payload.get("items", []) if (i.get("branch_count") or 0) > 0]
+
+    items = []
+
+    for inst in instituicoes_payload.get("items", []):
+        cnpj_root = inst.get("cnpj_root") or inst.get("cnpj")
+        normalized_name = inst.get("normalized_name") or normalize_text(inst.get("institution_name"))
+        products = products_by_cnpj.get(str(cnpj_root), []) if cnpj_root else []
+        ranking = rankings_by_cnpj.get(str(cnpj_root)) if cnpj_root else None
+        if ranking is None and normalized_name:
+            ranking = rankings_by_name.get(str(normalized_name))
+
+        segmentos = sorted({p.get("categoria_key") for p in products if p.get("categoria_key")})
+        grupos_ativos = sum((p.get("quantidade_de_grupos_ativos") or 0) for p in products)
+        cotas_ativas = sum((p.get("quantidade_de_cotas_ativas_em_dia") or 0) for p in products)
+        contemplacoes_mes = sum((p.get("quantidade_de_cotas_ativas_contempladas_no_mes") or 0) for p in products)
+        inadimplentes = sum((p.get("quantidade_de_cotas_inadimplentes") or 0) for p in products)
+        inad_ratio = safe_div(inadimplentes, cotas_ativas)
+
+        taxa_items = [p.get("taxa_administracao") for p in products if p.get("taxa_administracao") is not None]
+        prazo_items = [p.get("prazo_meses") for p in products if p.get("prazo_meses") is not None]
+        credito_items = [p.get("valor_credito") for p in products if p.get("valor_credito") is not None]
+
+        branch_count = inst.get("branch_count") or 0
+        ranking_index = ranking.get("index_value") if ranking else inst.get("ranking_index")
+        ranking_complaints = ranking.get("complaints") if ranking else inst.get("ranking_complaints")
+        ranking_clients = ranking.get("clients") if ranking else inst.get("ranking_clients")
+
+        escala_cotas = percentile_score(cotas_ativas if cotas_ativas > 0 else None, cotas_values, log_scale=True)
+        escala_grupos = percentile_score(grupos_ativos if grupos_ativos > 0 else None, grupos_values, log_scale=True)
+        escala_score_parts = [x for x in (escala_cotas, escala_grupos) if x is not None]
+        escala_score = round(sum(escala_score_parts) / len(escala_score_parts), 2) if escala_score_parts else None
+
+        atividade_score = percentile_score(
+            contemplacoes_mes if contemplacoes_mes > 0 else None,
+            contemplacoes_values,
+            log_scale=True,
+        )
+        inad_score = percentile_score(inad_ratio, inad_ratio_values, inverse=True) if inad_ratio is not None else None
+        operacao_parts = [x for x in (atividade_score, inad_score) if x is not None]
+        operacao_score = round(sum(operacao_parts) / len(operacao_parts), 2) if operacao_parts else None
+
+        reputacao_score = percentile_score(ranking_index, ranking_index_values, inverse=True) if ranking_index is not None else None
+        presenca_score = percentile_score(branch_count if branch_count > 0 else None, branch_values, log_scale=True)
+
+        weighted_parts = []
+        for score, weight in ((escala_score, 0.30), (operacao_score, 0.25), (reputacao_score, 0.30), (presenca_score, 0.15)):
+            if score is not None:
+                weighted_parts.append((score, weight))
+        if weighted_parts:
+            total_weight = sum(w for _, w in weighted_parts)
+            geral_score = round(sum(score * weight for score, weight in weighted_parts) / total_weight, 2)
+        else:
+            geral_score = inst.get("score")
+
+        data_quality_flags = []
+        if not products:
+            data_quality_flags.append("sem_operacao_consorciobd_vinculada")
+        if ranking is None:
+            data_quality_flags.append("sem_ranking_reclamacoes_vinculado")
+        if ranking_index is None:
+            data_quality_flags.append("sem_indice_bc_calculado")
+
+        items.append(
+            {
+                "id": cnpj_root or slugify(inst.get("institution_name") or "administradora"),
+                "cnpj_root": cnpj_root,
+                "nome": inst.get("institution_name"),
+                "nome_normalizado": normalized_name,
+                "status": inst.get("status"),
+                "ufs": inst.get("ufs", []),
+                "segmentos_ativos": segmentos,
+                "presenca_score": presenca_score,
+                "escala": {
+                    "grupos_ativos": int(grupos_ativos) if grupos_ativos else None,
+                    "cotas_ativas": int(cotas_ativas) if cotas_ativas else None,
+                },
+                "operacao": {
+                    "contemplacoes_mes": int(contemplacoes_mes) if contemplacoes_mes else None,
+                    "inadimplentes": int(inadimplentes) if inadimplentes else None,
+                    "inadimplencia_ratio": round(inad_ratio, 6) if inad_ratio is not None else None,
+                },
+                "reputacao": {
+                    "bc_index": ranking_index,
+                    "reclamacoes": ranking_complaints,
+                    "clientes": ranking_clients,
+                    "ranking_position": ranking.get("position") if ranking else inst.get("ranking_position"),
+                    "periodo": {
+                        "ano": ranking.get("ano") if ranking else None,
+                        "semestre": ranking.get("semestre") if ranking else None,
+                    },
+                },
+                "benchmarks": {
+                    "taxa_adm_aprox_pct": round(sum(taxa_items) / len(taxa_items), 4) if taxa_items else None,
+                    "prazo_medio_meses": round(sum(prazo_items) / len(prazo_items), 2) if prazo_items else None,
+                    "credito_medio": round(sum(credito_items) / len(credito_items), 2) if credito_items else None,
+                    "observacao": "Benchmarks derivados de dados agregados; não equivalem a oferta comercial individual.",
+                },
+                "scores": {
+                    "geral": geral_score,
+                    "escala": escala_score,
+                    "operacao": operacao_score,
+                    "reputacao": reputacao_score,
+                    "presenca": presenca_score,
+                },
+                "data_quality_flags": data_quality_flags,
+                "legacy": inst,
+            }
+        )
+
+    items.sort(key=lambda x: (-(x.get("scores", {}).get("geral") or 0), x.get("nome") or ""))
+
+    return {
+        "metadata": {
+            "generated_at": utc_now_iso(),
+            "count": len(items),
+            "contract": "administradoras.v1",
+            "source": "BCB Cadastro + ConsorcioBD + Ranking de Reclamações",
+        },
+        "items": items,
+    }
+
+
+def build_segmentos(produtos_payload: Dict[str, Any]) -> Dict[str, Any]:
+    """Gera visão agregada por segmento/modalidade para o modelo híbrido."""
+    grouped: Dict[str, Dict[str, Any]] = {}
+
+    priority = {
+        "veiculos": 1,
+        "imobiliario": 2,
+        "motos": 3,
+        "servicos": 4,
+        "outros_bens_moveis": 8,
+        "eletroeletronicos": 9,
+    }
+
+    for product in produtos_payload.get("items", []):
+        key = product.get("categoria_key") or product.get("key") or "consorcio"
+        label = product.get("categoria_label") or product.get("categoria") or product.get("label") or key
+        row = grouped.setdefault(
+            key,
+            {
+                "segmento": key,
+                "label": label,
+                "priority": priority.get(key, 99),
+                "administradoras": set(),
+                "source_members": set(),
+                "grupos_ativos": 0,
+                "cotas_ativas": 0,
+                "contemplacoes_mes": 0,
+                "inadimplentes": 0,
+                "taxas": [],
+                "prazos": [],
+                "creditos": [],
+                "row_count": 0,
+            },
+        )
+        row["row_count"] += 1
+        if product.get("cnpj_root"):
+            row["administradoras"].add(product.get("cnpj_root"))
+        for member in product.get("source_members") or []:
+            row["source_members"].add(member)
+        row["grupos_ativos"] += product.get("quantidade_de_grupos_ativos") or 0
+        row["cotas_ativas"] += product.get("quantidade_de_cotas_ativas_em_dia") or 0
+        row["contemplacoes_mes"] += product.get("quantidade_de_cotas_ativas_contempladas_no_mes") or 0
+        row["inadimplentes"] += product.get("quantidade_de_cotas_inadimplentes") or 0
+        if product.get("taxa_administracao") is not None:
+            row["taxas"].append(product.get("taxa_administracao"))
+        if product.get("prazo_meses") is not None:
+            row["prazos"].append(product.get("prazo_meses"))
+        if product.get("valor_credito") is not None:
+            row["creditos"].append(product.get("valor_credito"))
+
+    items = []
+    for row in grouped.values():
+        cotas = row["cotas_ativas"]
+        inad_ratio = safe_div(row["inadimplentes"], cotas)
+        items.append(
+            {
+                "segmento": row["segmento"],
+                "label": row["label"],
+                "priority": row["priority"],
+                "administradoras_count": len(row["administradoras"]),
+                "operacao": {
+                    "grupos_ativos": int(row["grupos_ativos"]) if row["grupos_ativos"] else None,
+                    "cotas_ativas": int(row["cotas_ativas"]) if row["cotas_ativas"] else None,
+                    "contemplacoes_mes": int(row["contemplacoes_mes"]) if row["contemplacoes_mes"] else None,
+                    "inadimplentes": int(row["inadimplentes"]) if row["inadimplentes"] else None,
+                    "inadimplencia_ratio": round(inad_ratio, 6) if inad_ratio is not None else None,
+                },
+                "benchmarks_observados": {
+                    "taxa_adm_aprox_pct": round(sum(row["taxas"]) / len(row["taxas"]), 4) if row["taxas"] else None,
+                    "prazo_medio_meses": round(sum(row["prazos"]) / len(row["prazos"]), 2) if row["prazos"] else None,
+                    "credito_medio": round(sum(row["creditos"]) / len(row["creditos"]), 2) if row["creditos"] else None,
+                    "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual.",
+                },
+                "source_members": sorted(row["source_members"]),
+                "row_count": row["row_count"],
+            }
+        )
+
+    items.sort(key=lambda x: (x["priority"], x["label"]))
+
+    return {
+        "metadata": {
+            "generated_at": utc_now_iso(),
+            "count": len(items),
+            "contract": "segmentos.v1",
+            "source": "BCB ConsorcioBD",
+        },
+        "items": items,
+    }
+
+
+def build_ofertas(raw_base: Path) -> Dict[str, Any]:
+    """
+    Contrato reservado para ofertas comerciais reais.
+
+    Se futuramente houver collectors/simuladores.py, ele pode gravar JSONs em
+    data/raw/market/offers/*.json. Sem isso, o arquivo sai vazio e honesto.
+    """
+    offers_dir = raw_base / "market" / "offers"
+    items: List[Dict[str, Any]] = []
+
+    if offers_dir.exists():
+        for path in sorted(offers_dir.glob("*.json")):
+            payload = try_load_json(path)
+            records = extract_first_list_of_dicts(payload)
+            if isinstance(payload, dict) and not records and any(k in payload for k in ("administradora", "segmento", "plano")):
+                records = [payload]
+            for record in records:
+                if not isinstance(record, dict):
+                    continue
+                row = dict(record)
+                row.setdefault("fonte_tipo", "oferta_comercial")
+                row.setdefault("source_file", str(path))
+                items.append(row)
+
+    return {
+        "metadata": {
+            "generated_at": utc_now_iso(),
+            "count": len(items),
+            "contract": "ofertas.v1",
+            "source": "Simuladores e páginas comerciais, quando coletados",
+            "status": "empty_until_market_collectors_are_enabled" if not items else "available",
+        },
+        "items": items,
     }
 
 def build_cenarios(
@@ -1230,6 +1574,9 @@ def build_meta(
     *,
     build_context: Dict[str, Any],
     instituicoes_payload: Dict[str, Any],
+    administradoras_payload: Dict[str, Any],
+    segmentos_payload: Dict[str, Any],
+    ofertas_payload: Dict[str, Any],
     produtos_payload: Dict[str, Any],
     rankings_payload: Dict[str, Any],
     series_payload: Dict[str, Any],
@@ -1253,8 +1600,17 @@ def build_meta(
             "run_id": build_context.get("run_id"),
             "run_attempt": build_context.get("run_attempt"),
         },
+        "contracts": {
+            "administradoras": "administradoras.v1",
+            "segmentos": "segmentos.v1",
+            "ofertas": "ofertas.v1",
+            "produtos": "produtos.legacy_compatible",
+        },
         "counts": {
             "instituicoes": len(instituicoes_payload.get("items", [])),
+            "administradoras": len(administradoras_payload.get("items", [])),
+            "segmentos": len(segmentos_payload.get("items", [])),
+            "ofertas": len(ofertas_payload.get("items", [])),
             "produtos": len(produtos_payload.get("items", [])),
             "rankings": len(rankings_payload.get("items", [])),
             "cenarios": len(cenarios_payload.get("items", [])),
@@ -1266,6 +1622,9 @@ def build_meta(
         "artifacts": artifact_manifest,
         "hashes": {
             "instituicoes": sha256_text(dump_json_text(instituicoes_payload)),
+            "administradoras": sha256_text(dump_json_text(administradoras_payload)),
+            "segmentos": sha256_text(dump_json_text(segmentos_payload)),
+            "ofertas": sha256_text(dump_json_text(ofertas_payload)),
             "produtos": sha256_text(dump_json_text(produtos_payload)),
             "rankings": sha256_text(dump_json_text(rankings_payload)),
             "series": sha256_text(dump_json_text(series_payload)),
@@ -1273,7 +1632,6 @@ def build_meta(
             "autocomplete": sha256_text(dump_json_text(autocomplete_payload)),
         },
     }
-
 
 def build_seo_payloads(
     seo_routes: List[Dict[str, Any]],
@@ -1427,6 +1785,9 @@ def main() -> int:
     instituicoes_payload = build_instituicoes(cadastro, branches, rankings, scoring_rules)
     rankings_payload = build_rankings(rankings, ranking_meta)
     produtos_payload = build_products(product_rules, seo_routes, monthly_summary, uf_summary, adm_summary)
+    administradoras_payload = build_administradoras(instituicoes_payload, produtos_payload, rankings_payload)
+    segmentos_payload = build_segmentos(produtos_payload)
+    ofertas_payload = build_ofertas(raw_base)
     cenarios_payload = build_cenarios(latest_series, instituicoes_payload, rankings_payload, abac_payload)
     autocomplete_payload = build_autocomplete(instituicoes_payload, produtos_payload, seo_routes)
 
@@ -1445,6 +1806,9 @@ def main() -> int:
     artifact_manifest = build_artifact_manifest(
         global_payloads={
             "instituicoes.json": instituicoes_payload,
+            "administradoras.json": administradoras_payload,
+            "segmentos.json": segmentos_payload,
+            "ofertas.json": ofertas_payload,
             "produtos.json": produtos_payload,
             "rankings.json": rankings_payload,
             "series.json": series_payload,
@@ -1457,6 +1821,9 @@ def main() -> int:
     meta_payload = build_meta(
         build_context=build_context,
         instituicoes_payload=instituicoes_payload,
+        administradoras_payload=administradoras_payload,
+        segmentos_payload=segmentos_payload,
+        ofertas_payload=ofertas_payload,
         produtos_payload=produtos_payload,
         rankings_payload=rankings_payload,
         series_payload=series_payload,
@@ -1469,6 +1836,9 @@ def main() -> int:
 
     changed = False
     changed |= write_json_if_changed(dist_global_dir / "instituicoes.json", instituicoes_payload)
+    changed |= write_json_if_changed(dist_global_dir / "administradoras.json", administradoras_payload)
+    changed |= write_json_if_changed(dist_global_dir / "segmentos.json", segmentos_payload)
+    changed |= write_json_if_changed(dist_global_dir / "ofertas.json", ofertas_payload)
     changed |= write_json_if_changed(dist_global_dir / "produtos.json", produtos_payload)
     changed |= write_json_if_changed(dist_global_dir / "rankings.json", rankings_payload)
     changed |= write_json_if_changed(dist_global_dir / "series.json", series_payload)
@@ -1487,6 +1857,9 @@ def main() -> int:
         "pipeline_version": PIPELINE_VERSION,
         "counts": {
             "instituicoes": len(instituicoes_payload.get("items", [])),
+            "administradoras": len(administradoras_payload.get("items", [])),
+            "segmentos": len(segmentos_payload.get("items", [])),
+            "ofertas": len(ofertas_payload.get("items", [])),
             "produtos": len(produtos_payload.get("items", [])),
             "rankings": len(rankings_payload.get("items", [])),
             "seo_routes": len(seo_payloads),
