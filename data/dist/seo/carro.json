@@ -1,0 +1,651 @@
+{
+  "route": {
+    "key": "carro",
+    "slug": "carro",
+    "title": "Consórcio de Carro",
+    "path": "/financas/consorcio/carro/",
+    "primary_keyword": "consórcio de carro"
+  },
+  "snapshot": {
+    "instituicoes_count": 131,
+    "ranking_count": 125,
+    "products_count": 768
+  },
+  "top_instituicoes": [
+    {
+      "institution_id": null,
+      "cnpj": "02010478",
+      "cnpj_root": "02010478",
+      "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "normalized_name": "bancorbras_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 16,
+      "ufs": [
+        "AL",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MG",
+        "PA",
+        "PB",
+        "RS",
+        "SC",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 17,
+      "ranking_index": null,
+      "ranking_complaints": 15,
+      "ranking_clients": 28020,
+      "ranking_complaints_regulated_procedent": 4,
+      "score": 72.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "58113812",
+      "cnpj_root": "58113812",
+      "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "normalized_name": "embracon_administradora_de_consorcio_s_a",
+      "status": null,
+      "branch_count": 92,
+      "ufs": [
+        "AL",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MG",
+        "MS",
+        "MT",
+        "PA",
+        "PB",
+        "PE",
+        "PR",
+        "RJ",
+        "RN",
+        "RS",
+        "SC",
+        "SE",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 49,
+      "ranking_index": 256.72,
+      "ranking_complaints": 233,
+      "ranking_clients": 331089,
+      "ranking_complaints_regulated_procedent": 85,
+      "score": 70.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "48041735",
+      "cnpj_root": "48041735",
+      "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "porto_seguro_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 16,
+      "ufs": [
+        "DF",
+        "ES",
+        "GO",
+        "MG",
+        "PR",
+        "RJ",
+        "RS",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 85,
+      "ranking_index": 614.51,
+      "ranking_complaints": 501,
+      "ranking_clients": 528876,
+      "ranking_complaints_regulated_procedent": 325,
+      "score": 69.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "84911098",
+      "cnpj_root": "84911098",
+      "institution_name": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "normalized_name": "ademicon_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 2,
+      "ufs": [
+        "PR",
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": 1,
+      "ranking_index": 34.56,
+      "ranking_complaints": 73,
+      "ranking_clients": 491794,
+      "ranking_complaints_regulated_procedent": 17,
+      "score": 66.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "47820097",
+      "cnpj_root": "47820097",
+      "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "gaplan_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "MT",
+        "PR",
+        "SC",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 65,
+      "ranking_index": null,
+      "ranking_complaints": 2,
+      "ranking_clients": 19301,
+      "ranking_complaints_regulated_procedent": 0,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "remaza_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 94,
+      "ranking_index": null,
+      "ranking_complaints": 12,
+      "ranking_clients": 15864,
+      "ranking_complaints_regulated_procedent": 1,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "57723801",
+      "cnpj_root": "57723801",
+      "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "suzuki_motos_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "BA",
+        "MG",
+        "PA",
+        "RO",
+        "RS",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 111,
+      "ranking_index": null,
+      "ranking_complaints": 2,
+      "ranking_clients": 4485,
+      "ranking_complaints_regulated_procedent": 1,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "45441789",
+      "cnpj_root": "45441789",
+      "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
+      "normalized_name": "administradora_de_consorcio_nacional_honda_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 3,
+      "ranking_index": 28.8,
+      "ranking_complaints": 171,
+      "ranking_clients": 2429892,
+      "ranking_complaints_regulated_procedent": 70,
+      "score": 63.8
+    },
+    {
+      "institution_id": null,
+      "cnpj": "91341925",
+      "cnpj_root": "91341925",
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
+      "normalized_name": "administradora_de_consorcio_spengler_ltda",
+      "status": null,
+      "branch_count": 3,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": 7,
+      "ranking_index": null,
+      "ranking_complaints": 2,
+      "ranking_clients": 5087,
+      "ranking_complaints_regulated_procedent": 1,
+      "score": 63.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "06044551",
+      "cnpj_root": "06044551",
+      "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
+      "normalized_name": "administradora_de_consorcio_nacional_gazin_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": 2,
+      "ranking_index": null,
+      "ranking_complaints": 5,
+      "ranking_clients": 73070,
+      "ranking_complaints_regulated_procedent": 1,
+      "score": 63.3
+    }
+  ],
+  "top_rankings": [
+    {
+      "institution_name": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "normalized_name": "ademicon_administradora_de_consorcios_s_a",
+      "cnpj": "84911098",
+      "cnpj_root": "84911098",
+      "position": 1,
+      "index_value": 34.56,
+      "complaints_regulated_procedent": 17,
+      "complaints_regulated_other": 50,
+      "complaints_unregulated": 6,
+      "complaints": 73,
+      "clients": 491794,
+      "ano": 2025,
+      "semestre": "2º",
+      "raw": {
+        "ano": "2025",
+        "semestre": "2º",
+        "cnpj_ac": "84911098",
+        "administradora_de_consorcio": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+        "indice": "34,56",
+        "quantidade_de_reclamacoes_reguladas_procedentes": "17",
+        "quantidade_de_reclamacoes_reguladas_outras": "50",
+        "quantidade_de_reclamacoes_nao_reguladas": "6",
+        "quantidade_total_de_reclamacoes": "73",
+        "quantidade_de_clientes_consorciados": "491794",
+        "": ""
+      }
+    },
+    {
+      "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
+      "normalized_name": "administradora_de_consorcio_nacional_gazin_ltda",
+      "cnpj": "06044551",
+      "cnpj_root": "06044551",
+      "position": 2,
+      "index_value": null,
+      "complaints_regulated_procedent": 1,
+      "complaints_regulated_other": 3,
+      "complaints_unregulated": 1,
+      "complaints": 5,
+      "clients": 73070,
+      "ano": 2025,
+      "semestre": "2º",
+      "raw": {
+        "ano": "2025",
+        "semestre": "2º",
+        "cnpj_ac": "06044551",
+        "administradora_de_consorcio": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
+        "indice": " ",
+        "quantidade_de_reclamacoes_reguladas_procedentes": "1",
+        "quantidade_de_reclamacoes_reguladas_outras": "3",
+        "quantidade_de_reclamacoes_nao_reguladas": "1",
+        "quantidade_total_de_reclamacoes": "5",
+        "quantidade_de_clientes_consorciados": "73070",
+        "": ""
+      }
+    },
+    {
+      "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
+      "normalized_name": "administradora_de_consorcio_nacional_honda_ltda",
+      "cnpj": "45441789",
+      "cnpj_root": "45441789",
+      "position": 3,
+      "index_value": 28.8,
+      "complaints_regulated_procedent": 70,
+      "complaints_regulated_other": 59,
+      "complaints_unregulated": 42,
+      "complaints": 171,
+      "clients": 2429892,
+      "ano": 2025,
+      "semestre": "2º",
+      "raw": {
+        "ano": "2025",
+        "semestre": "2º",
+        "cnpj_ac": "45441789",
+        "administradora_de_consorcio": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
+        "indice": "28,80",
+        "quantidade_de_reclamacoes_reguladas_procedentes": "70",
+        "quantidade_de_reclamacoes_reguladas_outras": "59",
+        "quantidade_de_reclamacoes_nao_reguladas": "42",
+        "quantidade_total_de_reclamacoes": "171",
+        "quantidade_de_clientes_consorciados": "2429892",
+        "": ""
+      }
+    },
+    {
+      "institution_name": "ADMINISTRADORA DE CONSORCIOS SICREDI LTDA",
+      "normalized_name": "administradora_de_consorcios_sicredi_ltda",
+      "cnpj": "07808907",
+      "cnpj_root": "07808907",
+      "position": 4,
+      "index_value": 29.36,
+      "complaints_regulated_procedent": 14,
+      "complaints_regulated_other": 15,
+      "complaints_unregulated": 7,
+      "complaints": 36,
+      "clients": 476708,
+      "ano": 2025,
+      "semestre": "2º",
+      "raw": {
+        "ano": "2025",
+        "semestre": "2º",
+        "cnpj_ac": "07808907",
+        "administradora_de_consorcio": "ADMINISTRADORA DE CONSORCIOS SICREDI LTDA",
+        "indice": "29,36",
+        "quantidade_de_reclamacoes_reguladas_procedentes": "14",
+        "quantidade_de_reclamacoes_reguladas_outras": "15",
+        "quantidade_de_reclamacoes_nao_reguladas": "7",
+        "quantidade_total_de_reclamacoes": "36",
+        "quantidade_de_clientes_consorciados": "476708",
+        "": ""
+      }
+    },
+    {
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA.",
+      "normalized_name": "administradora_de_consorcio_nacional_vime_ltda",
+      "cnpj": "59999300",
+      "cnpj_root": "59999300",
+      "position": 5,
+      "index_value": null,
+      "complaints_regulated_procedent": 0,
+      "complaints_regulated_other": 0,
+      "complaints_unregulated": 1,
+      "complaints": 1,
+      "clients": 1020,
+      "ano": 2025,
+      "semestre": "2º",
+      "raw": {
+        "ano": "2025",
+        "semestre": "2º",
+        "cnpj_ac": "59999300",
+        "administradora_de_consorcio": "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA.",
+        "indice": " ",
+        "quantidade_de_reclamacoes_reguladas_procedentes": "0",
+        "quantidade_de_reclamacoes_reguladas_outras": "0",
+        "quantidade_de_reclamacoes_nao_reguladas": "1",
+        "quantidade_total_de_reclamacoes": "1",
+        "quantidade_de_clientes_consorciados": "1020",
+        "": ""
+      }
+    },
+    {
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO RCI BRASIL LTDA",
+      "normalized_name": "administradora_de_consorcio_rci_brasil_ltda",
+      "cnpj": "73230674",
+      "cnpj_root": "73230674",
+      "position": 6,
+      "index_value": null,
+      "complaints_regulated_procedent": 5,
+      "complaints_regulated_other": 18,
+      "complaints_unregulated": 4,
+      "complaints": 27,
+      "clients": 21914,
+      "ano": 2025,
+      "semestre": "2º",
+      "raw": {
+        "ano": "2025",
+        "semestre": "2º",
+        "cnpj_ac": "73230674",
+        "administradora_de_consorcio": "ADMINISTRADORA DE CONSÓRCIO RCI BRASIL LTDA",
+        "indice": " ",
+        "quantidade_de_reclamacoes_reguladas_procedentes": "5",
+        "quantidade_de_reclamacoes_reguladas_outras": "18",
+        "quantidade_de_reclamacoes_nao_reguladas": "4",
+        "quantidade_total_de_reclamacoes": "27",
+        "quantidade_de_clientes_consorciados": "21914",
+        "": ""
+      }
+    },
+    {
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
+      "normalized_name": "administradora_de_consorcio_spengler_ltda",
+      "cnpj": "91341925",
+      "cnpj_root": "91341925",
+      "position": 7,
+      "index_value": null,
+      "complaints_regulated_procedent": 1,
+      "complaints_regulated_other": 0,
+      "complaints_unregulated": 1,
+      "complaints": 2,
+      "clients": 5087,
+      "ano": 2025,
+      "semestre": "2º",
+      "raw": {
+        "ano": "2025",
+        "semestre": "2º",
+        "cnpj_ac": "91341925",
+        "administradora_de_consorcio": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
+        "indice": " ",
+        "quantidade_de_reclamacoes_reguladas_procedentes": "1",
+        "quantidade_de_reclamacoes_reguladas_outras": "0",
+        "quantidade_de_reclamacoes_nao_reguladas": "1",
+        "quantidade_total_de_reclamacoes": "2",
+        "quantidade_de_clientes_consorciados": "5087",
+        "": ""
+      }
+    },
+    {
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO UNICOOB LTDA",
+      "normalized_name": "administradora_de_consorcio_unicoob_ltda",
+      "cnpj": "12228808",
+      "cnpj_root": "12228808",
+      "position": 8,
+      "index_value": null,
+      "complaints_regulated_procedent": 2,
+      "complaints_regulated_other": 0,
+      "complaints_unregulated": 1,
+      "complaints": 3,
+      "clients": 57517,
+      "ano": 2025,
+      "semestre": "2º",
+      "raw": {
+        "ano": "2025",
+        "semestre": "2º",
+        "cnpj_ac": "12228808",
+        "administradora_de_consorcio": "ADMINISTRADORA DE CONSÓRCIO UNICOOB LTDA",
+        "indice": " ",
+        "quantidade_de_reclamacoes_reguladas_procedentes": "2",
+        "quantidade_de_reclamacoes_reguladas_outras": "0",
+        "quantidade_de_reclamacoes_nao_reguladas": "1",
+        "quantidade_total_de_reclamacoes": "3",
+        "quantidade_de_clientes_consorciados": "57517",
+        "": ""
+      }
+    },
+    {
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIOS BECKER LTDA.",
+      "normalized_name": "administradora_de_consorcios_becker_ltda",
+      "cnpj": "03828278",
+      "cnpj_root": "03828278",
+      "position": 9,
+      "index_value": null,
+      "complaints_regulated_procedent": 1,
+      "complaints_regulated_other": 0,
+      "complaints_unregulated": 1,
+      "complaints": 2,
+      "clients": 10205,
+      "ano": 2025,
+      "semestre": "2º",
+      "raw": {
+        "ano": "2025",
+        "semestre": "2º",
+        "cnpj_ac": "03828278",
+        "administradora_de_consorcio": "ADMINISTRADORA DE CONSÓRCIOS BECKER LTDA.",
+        "indice": " ",
+        "quantidade_de_reclamacoes_reguladas_procedentes": "1",
+        "quantidade_de_reclamacoes_reguladas_outras": "0",
+        "quantidade_de_reclamacoes_nao_reguladas": "1",
+        "quantidade_total_de_reclamacoes": "2",
+        "quantidade_de_clientes_consorciados": "10205",
+        "": ""
+      }
+    },
+    {
+      "institution_name": "ALPHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "alpha_administradora_de_consorcio_ltda",
+      "cnpj": "90982679",
+      "cnpj_root": "90982679",
+      "position": 10,
+      "index_value": 1403.82,
+      "complaints_regulated_procedent": 47,
+      "complaints_regulated_other": 20,
+      "complaints_unregulated": 3,
+      "complaints": 70,
+      "clients": 33480,
+      "ano": 2025,
+      "semestre": "2º",
+      "raw": {
+        "ano": "2025",
+        "semestre": "2º",
+        "cnpj_ac": "90982679",
+        "administradora_de_consorcio": "ALPHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+        "indice": "1.403,82",
+        "quantidade_de_reclamacoes_reguladas_procedentes": "47",
+        "quantidade_de_reclamacoes_reguladas_outras": "20",
+        "quantidade_de_reclamacoes_nao_reguladas": "3",
+        "quantidade_total_de_reclamacoes": "70",
+        "quantidade_de_clientes_consorciados": "33480",
+        "": ""
+      }
+    }
+  ],
+  "related_products": [
+    {
+      "key": "carro",
+      "label": "Consórcio de Carro",
+      "aliases": [
+        "carro",
+        "automovel",
+        "automóvel",
+        "veiculo"
+      ],
+      "intents": [
+        "consórcio de carro",
+        "melhor consórcio de carro"
+      ],
+      "related_routes": [
+        "carro"
+      ]
+    }
+  ],
+  "series_highlights": [
+    {
+      "key": "selic_meta",
+      "label": "Meta Selic",
+      "value": 14.75,
+      "date": "29/04/2026",
+      "unit": "% a.a.",
+      "frequency": "daily"
+    },
+    {
+      "key": "cdi",
+      "label": "CDI",
+      "value": 0.054266,
+      "date": "22/04/2026",
+      "unit": "% a.d.",
+      "frequency": "daily"
+    },
+    {
+      "key": "ipca",
+      "label": "IPCA",
+      "value": 0.88,
+      "date": "01/03/2026",
+      "unit": "% a.m.",
+      "frequency": "monthly"
+    },
+    {
+      "key": "taxa_media_credito_livre_pf",
+      "label": "Taxa média de crédito livre PF",
+      "value": 62.02,
+      "date": "01/02/2026",
+      "unit": "% a.a.",
+      "frequency": "monthly"
+    },
+    {
+      "key": "taxa_media_financiamento_veiculos_pf",
+      "label": "Taxa média de financiamento de veículos PF",
+      "value": 27.28,
+      "date": "01/02/2026",
+      "unit": "% a.a.",
+      "frequency": "monthly"
+    },
+    {
+      "key": "taxa_media_credito_imobiliario_pf",
+      "label": "Taxa média de crédito imobiliário PF",
+      "value": 1.11,
+      "date": "01/02/2026",
+      "unit": "% a.a.",
+      "frequency": "monthly"
+    }
+  ],
+  "scenario_highlights": [
+    {
+      "key": "consorcio_ou_financiamento_veiculos",
+      "headline": "Veículos: comparar consórcio com financiamento segue essencial",
+      "description": "Taxa média observada no financiamento de veículos PF: 27.28. Meta Selic: 14.75. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
+      "evidence": {
+        "taxa_financiamento_veiculos_pf": 27.28,
+        "selic_meta": 14.75
+      }
+    },
+    {
+      "key": "imobiliario_contexto",
+      "headline": "Imobiliário: a taxa de crédito continua sendo referência prática",
+      "description": "A taxa média de crédito imobiliário PF observada foi 1.11. Isso ajuda a contextualizar buscas por consórcio imobiliário e cenários de custo de oportunidade.",
+      "evidence": {
+        "taxa_credito_imobiliario_pf": 1.11
+      }
+    },
+    {
+      "key": "credito_livre_contexto",
+      "headline": "Crédito livre PF segue como baliza macro para decisão",
+      "description": "A taxa média de crédito livre PF observada foi 62.02. O usuário tende a comparar consórcio com alternativas de crédito mesmo quando a busca começa por produto.",
+      "evidence": {
+        "taxa_credito_livre_pf": 62.02
+      }
+    },
+    {
+      "key": "ranking_reclamacoes_contexto",
+      "headline": "Ranking regulatório ajuda a priorizar administradoras",
+      "description": "O ranking oficial de reclamações entrou no build e já pode alimentar recortes por reputação regulatória.",
+      "evidence": {
+        "top_ranked_institutions": [
+          "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+          "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
+          "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
+          "ADMINISTRADORA DE CONSORCIOS SICREDI LTDA",
+          "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA."
+        ]
+      }
+    },
+    {
+      "key": "abac_contexto_setorial",
+      "headline": "Boletim setorial da ABAC disponível como apoio interpretativo",
+      "description": "O boletim mais recente identificado foi Fevereiro/26. Ele entra como contexto complementar, sem substituir a base oficial do BCB.",
+      "evidence": {
+        "abac_period": "Fevereiro/26"
+      }
+    }
+  ],
+  "meta_hash": "34478083a46701b4c1de84e0aba9d342d7858edfb7eaf2dd1e01c00765af10dc"
+}

@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "generated_at": "2026-04-24T14:13:24+00:00",
-    "count": 4
+    "generated_at": "2026-04-25T09:06:31+00:00",
+    "count": 5
   },
   "items": [
     {
@@ -27,6 +27,20 @@
       "description": "A taxa média de crédito livre PF observada foi 62.02. O usuário tende a comparar consórcio com alternativas de crédito mesmo quando a busca começa por produto.",
       "evidence": {
         "taxa_credito_livre_pf": 62.02
+      }
+    },
+    {
+      "key": "ranking_reclamacoes_contexto",
+      "headline": "Ranking regulatório ajuda a priorizar administradoras",
+      "description": "O ranking oficial de reclamações entrou no build e já pode alimentar recortes por reputação regulatória.",
+      "evidence": {
+        "top_ranked_institutions": [
+          "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+          "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
+          "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
+          "ADMINISTRADORA DE CONSORCIOS SICREDI LTDA",
+          "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA."
+        ]
       }
     },
     {

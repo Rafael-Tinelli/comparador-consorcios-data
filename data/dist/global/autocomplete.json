@@ -1,738 +1,902 @@
 {
   "metadata": {
-    "generated_at": "2026-04-24T14:13:24+00:00",
-    "count": 146
+    "generated_at": "2026-04-25T09:06:31+00:00",
+    "count": 149
   },
   "items": [
     {
       "type": "instituicao",
-      "label": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "02010478"
     },
     {
       "type": "instituicao",
-      "label": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "58113812"
     },
     {
       "type": "instituicao",
       "label": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "HS ADMINISTRADORA DE CONSÓRCIOS S.A.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "BREITKOPF ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "PRIMO ROSSI ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SPONCHIADO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "48041735"
     },
     {
       "type": "instituicao",
       "label": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "84911098"
     },
     {
       "type": "instituicao",
-      "label": "CLUBE NAVAL - CAIXA BENEFICIENTE",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "47820097"
     },
     {
       "type": "instituicao",
-      "label": "CONSHOP ADMINISTRADORA DE CONSORCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "62354055"
     },
     {
       "type": "instituicao",
-      "label": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "GRAVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "MASSEY FERGUSON ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "MYCON ADMINISTRADORA DE CONSÓRCIOS S.A.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "RODOBENS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SERRANA ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "TRIÂNGULO ADMINISTRADORA DE CONSÓRCIOS S/A",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "UNAFISCO - ASSOCIAÇÃO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "57723801"
     },
     {
       "type": "instituicao",
       "label": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "45441789"
     },
     {
       "type": "instituicao",
-      "label": "ALPHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "ANCORA ADMINISTRADORA DE CONSORCIOS S.A.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "ASSOCIACAO DOS JUIZES DO RIO GRANDE DO SUL",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "BBC ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "BRQUALY ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "CAMVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "CARLESSI ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "CICAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "CIMAVEL ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "CNP CONSÓRCIO S.A. ADMINISTRADORA DE CONSÓRCIOS",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "COMAUTO ADMINISTRADORA DE CONSORCIO LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "CONBRAV - ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "CONESUL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "CONSÓRCIO NACIONAL VOLKSWAGEN - ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "FARROUPILHA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "FEDERACAO NAC. DE ASSOCIACOES DOS SERVIDORES DO BCO CENTRAL",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "FERRAZ ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "FRA-FREIRE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "GAMBATTO ADMINISTRADORA DE CONSORCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "GMAC ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "GROSCON ADMINISTRADORA DE CONSORCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "H. ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "IRMÃOS DE MARCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "ITAÚ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "KLUBI ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "KSK ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "LUIZA ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "MAGGI ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "OPÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "PORTOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "RANDON ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "REDE OESTE ADMINISTRADORA DE CONSORCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "REDENÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "RESERVA ADMINISTRADORA DE CONSÓRCIO LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "RIVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SANTA FÉ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SCANIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SERELLO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SICOOB ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SIMPALA LANÇADORA E ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SM ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "SOLUÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "TARRAF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "TRADIÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "TÁGIDE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "UNIÃO CATARINENSE ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "VALTRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "VINAC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "VIVIANI ADMINISTRADORA DE CONSÓRCIO NACIONAL LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "VOLVO ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "XS5 ADMINISTRADORA DE CONSÓRCIOS S.A.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "YAMAHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "ZEMA ADMINISTRADORA DE CONSÓRCIO LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "91341925"
     },
     {
       "type": "instituicao",
       "label": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "06044551"
+    },
+    {
+      "type": "instituicao",
+      "label": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "68318773"
+    },
+    {
+      "type": "instituicao",
+      "label": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "60732997"
     },
     {
       "type": "instituicao",
       "label": "ADMINISTRADORA DE CONSORCIOS SICREDI LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "07808907"
     },
     {
       "type": "instituicao",
       "label": "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "59999300"
     },
     {
       "type": "instituicao",
       "label": "ADMINISTRADORA DE CONSÓRCIO RCI BRASIL LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "73230674"
     },
     {
       "type": "instituicao",
       "label": "ADMINISTRADORA DE CONSÓRCIO UNICOOB LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "12228808"
+    },
+    {
+      "type": "instituicao",
+      "label": "ALPHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "90982679"
     },
     {
       "type": "instituicao",
       "label": "ADMINISTRADORA DE CONSÓRCIOS BECKER LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "03828278"
     },
     {
       "type": "instituicao",
-      "label": "BANRISUL S.A. - ADMINISTRADORA DE CONSÓRCIOS",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "ANCORA ADMINISTRADORA DE CONSORCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "60375243"
     },
     {
       "type": "instituicao",
-      "label": "BB ADMINISTRADORA DE CONSORCIOS S.A.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "03832228"
     },
     {
       "type": "instituicao",
-      "label": "BP ADMINISTRADORA DE CONSÓRCIO LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "13548938"
     },
     {
       "type": "instituicao",
-      "label": "CNF - ADMINISTRADORA DE CONSÓRCIOS NACIONAL LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "ASSOCIACAO DOS JUIZES DO RIO GRANDE DO SUL",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "92965748"
     },
     {
       "type": "instituicao",
-      "label": "CONBR ADMINISTRADORA DE CONSÓRCIOS S.A.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "14723388"
     },
     {
       "type": "instituicao",
-      "label": "CONSCLIC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "59395061"
     },
     {
       "type": "instituicao",
-      "label": "CONVEF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "85322204"
     },
     {
       "type": "instituicao",
-      "label": "COOPERATIVA MISTA ROMA - (ANTIGA JOCKEY , PROIBIDA DE COMERCIALIZAR COTAS NO ESTADO DE GOIÁS ATÉ 19/10/2027",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "HS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "73516106"
     },
     {
       "type": "instituicao",
-      "label": "DESTAQUE ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "76515071"
     },
     {
       "type": "instituicao",
-      "label": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "BREITKOPF ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "73235962"
     },
     {
       "type": "instituicao",
-      "label": "EVOY ADMINISTRADORA DE CONSORCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "PRIMO ROSSI ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "51597300"
     },
     {
       "type": "instituicao",
-      "label": "FANCAR ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "23767155"
     },
     {
       "type": "instituicao",
-      "label": "FF ADMINISTRADORA DE CONSÓRCIO LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "SPONCHIADO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "87636635"
     },
     {
       "type": "instituicao",
-      "label": "FIEL PADUA ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "FINAMA ADMINISTRADORA DE CONSORCIO LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "FIPAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "FUNDACAO HABITACIONAL DO EXERCITO - FHE",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "GAP ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "ICONSÓRCIO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "ITAÚ UNIBANCO VEÍCULOS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "M.I6 ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "MENEGALLI ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "MOTOASA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "MULTIMARCAS ADMINISTRADORA DE CONSORCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "NANUQUE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "NOVOTEMPO ADMINISTRADORA DE CONSORCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "PROMOVE ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "QUALINVEST ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "TOYOTA ADMINISTRADORA DE CONSÓRCIOS DO BRASIL LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "UNECONSORCIO ADMINISTRADORA DE CONSORCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
-    },
-    {
-      "type": "instituicao",
-      "label": "VANGUARDA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "label": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "71045363"
     },
     {
       "type": "instituicao",
       "label": "ÁPICE ADMINISTRADORA DE CONSORCIO LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php"
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "03762583"
+    },
+    {
+      "type": "instituicao",
+      "label": "CLUBE NAVAL - CAIXA BENEFICIENTE",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "33868654"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONSHOP ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "44196293"
+    },
+    {
+      "type": "instituicao",
+      "label": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "08570707"
+    },
+    {
+      "type": "instituicao",
+      "label": "GRAVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "91338228"
+    },
+    {
+      "type": "instituicao",
+      "label": "MASSEY FERGUSON ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "45793395"
+    },
+    {
+      "type": "instituicao",
+      "label": "MYCON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "27268770"
+    },
+    {
+      "type": "instituicao",
+      "label": "RODOBENS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "51855716"
+    },
+    {
+      "type": "instituicao",
+      "label": "SERRANA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "89472310"
+    },
+    {
+      "type": "instituicao",
+      "label": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "54708839"
+    },
+    {
+      "type": "instituicao",
+      "label": "TRIÂNGULO ADMINISTRADORA DE CONSÓRCIOS S/A",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "78199262"
+    },
+    {
+      "type": "instituicao",
+      "label": "UNAFISCO - ASSOCIAÇÃO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "50586247"
+    },
+    {
+      "type": "instituicao",
+      "label": "BANRISUL S.A. - ADMINISTRADORA DE CONSÓRCIOS",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "92692979"
+    },
+    {
+      "type": "instituicao",
+      "label": "BBC ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "36770683"
+    },
+    {
+      "type": "instituicao",
+      "label": "BB ADMINISTRADORA DE CONSORCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "06043050"
+    },
+    {
+      "type": "instituicao",
+      "label": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "52568821"
+    },
+    {
+      "type": "instituicao",
+      "label": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "03762395"
+    },
+    {
+      "type": "instituicao",
+      "label": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "06046109"
+    },
+    {
+      "type": "instituicao",
+      "label": "BRQUALY ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "45713971"
+    },
+    {
+      "type": "instituicao",
+      "label": "CAMVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "72461643"
+    },
+    {
+      "type": "instituicao",
+      "label": "CARLESSI ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "95783262"
+    },
+    {
+      "type": "instituicao",
+      "label": "CICAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "00266031"
+    },
+    {
+      "type": "instituicao",
+      "label": "CIMAVEL ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "13170428"
+    },
+    {
+      "type": "instituicao",
+      "label": "CNP CONSÓRCIO S.A. ADMINISTRADORA DE CONSÓRCIOS",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "05349595"
+    },
+    {
+      "type": "instituicao",
+      "label": "COMAUTO ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "44474674"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONBRAV - ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "07336852"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONESUL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "92459213"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONSÓRCIO NACIONAL VOLKSWAGEN - ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "47658539"
+    },
+    {
+      "type": "instituicao",
+      "label": "FARROUPILHA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "91107581"
+    },
+    {
+      "type": "instituicao",
+      "label": "FEDERACAO NAC. DE ASSOCIACOES DOS SERVIDORES DO BCO CENTRAL",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "33350620"
+    },
+    {
+      "type": "instituicao",
+      "label": "FERRAZ ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "00600262"
+    },
+    {
+      "type": "instituicao",
+      "label": "FRA-FREIRE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "44479061"
+    },
+    {
+      "type": "instituicao",
+      "label": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "04751943"
+    },
+    {
+      "type": "instituicao",
+      "label": "GAMBATTO ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "82942400"
+    },
+    {
+      "type": "instituicao",
+      "label": "GMAC ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "49937055"
+    },
+    {
+      "type": "instituicao",
+      "label": "GROSCON ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "26228270"
+    },
+    {
+      "type": "instituicao",
+      "label": "H. ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "03586655"
+    },
+    {
+      "type": "instituicao",
+      "label": "IRMÃOS DE MARCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "03403333"
+    },
+    {
+      "type": "instituicao",
+      "label": "ITAÚ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "00000776"
+    },
+    {
+      "type": "instituicao",
+      "label": "KLUBI ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "41629070"
+    },
+    {
+      "type": "instituicao",
+      "label": "KSK ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "62798475"
+    },
+    {
+      "type": "instituicao",
+      "label": "LUIZA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "60250776"
+    },
+    {
+      "type": "instituicao",
+      "label": "MAGGI ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "04250224"
+    },
+    {
+      "type": "instituicao",
+      "label": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "46349106"
+    },
+    {
+      "type": "instituicao",
+      "label": "OPÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "20919916"
+    },
+    {
+      "type": "instituicao",
+      "label": "PORTOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "87433413"
+    },
+    {
+      "type": "instituicao",
+      "label": "RANDON ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "91108027"
+    },
+    {
+      "type": "instituicao",
+      "label": "REDE OESTE ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "92002609"
+    },
+    {
+      "type": "instituicao",
+      "label": "REDENÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "62246228"
+    },
+    {
+      "type": "instituicao",
+      "label": "RESERVA ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "28904092"
+    },
+    {
+      "type": "instituicao",
+      "label": "RIVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "80402746"
+    },
+    {
+      "type": "instituicao",
+      "label": "SANTA FÉ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "80674393"
+    },
+    {
+      "type": "instituicao",
+      "label": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "55942312"
+    },
+    {
+      "type": "instituicao",
+      "label": "SCANIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "96479258"
+    },
+    {
+      "type": "instituicao",
+      "label": "SERELLO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "94187879"
+    },
+    {
+      "type": "instituicao",
+      "label": "SICOOB ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "16551061"
+    },
+    {
+      "type": "instituicao",
+      "label": "SIMPALA LANÇADORA E ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "87945218"
+    },
+    {
+      "type": "instituicao",
+      "label": "SM ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "26253658"
+    },
+    {
+      "type": "instituicao",
+      "label": "SOLUÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "04058605"
+    },
+    {
+      "type": "instituicao",
+      "label": "TARRAF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "53211488"
+    },
+    {
+      "type": "instituicao",
+      "label": "TRADIÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "59956185"
+    },
+    {
+      "type": "instituicao",
+      "label": "TÁGIDE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "05551841"
+    },
+    {
+      "type": "instituicao",
+      "label": "UNIÃO CATARINENSE ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "83553883"
+    },
+    {
+      "type": "instituicao",
+      "label": "VALTRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "56360266"
+    },
+    {
+      "type": "instituicao",
+      "label": "VINAC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "49995293"
+    },
+    {
+      "type": "instituicao",
+      "label": "VIVIANI ADMINISTRADORA DE CONSÓRCIO NACIONAL LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "22245020"
+    },
+    {
+      "type": "instituicao",
+      "label": "VOLVO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "74118381"
+    },
+    {
+      "type": "instituicao",
+      "label": "XS5 ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "40011095"
+    },
+    {
+      "type": "instituicao",
+      "label": "YAMAHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "47458153"
+    },
+    {
+      "type": "instituicao",
+      "label": "ZEMA ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "23367634"
+    },
+    {
+      "type": "instituicao",
+      "label": "BP ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "06181431"
+    },
+    {
+      "type": "instituicao",
+      "label": "CNF - ADMINISTRADORA DE CONSÓRCIOS NACIONAL LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "59129403"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONBR ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "75770164"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONSCLIC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "56103171"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONVEF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "58919903"
+    },
+    {
+      "type": "instituicao",
+      "label": "COOPERATIVA MISTA ROMA - (ANTIGA JOCKEY , PROIBIDA DE COMERCIALIZAR COTAS NO ESTADO DE GOIÁS ATÉ 19/10/2027",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "61550836"
+    },
+    {
+      "type": "instituicao",
+      "label": "DESTAQUE ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "05794450"
+    },
+    {
+      "type": "instituicao",
+      "label": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "40513064"
+    },
+    {
+      "type": "instituicao",
+      "label": "EVOY ADMINISTRADORA DE CONSORCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "42735881"
+    },
+    {
+      "type": "instituicao",
+      "label": "FANCAR ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "11747606"
+    },
+    {
+      "type": "instituicao",
+      "label": "FF ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "62534158"
+    },
+    {
+      "type": "instituicao",
+      "label": "FIEL PADUA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "06940240"
+    },
+    {
+      "type": "instituicao",
+      "label": "FINAMA ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "45725975"
+    },
+    {
+      "type": "instituicao",
+      "label": "FIPAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "78688462"
+    },
+    {
+      "type": "instituicao",
+      "label": "FUNDACAO HABITACIONAL DO EXERCITO - FHE",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "00643742"
+    },
+    {
+      "type": "instituicao",
+      "label": "GAP ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "45700892"
+    },
+    {
+      "type": "instituicao",
+      "label": "ICONSÓRCIO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "61029190"
+    },
+    {
+      "type": "instituicao",
+      "label": "ITAÚ UNIBANCO VEÍCULOS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "42421776"
+    },
+    {
+      "type": "instituicao",
+      "label": "M.I6 ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "58860976"
+    },
+    {
+      "type": "instituicao",
+      "label": "MENEGALLI ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "76853043"
+    },
+    {
+      "type": "instituicao",
+      "label": "MOTOASA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "05126027"
+    },
+    {
+      "type": "instituicao",
+      "label": "MULTIMARCAS ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "04124922"
+    },
+    {
+      "type": "instituicao",
+      "label": "NANUQUE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "05652765"
+    },
+    {
+      "type": "instituicao",
+      "label": "NOVOTEMPO ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "05395814"
+    },
+    {
+      "type": "instituicao",
+      "label": "PROMOVE ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "09111444"
+    },
+    {
+      "type": "instituicao",
+      "label": "QUALINVEST ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "27836377"
+    },
+    {
+      "type": "instituicao",
+      "label": "TOYOTA ADMINISTRADORA DE CONSÓRCIOS DO BRASIL LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "43707203"
+    },
+    {
+      "type": "instituicao",
+      "label": "UNECONSORCIO ADMINISTRADORA DE CONSORCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "46931655"
+    },
+    {
+      "type": "instituicao",
+      "label": "VANGUARDA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "57236840"
     },
     {
       "type": "produto",
-      "label": "Defaults",
-      "target": "/financas/consorcio/defaults/"
+      "label": "Consórcio de eletroeletrônicos",
+      "target": "/financas/consorcio/",
+      "categoria_key": "eletroeletronicos"
     },
     {
       "type": "produto",
-      "label": "Families",
-      "target": "/financas/consorcio/"
+      "label": "Consórcio de imóveis",
+      "target": "/financas/consorcio/",
+      "categoria_key": "imobiliario"
     },
     {
       "type": "produto",
-      "label": "Segment_Aliases",
-      "target": "/financas/consorcio/"
+      "label": "Consórcio de motocicletas",
+      "target": "/financas/consorcio/",
+      "categoria_key": "motos"
     },
     {
       "type": "produto",
-      "label": "Subsegment_Aliases",
-      "target": "/financas/consorcio/"
+      "label": "Consórcio de outros bens móveis",
+      "target": "/financas/consorcio/",
+      "categoria_key": "outros_bens_moveis"
     },
     {
       "type": "produto",
-      "label": "Field_Mapping",
-      "target": "/financas/consorcio/"
+      "label": "Consórcio de serviços",
+      "target": "/financas/consorcio/",
+      "categoria_key": "servicos"
     },
     {
       "type": "produto",
-      "label": "Normalization",
-      "target": "/financas/consorcio/"
+      "label": "Consórcio de veículos",
+      "target": "/financas/consorcio/",
+      "categoria_key": "veiculos"
     },
     {
       "type": "produto",
-      "label": "Publication_Rules",
-      "target": "/financas/consorcio/"
+      "label": "Consórcio de Carro",
+      "target": "/financas/consorcio/carro/",
+      "semantic": true
     },
     {
       "type": "produto",
-      "label": "Comparison_Rules",
-      "target": "/financas/consorcio/"
+      "label": "Consórcio de Moto",
+      "target": "/financas/consorcio/moto/",
+      "semantic": true
     },
     {
       "type": "produto",
-      "label": "Sorting_Defaults",
-      "target": "/financas/consorcio/"
-    },
-    {
-      "type": "produto",
-      "label": "Ui_Filters",
-      "target": "/financas/consorcio/"
-    },
-    {
-      "type": "produto",
-      "label": "Route_Visibility",
-      "target": "/financas/consorcio/"
-    },
-    {
-      "type": "produto",
-      "label": "Flags",
-      "target": "/financas/consorcio/"
+      "label": "Consórcio Imobiliário",
+      "target": "/financas/consorcio/imobiliario/",
+      "semantic": true
     },
     {
       "type": "rota",
-      "label": "Site",
-      "target": "/financas/consorcio/site/"
+      "label": "Comparador de Consórcios",
+      "target": "/financas/consorcio/",
+      "primary_keyword": "comparador de consórcios"
     },
     {
       "type": "rota",
-      "label": "Defaults",
-      "target": "/financas/consorcio/defaults/"
+      "label": "Consórcio de Carro",
+      "target": "/financas/consorcio/carro/",
+      "primary_keyword": "consórcio de carro"
     },
     {
       "type": "rota",
-      "label": "Routes",
-      "target": "/financas/consorcio/routes/"
+      "label": "Consórcio de Moto",
+      "target": "/financas/consorcio/moto/",
+      "primary_keyword": "consórcio de moto"
+    },
+    {
+      "type": "rota",
+      "label": "Consórcio Imobiliário",
+      "target": "/financas/consorcio/imobiliario/",
+      "primary_keyword": "consórcio imobiliário"
+    },
+    {
+      "type": "rota",
+      "label": "Carta Contemplada",
+      "target": "/financas/consorcio/carta-contemplada/",
+      "primary_keyword": "carta contemplada"
+    },
+    {
+      "type": "rota",
+      "label": "Melhor Consórcio",
+      "target": "/financas/consorcio/melhor-consorcio.php",
+      "primary_keyword": "melhor consórcio"
+    },
+    {
+      "type": "rota",
+      "label": "Consórcio ou Financiamento",
+      "target": "/financas/consorcio/consorcio-ou-financiamento.php",
+      "primary_keyword": "consórcio ou financiamento"
+    },
+    {
+      "type": "rota",
+      "label": "Ranking de Administradoras",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "primary_keyword": "ranking de administradoras de consórcio"
+    },
+    {
+      "type": "rota",
+      "label": "Consórcio com Menor Taxa",
+      "target": "/financas/consorcio/menor-taxa.php",
+      "primary_keyword": "consórcio com menor taxa"
     }
   ]
 }
