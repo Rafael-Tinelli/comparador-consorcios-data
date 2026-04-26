@@ -9,7 +9,7 @@
   "snapshot": {
     "instituicoes_count": 131,
     "ranking_count": 125,
-    "products_count": 768
+    "products_count": 368
   },
   "top_instituicoes": [
     {
@@ -912,8 +912,8 @@
       "nome_da_administradora": "ASSOC DOS JUIZES DO RS",
       "data_base": "202602",
       "codigo_do_segmento": "3",
-      "taxa_de_administracao": 0.0,
-      "taxa_administracao": 0.0,
+      "taxa_de_administracao": null,
+      "taxa_administracao": null,
       "prazo_do_grupo_em_meses": null,
       "prazo_meses": null,
       "valor_medio_do_bem": null,
@@ -1069,39 +1069,6 @@
       }
     },
     {
-      "id": "36770683-imobiliario",
-      "key": "imobiliario",
-      "nome": "Consórcio de imóveis",
-      "label": "Consórcio de imóveis",
-      "categoria": "Consórcio de imóveis",
-      "categoria_key": "imobiliario",
-      "categoria_label": "Consórcio de imóveis",
-      "cnpj_da_administradora": "36770683",
-      "cnpj_root": "36770683",
-      "nome_da_administradora": "BBC ADM CONS LTDA.",
-      "data_base": "202602",
-      "codigo_do_segmento": "3",
-      "taxa_de_administracao": 0.0,
-      "taxa_administracao": 0.0,
-      "prazo_do_grupo_em_meses": null,
-      "prazo_meses": null,
-      "valor_medio_do_bem": null,
-      "valor_credito": null,
-      "quantidade_de_grupos_ativos": null,
-      "quantidade_de_cotas_ativas_em_dia": 1,
-      "quantidade_de_cotas_ativas_contempladas_no_mes": null,
-      "quantidade_de_cotas_inadimplentes": null,
-      "row_count": 1,
-      "source_members": [
-        "202602Segmentos_Consolidados.csv"
-      ],
-      "source_coverage": {
-        "monthly_consolidated": true,
-        "quarterly_uf": true,
-        "quarterly_adm": true
-      }
-    },
-    {
       "id": "06181431-imobiliario",
       "key": "imobiliario",
       "nome": "Consórcio de imóveis",
@@ -1229,105 +1196,6 @@
       "row_count": 3,
       "source_members": [
         "202602Bens_Imoveis_Grupos.csv",
-        "202602Segmentos_Consolidados.csv"
-      ],
-      "source_coverage": {
-        "monthly_consolidated": true,
-        "quarterly_uf": true,
-        "quarterly_adm": true
-      }
-    },
-    {
-      "id": "03762395-imobiliario",
-      "key": "imobiliario",
-      "nome": "Consórcio de imóveis",
-      "label": "Consórcio de imóveis",
-      "categoria": "Consórcio de imóveis",
-      "categoria_key": "imobiliario",
-      "categoria_label": "Consórcio de imóveis",
-      "cnpj_da_administradora": "03762395",
-      "cnpj_root": "03762395",
-      "nome_da_administradora": "BRENNER ADM CONS LTDA",
-      "data_base": "202602",
-      "codigo_do_segmento": "3",
-      "taxa_de_administracao": 0.0,
-      "taxa_administracao": 0.0,
-      "prazo_do_grupo_em_meses": null,
-      "prazo_meses": null,
-      "valor_medio_do_bem": null,
-      "valor_credito": null,
-      "quantidade_de_grupos_ativos": null,
-      "quantidade_de_cotas_ativas_em_dia": 1,
-      "quantidade_de_cotas_ativas_contempladas_no_mes": null,
-      "quantidade_de_cotas_inadimplentes": null,
-      "row_count": 1,
-      "source_members": [
-        "202602Segmentos_Consolidados.csv"
-      ],
-      "source_coverage": {
-        "monthly_consolidated": true,
-        "quarterly_uf": true,
-        "quarterly_adm": true
-      }
-    },
-    {
-      "id": "06046109-imobiliario",
-      "key": "imobiliario",
-      "nome": "Consórcio de imóveis",
-      "label": "Consórcio de imóveis",
-      "categoria": "Consórcio de imóveis",
-      "categoria_key": "imobiliario",
-      "categoria_label": "Consórcio de imóveis",
-      "cnpj_da_administradora": "06046109",
-      "cnpj_root": "06046109",
-      "nome_da_administradora": "BRISA ADM CONSÓRCIOS",
-      "data_base": "202602",
-      "codigo_do_segmento": "3",
-      "taxa_de_administracao": 0.0,
-      "taxa_administracao": 0.0,
-      "prazo_do_grupo_em_meses": null,
-      "prazo_meses": null,
-      "valor_medio_do_bem": null,
-      "valor_credito": null,
-      "quantidade_de_grupos_ativos": null,
-      "quantidade_de_cotas_ativas_em_dia": 1,
-      "quantidade_de_cotas_ativas_contempladas_no_mes": null,
-      "quantidade_de_cotas_inadimplentes": null,
-      "row_count": 1,
-      "source_members": [
-        "202602Segmentos_Consolidados.csv"
-      ],
-      "source_coverage": {
-        "monthly_consolidated": true,
-        "quarterly_uf": true,
-        "quarterly_adm": true
-      }
-    },
-    {
-      "id": "45713971-imobiliario",
-      "key": "imobiliario",
-      "nome": "Consórcio de imóveis",
-      "label": "Consórcio de imóveis",
-      "categoria": "Consórcio de imóveis",
-      "categoria_key": "imobiliario",
-      "categoria_label": "Consórcio de imóveis",
-      "cnpj_da_administradora": "45713971",
-      "cnpj_root": "45713971",
-      "nome_da_administradora": "BRQUALY ADM CONS LTDA.",
-      "data_base": "202602",
-      "codigo_do_segmento": "3",
-      "taxa_de_administracao": 0.0,
-      "taxa_administracao": 0.0,
-      "prazo_do_grupo_em_meses": null,
-      "prazo_meses": null,
-      "valor_medio_do_bem": null,
-      "valor_credito": null,
-      "quantidade_de_grupos_ativos": null,
-      "quantidade_de_cotas_ativas_em_dia": 1,
-      "quantidade_de_cotas_ativas_contempladas_no_mes": null,
-      "quantidade_de_cotas_inadimplentes": null,
-      "row_count": 1,
-      "source_members": [
         "202602Segmentos_Consolidados.csv"
       ],
       "source_coverage": {
@@ -1905,39 +1773,6 @@
       }
     },
     {
-      "id": "74118381-imobiliario",
-      "key": "imobiliario",
-      "nome": "Consórcio de imóveis",
-      "label": "Consórcio de imóveis",
-      "categoria": "Consórcio de imóveis",
-      "categoria_key": "imobiliario",
-      "categoria_label": "Consórcio de imóveis",
-      "cnpj_da_administradora": "74118381",
-      "cnpj_root": "74118381",
-      "nome_da_administradora": "CONSORCIO VOLVO",
-      "data_base": "202602",
-      "codigo_do_segmento": "3",
-      "taxa_de_administracao": 0.0,
-      "taxa_administracao": 0.0,
-      "prazo_do_grupo_em_meses": null,
-      "prazo_meses": null,
-      "valor_medio_do_bem": null,
-      "valor_credito": null,
-      "quantidade_de_grupos_ativos": null,
-      "quantidade_de_cotas_ativas_em_dia": 1,
-      "quantidade_de_cotas_ativas_contempladas_no_mes": null,
-      "quantidade_de_cotas_inadimplentes": null,
-      "row_count": 1,
-      "source_members": [
-        "202602Segmentos_Consolidados.csv"
-      ],
-      "source_coverage": {
-        "monthly_consolidated": true,
-        "quarterly_uf": true,
-        "quarterly_adm": true
-      }
-    },
-    {
       "id": "28904092-imobiliario",
       "key": "imobiliario",
       "nome": "Consórcio de imóveis",
@@ -2376,39 +2211,6 @@
       }
     },
     {
-      "id": "06940240-imobiliario",
-      "key": "imobiliario",
-      "nome": "Consórcio de imóveis",
-      "label": "Consórcio de imóveis",
-      "categoria": "Consórcio de imóveis",
-      "categoria_key": "imobiliario",
-      "categoria_label": "Consórcio de imóveis",
-      "cnpj_da_administradora": "06940240",
-      "cnpj_root": "06940240",
-      "nome_da_administradora": "FIEL CONSÓRCIOS",
-      "data_base": "202602",
-      "codigo_do_segmento": "3",
-      "taxa_de_administracao": 0.0,
-      "taxa_administracao": 0.0,
-      "prazo_do_grupo_em_meses": null,
-      "prazo_meses": null,
-      "valor_medio_do_bem": null,
-      "valor_credito": null,
-      "quantidade_de_grupos_ativos": null,
-      "quantidade_de_cotas_ativas_em_dia": 1,
-      "quantidade_de_cotas_ativas_contempladas_no_mes": null,
-      "quantidade_de_cotas_inadimplentes": null,
-      "row_count": 1,
-      "source_members": [
-        "202602Segmentos_Consolidados.csv"
-      ],
-      "source_coverage": {
-        "monthly_consolidated": true,
-        "quarterly_uf": true,
-        "quarterly_adm": true
-      }
-    },
-    {
       "id": "45725975-imobiliario",
       "key": "imobiliario",
       "nome": "Consórcio de imóveis",
@@ -2521,8 +2323,8 @@
       "nome_da_administradora": "FUNDACAO HAB. DO EXERCITO-FHE",
       "data_base": "202602",
       "codigo_do_segmento": "1",
-      "taxa_de_administracao": 9.4628,
-      "taxa_administracao": 9.4628,
+      "taxa_de_administracao": 9.966,
+      "taxa_administracao": 9.966,
       "prazo_do_grupo_em_meses": 229.9714,
       "prazo_meses": 229.9714,
       "valor_medio_do_bem": 146688.6843,
@@ -2588,20 +2390,19 @@
       "nome_da_administradora": "GAP ADM CONS LTDA.",
       "data_base": "202602",
       "codigo_do_segmento": "1",
-      "taxa_de_administracao": 9.5875,
-      "taxa_administracao": 9.5875,
+      "taxa_de_administracao": 9.5926,
+      "taxa_administracao": 9.5926,
       "prazo_do_grupo_em_meses": 120.0,
       "prazo_meses": 120.0,
       "valor_medio_do_bem": 332756.2622,
       "valor_credito": 332756.2622,
       "quantidade_de_grupos_ativos": null,
-      "quantidade_de_cotas_ativas_em_dia": 1900,
+      "quantidade_de_cotas_ativas_em_dia": 1899,
       "quantidade_de_cotas_ativas_contempladas_no_mes": null,
       "quantidade_de_cotas_inadimplentes": 382,
-      "row_count": 20,
+      "row_count": 19,
       "source_members": [
-        "202602Bens_Imoveis_Grupos.csv",
-        "202602Segmentos_Consolidados.csv"
+        "202602Bens_Imoveis_Grupos.csv"
       ],
       "source_coverage": {
         "monthly_consolidated": true,
@@ -2812,39 +2613,6 @@
       }
     },
     {
-      "id": "61029190-imobiliario",
-      "key": "imobiliario",
-      "nome": "Consórcio de imóveis",
-      "label": "Consórcio de imóveis",
-      "categoria": "Consórcio de imóveis",
-      "categoria_key": "imobiliario",
-      "categoria_label": "Consórcio de imóveis",
-      "cnpj_da_administradora": "61029190",
-      "cnpj_root": "61029190",
-      "nome_da_administradora": "ICONSÓRCIO ADM CONS LTDA.",
-      "data_base": "202602",
-      "codigo_do_segmento": "3",
-      "taxa_de_administracao": 0.0,
-      "taxa_administracao": 0.0,
-      "prazo_do_grupo_em_meses": null,
-      "prazo_meses": null,
-      "valor_medio_do_bem": null,
-      "valor_credito": null,
-      "quantidade_de_grupos_ativos": null,
-      "quantidade_de_cotas_ativas_em_dia": 1,
-      "quantidade_de_cotas_ativas_contempladas_no_mes": null,
-      "quantidade_de_cotas_inadimplentes": null,
-      "row_count": 1,
-      "source_members": [
-        "202602Segmentos_Consolidados.csv"
-      ],
-      "source_coverage": {
-        "monthly_consolidated": true,
-        "quarterly_uf": true,
-        "quarterly_adm": true
-      }
-    },
-    {
       "id": "03403333-imobiliario",
       "key": "imobiliario",
       "nome": "Consórcio de imóveis",
@@ -2903,39 +2671,6 @@
       "row_count": 264,
       "source_members": [
         "202602Bens_Imoveis_Grupos.csv",
-        "202602Segmentos_Consolidados.csv"
-      ],
-      "source_coverage": {
-        "monthly_consolidated": true,
-        "quarterly_uf": true,
-        "quarterly_adm": true
-      }
-    },
-    {
-      "id": "42421776-imobiliario",
-      "key": "imobiliario",
-      "nome": "Consórcio de imóveis",
-      "label": "Consórcio de imóveis",
-      "categoria": "Consórcio de imóveis",
-      "categoria_key": "imobiliario",
-      "categoria_label": "Consórcio de imóveis",
-      "cnpj_da_administradora": "42421776",
-      "cnpj_root": "42421776",
-      "nome_da_administradora": "ITAÚ UNIBANCO VEÍCULOS ADM CONS LTDA.",
-      "data_base": "202602",
-      "codigo_do_segmento": "3",
-      "taxa_de_administracao": 0.0,
-      "taxa_administracao": 0.0,
-      "prazo_do_grupo_em_meses": null,
-      "prazo_meses": null,
-      "valor_medio_do_bem": null,
-      "valor_credito": null,
-      "quantidade_de_grupos_ativos": null,
-      "quantidade_de_cotas_ativas_em_dia": 1,
-      "quantidade_de_cotas_ativas_contempladas_no_mes": null,
-      "quantidade_de_cotas_inadimplentes": null,
-      "row_count": 1,
-      "source_members": [
         "202602Segmentos_Consolidados.csv"
       ],
       "source_coverage": {
@@ -3047,39 +2782,6 @@
       }
     },
     {
-      "id": "58860976-imobiliario",
-      "key": "imobiliario",
-      "nome": "Consórcio de imóveis",
-      "label": "Consórcio de imóveis",
-      "categoria": "Consórcio de imóveis",
-      "categoria_key": "imobiliario",
-      "categoria_label": "Consórcio de imóveis",
-      "cnpj_da_administradora": "58860976",
-      "cnpj_root": "58860976",
-      "nome_da_administradora": "M.I6 ADM CONS LTDA.",
-      "data_base": "202602",
-      "codigo_do_segmento": "3",
-      "taxa_de_administracao": 0.0,
-      "taxa_administracao": 0.0,
-      "prazo_do_grupo_em_meses": null,
-      "prazo_meses": null,
-      "valor_medio_do_bem": null,
-      "valor_credito": null,
-      "quantidade_de_grupos_ativos": null,
-      "quantidade_de_cotas_ativas_em_dia": 1,
-      "quantidade_de_cotas_ativas_contempladas_no_mes": null,
-      "quantidade_de_cotas_inadimplentes": null,
-      "row_count": 1,
-      "source_members": [
-        "202602Segmentos_Consolidados.csv"
-      ],
-      "source_coverage": {
-        "monthly_consolidated": true,
-        "quarterly_uf": true,
-        "quarterly_adm": true
-      }
-    },
-    {
       "id": "04250224-imobiliario",
       "key": "imobiliario",
       "nome": "Consórcio de imóveis",
@@ -3105,39 +2807,6 @@
       "row_count": 10,
       "source_members": [
         "202602Bens_Imoveis_Grupos.csv",
-        "202602Segmentos_Consolidados.csv"
-      ],
-      "source_coverage": {
-        "monthly_consolidated": true,
-        "quarterly_uf": true,
-        "quarterly_adm": true
-      }
-    },
-    {
-      "id": "45793395-imobiliario",
-      "key": "imobiliario",
-      "nome": "Consórcio de imóveis",
-      "label": "Consórcio de imóveis",
-      "categoria": "Consórcio de imóveis",
-      "categoria_key": "imobiliario",
-      "categoria_label": "Consórcio de imóveis",
-      "cnpj_da_administradora": "45793395",
-      "cnpj_root": "45793395",
-      "nome_da_administradora": "MASSEY FERGUSON ADM DE CONS LTDA",
-      "data_base": "202602",
-      "codigo_do_segmento": "3",
-      "taxa_de_administracao": 0.0,
-      "taxa_administracao": 0.0,
-      "prazo_do_grupo_em_meses": null,
-      "prazo_meses": null,
-      "valor_medio_do_bem": null,
-      "valor_credito": null,
-      "quantidade_de_grupos_ativos": null,
-      "quantidade_de_cotas_ativas_em_dia": 1,
-      "quantidade_de_cotas_ativas_contempladas_no_mes": null,
-      "quantidade_de_cotas_inadimplentes": null,
-      "row_count": 1,
-      "source_members": [
         "202602Segmentos_Consolidados.csv"
       ],
       "source_coverage": {
@@ -3202,6 +2871,344 @@
       "quantidade_de_cotas_ativas_em_dia": 2619,
       "quantidade_de_cotas_ativas_contempladas_no_mes": 21,
       "quantidade_de_cotas_inadimplentes": 629,
+      "row_count": 2,
+      "source_members": [
+        "202602Bens_Imoveis_Grupos.csv",
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "id": "04124922-imobiliario",
+      "key": "imobiliario",
+      "nome": "Consórcio de imóveis",
+      "label": "Consórcio de imóveis",
+      "categoria": "Consórcio de imóveis",
+      "categoria_key": "imobiliario",
+      "categoria_label": "Consórcio de imóveis",
+      "cnpj_da_administradora": "04124922",
+      "cnpj_root": "04124922",
+      "nome_da_administradora": "MULTIMARCAS ADM.CONS.LTDA.",
+      "data_base": "202602",
+      "codigo_do_segmento": "1",
+      "taxa_de_administracao": 20.851,
+      "taxa_administracao": 20.851,
+      "prazo_do_grupo_em_meses": 209.3685,
+      "prazo_meses": 209.3685,
+      "valor_medio_do_bem": 254699.5732,
+      "valor_credito": 254699.5732,
+      "quantidade_de_grupos_ativos": 18,
+      "quantidade_de_cotas_ativas_em_dia": 14751,
+      "quantidade_de_cotas_ativas_contempladas_no_mes": 99,
+      "quantidade_de_cotas_inadimplentes": 4910,
+      "row_count": 32,
+      "source_members": [
+        "202602Bens_Imoveis_Grupos.csv",
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "id": "27268770-imobiliario",
+      "key": "imobiliario",
+      "nome": "Consórcio de imóveis",
+      "label": "Consórcio de imóveis",
+      "categoria": "Consórcio de imóveis",
+      "categoria_key": "imobiliario",
+      "categoria_label": "Consórcio de imóveis",
+      "cnpj_da_administradora": "27268770",
+      "cnpj_root": "27268770",
+      "nome_da_administradora": "MYCON ADM CONS S.A.",
+      "data_base": "202602",
+      "codigo_do_segmento": "1",
+      "taxa_de_administracao": 12.2006,
+      "taxa_administracao": 12.2006,
+      "prazo_do_grupo_em_meses": 233.1466,
+      "prazo_meses": 233.1466,
+      "valor_medio_do_bem": 241870.1769,
+      "valor_credito": 241870.1769,
+      "quantidade_de_grupos_ativos": 39,
+      "quantidade_de_cotas_ativas_em_dia": 47521,
+      "quantidade_de_cotas_ativas_contempladas_no_mes": 354,
+      "quantidade_de_cotas_inadimplentes": 7186,
+      "row_count": 33,
+      "source_members": [
+        "202602Bens_Imoveis_Grupos.csv",
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "id": "20919916-imobiliario",
+      "key": "imobiliario",
+      "nome": "Consórcio de imóveis",
+      "label": "Consórcio de imóveis",
+      "categoria": "Consórcio de imóveis",
+      "categoria_key": "imobiliario",
+      "categoria_label": "Consórcio de imóveis",
+      "cnpj_da_administradora": "20919916",
+      "cnpj_root": "20919916",
+      "nome_da_administradora": "OPÇÃO ADM. CONSÓRCIO",
+      "data_base": "202602",
+      "codigo_do_segmento": "3",
+      "taxa_de_administracao": 15.2086,
+      "taxa_administracao": 15.2086,
+      "prazo_do_grupo_em_meses": null,
+      "prazo_meses": null,
+      "valor_medio_do_bem": null,
+      "valor_credito": null,
+      "quantidade_de_grupos_ativos": 3,
+      "quantidade_de_cotas_ativas_em_dia": 929,
+      "quantidade_de_cotas_ativas_contempladas_no_mes": 16,
+      "quantidade_de_cotas_inadimplentes": 181,
+      "row_count": 1,
+      "source_members": [
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "id": "48041735-imobiliario",
+      "key": "imobiliario",
+      "nome": "Consórcio de imóveis",
+      "label": "Consórcio de imóveis",
+      "categoria": "Consórcio de imóveis",
+      "categoria_key": "imobiliario",
+      "categoria_label": "Consórcio de imóveis",
+      "cnpj_da_administradora": "48041735",
+      "cnpj_root": "48041735",
+      "nome_da_administradora": "PORTO SEGURO ADM. CONS. LTDA",
+      "data_base": "202602",
+      "codigo_do_segmento": "1",
+      "taxa_de_administracao": 18.4999,
+      "taxa_administracao": 18.4999,
+      "prazo_do_grupo_em_meses": 200.4276,
+      "prazo_meses": 200.4276,
+      "valor_medio_do_bem": 302490.1499,
+      "valor_credito": 302490.1499,
+      "quantidade_de_grupos_ativos": 481,
+      "quantidade_de_cotas_ativas_em_dia": 476129,
+      "quantidade_de_cotas_ativas_contempladas_no_mes": 4026,
+      "quantidade_de_cotas_inadimplentes": 44956,
+      "row_count": 410,
+      "source_members": [
+        "202602Bens_Imoveis_Grupos.csv",
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "id": "87433413-imobiliario",
+      "key": "imobiliario",
+      "nome": "Consórcio de imóveis",
+      "label": "Consórcio de imóveis",
+      "categoria": "Consórcio de imóveis",
+      "categoria_key": "imobiliario",
+      "categoria_label": "Consórcio de imóveis",
+      "cnpj_da_administradora": "87433413",
+      "cnpj_root": "87433413",
+      "nome_da_administradora": "PORTOBENS ADM CONS LTDA",
+      "data_base": "202602",
+      "codigo_do_segmento": "3",
+      "taxa_de_administracao": 14.6759,
+      "taxa_administracao": 14.6759,
+      "prazo_do_grupo_em_meses": null,
+      "prazo_meses": null,
+      "valor_medio_do_bem": null,
+      "valor_credito": null,
+      "quantidade_de_grupos_ativos": 6,
+      "quantidade_de_cotas_ativas_em_dia": 2772,
+      "quantidade_de_cotas_ativas_contempladas_no_mes": 29,
+      "quantidade_de_cotas_inadimplentes": 219,
+      "row_count": 1,
+      "source_members": [
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "id": "51597300-imobiliario",
+      "key": "imobiliario",
+      "nome": "Consórcio de imóveis",
+      "label": "Consórcio de imóveis",
+      "categoria": "Consórcio de imóveis",
+      "categoria_key": "imobiliario",
+      "categoria_label": "Consórcio de imóveis",
+      "cnpj_da_administradora": "51597300",
+      "cnpj_root": "51597300",
+      "nome_da_administradora": "PRIMO ROSSI ADM. CONS. LTDA",
+      "data_base": "202602",
+      "codigo_do_segmento": "1",
+      "taxa_de_administracao": 21.8024,
+      "taxa_administracao": 21.8024,
+      "prazo_do_grupo_em_meses": 605.5225,
+      "prazo_meses": 605.5225,
+      "valor_medio_do_bem": 279622.9306,
+      "valor_credito": 279622.9306,
+      "quantidade_de_grupos_ativos": 6,
+      "quantidade_de_cotas_ativas_em_dia": 9318,
+      "quantidade_de_cotas_ativas_contempladas_no_mes": 82,
+      "quantidade_de_cotas_inadimplentes": 1434,
+      "row_count": 4,
+      "source_members": [
+        "202602Bens_Imoveis_Grupos.csv",
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "id": "09111444-imobiliario",
+      "key": "imobiliario",
+      "nome": "Consórcio de imóveis",
+      "label": "Consórcio de imóveis",
+      "categoria": "Consórcio de imóveis",
+      "categoria_key": "imobiliario",
+      "categoria_label": "Consórcio de imóveis",
+      "cnpj_da_administradora": "09111444",
+      "cnpj_root": "09111444",
+      "nome_da_administradora": "PROMOVE",
+      "data_base": "202602",
+      "codigo_do_segmento": "1",
+      "taxa_de_administracao": 22.3354,
+      "taxa_administracao": 22.3354,
+      "prazo_do_grupo_em_meses": 182.4242,
+      "prazo_meses": 182.4242,
+      "valor_medio_do_bem": 185804.7748,
+      "valor_credito": 185804.7748,
+      "quantidade_de_grupos_ativos": 7,
+      "quantidade_de_cotas_ativas_em_dia": 4037,
+      "quantidade_de_cotas_ativas_contempladas_no_mes": 29,
+      "quantidade_de_cotas_inadimplentes": 2978,
+      "row_count": 4,
+      "source_members": [
+        "202602Bens_Imoveis_Grupos.csv",
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "id": "91108027-imobiliario",
+      "key": "imobiliario",
+      "nome": "Consórcio de imóveis",
+      "label": "Consórcio de imóveis",
+      "categoria": "Consórcio de imóveis",
+      "categoria_key": "imobiliario",
+      "categoria_label": "Consórcio de imóveis",
+      "cnpj_da_administradora": "91108027",
+      "cnpj_root": "91108027",
+      "nome_da_administradora": "RANDON ADM CONSÓRCIOS LTDA.",
+      "data_base": "202602",
+      "codigo_do_segmento": "1",
+      "taxa_de_administracao": 18.9632,
+      "taxa_administracao": 18.9632,
+      "prazo_do_grupo_em_meses": 200.1336,
+      "prazo_meses": 200.1336,
+      "valor_medio_do_bem": 374638.7188,
+      "valor_credito": 374638.7188,
+      "quantidade_de_grupos_ativos": 11,
+      "quantidade_de_cotas_ativas_em_dia": 30969,
+      "quantidade_de_cotas_ativas_contempladas_no_mes": 187,
+      "quantidade_de_cotas_inadimplentes": 3781,
+      "row_count": 24,
+      "source_members": [
+        "202602Bens_Imoveis_Grupos.csv",
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "id": "23767155-imobiliario",
+      "key": "imobiliario",
+      "nome": "Consórcio de imóveis",
+      "label": "Consórcio de imóveis",
+      "categoria": "Consórcio de imóveis",
+      "categoria_key": "imobiliario",
+      "categoria_label": "Consórcio de imóveis",
+      "cnpj_da_administradora": "23767155",
+      "cnpj_root": "23767155",
+      "nome_da_administradora": "RECON ADM. DE CONSORCIOS LTDA",
+      "data_base": "202602",
+      "codigo_do_segmento": "1",
+      "taxa_de_administracao": 19.7769,
+      "taxa_administracao": 19.7769,
+      "prazo_do_grupo_em_meses": 233.7258,
+      "prazo_meses": 233.7258,
+      "valor_medio_do_bem": 190974.717,
+      "valor_credito": 190974.717,
+      "quantidade_de_grupos_ativos": 18,
+      "quantidade_de_cotas_ativas_em_dia": 18157,
+      "quantidade_de_cotas_ativas_contempladas_no_mes": 234,
+      "quantidade_de_cotas_inadimplentes": 4515,
+      "row_count": 6,
+      "source_members": [
+        "202602Bens_Imoveis_Grupos.csv",
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "source_coverage": {
+        "monthly_consolidated": true,
+        "quarterly_uf": true,
+        "quarterly_adm": true
+      }
+    },
+    {
+      "id": "92002609-imobiliario",
+      "key": "imobiliario",
+      "nome": "Consórcio de imóveis",
+      "label": "Consórcio de imóveis",
+      "categoria": "Consórcio de imóveis",
+      "categoria_key": "imobiliario",
+      "categoria_label": "Consórcio de imóveis",
+      "cnpj_da_administradora": "92002609",
+      "cnpj_root": "92002609",
+      "nome_da_administradora": "REDE OESTE ADM DE CONS LTDA",
+      "data_base": "202602",
+      "codigo_do_segmento": "1",
+      "taxa_de_administracao": 15.8246,
+      "taxa_administracao": 15.8246,
+      "prazo_do_grupo_em_meses": 180.0,
+      "prazo_meses": 180.0,
+      "valor_medio_do_bem": 316051.26,
+      "valor_credito": 316051.26,
+      "quantidade_de_grupos_ativos": 14,
+      "quantidade_de_cotas_ativas_em_dia": 4055,
+      "quantidade_de_cotas_ativas_contempladas_no_mes": 54,
+      "quantidade_de_cotas_inadimplentes": 1004,
       "row_count": 2,
       "source_members": [
         "202602Bens_Imoveis_Grupos.csv",
@@ -3313,5 +3320,5 @@
       }
     }
   ],
-  "meta_hash": "f32189272c1c49d67456ab13b1d40a8fe5f16c0d8a1e3a8d1ba4af4aacf5b587"
+  "meta_hash": "62e96adebd4957b7e21385c95fb75f8aecacb49a3e9e4a0f20464109ea0fff3a"
 }

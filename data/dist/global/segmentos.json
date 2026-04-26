@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "generated_at": "2026-04-26T09:12:11+00:00",
+    "count": 6,
+    "contract": "segmentos.v1",
+    "source": "BCB ConsorcioBD"
+  },
+  "items": [
+    {
+      "segmento": "veiculos",
+      "label": "Consórcio de veículos",
+      "priority": 1,
+      "administradoras_count": 71,
+      "operacao": {
+        "grupos_ativos": 2714,
+        "cotas_ativas": 2592662,
+        "contemplacoes_mes": 12595,
+        "inadimplentes": 314967,
+        "inadimplencia_ratio": 0.121484
+      },
+      "benchmarks_observados": {
+        "taxa_adm_aprox_pct": 20.3712,
+        "prazo_medio_meses": null,
+        "credito_medio": null,
+        "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual."
+      },
+      "source_members": [
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "row_count": 71
+    },
+    {
+      "segmento": "imobiliario",
+      "label": "Consórcio de imóveis",
+      "priority": 2,
+      "administradoras_count": 109,
+      "operacao": {
+        "grupos_ativos": 6762,
+        "cotas_ativas": 7445308,
+        "contemplacoes_mes": 73065,
+        "inadimplentes": 865960,
+        "inadimplencia_ratio": 0.116309
+      },
+      "benchmarks_observados": {
+        "taxa_adm_aprox_pct": 16.4337,
+        "prazo_medio_meses": 224.95,
+        "credito_medio": 252930.48,
+        "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual."
+      },
+      "source_members": [
+        "202602Bens_Imoveis_Grupos.csv",
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "row_count": 109
+    },
+    {
+      "segmento": "motos",
+      "label": "Consórcio de motocicletas",
+      "priority": 3,
+      "administradoras_count": 56,
+      "operacao": {
+        "grupos_ativos": 1438,
+        "cotas_ativas": 813394,
+        "contemplacoes_mes": 6975,
+        "inadimplentes": 111286,
+        "inadimplencia_ratio": 0.136817
+      },
+      "benchmarks_observados": {
+        "taxa_adm_aprox_pct": 15.3166,
+        "prazo_medio_meses": null,
+        "credito_medio": null,
+        "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual."
+      },
+      "source_members": [
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "row_count": 56
+    },
+    {
+      "segmento": "servicos",
+      "label": "Consórcio de serviços",
+      "priority": 4,
+      "administradoras_count": 67,
+      "operacao": {
+        "grupos_ativos": 4888,
+        "cotas_ativas": 2810573,
+        "contemplacoes_mes": 46653,
+        "inadimplentes": 432611,
+        "inadimplencia_ratio": 0.153923
+      },
+      "benchmarks_observados": {
+        "taxa_adm_aprox_pct": 18.2946,
+        "prazo_medio_meses": null,
+        "credito_medio": null,
+        "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual."
+      },
+      "source_members": [
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "row_count": 67
+    },
+    {
+      "segmento": "outros_bens_moveis",
+      "label": "Consórcio de outros bens móveis",
+      "priority": 8,
+      "administradoras_count": 38,
+      "operacao": {
+        "grupos_ativos": 286,
+        "cotas_ativas": 115833,
+        "contemplacoes_mes": 2960,
+        "inadimplentes": 16267,
+        "inadimplencia_ratio": 0.140435
+      },
+      "benchmarks_observados": {
+        "taxa_adm_aprox_pct": 18.3842,
+        "prazo_medio_meses": null,
+        "credito_medio": null,
+        "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual."
+      },
+      "source_members": [
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "row_count": 38
+    },
+    {
+      "segmento": "eletroeletronicos",
+      "label": "Consórcio de eletroeletrônicos",
+      "priority": 9,
+      "administradoras_count": 27,
+      "operacao": {
+        "grupos_ativos": 299,
+        "cotas_ativas": 200967,
+        "contemplacoes_mes": 2816,
+        "inadimplentes": 72228,
+        "inadimplencia_ratio": 0.359402
+      },
+      "benchmarks_observados": {
+        "taxa_adm_aprox_pct": 19.7491,
+        "prazo_medio_meses": null,
+        "credito_medio": null,
+        "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual."
+      },
+      "source_members": [
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "row_count": 27
+    }
+  ]
+}
