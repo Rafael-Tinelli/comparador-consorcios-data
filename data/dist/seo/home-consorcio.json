@@ -543,7 +543,7 @@
       "key": "cdi",
       "label": "CDI",
       "value": 0.054266,
-      "date": "23/04/2026",
+      "date": "24/04/2026",
       "unit": "% a.d.",
       "frequency": "daily"
     },
@@ -558,24 +558,24 @@
     {
       "key": "taxa_media_credito_livre_pf",
       "label": "Taxa média de crédito livre PF",
-      "value": 62.02,
-      "date": "01/02/2026",
+      "value": 61.53,
+      "date": "01/03/2026",
       "unit": "% a.a.",
       "frequency": "monthly"
     },
     {
       "key": "taxa_media_financiamento_veiculos_pf",
       "label": "Taxa média de financiamento de veículos PF",
-      "value": 27.28,
-      "date": "01/02/2026",
+      "value": 26.61,
+      "date": "01/03/2026",
       "unit": "% a.a.",
       "frequency": "monthly"
     },
     {
       "key": "taxa_media_credito_imobiliario_pf",
       "label": "Taxa média de crédito imobiliário PF",
-      "value": 1.11,
-      "date": "01/02/2026",
+      "value": 1.12,
+      "date": "01/03/2026",
       "unit": "% a.a.",
       "frequency": "monthly"
     }
@@ -584,26 +584,26 @@
     {
       "key": "consorcio_ou_financiamento_veiculos",
       "headline": "Veículos: comparar consórcio com financiamento segue essencial",
-      "description": "Taxa média observada no financiamento de veículos PF: 27.28. Meta Selic: 14.75. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
+      "description": "Taxa média observada no financiamento de veículos PF: 26.61. Meta Selic: 14.75. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
       "evidence": {
-        "taxa_financiamento_veiculos_pf": 27.28,
+        "taxa_financiamento_veiculos_pf": 26.61,
         "selic_meta": 14.75
       }
     },
     {
       "key": "imobiliario_contexto",
       "headline": "Imobiliário: a taxa de crédito continua sendo referência prática",
-      "description": "A taxa média de crédito imobiliário PF observada foi 1.11. Isso ajuda a contextualizar buscas por consórcio imobiliário e cenários de custo de oportunidade.",
+      "description": "A taxa média de crédito imobiliário PF observada foi 1.12. Isso ajuda a contextualizar buscas por consórcio imobiliário e cenários de custo de oportunidade.",
       "evidence": {
-        "taxa_credito_imobiliario_pf": 1.11
+        "taxa_credito_imobiliario_pf": 1.12
       }
     },
     {
       "key": "credito_livre_contexto",
       "headline": "Crédito livre PF segue como baliza macro para decisão",
-      "description": "A taxa média de crédito livre PF observada foi 62.02. O usuário tende a comparar consórcio com alternativas de crédito mesmo quando a busca começa por produto.",
+      "description": "A taxa média de crédito livre PF observada foi 61.53. O usuário tende a comparar consórcio com alternativas de crédito mesmo quando a busca começa por produto.",
       "evidence": {
-        "taxa_credito_livre_pf": 62.02
+        "taxa_credito_livre_pf": 61.53
       }
     },
     {
@@ -629,5 +629,5 @@
       }
     }
   ],
-  "meta_hash": "8b7b35c2f619ffc9915a78dd3d82a41e4e0bfb5c13f938b8387aed6cf212320f"
+  "meta_hash": "171e0a3cc7b1f1cf3425f05cbd8765b7b26a2d597ba196b8d27b413470972673"
 }

@@ -1,32 +1,32 @@
 {
   "metadata": {
-    "generated_at": "2026-04-28T10:25:02+00:00",
+    "generated_at": "2026-04-28T10:34:03+00:00",
     "count": 5
   },
   "items": [
     {
       "key": "consorcio_ou_financiamento_veiculos",
       "headline": "Veículos: comparar consórcio com financiamento segue essencial",
-      "description": "Taxa média observada no financiamento de veículos PF: 27.28. Meta Selic: 14.75. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
+      "description": "Taxa média observada no financiamento de veículos PF: 26.61. Meta Selic: 14.75. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
       "evidence": {
-        "taxa_financiamento_veiculos_pf": 27.28,
+        "taxa_financiamento_veiculos_pf": 26.61,
         "selic_meta": 14.75
       }
     },
     {
       "key": "imobiliario_contexto",
       "headline": "Imobiliário: a taxa de crédito continua sendo referência prática",
-      "description": "A taxa média de crédito imobiliário PF observada foi 1.11. Isso ajuda a contextualizar buscas por consórcio imobiliário e cenários de custo de oportunidade.",
+      "description": "A taxa média de crédito imobiliário PF observada foi 1.12. Isso ajuda a contextualizar buscas por consórcio imobiliário e cenários de custo de oportunidade.",
       "evidence": {
-        "taxa_credito_imobiliario_pf": 1.11
+        "taxa_credito_imobiliario_pf": 1.12
       }
     },
     {
       "key": "credito_livre_contexto",
       "headline": "Crédito livre PF segue como baliza macro para decisão",
-      "description": "A taxa média de crédito livre PF observada foi 62.02. O usuário tende a comparar consórcio com alternativas de crédito mesmo quando a busca começa por produto.",
+      "description": "A taxa média de crédito livre PF observada foi 61.53. O usuário tende a comparar consórcio com alternativas de crédito mesmo quando a busca começa por produto.",
       "evidence": {
-        "taxa_credito_livre_pf": 62.02
+        "taxa_credito_livre_pf": 61.53
       }
     },
     {
