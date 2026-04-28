@@ -2,7 +2,7 @@
   "metadata": {
     "source": "bc_filiais",
     "collector": "collectors/bc_filiais.py",
-    "collected_at": "2026-04-27T10:27:57+00:00",
+    "collected_at": "2026-04-28T11:54:13+00:00",
     "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais",
     "mode_used": "odata-csv",
     "params": {
@@ -39,7 +39,7 @@
       "DataInicio": "2019-05-08",
       "DDD": "11",
       "Telefone": "50191122",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "00266031",
@@ -55,7 +55,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "62",
       "Telefone": "2695444",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "00600262",
@@ -71,7 +71,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "61",
       "Telefone": "34680730",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -87,7 +87,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "61",
       "Telefone": "3147100",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -103,7 +103,7 @@
       "DataInicio": "2003-09-07",
       "DDD": "62",
       "Telefone": "2404300",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -119,7 +119,7 @@
       "DataInicio": "2017-06-11",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -135,7 +135,7 @@
       "DataInicio": "2019-06-09",
       "DDD": "62",
       "Telefone": "37034999",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -151,7 +151,7 @@
       "DataInicio": "2026-09-02",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -167,7 +167,7 @@
       "DataInicio": "2022-09-08",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -183,7 +183,7 @@
       "DataInicio": "2023-03-08",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -199,7 +199,7 @@
       "DataInicio": "2023-04-08",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -215,7 +215,7 @@
       "DataInicio": "2022-04-11",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -231,7 +231,7 @@
       "DataInicio": "2026-09-02",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -247,135 +247,7 @@
       "DataInicio": "2026-09-02",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "04751943",
-      "NomeInstituicao": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AV. SEVERINO TOSTES MEIRELES, 1660",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "ESTACAO",
-      "CEP": "14406-004",
-      "MunicipioIbge": "3516200",
-      "Municipio": "FRANCA",
-      "UF": "SP",
-      "DataInicio": "2002-01-07",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "05349595",
-      "NomeInstituicao": "CNP CONSÓRCIO S.A. ADMINISTRADORA DE CONSÓRCIOS",
-      "Endereco": "AV TAMBORE",
-      "Numero": "450",
-      "Complemento": "TORRE NORTE ANDAR 14 UNIDADE 141B",
-      "Bairro": "TAMBORE",
-      "CEP": "06460-000",
-      "MunicipioIbge": "3505708",
-      "Municipio": "BARUERI",
-      "UF": "SP",
-      "DataInicio": "2018-04-01",
-      "DDD": "11",
-      "Telefone": "49358310",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "05551841",
-      "NomeInstituicao": "TÁGIDE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "Endereco": "TRAVESSA DOM PEDRO I, 361",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "UMARIZAL",
-      "CEP": "66030-000",
-      "MunicipioIbge": "1501402",
-      "Municipio": "BELEM",
-      "UF": "PA",
-      "DataInicio": "1993-02-07",
-      "DDD": "91",
-      "Telefone": "40057222",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "06046109",
-      "NomeInstituicao": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
-      "Endereco": "AVENIDA PEDRO LINHARES GOMES, 4000",
-      "Numero": "",
-      "Complemento": "2º ANDAR",
-      "Bairro": "HORTO",
-      "CEP": "35160-290",
-      "MunicipioIbge": "3131307",
-      "Municipio": "IPATINGA",
-      "UF": "MG",
-      "DataInicio": "2009-06-10",
-      "DDD": "31",
-      "Telefone": "38297260",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "07336852",
-      "NomeInstituicao": "CONBRAV - ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "Endereco": "AV JOSE BASTOS 777 MEZANINO",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "FARIAS BRITO",
-      "CEP": "60325-330",
-      "MunicipioIbge": "2304400",
-      "Municipio": "FORTALEZA",
-      "UF": "CE",
-      "DataInicio": "1993-02-07",
-      "DDD": "null",
-      "Telefone": "23139850",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "08570707",
-      "NomeInstituicao": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
-      "Endereco": "AV. PRUDENTE DE MORAIS, 1610",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "TIROL",
-      "CEP": "59020-400",
-      "MunicipioIbge": "2408102",
-      "Municipio": "NATAL",
-      "UF": "RN",
-      "DataInicio": "1993-02-07",
-      "DDD": "84",
-      "Telefone": "40086868",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "08570707",
-      "NomeInstituicao": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
-      "Endereco": "AV. ANTONIO  VIEIRA DE SA, 180",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "NOVA BETANIA",
-      "CEP": "59605-100",
-      "MunicipioIbge": "2408003",
-      "Municipio": "MOSSORO",
-      "UF": "RN",
-      "DataInicio": "1996-01-02",
-      "DDD": "84",
-      "Telefone": "33163977",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "13170428",
-      "NomeInstituicao": "CIMAVEL ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AV. JOAO RIBEIRO, 652",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "SANTO ANTONIO",
-      "CEP": "49065-000",
-      "MunicipioIbge": "2800308",
-      "Municipio": "ARACAJU",
-      "UF": "SE",
-      "DataInicio": "1993-02-07",
-      "DDD": "79",
-      "Telefone": "32163434",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "13548938",
@@ -391,7 +263,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "14723388",
@@ -407,7 +279,7 @@
       "DataInicio": "2011-01-12",
       "DDD": "45",
       "Telefone": "35213131",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "14723388",
@@ -423,7 +295,7 @@
       "DataInicio": "2013-12-02",
       "DDD": "38",
       "Telefone": "32229600",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "14723388",
@@ -439,7 +311,7 @@
       "DataInicio": "2012-02-08",
       "DDD": "41",
       "Telefone": "32181728",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "14723388",
@@ -455,7 +327,7 @@
       "DataInicio": "2014-06-02",
       "DDD": "16",
       "Telefone": "39771700",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "14723388",
@@ -471,7 +343,7 @@
       "DataInicio": "2013-11-04",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "16551061",
@@ -487,7 +359,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "61",
       "Telefone": "21056555",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "20919916",
@@ -503,7 +375,7 @@
       "DataInicio": "2016-02-01",
       "DDD": "33",
       "Telefone": "30217900",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "22245020",
@@ -519,7 +391,7 @@
       "DataInicio": "2016-01-03",
       "DDD": "11",
       "Telefone": "337101",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "23367634",
@@ -535,7 +407,7 @@
       "DataInicio": "2024-11-08",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "23767155",
@@ -551,7 +423,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "35",
       "Telefone": "5312161",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "23767155",
@@ -567,7 +439,7 @@
       "DataInicio": "2011-01-09",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "23767155",
@@ -583,7 +455,7 @@
       "DataInicio": "2013-07-10",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "23767155",
@@ -599,7 +471,7 @@
       "DataInicio": "2015-06-01",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "26228270",
@@ -615,7 +487,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "16",
       "Telefone": "37218878",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "26253658",
@@ -631,7 +503,7 @@
       "DataInicio": "2018-04-06",
       "DDD": "31",
       "Telefone": "999211825",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "27268770",
@@ -647,7 +519,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "27",
       "Telefone": "33215790",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "27268770",
@@ -663,7 +535,7 @@
       "DataInicio": "2021-05-04",
       "DDD": "11",
       "Telefone": "48585280",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "28904092",
@@ -679,7 +551,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "24",
       "Telefone": "8311322",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "33350620",
@@ -695,7 +567,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "33868654",
@@ -711,23 +583,7 @@
       "DataInicio": "1997-11-08",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "33868654",
-      "NomeInstituicao": "CLUBE NAVAL - CAIXA BENEFICIENTE",
-      "Endereco": "ALMIRANTE BARROSO",
-      "Numero": "63",
-      "Complemento": "16 ANDAR",
-      "Bairro": "CENTRO",
-      "CEP": "20031-010",
-      "MunicipioIbge": "3304557",
-      "Municipio": "RIO DE JANEIRO",
-      "UF": "RJ",
-      "DataInicio": "null",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -743,7 +599,7 @@
       "DataInicio": "2026-09-02",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -759,7 +615,7 @@
       "DataInicio": "2027-06-02",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -775,7 +631,7 @@
       "DataInicio": "2027-07-02",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -791,7 +647,7 @@
       "DataInicio": "2026-06-03",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "02010478",
@@ -807,7 +663,7 @@
       "DataInicio": "2027-08-03",
       "DDD": "61",
       "Telefone": "33147190",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "03403333",
@@ -823,7 +679,7 @@
       "DataInicio": "2000-01-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "03586655",
@@ -839,7 +695,7 @@
       "DataInicio": "2001-09-06",
       "DDD": "45",
       "Telefone": "21031700",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "03762395",
@@ -855,7 +711,7 @@
       "DataInicio": "2001-06-09",
       "DDD": "51",
       "Telefone": "37101200",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "03832228",
@@ -871,7 +727,7 @@
       "DataInicio": "2019-08-07",
       "DDD": "32",
       "Telefone": "33392211",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "04058605",
@@ -887,7 +743,7 @@
       "DataInicio": "2001-03-12",
       "DDD": "28",
       "Telefone": "21015518",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "04250224",
@@ -903,487 +759,151 @@
       "DataInicio": "2009-05-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "46349106",
-      "NomeInstituicao": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
-      "Endereco": "AV. BRASIL, 799",
+      "CNPJ": "04751943",
+      "NomeInstituicao": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AV. SEVERINO TOSTES MEIRELES, 1660",
       "Numero": "",
       "Complemento": "",
-      "Bairro": "JARDIM AMERICA",
-      "CEP": "01431-000",
-      "MunicipioIbge": "3550308",
-      "Municipio": "SAO PAULO",
+      "Bairro": "ESTACAO",
+      "CEP": "14406-004",
+      "MunicipioIbge": "3516200",
+      "Municipio": "FRANCA",
       "UF": "SP",
-      "DataInicio": "1993-02-07",
-      "DDD": "11",
-      "Telefone": "30652222",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "47458153",
-      "NomeInstituicao": "YAMAHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AVENIDA MAGALHÃES DE CASTRO",
-      "Numero": "",
-      "Complemento": "TORRE 3 ED. CONTINENTAL TOWER CJ.72 SETOR FAZER",
-      "Bairro": "CIDADE JARDIM",
-      "CEP": "05676-120",
-      "MunicipioIbge": "3550308",
-      "Municipio": "SAO PAULO",
-      "UF": "SP",
-      "DataInicio": "2024-05-07",
-      "DDD": "11",
-      "Telefone": "64322000",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "47658539",
-      "NomeInstituicao": "CONSÓRCIO NACIONAL VOLKSWAGEN - ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA VOLKSWAGEN, 291",
-      "Numero": "",
-      "Complemento": "7. ANDAR",
-      "Bairro": "PARQUE JABAQUARA",
-      "CEP": "43449-00",
-      "MunicipioIbge": "3550308",
-      "Municipio": "SAO PAULO",
-      "UF": "SP",
-      "DataInicio": "1993-02-07",
-      "DDD": "11",
-      "Telefone": "55825173",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AVENIDA ANTONIO GAZZOLA, 1001",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "JAR. HELIO BAPTISTI",
-      "CEP": "13300-000",
-      "MunicipioIbge": "3523909",
-      "Municipio": "ITU",
-      "UF": "SP",
-      "DataInicio": "1993-02-07",
-      "DDD": "11",
-      "Telefone": "78231001",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AV. PIRACICABA, 240",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "CENTRO",
-      "CEP": "13480-743",
-      "MunicipioIbge": "3526902",
-      "Municipio": "LIMEIRA",
-      "UF": "SP",
-      "DataInicio": "1993-02-07",
-      "DDD": "19",
-      "Telefone": "4515815",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA PERNAMBUCO",
-      "Numero": "614",
-      "Complemento": "CENTRO",
-      "Bairro": "CENTRO",
-      "CEP": "86020-120",
-      "MunicipioIbge": "4113700",
-      "Municipio": "LONDRINA",
-      "UF": "PR",
-      "DataInicio": "1993-02-07",
-      "DDD": "44",
-      "Telefone": "30283880",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA SILVÉRIO NADIR DANIELLE",
-      "Numero": "240",
-      "Complemento": "SALA 240",
-      "Bairro": "CENTRO",
-      "CEP": "78150-000",
-      "MunicipioIbge": "5107040",
-      "Municipio": "PRIMAVERA DO LESTE",
-      "UF": "MT",
-      "DataInicio": "2014-01-03",
+      "DataInicio": "2002-01-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA BERNARDINO DE CAMPOS",
-      "Numero": "248",
-      "Complemento": "",
-      "Bairro": "CENTRO",
-      "CEP": "13207-760",
-      "MunicipioIbge": "3525904",
-      "Municipio": "JUNDIAI",
-      "UF": "SP",
-      "DataInicio": "1993-02-07",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA JOÃO GUILHERMINO",
-      "Numero": "429",
-      "Complemento": "4º ANDAR",
-      "Bairro": "CENTRO",
-      "CEP": "12210-131",
-      "MunicipioIbge": "3549904",
-      "Municipio": "SAO JOSE DOS CAMPOS",
-      "UF": "SP",
-      "DataInicio": "1993-02-07",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA RIO BRANCO 15-60",
-      "Numero": "15",
-      "Complemento": "SALA 06",
-      "Bairro": "CENTRO",
-      "CEP": "17015-310",
-      "MunicipioIbge": "3506003",
-      "Municipio": "BAURU",
-      "UF": "SP",
-      "DataInicio": "1993-02-07",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AV. CIDADE JARDIM",
-      "Numero": "400",
-      "Complemento": "16º ANDAR",
-      "Bairro": "JARDIM AMÉRICA",
-      "CEP": "01454-000",
-      "MunicipioIbge": "3550308",
-      "Municipio": "SAO PAULO",
-      "UF": "SP",
-      "DataInicio": "1998-10-06",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA BENJAMIN CONSTANT",
-      "Numero": "1752",
-      "Complemento": "",
-      "Bairro": "CENTRO",
-      "CEP": "13400-056",
-      "MunicipioIbge": "3538709",
-      "Municipio": "PIRACICABA",
-      "UF": "SP",
-      "DataInicio": "1999-03-01",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA JOSÉ GOMES DA ROCHA LEAL",
+      "CNPJ": "05349595",
+      "NomeInstituicao": "CNP CONSÓRCIO S.A. ADMINISTRADORA DE CONSÓRCIOS",
+      "Endereco": "AV TAMBORE",
       "Numero": "450",
-      "Complemento": "",
-      "Bairro": "CENTRO",
-      "CEP": "12900-300",
-      "MunicipioIbge": "3507605",
-      "Municipio": "BRAGANCA PAULISTA",
+      "Complemento": "TORRE NORTE ANDAR 14 UNIDADE 141B",
+      "Bairro": "TAMBORE",
+      "CEP": "06460-000",
+      "MunicipioIbge": "3505708",
+      "Municipio": "BARUERI",
       "UF": "SP",
-      "DataInicio": "1999-03-01",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "DataInicio": "2018-04-01",
+      "DDD": "11",
+      "Telefone": "49358310",
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA FRANCISCO FERREIRA LOPES",
-      "Numero": "3063",
+      "CNPJ": "05551841",
+      "NomeInstituicao": "TÁGIDE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "Endereco": "TRAVESSA DOM PEDRO I, 361",
+      "Numero": "",
       "Complemento": "",
-      "Bairro": "CENTRO",
-      "CEP": "08745-000",
-      "MunicipioIbge": "3530607",
-      "Municipio": "MOGI DAS CRUZES",
-      "UF": "SP",
-      "DataInicio": "2001-02-12",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Bairro": "UMARIZAL",
+      "CEP": "66030-000",
+      "MunicipioIbge": "1501402",
+      "Municipio": "BELEM",
+      "UF": "PA",
+      "DataInicio": "1993-02-07",
+      "DDD": "91",
+      "Telefone": "40057222",
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "47820097",
-      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "PRAÇA ANITA GARIBALDI",
-      "Numero": "125",
-      "Complemento": "SALA 208 - CENTRO",
-      "Bairro": "CENTRO",
-      "CEP": "88840-000",
-      "MunicipioIbge": "4219002",
-      "Municipio": "URUSSANGA",
-      "UF": "SC",
-      "DataInicio": "2016-08-09",
-      "DDD": "48",
-      "Telefone": "34652911",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "AL BARAO DE PIRACICABA, 740",
+      "CNPJ": "06046109",
+      "NomeInstituicao": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "Endereco": "AVENIDA PEDRO LINHARES GOMES, 4000",
       "Numero": "",
       "Complemento": "2º ANDAR",
-      "Bairro": "CAMPOS ELISEOS",
-      "CEP": "01216-010",
-      "MunicipioIbge": "3550308",
-      "Municipio": "SAO PAULO",
-      "UF": "SP",
-      "DataInicio": "1993-02-07",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
+      "Bairro": "HORTO",
+      "CEP": "35160-290",
+      "MunicipioIbge": "3131307",
+      "Municipio": "IPATINGA",
+      "UF": "MG",
+      "DataInicio": "2009-06-10",
+      "DDD": "31",
+      "Telefone": "38297260",
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "RUA VOLUNTÁRIOS DA PÁTRIA, 40",
+      "CNPJ": "07336852",
+      "NomeInstituicao": "CONBRAV - ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "Endereco": "AV JOSE BASTOS 777 MEZANINO",
       "Numero": "",
       "Complemento": "",
-      "Bairro": "BOTAFOGO",
-      "CEP": "22270-010",
+      "Bairro": "FARIAS BRITO",
+      "CEP": "60325-330",
+      "MunicipioIbge": "2304400",
+      "Municipio": "FORTALEZA",
+      "UF": "CE",
+      "DataInicio": "1993-02-07",
+      "DDD": "null",
+      "Telefone": "23139850",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "08570707",
+      "NomeInstituicao": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
+      "Endereco": "AV. PRUDENTE DE MORAIS, 1610",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "TIROL",
+      "CEP": "59020-400",
+      "MunicipioIbge": "2408102",
+      "Municipio": "NATAL",
+      "UF": "RN",
+      "DataInicio": "1993-02-07",
+      "DDD": "84",
+      "Telefone": "40086868",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "08570707",
+      "NomeInstituicao": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
+      "Endereco": "AV. ANTONIO  VIEIRA DE SA, 180",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "NOVA BETANIA",
+      "CEP": "59605-100",
+      "MunicipioIbge": "2408003",
+      "Municipio": "MOSSORO",
+      "UF": "RN",
+      "DataInicio": "1996-01-02",
+      "DDD": "84",
+      "Telefone": "33163977",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "13170428",
+      "NomeInstituicao": "CIMAVEL ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AV. JOAO RIBEIRO, 652",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "SANTO ANTONIO",
+      "CEP": "49065-000",
+      "MunicipioIbge": "2800308",
+      "Municipio": "ARACAJU",
+      "UF": "SE",
+      "DataInicio": "1993-02-07",
+      "DDD": "79",
+      "Telefone": "32163434",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "33868654",
+      "NomeInstituicao": "CLUBE NAVAL - CAIXA BENEFICIENTE",
+      "Endereco": "ALMIRANTE BARROSO",
+      "Numero": "63",
+      "Complemento": "16 ANDAR",
+      "Bairro": "CENTRO",
+      "CEP": "20031-010",
       "MunicipioIbge": "3304557",
       "Municipio": "RIO DE JANEIRO",
       "UF": "RJ",
-      "DataInicio": "2006-04-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "RUA PINTO BANDEIRA, 471/5",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "CENTRO",
-      "CEP": "90030-150",
-      "MunicipioIbge": "4314902",
-      "Municipio": "PORTO ALEGRE",
-      "UF": "RS",
-      "DataInicio": "2006-04-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "RUA COMENDADOR ARAÚJO, 1.014",
-      "Numero": "",
-      "Complemento": "02º ANDAR",
-      "Bairro": "BATEL",
-      "CEP": "80420-000",
-      "MunicipioIbge": "4106902",
-      "Municipio": "CURITIBA",
-      "UF": "PR",
-      "DataInicio": "2006-04-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "SETOR COMERCIAL NORTE, QUADRA 02",
-      "Numero": "",
-      "Complemento": "BLOCO B, LOJA 452",
-      "Bairro": "",
-      "CEP": "70712-908",
-      "MunicipioIbge": "5300108",
-      "Municipio": "BRASILIA",
-      "UF": "DF",
-      "DataInicio": "2006-04-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "AVENIDA MEIA PONTE, 410",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "SANTA GENOVEVA",
-      "CEP": "74670-010",
-      "MunicipioIbge": "5208707",
-      "Municipio": "GOIANIA",
-      "UF": "GO",
-      "DataInicio": "2006-04-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "RUA DONA MARIA BIBIANO DO CARMO, 305",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "PARQUE INDUSTRIAL",
-      "CEP": "13031-720",
-      "MunicipioIbge": "3509502",
-      "Municipio": "CAMPINAS",
-      "UF": "SP",
-      "DataInicio": "2007-05-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "RUA JACI, 3447",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "REDENTORA",
-      "CEP": "15015-810",
-      "MunicipioIbge": "3549805",
-      "Municipio": "SAO JOSE DO RIO PRETO",
-      "UF": "SP",
-      "DataInicio": "2007-05-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "AVENIDA ANA COSTA, 02",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "VILA MATHIAS",
-      "CEP": "11060-000",
-      "MunicipioIbge": "3548500",
-      "Municipio": "SANTOS",
-      "UF": "SP",
-      "DataInicio": "2007-05-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "AVENIDA GENERAL FRANCISCO GLICÉRIO",
-      "Numero": "557",
-      "Complemento": "",
-      "Bairro": "POMPÉIA",
-      "CEP": "11065-405",
-      "MunicipioIbge": "3548500",
-      "Municipio": "SANTOS",
-      "UF": "SP",
-      "DataInicio": "2007-05-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "AVENIDA PORTUGAL, 1013",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "JARDIM CRISTINA",
-      "CEP": "14020-380",
-      "MunicipioIbge": "3543402",
-      "Municipio": "RIBEIRAO PRETO",
-      "UF": "SP",
-      "DataInicio": "2007-05-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "AVENIDA DOUTOR NELSON D'ÁVILA, 680",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "CENTRO",
-      "CEP": "12245-031",
-      "MunicipioIbge": "3549904",
-      "Municipio": "SAO JOSE DOS CAMPOS",
-      "UF": "SP",
-      "DataInicio": "2007-05-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "AV. CARANDAÍ, 930/938",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "FUNCIONÁRIOS",
-      "CEP": "30130-060",
-      "MunicipioIbge": "3106200",
-      "Municipio": "BELO HORIZONTE",
-      "UF": "MG",
-      "DataInicio": "2007-05-12",
-      "DDD": "11",
-      "Telefone": "33665736",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "AVENIDA DESEMBARGADOR SANTOS NEVES, 753",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "PRAIA DO CANTO",
-      "CEP": "29055-721",
-      "MunicipioIbge": "3205309",
-      "Municipio": "VITORIA",
-      "UF": "ES",
-      "DataInicio": "2011-11-01",
+      "DataInicio": "null",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "48041735",
-      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "AVENIDA GONÇALVES MAGALHÃES, 224",
-      "Numero": "",
-      "Complemento": "LOJA 04",
-      "Bairro": "TRUJILLO",
-      "CEP": "18060-240",
-      "MunicipioIbge": "3552205",
-      "Municipio": "SOROCABA",
-      "UF": "SP",
-      "DataInicio": "2011-04-11",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "36770683",
@@ -1399,7 +919,7 @@
       "DataInicio": "2021-05-09",
       "DDD": "11",
       "Telefone": "31521000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "40011095",
@@ -1415,7 +935,7 @@
       "DataInicio": "2026-01-03",
       "DDD": "11",
       "Telefone": "2424",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "41629070",
@@ -1431,7 +951,7 @@
       "DataInicio": "2023-08-10",
       "DDD": "11",
       "Telefone": "55250525",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "44196293",
@@ -1447,7 +967,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "11",
       "Telefone": "44228000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "44196293",
@@ -1463,7 +983,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "11",
       "Telefone": "47277744",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "44474674",
@@ -1479,7 +999,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "14",
       "Telefone": "34132393",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "44479061",
@@ -1495,7 +1015,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "14",
       "Telefone": "34322020",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "45441789",
@@ -1511,7 +1031,7 @@
       "DataInicio": "1983-03-01",
       "DDD": "11",
       "Telefone": "42272572",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "45713971",
@@ -1527,7 +1047,7 @@
       "DataInicio": "2020-01-06",
       "DDD": "17",
       "Telefone": "21363666",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "45793395",
@@ -1543,7 +1063,7 @@
       "DataInicio": "2002-10-11",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "45793395",
@@ -1559,487 +1079,487 @@
       "DataInicio": "2008-03-06",
       "DDD": "11",
       "Telefone": "40229900",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "51855716",
-      "NomeInstituicao": "RODOBENS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "Endereco": "RUA DOUTOR ROBERTO AZUREM FURTADO",
-      "Numero": "36",
-      "Complemento": "PARTE B",
-      "Bairro": "DISTRITO INDUSTRIAL",
-      "CEP": "15035-650",
-      "MunicipioIbge": "3549805",
-      "Municipio": "SAO JOSE DO RIO PRETO",
-      "UF": "SP",
-      "DataInicio": "2010-03-10",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "52568821",
-      "NomeInstituicao": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "Endereco": "CIDADE DE DEUS, S/N",
-      "Numero": "",
-      "Complemento": "PREDIO ANEXO AO MUSEU",
-      "Bairro": "VILA YARA",
-      "CEP": "06029-900",
-      "MunicipioIbge": "3534401",
-      "Municipio": "OSASCO",
-      "UF": "SP",
-      "DataInicio": "2004-01-07",
-      "DDD": "11",
-      "Telefone": "36842577",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "53211488",
-      "NomeInstituicao": "TARRAF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "Endereco": "RUA SÃO CARLOS",
-      "Numero": "450",
-      "Complemento": "",
-      "Bairro": "JARDIM EUROPA",
-      "CEP": "15014-480",
-      "MunicipioIbge": "3549805",
-      "Municipio": "SAO JOSE DO RIO PRETO",
-      "UF": "SP",
-      "DataInicio": "2003-01-05",
-      "DDD": "17",
-      "Telefone": "21369766",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "54708839",
-      "NomeInstituicao": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
-      "Endereco": "AV EUCLIDES MIRAGAIA, 2023",
+      "CNPJ": "46349106",
+      "NomeInstituicao": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
+      "Endereco": "AV. BRASIL, 799",
       "Numero": "",
       "Complemento": "",
-      "Bairro": "CENTRO",
-      "CEP": "16200-000",
-      "MunicipioIbge": "3506508",
-      "Municipio": "BIRIGUI",
-      "UF": "SP",
-      "DataInicio": "1993-02-07",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "54708839",
-      "NomeInstituicao": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
-      "Endereco": "PRAÇA RUI BARBOSA, 310",
-      "Numero": "",
-      "Complemento": "CASA",
-      "Bairro": "CENTRO",
-      "CEP": "16010-000",
-      "MunicipioIbge": "3502804",
-      "Municipio": "ARACATUBA",
-      "UF": "SP",
-      "DataInicio": "2006-06-01",
-      "DDD": "18",
-      "Telefone": "36363636",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "55942312",
-      "NomeInstituicao": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AVENIDA PRESIDENTE JUSCELINO KUBITSCHEK",
-      "Numero": "2041",
-      "Complemento": "CJ. 191 PARTE 1 BLOCO A COND. WTORRE JK",
-      "Bairro": "VILA NOVA CONCEIÇÃO",
-      "CEP": "04543-011",
+      "Bairro": "JARDIM AMERICA",
+      "CEP": "01431-000",
       "MunicipioIbge": "3550308",
       "Municipio": "SAO PAULO",
       "UF": "SP",
       "DataInicio": "1993-02-07",
       "DDD": "11",
-      "Telefone": "30743021",
-      "Posicao": "26/04/2026"
+      "Telefone": "30652222",
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "56360266",
-      "NomeInstituicao": "VALTRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "RUA: CAPITÃO FRANCISCO DE ALMEIDA, 695",
+      "CNPJ": "47458153",
+      "NomeInstituicao": "YAMAHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AVENIDA MAGALHÃES DE CASTRO",
       "Numero": "",
-      "Complemento": "SUBSOLO 2, ANEXO I",
-      "Bairro": "VILA BRAS CUBAS",
-      "CEP": "08740-300",
+      "Complemento": "TORRE 3 ED. CONTINENTAL TOWER CJ.72 SETOR FAZER",
+      "Bairro": "CIDADE JARDIM",
+      "CEP": "05676-120",
+      "MunicipioIbge": "3550308",
+      "Municipio": "SAO PAULO",
+      "UF": "SP",
+      "DataInicio": "2024-05-07",
+      "DDD": "11",
+      "Telefone": "64322000",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47658539",
+      "NomeInstituicao": "CONSÓRCIO NACIONAL VOLKSWAGEN - ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA VOLKSWAGEN, 291",
+      "Numero": "",
+      "Complemento": "7. ANDAR",
+      "Bairro": "PARQUE JABAQUARA",
+      "CEP": "43449-00",
+      "MunicipioIbge": "3550308",
+      "Municipio": "SAO PAULO",
+      "UF": "SP",
+      "DataInicio": "1993-02-07",
+      "DDD": "11",
+      "Telefone": "55825173",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AVENIDA ANTONIO GAZZOLA, 1001",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "JAR. HELIO BAPTISTI",
+      "CEP": "13300-000",
+      "MunicipioIbge": "3523909",
+      "Municipio": "ITU",
+      "UF": "SP",
+      "DataInicio": "1993-02-07",
+      "DDD": "11",
+      "Telefone": "78231001",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AV. PIRACICABA, 240",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "CENTRO",
+      "CEP": "13480-743",
+      "MunicipioIbge": "3526902",
+      "Municipio": "LIMEIRA",
+      "UF": "SP",
+      "DataInicio": "1993-02-07",
+      "DDD": "19",
+      "Telefone": "4515815",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA PERNAMBUCO",
+      "Numero": "614",
+      "Complemento": "CENTRO",
+      "Bairro": "CENTRO",
+      "CEP": "86020-120",
+      "MunicipioIbge": "4113700",
+      "Municipio": "LONDRINA",
+      "UF": "PR",
+      "DataInicio": "1993-02-07",
+      "DDD": "44",
+      "Telefone": "30283880",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA SILVÉRIO NADIR DANIELLE",
+      "Numero": "240",
+      "Complemento": "SALA 240",
+      "Bairro": "CENTRO",
+      "CEP": "78150-000",
+      "MunicipioIbge": "5107040",
+      "Municipio": "PRIMAVERA DO LESTE",
+      "UF": "MT",
+      "DataInicio": "2014-01-03",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA BERNARDINO DE CAMPOS",
+      "Numero": "248",
+      "Complemento": "",
+      "Bairro": "CENTRO",
+      "CEP": "13207-760",
+      "MunicipioIbge": "3525904",
+      "Municipio": "JUNDIAI",
+      "UF": "SP",
+      "DataInicio": "1993-02-07",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA JOÃO GUILHERMINO",
+      "Numero": "429",
+      "Complemento": "4º ANDAR",
+      "Bairro": "CENTRO",
+      "CEP": "12210-131",
+      "MunicipioIbge": "3549904",
+      "Municipio": "SAO JOSE DOS CAMPOS",
+      "UF": "SP",
+      "DataInicio": "1993-02-07",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA RIO BRANCO 15-60",
+      "Numero": "15",
+      "Complemento": "SALA 06",
+      "Bairro": "CENTRO",
+      "CEP": "17015-310",
+      "MunicipioIbge": "3506003",
+      "Municipio": "BAURU",
+      "UF": "SP",
+      "DataInicio": "1993-02-07",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AV. CIDADE JARDIM",
+      "Numero": "400",
+      "Complemento": "16º ANDAR",
+      "Bairro": "JARDIM AMÉRICA",
+      "CEP": "01454-000",
+      "MunicipioIbge": "3550308",
+      "Municipio": "SAO PAULO",
+      "UF": "SP",
+      "DataInicio": "1998-10-06",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA BENJAMIN CONSTANT",
+      "Numero": "1752",
+      "Complemento": "",
+      "Bairro": "CENTRO",
+      "CEP": "13400-056",
+      "MunicipioIbge": "3538709",
+      "Municipio": "PIRACICABA",
+      "UF": "SP",
+      "DataInicio": "1999-03-01",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA JOSÉ GOMES DA ROCHA LEAL",
+      "Numero": "450",
+      "Complemento": "",
+      "Bairro": "CENTRO",
+      "CEP": "12900-300",
+      "MunicipioIbge": "3507605",
+      "Municipio": "BRAGANCA PAULISTA",
+      "UF": "SP",
+      "DataInicio": "1999-03-01",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA FRANCISCO FERREIRA LOPES",
+      "Numero": "3063",
+      "Complemento": "",
+      "Bairro": "CENTRO",
+      "CEP": "08745-000",
       "MunicipioIbge": "3530607",
       "Municipio": "MOGI DAS CRUZES",
       "UF": "SP",
-      "DataInicio": "2009-03-09",
+      "DataInicio": "2001-02-12",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AV. PREFEITO LUIZ LATORRE, 4.950",
-      "Numero": "",
-      "Complemento": "1.º ANDAR",
-      "Bairro": "JD. DAS HORTÊNSIAS",
-      "CEP": "13209-430",
-      "MunicipioIbge": "3525904",
-      "Municipio": "JUNDIAI",
-      "UF": "SP",
-      "DataInicio": "2000-11-03",
-      "DDD": "11",
-      "Telefone": "45834601",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "TRAVESSA MAGNO DE ARAUJO,935",
-      "Numero": "",
-      "Complemento": "TELEGRAFO SEM FIO",
-      "Bairro": "TELEGRAFO SEM FIO",
-      "CEP": "66113-050",
-      "MunicipioIbge": "1501402",
-      "Municipio": "BELEM",
-      "UF": "PA",
-      "DataInicio": "2005-04-08",
-      "DDD": "91",
-      "Telefone": "2540117",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "TRAVESSA MAGNO DE ARAUJO, 935",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "TELEGRAFO SEM FIO",
-      "CEP": "66113-050",
-      "MunicipioIbge": "1501402",
-      "Municipio": "BELEM",
-      "UF": "PA",
-      "DataInicio": "2005-04-08",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AV FRANCISCO DAS CHAGAS OLIVEIRA, 1260",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "CHACARA MUNICIPAL",
-      "CEP": "15090-190",
-      "MunicipioIbge": "3549805",
-      "Municipio": "SAO JOSE DO RIO PRETO",
-      "UF": "SP",
-      "DataInicio": "2003-04-09",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "PRAÇA RUI BARBOSA, 110",
-      "Numero": "",
-      "Complemento": "CENTRO",
+      "CNPJ": "47820097",
+      "NomeInstituicao": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "PRAÇA ANITA GARIBALDI",
+      "Numero": "125",
+      "Complemento": "SALA 208 - CENTRO",
       "Bairro": "CENTRO",
-      "CEP": "38400-174",
-      "MunicipioIbge": "3170206",
-      "Municipio": "UBERLANDIA",
-      "UF": "MG",
-      "DataInicio": "2005-05-09",
-      "DDD": "34",
-      "Telefone": "32371909",
-      "Posicao": "26/04/2026"
+      "CEP": "88840-000",
+      "MunicipioIbge": "4219002",
+      "Municipio": "URUSSANGA",
+      "UF": "SC",
+      "DataInicio": "2016-08-09",
+      "DDD": "48",
+      "Telefone": "34652911",
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA RUY BARBOSA, 521",
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "AL BARAO DE PIRACICABA, 740",
       "Numero": "",
-      "Complemento": "CENTRO",
-      "Bairro": "CENTRO",
-      "CEP": "47804-040",
-      "MunicipioIbge": "2903201",
-      "Municipio": "BARREIRAS",
-      "UF": "BA",
-      "DataInicio": "2003-08-10",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA PEDRO ALBINO MULLER, 876",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "FLORESTAL",
-      "CEP": "95900-000",
-      "MunicipioIbge": "4311403",
-      "Municipio": "LAJEADO",
-      "UF": "RS",
-      "DataInicio": "2004-12-10",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA PEDRO ALBINO MULLER, 876",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "FLORESTAL",
-      "CEP": "95900-000",
-      "MunicipioIbge": "4311403",
-      "Municipio": "LAJEADO",
-      "UF": "RS",
-      "DataInicio": "2005-03-10",
-      "DDD": "51",
-      "Telefone": "37484444",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA MARECHAL FLORIANO, 210",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "PIO X",
-      "CEP": "95020-370",
-      "MunicipioIbge": "4305108",
-      "Municipio": "CAXIAS DO SUL",
-      "UF": "RS",
-      "DataInicio": "2005-03-10",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AV ORLANDO DOMPIERI,1710",
-      "Numero": "",
-      "Complemento": "PARQUE STA ADELIA",
-      "Bairro": "PARQUE STA ADELIA",
-      "CEP": "14409-003",
-      "MunicipioIbge": "3516200",
-      "Municipio": "FRANCA",
-      "UF": "SP",
-      "DataInicio": "2004-01-11",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AV ORLANDO DOMPIERI, 1710",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "PARQUE STA ADELIA",
-      "CEP": "14409-003",
-      "MunicipioIbge": "3516200",
-      "Municipio": "FRANCA",
-      "UF": "SP",
-      "DataInicio": "2004-01-11",
-      "DDD": "null",
-      "Telefone": "null",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "57723801",
-      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "AV CALAMA, 1118",
-      "Numero": "",
-      "Complemento": "",
-      "Bairro": "",
-      "CEP": "78902-040",
-      "MunicipioIbge": "1100205",
-      "Municipio": "PORTO VELHO",
-      "UF": "RO",
-      "DataInicio": "2004-03-12",
-      "DDD": "69",
-      "Telefone": "2247478",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "R FORMOSA",
-      "Numero": "367",
-      "Complemento": "9º ANDAR - CONJUNTO 950",
-      "Bairro": "CENTRO",
-      "CEP": "01049-000",
+      "Complemento": "2º ANDAR",
+      "Bairro": "CAMPOS ELISEOS",
+      "CEP": "01216-010",
       "MunicipioIbge": "3550308",
       "Municipio": "SAO PAULO",
       "UF": "SP",
-      "DataInicio": "1990-04-11",
+      "DataInicio": "1993-02-07",
       "DDD": "11",
-      "Telefone": "21852400",
-      "Posicao": "26/04/2026"
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "AVENIDA DE CILLO",
-      "Numero": "662",
-      "Complemento": "QUADRA A LOTE 06",
-      "Bairro": "VILA PAVAN",
-      "CEP": "13465-100",
-      "MunicipioIbge": "3501608",
-      "Municipio": "AMERICANA",
-      "UF": "SP",
-      "DataInicio": "1996-10-04",
-      "DDD": "19",
-      "Telefone": "34066521",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "RUA BERNARDINO DE CAMPOS",
-      "Numero": "230",
-      "Complemento": "2º,3º,4º AND - SALAS 201 A 214,301 A 314,401 A 414",
-      "Bairro": "CENTRO",
-      "CEP": "13010-150",
-      "MunicipioIbge": "3509502",
-      "Municipio": "CAMPINAS",
-      "UF": "SP",
-      "DataInicio": "1998-05-04",
-      "DDD": "19",
-      "Telefone": "21168700",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "AV SANTOS DUMONT",
-      "Numero": "2500",
-      "Complemento": "LOJAS 01 E 02",
-      "Bairro": "ALDEOTA",
-      "CEP": "60150-162",
-      "MunicipioIbge": "2304400",
-      "Municipio": "FORTALEZA",
-      "UF": "CE",
-      "DataInicio": "2002-12-08",
-      "DDD": "85",
-      "Telefone": "30664200",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "RUA NOVE DE MARÇO",
-      "Numero": "836",
-      "Complemento": "LOJAS 02 E 03",
-      "Bairro": "CENTRO",
-      "CEP": "89201-400",
-      "MunicipioIbge": "4209102",
-      "Municipio": "JOINVILLE",
-      "UF": "SC",
-      "DataInicio": "2003-12-06",
-      "DDD": "47",
-      "Telefone": "21053400",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "AVENIDA PADRE ANTONIO TOMÁS",
-      "Numero": "750",
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "RUA VOLUNTÁRIOS DA PÁTRIA, 40",
+      "Numero": "",
       "Complemento": "",
-      "Bairro": "ALDEOTA",
-      "CEP": "60140-160",
-      "MunicipioIbge": "2304400",
-      "Municipio": "FORTALEZA",
-      "UF": "CE",
-      "DataInicio": "2005-01-04",
-      "DDD": "85",
-      "Telefone": "33044400",
-      "Posicao": "26/04/2026"
+      "Bairro": "BOTAFOGO",
+      "CEP": "22270-010",
+      "MunicipioIbge": "3304557",
+      "Municipio": "RIO DE JANEIRO",
+      "UF": "RJ",
+      "DataInicio": "2006-04-12",
+      "DDD": "11",
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "AVENIDA PRESIDENTE EPITÁCIO PESSOA",
-      "Numero": "2230",
-      "Complemento": "SALA 01",
-      "Bairro": "TAMBAUZINHO",
-      "CEP": "58040-000",
-      "MunicipioIbge": "2507507",
-      "Municipio": "JOAO PESSOA",
-      "UF": "PB",
-      "DataInicio": "2004-12-05",
-      "DDD": "83",
-      "Telefone": "40091000",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "RUA DOM PEDRO II",
-      "Numero": "182",
-      "Complemento": "6 ANDAR",
-      "Bairro": "SÃO JOÃO",
-      "CEP": "90550-140",
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "RUA PINTO BANDEIRA, 471/5",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "CENTRO",
+      "CEP": "90030-150",
       "MunicipioIbge": "4314902",
       "Municipio": "PORTO ALEGRE",
       "UF": "RS",
-      "DataInicio": "2004-02-07",
-      "DDD": "51",
-      "Telefone": "21087950",
-      "Posicao": "26/04/2026"
+      "DataInicio": "2006-04-12",
+      "DDD": "11",
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "AVENIDA VICENTE MACHADO",
-      "Numero": "2618",
-      "Complemento": "",
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "RUA COMENDADOR ARAÚJO, 1.014",
+      "Numero": "",
+      "Complemento": "02º ANDAR",
       "Bairro": "BATEL",
-      "CEP": "80440-220",
+      "CEP": "80420-000",
       "MunicipioIbge": "4106902",
       "Municipio": "CURITIBA",
       "UF": "PR",
-      "DataInicio": "2005-01-08",
-      "DDD": "41",
-      "Telefone": "21081400",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "RUA TUITI",
-      "Numero": "354",
-      "Complemento": "",
-      "Bairro": "JARDIM ROSSIGNATTI",
-      "CEP": "13339-010",
-      "MunicipioIbge": "3520509",
-      "Municipio": "INDAIATUBA",
-      "UF": "SP",
-      "DataInicio": "2005-01-12",
-      "DDD": "19",
-      "Telefone": "21091750",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "RUA PEDRO ALEXANDRINO",
-      "Numero": "85",
-      "Complemento": "PARTE DO LOTE 6 E LOTE 5 QUADRA C",
-      "Bairro": "ANHANGABAÚ",
-      "CEP": "13208-160",
-      "MunicipioIbge": "3525904",
-      "Municipio": "JUNDIAI",
-      "UF": "SP",
-      "DataInicio": "2007-02-03",
+      "DataInicio": "2006-04-12",
       "DDD": "11",
-      "Telefone": "21853152",
-      "Posicao": "26/04/2026"
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "SETOR COMERCIAL NORTE, QUADRA 02",
+      "Numero": "",
+      "Complemento": "BLOCO B, LOJA 452",
+      "Bairro": "",
+      "CEP": "70712-908",
+      "MunicipioIbge": "5300108",
+      "Municipio": "BRASILIA",
+      "UF": "DF",
+      "DataInicio": "2006-04-12",
+      "DDD": "11",
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "AVENIDA MEIA PONTE, 410",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "SANTA GENOVEVA",
+      "CEP": "74670-010",
+      "MunicipioIbge": "5208707",
+      "Municipio": "GOIANIA",
+      "UF": "GO",
+      "DataInicio": "2006-04-12",
+      "DDD": "11",
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "RUA DONA MARIA BIBIANO DO CARMO, 305",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "PARQUE INDUSTRIAL",
+      "CEP": "13031-720",
+      "MunicipioIbge": "3509502",
+      "Municipio": "CAMPINAS",
+      "UF": "SP",
+      "DataInicio": "2007-05-12",
+      "DDD": "11",
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "RUA JACI, 3447",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "REDENTORA",
+      "CEP": "15015-810",
+      "MunicipioIbge": "3549805",
+      "Municipio": "SAO JOSE DO RIO PRETO",
+      "UF": "SP",
+      "DataInicio": "2007-05-12",
+      "DDD": "11",
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "AVENIDA ANA COSTA, 02",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "VILA MATHIAS",
+      "CEP": "11060-000",
+      "MunicipioIbge": "3548500",
+      "Municipio": "SANTOS",
+      "UF": "SP",
+      "DataInicio": "2007-05-12",
+      "DDD": "11",
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "AVENIDA GENERAL FRANCISCO GLICÉRIO",
+      "Numero": "557",
+      "Complemento": "",
+      "Bairro": "POMPÉIA",
+      "CEP": "11065-405",
+      "MunicipioIbge": "3548500",
+      "Municipio": "SANTOS",
+      "UF": "SP",
+      "DataInicio": "2007-05-12",
+      "DDD": "11",
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "AVENIDA PORTUGAL, 1013",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "JARDIM CRISTINA",
+      "CEP": "14020-380",
+      "MunicipioIbge": "3543402",
+      "Municipio": "RIBEIRAO PRETO",
+      "UF": "SP",
+      "DataInicio": "2007-05-12",
+      "DDD": "11",
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "AVENIDA DOUTOR NELSON D'ÁVILA, 680",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "CENTRO",
+      "CEP": "12245-031",
+      "MunicipioIbge": "3549904",
+      "Municipio": "SAO JOSE DOS CAMPOS",
+      "UF": "SP",
+      "DataInicio": "2007-05-12",
+      "DDD": "11",
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "AV. CARANDAÍ, 930/938",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "FUNCIONÁRIOS",
+      "CEP": "30130-060",
+      "MunicipioIbge": "3106200",
+      "Municipio": "BELO HORIZONTE",
+      "UF": "MG",
+      "DataInicio": "2007-05-12",
+      "DDD": "11",
+      "Telefone": "33665736",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "AVENIDA DESEMBARGADOR SANTOS NEVES, 753",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "PRAIA DO CANTO",
+      "CEP": "29055-721",
+      "MunicipioIbge": "3205309",
+      "Municipio": "VITORIA",
+      "UF": "ES",
+      "DataInicio": "2011-11-01",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "48041735",
+      "NomeInstituicao": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "AVENIDA GONÇALVES MAGALHÃES, 224",
+      "Numero": "",
+      "Complemento": "LOJA 04",
+      "Bairro": "TRUJILLO",
+      "CEP": "18060-240",
+      "MunicipioIbge": "3552205",
+      "Municipio": "SOROCABA",
+      "UF": "SP",
+      "DataInicio": "2011-04-11",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "48041735",
@@ -2055,7 +1575,7 @@
       "DataInicio": "2012-02-01",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "49937055",
@@ -2071,7 +1591,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "11",
       "Telefone": "50797020",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "49995293",
@@ -2087,7 +1607,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "50586247",
@@ -2103,7 +1623,7 @@
       "DataInicio": "1989-03-02",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "50586247",
@@ -2119,7 +1639,7 @@
       "DataInicio": "1989-12-06",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "51597300",
@@ -2135,7 +1655,7 @@
       "DataInicio": "2005-08-10",
       "DDD": "34",
       "Telefone": "32396400",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "51597300",
@@ -2151,7 +1671,7 @@
       "DataInicio": "2012-03-03",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "51597300",
@@ -2167,7 +1687,7 @@
       "DataInicio": "2011-03-03",
       "DDD": "11",
       "Telefone": "27991151",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "51597300",
@@ -2183,7 +1703,7 @@
       "DataInicio": "2017-09-06",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "51855716",
@@ -2199,7 +1719,487 @@
       "DataInicio": "1993-02-07",
       "DDD": "17",
       "Telefone": "21363666",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "51855716",
+      "NomeInstituicao": "RODOBENS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "Endereco": "RUA DOUTOR ROBERTO AZUREM FURTADO",
+      "Numero": "36",
+      "Complemento": "PARTE B",
+      "Bairro": "DISTRITO INDUSTRIAL",
+      "CEP": "15035-650",
+      "MunicipioIbge": "3549805",
+      "Municipio": "SAO JOSE DO RIO PRETO",
+      "UF": "SP",
+      "DataInicio": "2010-03-10",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "52568821",
+      "NomeInstituicao": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "Endereco": "CIDADE DE DEUS, S/N",
+      "Numero": "",
+      "Complemento": "PREDIO ANEXO AO MUSEU",
+      "Bairro": "VILA YARA",
+      "CEP": "06029-900",
+      "MunicipioIbge": "3534401",
+      "Municipio": "OSASCO",
+      "UF": "SP",
+      "DataInicio": "2004-01-07",
+      "DDD": "11",
+      "Telefone": "36842577",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "53211488",
+      "NomeInstituicao": "TARRAF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "Endereco": "RUA SÃO CARLOS",
+      "Numero": "450",
+      "Complemento": "",
+      "Bairro": "JARDIM EUROPA",
+      "CEP": "15014-480",
+      "MunicipioIbge": "3549805",
+      "Municipio": "SAO JOSE DO RIO PRETO",
+      "UF": "SP",
+      "DataInicio": "2003-01-05",
+      "DDD": "17",
+      "Telefone": "21369766",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "54708839",
+      "NomeInstituicao": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
+      "Endereco": "AV EUCLIDES MIRAGAIA, 2023",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "CENTRO",
+      "CEP": "16200-000",
+      "MunicipioIbge": "3506508",
+      "Municipio": "BIRIGUI",
+      "UF": "SP",
+      "DataInicio": "1993-02-07",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "54708839",
+      "NomeInstituicao": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
+      "Endereco": "PRAÇA RUI BARBOSA, 310",
+      "Numero": "",
+      "Complemento": "CASA",
+      "Bairro": "CENTRO",
+      "CEP": "16010-000",
+      "MunicipioIbge": "3502804",
+      "Municipio": "ARACATUBA",
+      "UF": "SP",
+      "DataInicio": "2006-06-01",
+      "DDD": "18",
+      "Telefone": "36363636",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "55942312",
+      "NomeInstituicao": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AVENIDA PRESIDENTE JUSCELINO KUBITSCHEK",
+      "Numero": "2041",
+      "Complemento": "CJ. 191 PARTE 1 BLOCO A COND. WTORRE JK",
+      "Bairro": "VILA NOVA CONCEIÇÃO",
+      "CEP": "04543-011",
+      "MunicipioIbge": "3550308",
+      "Municipio": "SAO PAULO",
+      "UF": "SP",
+      "DataInicio": "1993-02-07",
+      "DDD": "11",
+      "Telefone": "30743021",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "56360266",
+      "NomeInstituicao": "VALTRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "RUA: CAPITÃO FRANCISCO DE ALMEIDA, 695",
+      "Numero": "",
+      "Complemento": "SUBSOLO 2, ANEXO I",
+      "Bairro": "VILA BRAS CUBAS",
+      "CEP": "08740-300",
+      "MunicipioIbge": "3530607",
+      "Municipio": "MOGI DAS CRUZES",
+      "UF": "SP",
+      "DataInicio": "2009-03-09",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AV. PREFEITO LUIZ LATORRE, 4.950",
+      "Numero": "",
+      "Complemento": "1.º ANDAR",
+      "Bairro": "JD. DAS HORTÊNSIAS",
+      "CEP": "13209-430",
+      "MunicipioIbge": "3525904",
+      "Municipio": "JUNDIAI",
+      "UF": "SP",
+      "DataInicio": "2000-11-03",
+      "DDD": "11",
+      "Telefone": "45834601",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "TRAVESSA MAGNO DE ARAUJO,935",
+      "Numero": "",
+      "Complemento": "TELEGRAFO SEM FIO",
+      "Bairro": "TELEGRAFO SEM FIO",
+      "CEP": "66113-050",
+      "MunicipioIbge": "1501402",
+      "Municipio": "BELEM",
+      "UF": "PA",
+      "DataInicio": "2005-04-08",
+      "DDD": "91",
+      "Telefone": "2540117",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "TRAVESSA MAGNO DE ARAUJO, 935",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "TELEGRAFO SEM FIO",
+      "CEP": "66113-050",
+      "MunicipioIbge": "1501402",
+      "Municipio": "BELEM",
+      "UF": "PA",
+      "DataInicio": "2005-04-08",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AV FRANCISCO DAS CHAGAS OLIVEIRA, 1260",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "CHACARA MUNICIPAL",
+      "CEP": "15090-190",
+      "MunicipioIbge": "3549805",
+      "Municipio": "SAO JOSE DO RIO PRETO",
+      "UF": "SP",
+      "DataInicio": "2003-04-09",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "PRAÇA RUI BARBOSA, 110",
+      "Numero": "",
+      "Complemento": "CENTRO",
+      "Bairro": "CENTRO",
+      "CEP": "38400-174",
+      "MunicipioIbge": "3170206",
+      "Municipio": "UBERLANDIA",
+      "UF": "MG",
+      "DataInicio": "2005-05-09",
+      "DDD": "34",
+      "Telefone": "32371909",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA RUY BARBOSA, 521",
+      "Numero": "",
+      "Complemento": "CENTRO",
+      "Bairro": "CENTRO",
+      "CEP": "47804-040",
+      "MunicipioIbge": "2903201",
+      "Municipio": "BARREIRAS",
+      "UF": "BA",
+      "DataInicio": "2003-08-10",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA PEDRO ALBINO MULLER, 876",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "FLORESTAL",
+      "CEP": "95900-000",
+      "MunicipioIbge": "4311403",
+      "Municipio": "LAJEADO",
+      "UF": "RS",
+      "DataInicio": "2004-12-10",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA PEDRO ALBINO MULLER, 876",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "FLORESTAL",
+      "CEP": "95900-000",
+      "MunicipioIbge": "4311403",
+      "Municipio": "LAJEADO",
+      "UF": "RS",
+      "DataInicio": "2005-03-10",
+      "DDD": "51",
+      "Telefone": "37484444",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA MARECHAL FLORIANO, 210",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "PIO X",
+      "CEP": "95020-370",
+      "MunicipioIbge": "4305108",
+      "Municipio": "CAXIAS DO SUL",
+      "UF": "RS",
+      "DataInicio": "2005-03-10",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AV ORLANDO DOMPIERI,1710",
+      "Numero": "",
+      "Complemento": "PARQUE STA ADELIA",
+      "Bairro": "PARQUE STA ADELIA",
+      "CEP": "14409-003",
+      "MunicipioIbge": "3516200",
+      "Municipio": "FRANCA",
+      "UF": "SP",
+      "DataInicio": "2004-01-11",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AV ORLANDO DOMPIERI, 1710",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "PARQUE STA ADELIA",
+      "CEP": "14409-003",
+      "MunicipioIbge": "3516200",
+      "Municipio": "FRANCA",
+      "UF": "SP",
+      "DataInicio": "2004-01-11",
+      "DDD": "null",
+      "Telefone": "null",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "57723801",
+      "NomeInstituicao": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "AV CALAMA, 1118",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "",
+      "CEP": "78902-040",
+      "MunicipioIbge": "1100205",
+      "Municipio": "PORTO VELHO",
+      "UF": "RO",
+      "DataInicio": "2004-03-12",
+      "DDD": "69",
+      "Telefone": "2247478",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "R FORMOSA",
+      "Numero": "367",
+      "Complemento": "9º ANDAR - CONJUNTO 950",
+      "Bairro": "CENTRO",
+      "CEP": "01049-000",
+      "MunicipioIbge": "3550308",
+      "Municipio": "SAO PAULO",
+      "UF": "SP",
+      "DataInicio": "1990-04-11",
+      "DDD": "11",
+      "Telefone": "21852400",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "AVENIDA DE CILLO",
+      "Numero": "662",
+      "Complemento": "QUADRA A LOTE 06",
+      "Bairro": "VILA PAVAN",
+      "CEP": "13465-100",
+      "MunicipioIbge": "3501608",
+      "Municipio": "AMERICANA",
+      "UF": "SP",
+      "DataInicio": "1996-10-04",
+      "DDD": "19",
+      "Telefone": "34066521",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "RUA BERNARDINO DE CAMPOS",
+      "Numero": "230",
+      "Complemento": "2º,3º,4º AND - SALAS 201 A 214,301 A 314,401 A 414",
+      "Bairro": "CENTRO",
+      "CEP": "13010-150",
+      "MunicipioIbge": "3509502",
+      "Municipio": "CAMPINAS",
+      "UF": "SP",
+      "DataInicio": "1998-05-04",
+      "DDD": "19",
+      "Telefone": "21168700",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "AV SANTOS DUMONT",
+      "Numero": "2500",
+      "Complemento": "LOJAS 01 E 02",
+      "Bairro": "ALDEOTA",
+      "CEP": "60150-162",
+      "MunicipioIbge": "2304400",
+      "Municipio": "FORTALEZA",
+      "UF": "CE",
+      "DataInicio": "2002-12-08",
+      "DDD": "85",
+      "Telefone": "30664200",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "RUA NOVE DE MARÇO",
+      "Numero": "836",
+      "Complemento": "LOJAS 02 E 03",
+      "Bairro": "CENTRO",
+      "CEP": "89201-400",
+      "MunicipioIbge": "4209102",
+      "Municipio": "JOINVILLE",
+      "UF": "SC",
+      "DataInicio": "2003-12-06",
+      "DDD": "47",
+      "Telefone": "21053400",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "AVENIDA PADRE ANTONIO TOMÁS",
+      "Numero": "750",
+      "Complemento": "",
+      "Bairro": "ALDEOTA",
+      "CEP": "60140-160",
+      "MunicipioIbge": "2304400",
+      "Municipio": "FORTALEZA",
+      "UF": "CE",
+      "DataInicio": "2005-01-04",
+      "DDD": "85",
+      "Telefone": "33044400",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "AVENIDA PRESIDENTE EPITÁCIO PESSOA",
+      "Numero": "2230",
+      "Complemento": "SALA 01",
+      "Bairro": "TAMBAUZINHO",
+      "CEP": "58040-000",
+      "MunicipioIbge": "2507507",
+      "Municipio": "JOAO PESSOA",
+      "UF": "PB",
+      "DataInicio": "2004-12-05",
+      "DDD": "83",
+      "Telefone": "40091000",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "RUA DOM PEDRO II",
+      "Numero": "182",
+      "Complemento": "6 ANDAR",
+      "Bairro": "SÃO JOÃO",
+      "CEP": "90550-140",
+      "MunicipioIbge": "4314902",
+      "Municipio": "PORTO ALEGRE",
+      "UF": "RS",
+      "DataInicio": "2004-02-07",
+      "DDD": "51",
+      "Telefone": "21087950",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "AVENIDA VICENTE MACHADO",
+      "Numero": "2618",
+      "Complemento": "",
+      "Bairro": "BATEL",
+      "CEP": "80440-220",
+      "MunicipioIbge": "4106902",
+      "Municipio": "CURITIBA",
+      "UF": "PR",
+      "DataInicio": "2005-01-08",
+      "DDD": "41",
+      "Telefone": "21081400",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "RUA TUITI",
+      "Numero": "354",
+      "Complemento": "",
+      "Bairro": "JARDIM ROSSIGNATTI",
+      "CEP": "13339-010",
+      "MunicipioIbge": "3520509",
+      "Municipio": "INDAIATUBA",
+      "UF": "SP",
+      "DataInicio": "2005-01-12",
+      "DDD": "19",
+      "Telefone": "21091750",
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "RUA PEDRO ALEXANDRINO",
+      "Numero": "85",
+      "Complemento": "PARTE DO LOTE 6 E LOTE 5 QUADRA C",
+      "Bairro": "ANHANGABAÚ",
+      "CEP": "13208-160",
+      "MunicipioIbge": "3525904",
+      "Municipio": "JUNDIAI",
+      "UF": "SP",
+      "DataInicio": "2007-02-03",
+      "DDD": "11",
+      "Telefone": "21853152",
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2215,7 +2215,7 @@
       "DataInicio": "2006-03-08",
       "DDD": "11",
       "Telefone": "21853232",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2231,7 +2231,7 @@
       "DataInicio": "2007-10-07",
       "DDD": "91",
       "Telefone": "32026950",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2247,7 +2247,7 @@
       "DataInicio": "2008-05-09",
       "DDD": "81",
       "Telefone": "99022115",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2263,7 +2263,7 @@
       "DataInicio": "2008-08-08",
       "DDD": "19",
       "Telefone": "38180202",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2279,7 +2279,7 @@
       "DataInicio": "2007-12-06",
       "DDD": "19",
       "Telefone": "34344867",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2295,7 +2295,7 @@
       "DataInicio": "2007-12-06",
       "DDD": "11",
       "Telefone": "21852800",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2311,7 +2311,7 @@
       "DataInicio": "2008-05-07",
       "DDD": "65",
       "Telefone": "39289800",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2327,7 +2327,7 @@
       "DataInicio": "2007-06-08",
       "DDD": "62",
       "Telefone": "36218000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2343,7 +2343,7 @@
       "DataInicio": "2007-10-08",
       "DDD": "11",
       "Telefone": "22963626",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2359,7 +2359,7 @@
       "DataInicio": "2007-10-08",
       "DDD": "11",
       "Telefone": "21853152",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2375,7 +2375,7 @@
       "DataInicio": "2009-06-07",
       "DDD": "11",
       "Telefone": "21853152",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2391,7 +2391,7 @@
       "DataInicio": "2008-07-09",
       "DDD": "34",
       "Telefone": "32105583",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2407,7 +2407,7 @@
       "DataInicio": "2008-08-09",
       "DDD": "11",
       "Telefone": "21853152",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2423,7 +2423,7 @@
       "DataInicio": "2009-03-12",
       "DDD": "61",
       "Telefone": "32983010",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2439,7 +2439,7 @@
       "DataInicio": "2008-06-02",
       "DDD": "16",
       "Telefone": "21384555",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2455,7 +2455,7 @@
       "DataInicio": "2008-07-11",
       "DDD": "11",
       "Telefone": "21853152",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2471,7 +2471,7 @@
       "DataInicio": "2008-07-11",
       "DDD": "15",
       "Telefone": "33882052",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2487,7 +2487,7 @@
       "DataInicio": "2009-05-11",
       "DDD": "31",
       "Telefone": "988444404",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2503,7 +2503,7 @@
       "DataInicio": "2009-04-03",
       "DDD": "79",
       "Telefone": "21044750",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2519,7 +2519,7 @@
       "DataInicio": "2011-02-02",
       "DDD": "null",
       "Telefone": "30895350",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2535,7 +2535,7 @@
       "DataInicio": "2009-03-04",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2551,7 +2551,7 @@
       "DataInicio": "2011-10-03",
       "DDD": "67",
       "Telefone": "33032200",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2567,7 +2567,7 @@
       "DataInicio": "2010-08-02",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2583,7 +2583,7 @@
       "DataInicio": "2011-06-05",
       "DDD": "11",
       "Telefone": "21853152",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2599,7 +2599,7 @@
       "DataInicio": "2011-06-05",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2615,7 +2615,7 @@
       "DataInicio": "2011-06-05",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2631,7 +2631,7 @@
       "DataInicio": "2011-06-05",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2647,7 +2647,7 @@
       "DataInicio": "2011-06-05",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2663,7 +2663,7 @@
       "DataInicio": "2011-06-05",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2679,7 +2679,7 @@
       "DataInicio": "2011-06-05",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2695,7 +2695,7 @@
       "DataInicio": "2011-06-05",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2711,7 +2711,7 @@
       "DataInicio": "2011-06-05",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2727,7 +2727,7 @@
       "DataInicio": "2011-06-05",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2743,7 +2743,7 @@
       "DataInicio": "2010-10-06",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2759,7 +2759,7 @@
       "DataInicio": "2010-07-05",
       "DDD": "11",
       "Telefone": "21995700",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2775,7 +2775,7 @@
       "DataInicio": "2012-09-03",
       "DDD": "11",
       "Telefone": "21853152",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2791,7 +2791,7 @@
       "DataInicio": "2012-01-04",
       "DDD": "11",
       "Telefone": "21853152",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2807,7 +2807,7 @@
       "DataInicio": "2011-07-07",
       "DDD": "11",
       "Telefone": "21853152",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2823,7 +2823,7 @@
       "DataInicio": "2011-11-08",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2839,7 +2839,7 @@
       "DataInicio": "2011-11-08",
       "DDD": "11",
       "Telefone": "21995718",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2855,23 +2855,7 @@
       "DataInicio": "2011-01-12",
       "DDD": "11",
       "Telefone": "21853152",
-      "Posicao": "26/04/2026"
-    },
-    {
-      "CNPJ": "58113812",
-      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "Endereco": "AVENIDA JK",
-      "Numero": "1090",
-      "Complemento": "",
-      "Bairro": "BOM PASTOR",
-      "CEP": "35500-155",
-      "MunicipioIbge": "3122306",
-      "Municipio": "DIVINOPOLIS",
-      "UF": "MG",
-      "DataInicio": "2011-02-09",
-      "DDD": "11",
-      "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2887,7 +2871,7 @@
       "DataInicio": "2011-02-09",
       "DDD": "19",
       "Telefone": "991127859",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2903,7 +2887,7 @@
       "DataInicio": "2012-09-08",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2919,7 +2903,7 @@
       "DataInicio": "2012-05-09",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2935,7 +2919,7 @@
       "DataInicio": "2012-05-09",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2951,7 +2935,7 @@
       "DataInicio": "2012-09-08",
       "DDD": "11",
       "Telefone": "992530637",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2967,7 +2951,7 @@
       "DataInicio": "2012-09-08",
       "DDD": "11",
       "Telefone": "986718769",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2983,7 +2967,7 @@
       "DataInicio": "2012-09-08",
       "DDD": "11",
       "Telefone": "21853152",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -2999,7 +2983,7 @@
       "DataInicio": "2013-09-09",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3015,7 +2999,7 @@
       "DataInicio": "2013-10-01",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3031,7 +3015,7 @@
       "DataInicio": "2013-10-01",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3047,7 +3031,7 @@
       "DataInicio": "2015-03-09",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3063,7 +3047,7 @@
       "DataInicio": "2015-03-09",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3079,7 +3063,7 @@
       "DataInicio": "2014-05-12",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3095,7 +3079,7 @@
       "DataInicio": "2016-03-01",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3111,7 +3095,7 @@
       "DataInicio": "2013-04-12",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3127,7 +3111,7 @@
       "DataInicio": "2015-02-04",
       "DDD": "85",
       "Telefone": "33044401",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3143,7 +3127,7 @@
       "DataInicio": "2013-01-11",
       "DDD": "71",
       "Telefone": "34135501",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3159,7 +3143,7 @@
       "DataInicio": "2013-09-01",
       "DDD": "21",
       "Telefone": "991711147",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3175,7 +3159,7 @@
       "DataInicio": "2016-11-04",
       "DDD": "18",
       "Telefone": "997532006",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3191,7 +3175,7 @@
       "DataInicio": "2016-11-04",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3207,7 +3191,7 @@
       "DataInicio": "2017-05-05",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3223,7 +3207,7 @@
       "DataInicio": "2017-01-03",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3239,7 +3223,7 @@
       "DataInicio": "2015-11-08",
       "DDD": "42",
       "Telefone": "99887848",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3255,7 +3239,7 @@
       "DataInicio": "2012-09-08",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3271,7 +3255,7 @@
       "DataInicio": "2012-01-04",
       "DDD": "62",
       "Telefone": "36218040",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3287,7 +3271,7 @@
       "DataInicio": "2016-05-10",
       "DDD": "27",
       "Telefone": "997864155",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3303,7 +3287,7 @@
       "DataInicio": "2017-01-09",
       "DDD": "21",
       "Telefone": "982197777",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3319,7 +3303,7 @@
       "DataInicio": "2018-03-09",
       "DDD": "41",
       "Telefone": "996474136",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3335,7 +3319,7 @@
       "DataInicio": "2017-03-01",
       "DDD": "53",
       "Telefone": "33046401",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3351,7 +3335,7 @@
       "DataInicio": "2012-09-08",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3367,7 +3351,7 @@
       "DataInicio": "2018-05-08",
       "DDD": "27",
       "Telefone": "30383598",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3383,7 +3367,7 @@
       "DataInicio": "2018-09-08",
       "DDD": "11",
       "Telefone": "21851131",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3399,7 +3383,7 @@
       "DataInicio": "2020-01-08",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3415,7 +3399,7 @@
       "DataInicio": "2019-10-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3431,7 +3415,7 @@
       "DataInicio": "2021-06-09",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3447,7 +3431,7 @@
       "DataInicio": "2021-08-03",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3463,7 +3447,7 @@
       "DataInicio": "2021-03-02",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3479,7 +3463,7 @@
       "DataInicio": "2021-03-02",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "58113812",
@@ -3495,23 +3479,23 @@
       "DataInicio": "2013-03-09",
       "DDD": "11",
       "Telefone": "21853156",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "59395061",
-      "NomeInstituicao": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "RUA RIBEIRO DE BRITO",
-      "Numero": "830",
-      "Complemento": "14º ANDAR SALAS 1401 E 1402",
-      "Bairro": "BOA VIAGEM",
-      "CEP": "51021-310",
-      "MunicipioIbge": "2611606",
-      "Municipio": "RECIFE",
-      "UF": "PE",
-      "DataInicio": "1991-03-12",
-      "DDD": "81",
-      "Telefone": "34653001",
-      "Posicao": "26/04/2026"
+      "CNPJ": "58113812",
+      "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "Endereco": "AVENIDA JK",
+      "Numero": "1090",
+      "Complemento": "",
+      "Bairro": "BOM PASTOR",
+      "CEP": "35500-155",
+      "MunicipioIbge": "3122306",
+      "Municipio": "DIVINOPOLIS",
+      "UF": "MG",
+      "DataInicio": "2011-02-09",
+      "DDD": "11",
+      "Telefone": "21853156",
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "59395061",
@@ -3527,7 +3511,7 @@
       "DataInicio": "1996-09-04",
       "DDD": "11",
       "Telefone": "50795050",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "59395061",
@@ -3543,7 +3527,7 @@
       "DataInicio": "2008-03-09",
       "DDD": "65",
       "Telefone": "21232799",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "59956185",
@@ -3559,7 +3543,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "11",
       "Telefone": "38873988",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60250776",
@@ -3575,7 +3559,7 @@
       "DataInicio": "1994-01-06",
       "DDD": "16",
       "Telefone": "37111122",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60375243",
@@ -3591,7 +3575,7 @@
       "DataInicio": "2000-05-04",
       "DDD": "16",
       "Telefone": "21033535",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60732997",
@@ -3607,7 +3591,7 @@
       "DataInicio": "2011-04-04",
       "DDD": "11",
       "Telefone": "30392300",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60732997",
@@ -3623,7 +3607,7 @@
       "DataInicio": "2011-03-10",
       "DDD": "11",
       "Telefone": "30392300",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60732997",
@@ -3639,7 +3623,7 @@
       "DataInicio": "2011-03-08",
       "DDD": "11",
       "Telefone": "30392300",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60732997",
@@ -3655,7 +3639,7 @@
       "DataInicio": "2015-06-02",
       "DDD": "11",
       "Telefone": "30392300",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60732997",
@@ -3671,7 +3655,7 @@
       "DataInicio": "2015-06-02",
       "DDD": "11",
       "Telefone": "30392300",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60732997",
@@ -3687,7 +3671,7 @@
       "DataInicio": "2015-06-02",
       "DDD": "11",
       "Telefone": "30392300",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60732997",
@@ -3703,7 +3687,7 @@
       "DataInicio": "2017-03-04",
       "DDD": "11",
       "Telefone": "30392300",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60732997",
@@ -3719,7 +3703,7 @@
       "DataInicio": "2015-06-02",
       "DDD": "11",
       "Telefone": "30392300",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60732997",
@@ -3735,7 +3719,7 @@
       "DataInicio": "2017-03-04",
       "DDD": "11",
       "Telefone": "30392300",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "60732997",
@@ -3751,7 +3735,7 @@
       "DataInicio": "2015-06-02",
       "DDD": "11",
       "Telefone": "30392300",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62246228",
@@ -3767,7 +3751,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3783,7 +3767,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3799,7 +3783,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "11",
       "Telefone": "33729155",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3815,7 +3799,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3831,7 +3815,7 @@
       "DataInicio": "1993-01-07",
       "DDD": "11",
       "Telefone": "33729155",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3847,7 +3831,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3863,7 +3847,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "11",
       "Telefone": "33729155",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3879,7 +3863,7 @@
       "DataInicio": "1992-04-11",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3895,7 +3879,7 @@
       "DataInicio": "1997-02-04",
       "DDD": "11",
       "Telefone": "32849155",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3911,7 +3895,7 @@
       "DataInicio": "1997-02-04",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3927,7 +3911,7 @@
       "DataInicio": "1998-01-12",
       "DDD": "11",
       "Telefone": "33729155",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3943,7 +3927,7 @@
       "DataInicio": "2013-05-12",
       "DDD": "11",
       "Telefone": "33729158",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62354055",
@@ -3959,7 +3943,7 @@
       "DataInicio": "2015-12-01",
       "DDD": "11",
       "Telefone": "33719155",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "62798475",
@@ -3975,7 +3959,7 @@
       "DataInicio": "2022-03-09",
       "DDD": "11",
       "Telefone": "69488000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "68318773",
@@ -3991,7 +3975,7 @@
       "DataInicio": "2002-07-05",
       "DDD": "65",
       "Telefone": "6185000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "68318773",
@@ -4007,7 +3991,7 @@
       "DataInicio": "2011-01-04",
       "DDD": "65",
       "Telefone": "21236000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "68318773",
@@ -4023,7 +4007,7 @@
       "DataInicio": "2019-02-10",
       "DDD": "65",
       "Telefone": "21236000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "68318773",
@@ -4039,7 +4023,7 @@
       "DataInicio": "2019-12-09",
       "DDD": "65",
       "Telefone": "21236000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "68318773",
@@ -4055,7 +4039,7 @@
       "DataInicio": "2019-02-10",
       "DDD": "65",
       "Telefone": "21236000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "68318773",
@@ -4071,7 +4055,7 @@
       "DataInicio": "2019-04-09",
       "DDD": "65",
       "Telefone": "21236000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "68318773",
@@ -4087,7 +4071,7 @@
       "DataInicio": "2021-02-09",
       "DDD": "65",
       "Telefone": "21236000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "68318773",
@@ -4103,7 +4087,7 @@
       "DataInicio": "2019-07-10",
       "DDD": "65",
       "Telefone": "21236000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "59395061",
@@ -4119,7 +4103,7 @@
       "DataInicio": "1990-03-09",
       "DDD": "21",
       "Telefone": "25746900",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "59395061",
@@ -4135,23 +4119,23 @@
       "DataInicio": "1990-03-09",
       "DDD": "71",
       "Telefone": "3545001",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "71045363",
-      "NomeInstituicao": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "Endereco": "AV ISRAEL PINHEIRO DA SILVA",
-      "Numero": "2111",
-      "Complemento": "LOJA 20",
-      "Bairro": "CENTRO",
-      "CEP": "34.30-0-0",
-      "MunicipioIbge": "3154804",
-      "Municipio": "RIO ACIMA",
-      "UF": "MG",
-      "DataInicio": "2027-05-08",
-      "DDD": "31",
-      "Telefone": "33691622",
-      "Posicao": "26/04/2026"
+      "CNPJ": "59395061",
+      "NomeInstituicao": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "RUA RIBEIRO DE BRITO",
+      "Numero": "830",
+      "Complemento": "14º ANDAR SALAS 1401 E 1402",
+      "Bairro": "BOA VIAGEM",
+      "CEP": "51021-310",
+      "MunicipioIbge": "2611606",
+      "Municipio": "RECIFE",
+      "UF": "PE",
+      "DataInicio": "1991-03-12",
+      "DDD": "81",
+      "Telefone": "34653001",
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "72461643",
@@ -4167,7 +4151,7 @@
       "DataInicio": "1993-12-08",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "73235962",
@@ -4183,7 +4167,7 @@
       "DataInicio": "1993-11-11",
       "DDD": "47",
       "Telefone": "32312010",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "73235962",
@@ -4199,7 +4183,7 @@
       "DataInicio": "2003-09-01",
       "DDD": "47",
       "Telefone": "33717887",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "73235962",
@@ -4215,7 +4199,7 @@
       "DataInicio": "2003-09-01",
       "DDD": "47",
       "Telefone": "34228282",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "73235962",
@@ -4231,7 +4215,7 @@
       "DataInicio": "2021-01-11",
       "DDD": "47",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "73516106",
@@ -4247,7 +4231,7 @@
       "DataInicio": "1995-04-12",
       "DDD": "51",
       "Telefone": "35648400",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "73516106",
@@ -4263,7 +4247,7 @@
       "DataInicio": "2003-02-03",
       "DDD": "51",
       "Telefone": "35648400",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "73516106",
@@ -4279,7 +4263,7 @@
       "DataInicio": "2017-09-11",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "73516106",
@@ -4295,7 +4279,7 @@
       "DataInicio": "2016-09-11",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "73516106",
@@ -4311,7 +4295,7 @@
       "DataInicio": "2018-08-06",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "74118381",
@@ -4327,7 +4311,7 @@
       "DataInicio": "1994-01-07",
       "DDD": "41",
       "Telefone": "3178111",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "76515071",
@@ -4343,7 +4327,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "76515071",
@@ -4359,7 +4343,7 @@
       "DataInicio": "2008-12-12",
       "DDD": "41",
       "Telefone": "33302024",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "76515071",
@@ -4375,7 +4359,7 @@
       "DataInicio": "2016-11-07",
       "DDD": "41",
       "Telefone": "33302225",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "76515071",
@@ -4391,7 +4375,7 @@
       "DataInicio": "2018-06-08",
       "DDD": "41",
       "Telefone": "33302225",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "76515071",
@@ -4407,7 +4391,7 @@
       "DataInicio": "2017-03-08",
       "DDD": "41",
       "Telefone": "33302225",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "78199262",
@@ -4423,7 +4407,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "44",
       "Telefone": "2251515",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "78199262",
@@ -4439,7 +4423,7 @@
       "DataInicio": "2007-11-08",
       "DDD": "45",
       "Telefone": "30371505",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "80402746",
@@ -4455,7 +4439,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "44",
       "Telefone": "6495252",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "80674393",
@@ -4471,7 +4455,7 @@
       "DataInicio": "1993-07-12",
       "DDD": "48",
       "Telefone": "32394488",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "82942400",
@@ -4487,7 +4471,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "49",
       "Telefone": "7224388",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "83553883",
@@ -4503,7 +4487,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "47",
       "Telefone": "35318200",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "84911098",
@@ -4519,7 +4503,7 @@
       "DataInicio": "1994-01-06",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "84911098",
@@ -4535,7 +4519,7 @@
       "DataInicio": "2007-07-11",
       "DDD": "47",
       "Telefone": "30262000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "85322204",
@@ -4551,7 +4535,7 @@
       "DataInicio": "1999-02-09",
       "DDD": "48",
       "Telefone": "33814400",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "85322204",
@@ -4567,7 +4551,7 @@
       "DataInicio": "1999-02-09",
       "DDD": "48",
       "Telefone": "33814400",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "85322204",
@@ -4583,7 +4567,7 @@
       "DataInicio": "2007-04-02",
       "DDD": "48",
       "Telefone": "33814400",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "85322204",
@@ -4599,7 +4583,7 @@
       "DataInicio": "2009-01-10",
       "DDD": "48",
       "Telefone": "33814400",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "85322204",
@@ -4615,7 +4599,7 @@
       "DataInicio": "2023-10-10",
       "DDD": "48",
       "Telefone": "33814400",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "87433413",
@@ -4631,7 +4615,7 @@
       "DataInicio": "2001-07-03",
       "DDD": "17",
       "Telefone": "2332936",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "87636635",
@@ -4647,7 +4631,7 @@
       "DataInicio": "2000-02-05",
       "DDD": "51",
       "Telefone": "33275700",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "87636635",
@@ -4663,7 +4647,7 @@
       "DataInicio": "2005-11-11",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "87636635",
@@ -4679,7 +4663,7 @@
       "DataInicio": "2005-11-11",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "87636635",
@@ -4695,7 +4679,7 @@
       "DataInicio": "2005-11-11",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "87945218",
@@ -4711,7 +4695,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "51",
       "Telefone": "800642650",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "89472310",
@@ -4727,7 +4711,7 @@
       "DataInicio": "1989-09-09",
       "DDD": "54",
       "Telefone": "34411281",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "89472310",
@@ -4743,7 +4727,7 @@
       "DataInicio": "2012-10-06",
       "DDD": "54",
       "Telefone": "34525068",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "68318773",
@@ -4759,7 +4743,7 @@
       "DataInicio": "2020-01-09",
       "DDD": "65",
       "Telefone": "21236000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "68318773",
@@ -4775,7 +4759,7 @@
       "DataInicio": "2021-06-09",
       "DDD": "65",
       "Telefone": "21236000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "68318773",
@@ -4791,23 +4775,23 @@
       "DataInicio": "2019-07-10",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
-      "CNPJ": "91338228",
-      "NomeInstituicao": "GRAVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "Endereco": "AV. DORIVAL CANDIDO LUZ DE OLIVEIRA, 501",
-      "Numero": "",
-      "Complemento": "",
+      "CNPJ": "71045363",
+      "NomeInstituicao": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "Endereco": "AV ISRAEL PINHEIRO DA SILVA",
+      "Numero": "2111",
+      "Complemento": "LOJA 20",
       "Bairro": "CENTRO",
-      "CEP": "94030-001",
-      "MunicipioIbge": "4309209",
-      "Municipio": "GRAVATAI",
-      "UF": "RS",
-      "DataInicio": "1993-02-07",
-      "DDD": "51",
-      "Telefone": "4884766",
-      "Posicao": "26/04/2026"
+      "CEP": "34.30-0-0",
+      "MunicipioIbge": "3154804",
+      "Municipio": "RIO ACIMA",
+      "UF": "MG",
+      "DataInicio": "2027-05-08",
+      "DDD": "31",
+      "Telefone": "33691622",
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "91338228",
@@ -4823,7 +4807,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "54",
       "Telefone": "34411319",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "91341925",
@@ -4839,7 +4823,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "51",
       "Telefone": "37157000",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "91341925",
@@ -4855,7 +4839,7 @@
       "DataInicio": "2007-11-03",
       "DDD": "32",
       "Telefone": "7100",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "91341925",
@@ -4871,7 +4855,7 @@
       "DataInicio": "2018-11-10",
       "DDD": "51",
       "Telefone": "37487236",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "92002609",
@@ -4887,7 +4871,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "92459213",
@@ -4903,7 +4887,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "55",
       "Telefone": "32207900",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "92965748",
@@ -4919,7 +4903,7 @@
       "DataInicio": "1994-10-09",
       "DDD": "51",
       "Telefone": "2115177",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "94187879",
@@ -4935,7 +4919,7 @@
       "DataInicio": "2023-09-10",
       "DDD": "55",
       "Telefone": "35411681",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "95783262",
@@ -4951,7 +4935,7 @@
       "DataInicio": "1996-01-04",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "96479258",
@@ -4967,7 +4951,7 @@
       "DataInicio": "2016-11-11",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "90982679",
@@ -4983,7 +4967,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "91107581",
@@ -4999,7 +4983,7 @@
       "DataInicio": "1993-02-07",
       "DDD": "54",
       "Telefone": "3268",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
     },
     {
       "CNPJ": "91108027",
@@ -5015,7 +4999,23 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "26/04/2026"
+      "Posicao": "27/04/2026"
+    },
+    {
+      "CNPJ": "91338228",
+      "NomeInstituicao": "GRAVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "Endereco": "AV. DORIVAL CANDIDO LUZ DE OLIVEIRA, 501",
+      "Numero": "",
+      "Complemento": "",
+      "Bairro": "CENTRO",
+      "CEP": "94030-001",
+      "MunicipioIbge": "4309209",
+      "Municipio": "GRAVATAI",
+      "UF": "RS",
+      "DataInicio": "1993-02-07",
+      "DDD": "51",
+      "Telefone": "4884766",
+      "Posicao": "27/04/2026"
     }
   ]
 }
