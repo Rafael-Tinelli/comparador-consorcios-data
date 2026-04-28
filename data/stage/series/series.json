@@ -2,11 +2,11 @@
   "metadata": {
     "source": "bc_sgs_series",
     "collector": "collectors/bc_sgs_series.py",
-    "collected_at": "2026-04-25T09:31:23+00:00",
+    "collected_at": "2026-04-28T10:33:26+00:00",
     "mode_used": "sgs-json-range",
     "series_count": 6,
     "point_count_total": 120,
-    "content_hash": "e7b754cc7f6ba746d49fb4bb8c9a042e889d90a18ad3645609dc1cc6a01cb855"
+    "content_hash": "a0b7488185f2a49f34069d46ea5e77e82d43bbd2e100908c81f57af3e21f5178"
   },
   "series": [
     {
@@ -167,16 +167,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "25/03/2026",
-      "latest_date": "23/04/2026",
+      "first_date": "26/03/2026",
+      "latest_date": "24/04/2026",
       "latest_value": 0.054266,
       "values": [
-        {
-          "date": "25/03/2026",
-          "data": "25/03/2026",
-          "value": 0.054266,
-          "raw_value": "0.054266"
-        },
         {
           "date": "26/03/2026",
           "data": "26/03/2026",
@@ -288,6 +282,12 @@
         {
           "date": "23/04/2026",
           "data": "23/04/2026",
+          "value": 0.054266,
+          "raw_value": "0.054266"
+        },
+        {
+          "date": "24/04/2026",
+          "data": "24/04/2026",
           "value": 0.054266,
           "raw_value": "0.054266"
         }
@@ -457,16 +457,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/07/2024",
-      "latest_date": "01/02/2026",
-      "latest_value": 62.02,
+      "first_date": "01/08/2024",
+      "latest_date": "01/03/2026",
+      "latest_value": 61.53,
       "values": [
-        {
-          "date": "01/07/2024",
-          "data": "01/07/2024",
-          "value": 52.19,
-          "raw_value": "52.19"
-        },
         {
           "date": "01/08/2024",
           "data": "01/08/2024",
@@ -578,8 +572,14 @@
         {
           "date": "01/02/2026",
           "data": "01/02/2026",
-          "value": 62.02,
-          "raw_value": "62.02"
+          "value": 61.85,
+          "raw_value": "61.85"
+        },
+        {
+          "date": "01/03/2026",
+          "data": "01/03/2026",
+          "value": 61.53,
+          "raw_value": "61.53"
         }
       ],
       "request": {
@@ -602,16 +602,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/07/2024",
-      "latest_date": "01/02/2026",
-      "latest_value": 27.28,
+      "first_date": "01/08/2024",
+      "latest_date": "01/03/2026",
+      "latest_value": 26.61,
       "values": [
-        {
-          "date": "01/07/2024",
-          "data": "01/07/2024",
-          "value": 25.45,
-          "raw_value": "25.45"
-        },
         {
           "date": "01/08/2024",
           "data": "01/08/2024",
@@ -725,6 +719,12 @@
           "data": "01/02/2026",
           "value": 27.28,
           "raw_value": "27.28"
+        },
+        {
+          "date": "01/03/2026",
+          "data": "01/03/2026",
+          "value": 26.61,
+          "raw_value": "26.61"
         }
       ],
       "request": {
@@ -747,16 +747,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/07/2024",
-      "latest_date": "01/02/2026",
-      "latest_value": 1.11,
+      "first_date": "01/08/2024",
+      "latest_date": "01/03/2026",
+      "latest_value": 1.12,
       "values": [
-        {
-          "date": "01/07/2024",
-          "data": "01/07/2024",
-          "value": 0.91,
-          "raw_value": "0.91"
-        },
         {
           "date": "01/08/2024",
           "data": "01/08/2024",
@@ -868,8 +862,14 @@
         {
           "date": "01/02/2026",
           "data": "01/02/2026",
-          "value": 1.11,
-          "raw_value": "1.11"
+          "value": 1.1,
+          "raw_value": "1.10"
+        },
+        {
+          "date": "01/03/2026",
+          "data": "01/03/2026",
+          "value": 1.12,
+          "raw_value": "1.12"
         }
       ],
       "request": {
