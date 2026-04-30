@@ -1,16 +1,16 @@
 {
   "metadata": {
-    "generated_at": "2026-04-30T10:19:45+00:00",
+    "generated_at": "2026-04-30T10:27:40+00:00",
     "count": 5
   },
   "items": [
     {
       "key": "consorcio_ou_financiamento_veiculos",
       "headline": "Veículos: comparar consórcio com financiamento segue essencial",
-      "description": "Taxa média observada no financiamento de veículos PF: 26.61. Meta Selic: 14.75. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
+      "description": "Taxa média observada no financiamento de veículos PF: 26.61. Meta Selic: 14.50. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
       "evidence": {
         "taxa_financiamento_veiculos_pf": 26.61,
-        "selic_meta": 14.75
+        "selic_meta": 14.5
       }
     },
     {
