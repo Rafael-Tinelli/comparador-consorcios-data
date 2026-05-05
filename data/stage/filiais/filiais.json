@@ -2,11 +2,11 @@
   "metadata": {
     "source": "bc_filiais",
     "collector": "collectors/bc_filiais.py",
-    "collected_at": "2026-05-04T14:33:58+00:00",
+    "collected_at": "2026-05-05T14:28:22+00:00",
     "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais",
     "mode_used": "odata-csv",
     "record_count": 312,
-    "raw_hash": "8dc5041215c57847f3c4d95939ebbb3d94c27f8f671f82a2ea0d450348346ab9",
+    "raw_hash": "ab59db1cdb091ca44c284af51d10b85a13cd10acebc102bc9b141eedc42f3dac",
     "fetch_meta": {
       "mode": "odata-csv",
       "url": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais?%24format=text%2Fcsv",
@@ -24,7 +24,7 @@
   },
   "items": [
     {
-      "source_record_index": 102,
+      "source_record_index": 129,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "source_record_index": 23,
+      "source_record_index": 10,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -98,7 +98,7 @@
       ]
     },
     {
-      "source_record_index": 187,
+      "source_record_index": 174,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -135,7 +135,7 @@
       ]
     },
     {
-      "source_record_index": 178,
+      "source_record_index": 204,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -172,7 +172,7 @@
       ]
     },
     {
-      "source_record_index": 8,
+      "source_record_index": 36,
       "institution_id": null,
       "institution_name": "CIMAVEL ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "CIMAVEL ADMINISTRADORA DE CONSORCIO LTDA",
@@ -209,7 +209,7 @@
       ]
     },
     {
-      "source_record_index": 14,
+      "source_record_index": 42,
       "institution_id": null,
       "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BR CONSORCIOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -246,7 +246,7 @@
       ]
     },
     {
-      "source_record_index": 130,
+      "source_record_index": 157,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -283,7 +283,7 @@
       ]
     },
     {
-      "source_record_index": 127,
+      "source_record_index": 114,
       "institution_id": null,
       "institution_name": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
       "institution_name_key": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
@@ -320,7 +320,7 @@
       ]
     },
     {
-      "source_record_index": 172,
+      "source_record_index": 199,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -357,7 +357,7 @@
       ]
     },
     {
-      "source_record_index": 263,
+      "source_record_index": 290,
       "institution_id": null,
       "institution_name": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "GLOBO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -394,7 +394,7 @@
       ]
     },
     {
-      "source_record_index": 94,
+      "source_record_index": 81,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -431,7 +431,7 @@
       ]
     },
     {
-      "source_record_index": 43,
+      "source_record_index": 30,
       "institution_id": null,
       "institution_name": "CNP CONSÓRCIO S.A. ADMINISTRADORA DE CONSÓRCIOS",
       "institution_name_key": "CNP CONSORCIO S A ADMINISTRADORA DE CONSORCIOS",
@@ -468,7 +468,7 @@
       ]
     },
     {
-      "source_record_index": 177,
+      "source_record_index": 203,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -505,7 +505,7 @@
       ]
     },
     {
-      "source_record_index": 222,
+      "source_record_index": 249,
       "institution_id": null,
       "institution_name": "KSK ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "KSK ADMINISTRADORA DE CONSORCIO LTDA",
@@ -542,7 +542,7 @@
       ]
     },
     {
-      "source_record_index": 51,
+      "source_record_index": 38,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -579,7 +579,7 @@
       ]
     },
     {
-      "source_record_index": 135,
+      "source_record_index": 161,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -616,44 +616,7 @@
       ]
     },
     {
-      "source_record_index": 22,
-      "institution_id": null,
-      "institution_name": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
-      "institution_name_key": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
-      "cnpj": "23767155",
-      "cnpj_root": "23767155",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AV. ASSIS DE VASCONCELOS",
-      "neighborhood": "CAMPINA",
-      "city": "BELEM",
-      "uf": "PA",
-      "zip_code": "66017070",
-      "phone": null,
-      "start_date": "2015-06-01",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 29,
+      "source_record_index": 16,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -690,7 +653,7 @@
       ]
     },
     {
-      "source_record_index": 44,
+      "source_record_index": 31,
       "institution_id": null,
       "institution_name": "TÁGIDE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "TAGIDE ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -727,7 +690,44 @@
       ]
     },
     {
-      "source_record_index": 90,
+      "source_record_index": 50,
+      "institution_id": null,
+      "institution_name": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
+      "institution_name_key": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
+      "cnpj": "23767155",
+      "cnpj_root": "23767155",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AV. ASSIS DE VASCONCELOS",
+      "neighborhood": "CAMPINA",
+      "city": "BELEM",
+      "uf": "PA",
+      "zip_code": "66017070",
+      "phone": null,
+      "start_date": "2015-06-01",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 118,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -764,7 +764,7 @@
       ]
     },
     {
-      "source_record_index": 91,
+      "source_record_index": 119,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -801,7 +801,7 @@
       ]
     },
     {
-      "source_record_index": 153,
+      "source_record_index": 140,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -838,7 +838,7 @@
       ]
     },
     {
-      "source_record_index": 265,
+      "source_record_index": 252,
       "institution_id": null,
       "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
@@ -875,7 +875,7 @@
       ]
     },
     {
-      "source_record_index": 27,
+      "source_record_index": 14,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -912,7 +912,7 @@
       ]
     },
     {
-      "source_record_index": 110,
+      "source_record_index": 97,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -949,7 +949,7 @@
       ]
     },
     {
-      "source_record_index": 169,
+      "source_record_index": 156,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -986,7 +986,7 @@
       ]
     },
     {
-      "source_record_index": 268,
+      "source_record_index": 255,
       "institution_id": null,
       "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
@@ -1060,7 +1060,7 @@
       ]
     },
     {
-      "source_record_index": 126,
+      "source_record_index": 113,
       "institution_id": null,
       "institution_name": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
       "institution_name_key": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
@@ -1097,7 +1097,7 @@
       ]
     },
     {
-      "source_record_index": 276,
+      "source_record_index": 263,
       "institution_id": null,
       "institution_name": "BREITKOPF ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "BREITKOPF ADMINISTRADORA DE CONSORCIO LTDA",
@@ -1134,7 +1134,7 @@
       ]
     },
     {
-      "source_record_index": 68,
+      "source_record_index": 55,
       "institution_id": null,
       "institution_name": "RESERVA ADMINISTRADORA DE CONSÓRCIO LTDA",
       "institution_name_key": "RESERVA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -1171,7 +1171,7 @@
       ]
     },
     {
-      "source_record_index": 54,
+      "source_record_index": 82,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -1208,7 +1208,7 @@
       ]
     },
     {
-      "source_record_index": 134,
+      "source_record_index": 121,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -1245,7 +1245,7 @@
       ]
     },
     {
-      "source_record_index": 3,
+      "source_record_index": 6,
       "institution_id": null,
       "institution_name": "FERRAZ ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "FERRAZ ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1282,7 +1282,7 @@
       ]
     },
     {
-      "source_record_index": 4,
+      "source_record_index": 7,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -1319,7 +1319,7 @@
       ]
     },
     {
-      "source_record_index": 6,
+      "source_record_index": 9,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -1356,7 +1356,7 @@
       ]
     },
     {
-      "source_record_index": 15,
+      "source_record_index": 43,
       "institution_id": null,
       "institution_name": "SICOOB ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SICOOB ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1393,44 +1393,7 @@
       ]
     },
     {
-      "source_record_index": 61,
-      "institution_id": null,
-      "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
-      "cnpj": "48041735",
-      "cnpj_root": "48041735",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "SETOR COMERCIAL NORTE, QUADRA 02",
-      "neighborhood": null,
-      "city": "BRASILIA",
-      "uf": "DF",
-      "zip_code": "70712908",
-      "phone": "33665736",
-      "start_date": "2006-04-12",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 69,
+      "source_record_index": 56,
       "institution_id": null,
       "institution_name": "FEDERACAO NAC. DE ASSOCIACOES DOS SERVIDORES DO BCO CENTRAL",
       "institution_name_key": "FEDERACAO NAC DE ASSOCIACOES DOS SERVIDORES DO BCO CENTRAL",
@@ -1467,7 +1430,44 @@
       ]
     },
     {
-      "source_record_index": 165,
+      "source_record_index": 89,
+      "institution_id": null,
+      "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
+      "cnpj": "48041735",
+      "cnpj_root": "48041735",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "SETOR COMERCIAL NORTE, QUADRA 02",
+      "neighborhood": null,
+      "city": "BRASILIA",
+      "uf": "DF",
+      "zip_code": "70712908",
+      "phone": "33665736",
+      "start_date": "2006-04-12",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 152,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -1541,7 +1541,7 @@
       ]
     },
     {
-      "source_record_index": 40,
+      "source_record_index": 27,
       "institution_id": null,
       "institution_name": "SOLUÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SOLUCAO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1578,7 +1578,7 @@
       ]
     },
     {
-      "source_record_index": 179,
+      "source_record_index": 205,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -1615,7 +1615,7 @@
       ]
     },
     {
-      "source_record_index": 180,
+      "source_record_index": 206,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -1652,7 +1652,7 @@
       ]
     },
     {
-      "source_record_index": 32,
+      "source_record_index": 19,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -1689,7 +1689,7 @@
       ]
     },
     {
-      "source_record_index": 63,
+      "source_record_index": 91,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1726,7 +1726,7 @@
       ]
     },
     {
-      "source_record_index": 103,
+      "source_record_index": 130,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -1763,7 +1763,7 @@
       ]
     },
     {
-      "source_record_index": 141,
+      "source_record_index": 167,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -1800,7 +1800,7 @@
       ]
     },
     {
-      "source_record_index": 282,
+      "source_record_index": 269,
       "institution_id": null,
       "institution_name": "HS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "HS ADMINISTRADORA DE CONSORCIOS S A",
@@ -1837,7 +1837,7 @@
       ]
     },
     {
-      "source_record_index": 133,
+      "source_record_index": 120,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -1874,7 +1874,7 @@
       ]
     },
     {
-      "source_record_index": 202,
+      "source_record_index": 189,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -1948,7 +1948,7 @@
       ]
     },
     {
-      "source_record_index": 184,
+      "source_record_index": 171,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -1985,7 +1985,7 @@
       ]
     },
     {
-      "source_record_index": 207,
+      "source_record_index": 194,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -2022,7 +2022,7 @@
       ]
     },
     {
-      "source_record_index": 164,
+      "source_record_index": 151,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -2059,44 +2059,7 @@
       ]
     },
     {
-      "source_record_index": 252,
-      "institution_id": null,
-      "institution_name": "TRIÂNGULO ADMINISTRADORA DE CONSÓRCIOS S/A",
-      "institution_name_key": "TRIANGULO ADMINISTRADORA DE CONSORCIOS S A",
-      "cnpj": "78199262",
-      "cnpj_root": "78199262",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA GENERAL OSÓRIO, N. 3523,",
-      "neighborhood": "CENTRO",
-      "city": "CASCAVEL",
-      "uf": "PR",
-      "zip_code": "85801110",
-      "phone": "30371505",
-      "start_date": "2007-11-08",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 289,
+      "source_record_index": 276,
       "institution_id": null,
       "institution_name": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2133,7 +2096,44 @@
       ]
     },
     {
-      "source_record_index": 209,
+      "source_record_index": 279,
+      "institution_id": null,
+      "institution_name": "TRIÂNGULO ADMINISTRADORA DE CONSÓRCIOS S/A",
+      "institution_name_key": "TRIANGULO ADMINISTRADORA DE CONSORCIOS S A",
+      "cnpj": "78199262",
+      "cnpj_root": "78199262",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA GENERAL OSÓRIO, N. 3523,",
+      "neighborhood": "CENTRO",
+      "city": "CASCAVEL",
+      "uf": "PR",
+      "zip_code": "85801110",
+      "phone": "30371505",
+      "start_date": "2007-11-08",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 196,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -2170,7 +2170,7 @@
       ]
     },
     {
-      "source_record_index": 97,
+      "source_record_index": 124,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2244,7 +2244,7 @@
       ]
     },
     {
-      "source_record_index": 36,
+      "source_record_index": 23,
       "institution_id": null,
       "institution_name": "IRMÃOS DE MARCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "IRMAOS DE MARCO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2281,7 +2281,7 @@
       ]
     },
     {
-      "source_record_index": 255,
+      "source_record_index": 282,
       "institution_id": null,
       "institution_name": "GAMBATTO ADMINISTRADORA DE CONSORCIOS LTDA.",
       "institution_name_key": "GAMBATTO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2318,7 +2318,7 @@
       ]
     },
     {
-      "source_record_index": 158,
+      "source_record_index": 145,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -2355,44 +2355,7 @@
       ]
     },
     {
-      "source_record_index": 223,
-      "institution_id": null,
-      "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
-      "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
-      "cnpj": "68318773",
-      "cnpj_root": "68318773",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AV. FERNANDO CORREA DA COSTA, 1944",
-      "neighborhood": "JARDIM KENNEDY",
-      "city": "CUIABA",
-      "uf": "MT",
-      "zip_code": "78065000",
-      "phone": "6185000",
-      "start_date": "2002-07-05",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 236,
+      "source_record_index": 222,
       "institution_id": null,
       "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "DISAL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2429,7 +2392,44 @@
       ]
     },
     {
-      "source_record_index": 12,
+      "source_record_index": 250,
+      "institution_id": null,
+      "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
+      "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
+      "cnpj": "68318773",
+      "cnpj_root": "68318773",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AV. FERNANDO CORREA DA COSTA, 1944",
+      "neighborhood": "JARDIM KENNEDY",
+      "city": "CUIABA",
+      "uf": "MT",
+      "zip_code": "78065000",
+      "phone": "6185000",
+      "start_date": "2002-07-05",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 3,
       "institution_id": null,
       "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BR CONSORCIOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2466,7 +2466,7 @@
       ]
     },
     {
-      "source_record_index": 60,
+      "source_record_index": 88,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2503,7 +2503,7 @@
       ]
     },
     {
-      "source_record_index": 149,
+      "source_record_index": 136,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -2540,7 +2540,7 @@
       ]
     },
     {
-      "source_record_index": 229,
+      "source_record_index": 215,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -2577,7 +2577,7 @@
       ]
     },
     {
-      "source_record_index": 231,
+      "source_record_index": 217,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -2614,81 +2614,7 @@
       ]
     },
     {
-      "source_record_index": 257,
-      "institution_id": null,
-      "institution_name": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
-      "institution_name_key": "ADEMICON ADMINISTRADORA DE CONSORCIOS S A",
-      "cnpj": "84911098",
-      "cnpj_root": "84911098",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA BISPO DOM JOSE, 2217",
-      "neighborhood": "BATEL",
-      "city": "CURITIBA",
-      "uf": "PR",
-      "zip_code": "80440080",
-      "phone": null,
-      "start_date": "1994-01-06",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 262,
-      "institution_id": null,
-      "institution_name": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "institution_name_key": "GLOBO ADMINISTRADORA DE CONSORCIOS LTDA",
-      "cnpj": "85322204",
-      "cnpj_root": "85322204",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA MARECHAL DEODORO",
-      "neighborhood": "ALTO DA XV",
-      "city": "CURITIBA",
-      "uf": "PR",
-      "zip_code": "80045235",
-      "phone": "33814400",
-      "start_date": "2009-01-10",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 283,
+      "source_record_index": 270,
       "institution_id": null,
       "institution_name": "HS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "HS ADMINISTRADORA DE CONSORCIOS S A",
@@ -2725,7 +2651,7 @@
       ]
     },
     {
-      "source_record_index": 285,
+      "source_record_index": 272,
       "institution_id": null,
       "institution_name": "VOLVO ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "VOLVO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2762,7 +2688,7 @@
       ]
     },
     {
-      "source_record_index": 286,
+      "source_record_index": 273,
       "institution_id": null,
       "institution_name": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2799,7 +2725,81 @@
       ]
     },
     {
-      "source_record_index": 199,
+      "source_record_index": 284,
+      "institution_id": null,
+      "institution_name": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "institution_name_key": "ADEMICON ADMINISTRADORA DE CONSORCIOS S A",
+      "cnpj": "84911098",
+      "cnpj_root": "84911098",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA BISPO DOM JOSE, 2217",
+      "neighborhood": "BATEL",
+      "city": "CURITIBA",
+      "uf": "PR",
+      "zip_code": "80440080",
+      "phone": null,
+      "start_date": "1994-01-06",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 289,
+      "institution_id": null,
+      "institution_name": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "institution_name_key": "GLOBO ADMINISTRADORA DE CONSORCIOS LTDA",
+      "cnpj": "85322204",
+      "cnpj_root": "85322204",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA MARECHAL DEODORO",
+      "neighborhood": "ALTO DA XV",
+      "city": "CURITIBA",
+      "uf": "PR",
+      "zip_code": "80045235",
+      "phone": "33814400",
+      "start_date": "2009-01-10",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 186,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -2836,7 +2836,7 @@
       ]
     },
     {
-      "source_record_index": 193,
+      "source_record_index": 180,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -2873,7 +2873,7 @@
       ]
     },
     {
-      "source_record_index": 280,
+      "source_record_index": 267,
       "institution_id": null,
       "institution_name": "HS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "HS ADMINISTRADORA DE CONSORCIOS S A",
@@ -3021,7 +3021,7 @@
       ]
     },
     {
-      "source_record_index": 226,
+      "source_record_index": 212,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -3058,7 +3058,7 @@
       ]
     },
     {
-      "source_record_index": 254,
+      "source_record_index": 281,
       "institution_id": null,
       "institution_name": "SANTA FÉ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SANTA FE ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3095,44 +3095,7 @@
       ]
     },
     {
-      "source_record_index": 21,
-      "institution_id": null,
-      "institution_name": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
-      "institution_name_key": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
-      "cnpj": "23767155",
-      "cnpj_root": "23767155",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AV. HERACLITO GRAÇA",
-      "neighborhood": "CENTRO",
-      "city": "FORTALEZA",
-      "uf": "CE",
-      "zip_code": "60140061",
-      "phone": null,
-      "start_date": "2013-07-10",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 25,
+      "source_record_index": 12,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -3169,7 +3132,7 @@
       ]
     },
     {
-      "source_record_index": 46,
+      "source_record_index": 33,
       "institution_id": null,
       "institution_name": "CONBRAV - ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "CONBRAV ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3206,7 +3169,44 @@
       ]
     },
     {
-      "source_record_index": 104,
+      "source_record_index": 49,
+      "institution_id": null,
+      "institution_name": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
+      "institution_name_key": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
+      "cnpj": "23767155",
+      "cnpj_root": "23767155",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AV. HERACLITO GRAÇA",
+      "neighborhood": "CENTRO",
+      "city": "FORTALEZA",
+      "uf": "CE",
+      "zip_code": "60140061",
+      "phone": null,
+      "start_date": "2013-07-10",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 131,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -3243,7 +3243,7 @@
       ]
     },
     {
-      "source_record_index": 146,
+      "source_record_index": 133,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -3280,7 +3280,7 @@
       ]
     },
     {
-      "source_record_index": 208,
+      "source_record_index": 195,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -3317,7 +3317,7 @@
       ]
     },
     {
-      "source_record_index": 269,
+      "source_record_index": 256,
       "institution_id": null,
       "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
@@ -3354,7 +3354,7 @@
       ]
     },
     {
-      "source_record_index": 10,
+      "source_record_index": 1,
       "institution_id": null,
       "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BR CONSORCIOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3391,7 +3391,7 @@
       ]
     },
     {
-      "source_record_index": 42,
+      "source_record_index": 29,
       "institution_id": null,
       "institution_name": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "FRANCAUTO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -3428,7 +3428,7 @@
       ]
     },
     {
-      "source_record_index": 64,
+      "source_record_index": 51,
       "institution_id": null,
       "institution_name": "GROSCON ADMINISTRADORA DE CONSORCIOS LTDA.",
       "institution_name_key": "GROSCON ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3465,7 +3465,7 @@
       ]
     },
     {
-      "source_record_index": 98,
+      "source_record_index": 125,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -3502,7 +3502,7 @@
       ]
     },
     {
-      "source_record_index": 99,
+      "source_record_index": 126,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -3539,7 +3539,7 @@
       ]
     },
     {
-      "source_record_index": 173,
+      "source_record_index": 160,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -3576,7 +3576,7 @@
       ]
     },
     {
-      "source_record_index": 238,
+      "source_record_index": 224,
       "institution_id": null,
       "institution_name": "LUIZA ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "LUIZA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3613,7 +3613,7 @@
       ]
     },
     {
-      "source_record_index": 239,
+      "source_record_index": 225,
       "institution_id": null,
       "institution_name": "ANCORA ADMINISTRADORA DE CONSORCIOS S.A.",
       "institution_name_key": "ANCORA ADMINISTRADORA DE CONSORCIOS S A",
@@ -3650,7 +3650,7 @@
       ]
     },
     {
-      "source_record_index": 2,
+      "source_record_index": 5,
       "institution_id": null,
       "institution_name": "CICAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "CICAL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3687,7 +3687,7 @@
       ]
     },
     {
-      "source_record_index": 5,
+      "source_record_index": 8,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -3724,7 +3724,7 @@
       ]
     },
     {
-      "source_record_index": 20,
+      "source_record_index": 48,
       "institution_id": null,
       "institution_name": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3761,7 +3761,7 @@
       ]
     },
     {
-      "source_record_index": 62,
+      "source_record_index": 90,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3798,7 +3798,7 @@
       ]
     },
     {
-      "source_record_index": 159,
+      "source_record_index": 146,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -3835,7 +3835,7 @@
       ]
     },
     {
-      "source_record_index": 16,
+      "source_record_index": 44,
       "institution_id": null,
       "institution_name": "OPÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "OPCAO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3909,7 +3909,7 @@
       ]
     },
     {
-      "source_record_index": 227,
+      "source_record_index": 213,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -3946,7 +3946,7 @@
       ]
     },
     {
-      "source_record_index": 139,
+      "source_record_index": 165,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -3983,44 +3983,7 @@
       ]
     },
     {
-      "source_record_index": 215,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA SETE DE SETEMBRO, 432",
-      "neighborhood": "CENTRO",
-      "city": "GUARULHOS",
-      "uf": "SP",
-      "zip_code": "07010000",
-      "phone": "33729155",
-      "start_date": "1993-02-07",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 248,
+      "source_record_index": 234,
       "institution_id": null,
       "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
       "institution_name_key": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
@@ -4039,6 +4002,43 @@
       "zip_code": "07024181",
       "phone": "30392300",
       "start_date": "2017-03-04",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 242,
+      "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA SETE DE SETEMBRO, 432",
+      "neighborhood": "CENTRO",
+      "city": "GUARULHOS",
+      "uf": "SP",
+      "zip_code": "07010000",
+      "phone": "33729155",
+      "start_date": "1993-02-07",
       "source_fields_present": [
         "Bairro",
         "CEP",
@@ -4094,7 +4094,7 @@
       ]
     },
     {
-      "source_record_index": 150,
+      "source_record_index": 137,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -4131,7 +4131,7 @@
       ]
     },
     {
-      "source_record_index": 45,
+      "source_record_index": 32,
       "institution_id": null,
       "institution_name": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -4168,7 +4168,7 @@
       ]
     },
     {
-      "source_record_index": 189,
+      "source_record_index": 176,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -4205,7 +4205,7 @@
       ]
     },
     {
-      "source_record_index": 181,
+      "source_record_index": 207,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -4242,44 +4242,7 @@
       ]
     },
     {
-      "source_record_index": 260,
-      "institution_id": null,
-      "institution_name": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "institution_name_key": "GLOBO ADMINISTRADORA DE CONSORCIOS LTDA",
-      "cnpj": "85322204",
-      "cnpj_root": "85322204",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA HEITOR LIBERATO",
-      "neighborhood": "CENTRO",
-      "city": "ITAJAI",
-      "uf": "SC",
-      "zip_code": "88303101",
-      "phone": "33814400",
-      "start_date": "1999-02-09",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 275,
+      "source_record_index": 262,
       "institution_id": null,
       "institution_name": "CAMVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "CAMVEL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -4316,7 +4279,44 @@
       ]
     },
     {
-      "source_record_index": 279,
+      "source_record_index": 287,
+      "institution_id": null,
+      "institution_name": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "institution_name_key": "GLOBO ADMINISTRADORA DE CONSORCIOS LTDA",
+      "cnpj": "85322204",
+      "cnpj_root": "85322204",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA HEITOR LIBERATO",
+      "neighborhood": "CENTRO",
+      "city": "ITAJAI",
+      "uf": "SC",
+      "zip_code": "88303101",
+      "phone": "33814400",
+      "start_date": "1999-02-09",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 266,
       "institution_id": null,
       "institution_name": "BREITKOPF ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "BREITKOPF ADMINISTRADORA DE CONSORCIO LTDA",
@@ -4353,7 +4353,7 @@
       ]
     },
     {
-      "source_record_index": 41,
+      "source_record_index": 28,
       "institution_id": null,
       "institution_name": "MAGGI ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "MAGGI ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -4390,7 +4390,7 @@
       ]
     },
     {
-      "source_record_index": 81,
+      "source_record_index": 68,
       "institution_id": null,
       "institution_name": "MASSEY FERGUSON ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "MASSEY FERGUSON ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -4427,7 +4427,7 @@
       ]
     },
     {
-      "source_record_index": 86,
+      "source_record_index": 73,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -4464,7 +4464,7 @@
       ]
     },
     {
-      "source_record_index": 121,
+      "source_record_index": 108,
       "institution_id": null,
       "institution_name": "PRIMO ROSSI ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "PRIMO ROSSI ADMINISTRADORA DE CONSORCIO LTDA",
@@ -4501,7 +4501,7 @@
       ]
     },
     {
-      "source_record_index": 277,
+      "source_record_index": 264,
       "institution_id": null,
       "institution_name": "BREITKOPF ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "BREITKOPF ADMINISTRADORA DE CONSORCIO LTDA",
@@ -4538,7 +4538,7 @@
       ]
     },
     {
-      "source_record_index": 28,
+      "source_record_index": 15,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -4575,7 +4575,7 @@
       ]
     },
     {
-      "source_record_index": 147,
+      "source_record_index": 134,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -4612,7 +4612,7 @@
       ]
     },
     {
-      "source_record_index": 228,
+      "source_record_index": 214,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -4649,7 +4649,7 @@
       ]
     },
     {
-      "source_record_index": 35,
+      "source_record_index": 22,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -4686,7 +4686,7 @@
       ]
     },
     {
-      "source_record_index": 145,
+      "source_record_index": 132,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -4723,81 +4723,7 @@
       ]
     },
     {
-      "source_record_index": 258,
-      "institution_id": null,
-      "institution_name": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
-      "institution_name_key": "ADEMICON ADMINISTRADORA DE CONSORCIOS S A",
-      "cnpj": "84911098",
-      "cnpj_root": "84911098",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA DOUTOR JOÃO COLIN, 751",
-      "neighborhood": "AMÉRICA",
-      "city": "JOINVILLE",
-      "uf": "SC",
-      "zip_code": "89204001",
-      "phone": "30262000",
-      "start_date": "2007-07-11",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 261,
-      "institution_id": null,
-      "institution_name": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "institution_name_key": "GLOBO ADMINISTRADORA DE CONSORCIOS LTDA",
-      "cnpj": "85322204",
-      "cnpj_root": "85322204",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA DR. JOÃO COLIN",
-      "neighborhood": "AMERICA",
-      "city": "JOINVILLE",
-      "uf": "SC",
-      "zip_code": "89204001",
-      "phone": "33814400",
-      "start_date": "2007-04-02",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 278,
+      "source_record_index": 265,
       "institution_id": null,
       "institution_name": "BREITKOPF ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "BREITKOPF ADMINISTRADORA DE CONSORCIO LTDA",
@@ -4834,7 +4760,81 @@
       ]
     },
     {
-      "source_record_index": 190,
+      "source_record_index": 285,
+      "institution_id": null,
+      "institution_name": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "institution_name_key": "ADEMICON ADMINISTRADORA DE CONSORCIOS S A",
+      "cnpj": "84911098",
+      "cnpj_root": "84911098",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA DOUTOR JOÃO COLIN, 751",
+      "neighborhood": "AMÉRICA",
+      "city": "JOINVILLE",
+      "uf": "SC",
+      "zip_code": "89204001",
+      "phone": "30262000",
+      "start_date": "2007-07-11",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 288,
+      "institution_id": null,
+      "institution_name": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "institution_name_key": "GLOBO ADMINISTRADORA DE CONSORCIOS LTDA",
+      "cnpj": "85322204",
+      "cnpj_root": "85322204",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA DR. JOÃO COLIN",
+      "neighborhood": "AMERICA",
+      "city": "JOINVILLE",
+      "uf": "SC",
+      "zip_code": "89204001",
+      "phone": "33814400",
+      "start_date": "2007-04-02",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 177,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -4871,7 +4871,7 @@
       ]
     },
     {
-      "source_record_index": 49,
+      "source_record_index": 77,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -4908,7 +4908,7 @@
       ]
     },
     {
-      "source_record_index": 89,
+      "source_record_index": 117,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -4945,7 +4945,7 @@
       ]
     },
     {
-      "source_record_index": 151,
+      "source_record_index": 138,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -4982,7 +4982,7 @@
       ]
     },
     {
-      "source_record_index": 38,
+      "source_record_index": 25,
       "institution_id": null,
       "institution_name": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
@@ -5019,7 +5019,7 @@
       ]
     },
     {
-      "source_record_index": 95,
+      "source_record_index": 122,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -5056,7 +5056,7 @@
       ]
     },
     {
-      "source_record_index": 96,
+      "source_record_index": 123,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -5093,7 +5093,7 @@
       ]
     },
     {
-      "source_record_index": 87,
+      "source_record_index": 74,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -5130,7 +5130,7 @@
       ]
     },
     {
-      "source_record_index": 161,
+      "source_record_index": 148,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -5167,7 +5167,7 @@
       ]
     },
     {
-      "source_record_index": 174,
+      "source_record_index": 200,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -5204,7 +5204,7 @@
       ]
     },
     {
-      "source_record_index": 88,
+      "source_record_index": 75,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -5241,7 +5241,7 @@
       ]
     },
     {
-      "source_record_index": 284,
+      "source_record_index": 271,
       "institution_id": null,
       "institution_name": "HS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "HS ADMINISTRADORA DE CONSORCIOS S A",
@@ -5278,7 +5278,7 @@
       ]
     },
     {
-      "source_record_index": 288,
+      "source_record_index": 275,
       "institution_id": null,
       "institution_name": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -5315,7 +5315,7 @@
       ]
     },
     {
-      "source_record_index": 30,
+      "source_record_index": 17,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -5352,7 +5352,7 @@
       ]
     },
     {
-      "source_record_index": 206,
+      "source_record_index": 193,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -5389,7 +5389,7 @@
       ]
     },
     {
-      "source_record_index": 33,
+      "source_record_index": 20,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -5426,7 +5426,7 @@
       ]
     },
     {
-      "source_record_index": 192,
+      "source_record_index": 179,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -5463,7 +5463,7 @@
       ]
     },
     {
-      "source_record_index": 77,
+      "source_record_index": 64,
       "institution_id": null,
       "institution_name": "COMAUTO ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "COMAUTO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -5500,7 +5500,7 @@
       ]
     },
     {
-      "source_record_index": 78,
+      "source_record_index": 65,
       "institution_id": null,
       "institution_name": "FRA-FREIRE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "FRA FREIRE ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -5537,44 +5537,7 @@
       ]
     },
     {
-      "source_record_index": 251,
-      "institution_id": null,
-      "institution_name": "TRIÂNGULO ADMINISTRADORA DE CONSÓRCIOS S/A",
-      "institution_name_key": "TRIANGULO ADMINISTRADORA DE CONSORCIOS S A",
-      "cnpj": "78199262",
-      "cnpj_root": "78199262",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AV. CARNEIRO LEAO, 135, SOBRELOJA",
-      "neighborhood": "CENTRO",
-      "city": "MARINGA",
-      "uf": "PR",
-      "zip_code": "87013080",
-      "phone": "2251515",
-      "start_date": "1993-02-07",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 290,
+      "source_record_index": 277,
       "institution_id": null,
       "institution_name": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -5611,7 +5574,44 @@
       ]
     },
     {
-      "source_record_index": 225,
+      "source_record_index": 278,
+      "institution_id": null,
+      "institution_name": "TRIÂNGULO ADMINISTRADORA DE CONSÓRCIOS S/A",
+      "institution_name_key": "TRIANGULO ADMINISTRADORA DE CONSORCIOS S A",
+      "cnpj": "78199262",
+      "cnpj_root": "78199262",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AV. CARNEIRO LEAO, 135, SOBRELOJA",
+      "neighborhood": "CENTRO",
+      "city": "MARINGA",
+      "uf": "PR",
+      "zip_code": "87013080",
+      "phone": "2251515",
+      "start_date": "1993-02-07",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 211,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -5648,44 +5648,7 @@
       ]
     },
     {
-      "source_record_index": 55,
-      "institution_id": null,
-      "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "47820097",
-      "cnpj_root": "47820097",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA FRANCISCO FERREIRA LOPES",
-      "neighborhood": "CENTRO",
-      "city": "MOGI DAS CRUZES",
-      "uf": "SP",
-      "zip_code": "08745000",
-      "phone": null,
-      "start_date": "2001-02-12",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 74,
+      "source_record_index": 61,
       "institution_id": null,
       "institution_name": "KLUBI ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "KLUBI ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -5722,7 +5685,7 @@
       ]
     },
     {
-      "source_record_index": 76,
+      "source_record_index": 63,
       "institution_id": null,
       "institution_name": "CONSHOP ADMINISTRADORA DE CONSORCIOS LTDA.",
       "institution_name_key": "CONSHOP ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -5759,7 +5722,44 @@
       ]
     },
     {
-      "source_record_index": 129,
+      "source_record_index": 83,
+      "institution_id": null,
+      "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "47820097",
+      "cnpj_root": "47820097",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA FRANCISCO FERREIRA LOPES",
+      "neighborhood": "CENTRO",
+      "city": "MOGI DAS CRUZES",
+      "uf": "SP",
+      "zip_code": "08745000",
+      "phone": null,
+      "start_date": "2001-02-12",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 116,
       "institution_id": null,
       "institution_name": "VALTRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "VALTRA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -5796,7 +5796,7 @@
       ]
     },
     {
-      "source_record_index": 188,
+      "source_record_index": 175,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -5833,7 +5833,7 @@
       ]
     },
     {
-      "source_record_index": 155,
+      "source_record_index": 142,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -5870,7 +5870,7 @@
       ]
     },
     {
-      "source_record_index": 11,
+      "source_record_index": 2,
       "institution_id": null,
       "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BR CONSORCIOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -5907,7 +5907,7 @@
       ]
     },
     {
-      "source_record_index": 197,
+      "source_record_index": 184,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -5944,7 +5944,7 @@
       ]
     },
     {
-      "source_record_index": 7,
+      "source_record_index": 35,
       "institution_id": null,
       "institution_name": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -5981,7 +5981,7 @@
       ]
     },
     {
-      "source_record_index": 191,
+      "source_record_index": 178,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -6018,7 +6018,7 @@
       ]
     },
     {
-      "source_record_index": 47,
+      "source_record_index": 34,
       "institution_id": null,
       "institution_name": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -6055,7 +6055,7 @@
       ]
     },
     {
-      "source_record_index": 131,
+      "source_record_index": 158,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -6092,7 +6092,7 @@
       ]
     },
     {
-      "source_record_index": 250,
+      "source_record_index": 236,
       "institution_id": null,
       "institution_name": "REDENÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "REDENCAO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -6129,7 +6129,7 @@
       ]
     },
     {
-      "source_record_index": 281,
+      "source_record_index": 268,
       "institution_id": null,
       "institution_name": "HS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "HS ADMINISTRADORA DE CONSORCIOS S A",
@@ -6166,7 +6166,7 @@
       ]
     },
     {
-      "source_record_index": 124,
+      "source_record_index": 111,
       "institution_id": null,
       "institution_name": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "BRADESCO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -6203,7 +6203,7 @@
       ]
     },
     {
-      "source_record_index": 136,
+      "source_record_index": 162,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -6240,44 +6240,7 @@
       ]
     },
     {
-      "source_record_index": 216,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA CIPRIANO TAVARES",
-      "neighborhood": "CENTRO",
-      "city": "OSASCO",
-      "uf": "SP",
-      "zip_code": "06010100",
-      "phone": null,
-      "start_date": "1992-04-11",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 247,
+      "source_record_index": 233,
       "institution_id": null,
       "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
       "institution_name_key": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
@@ -6314,7 +6277,44 @@
       ]
     },
     {
-      "source_record_index": 253,
+      "source_record_index": 243,
+      "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA CIPRIANO TAVARES",
+      "neighborhood": "CENTRO",
+      "city": "OSASCO",
+      "uf": "SP",
+      "zip_code": "06010100",
+      "phone": null,
+      "start_date": "1992-04-11",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 280,
       "institution_id": null,
       "institution_name": "RIVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "RIVEL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -6351,7 +6351,7 @@
       ]
     },
     {
-      "source_record_index": 175,
+      "source_record_index": 201,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -6462,7 +6462,7 @@
       ]
     },
     {
-      "source_record_index": 182,
+      "source_record_index": 208,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -6499,7 +6499,7 @@
       ]
     },
     {
-      "source_record_index": 53,
+      "source_record_index": 40,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -6536,7 +6536,7 @@
       ]
     },
     {
-      "source_record_index": 156,
+      "source_record_index": 143,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -6573,7 +6573,7 @@
       ]
     },
     {
-      "source_record_index": 196,
+      "source_record_index": 183,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -6610,7 +6610,7 @@
       ]
     },
     {
-      "source_record_index": 176,
+      "source_record_index": 202,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -6647,7 +6647,7 @@
       ]
     },
     {
-      "source_record_index": 287,
+      "source_record_index": 274,
       "institution_id": null,
       "institution_name": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -6684,7 +6684,7 @@
       ]
     },
     {
-      "source_record_index": 26,
+      "source_record_index": 13,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -6721,7 +6721,7 @@
       ]
     },
     {
-      "source_record_index": 59,
+      "source_record_index": 87,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -6758,7 +6758,7 @@
       ]
     },
     {
-      "source_record_index": 148,
+      "source_record_index": 135,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -6795,7 +6795,7 @@
       ]
     },
     {
-      "source_record_index": 270,
+      "source_record_index": 257,
       "institution_id": null,
       "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
@@ -6943,7 +6943,7 @@
       ]
     },
     {
-      "source_record_index": 100,
+      "source_record_index": 127,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -6980,7 +6980,7 @@
       ]
     },
     {
-      "source_record_index": 194,
+      "source_record_index": 181,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -7017,7 +7017,7 @@
       ]
     },
     {
-      "source_record_index": 18,
+      "source_record_index": 46,
       "institution_id": null,
       "institution_name": "ZEMA ADMINISTRADORA DE CONSÓRCIO LTDA",
       "institution_name_key": "ZEMA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -7054,7 +7054,7 @@
       ]
     },
     {
-      "source_record_index": 48,
+      "source_record_index": 76,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -7091,7 +7091,7 @@
       ]
     },
     {
-      "source_record_index": 154,
+      "source_record_index": 141,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -7128,7 +7128,7 @@
       ]
     },
     {
-      "source_record_index": 201,
+      "source_record_index": 188,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -7165,7 +7165,7 @@
       ]
     },
     {
-      "source_record_index": 234,
+      "source_record_index": 220,
       "institution_id": null,
       "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "DISAL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -7202,7 +7202,7 @@
       ]
     },
     {
-      "source_record_index": 267,
+      "source_record_index": 254,
       "institution_id": null,
       "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
@@ -7239,7 +7239,7 @@
       ]
     },
     {
-      "source_record_index": 13,
+      "source_record_index": 41,
       "institution_id": null,
       "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BR CONSORCIOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -7276,7 +7276,7 @@
       ]
     },
     {
-      "source_record_index": 108,
+      "source_record_index": 95,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -7313,7 +7313,7 @@
       ]
     },
     {
-      "source_record_index": 166,
+      "source_record_index": 153,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -7350,7 +7350,7 @@
       ]
     },
     {
-      "source_record_index": 249,
+      "source_record_index": 235,
       "institution_id": null,
       "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
       "institution_name_key": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
@@ -7387,7 +7387,7 @@
       ]
     },
     {
-      "source_record_index": 274,
+      "source_record_index": 261,
       "institution_id": null,
       "institution_name": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BAMAQ ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -7424,44 +7424,7 @@
       ]
     },
     {
-      "source_record_index": 58,
-      "institution_id": null,
-      "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
-      "cnpj": "48041735",
-      "cnpj_root": "48041735",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA VOLUNTÁRIOS DA PÁTRIA, 40",
-      "neighborhood": "BOTAFOGO",
-      "city": "RIO DE JANEIRO",
-      "uf": "RJ",
-      "zip_code": "22270010",
-      "phone": "33665736",
-      "start_date": "2006-04-12",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 70,
+      "source_record_index": 57,
       "institution_id": null,
       "institution_name": "CLUBE NAVAL - CAIXA BENEFICIENTE",
       "institution_name_key": "CLUBE NAVAL CAIXA BENEFICIENTE",
@@ -7498,7 +7461,7 @@
       ]
     },
     {
-      "source_record_index": 71,
+      "source_record_index": 58,
       "institution_id": null,
       "institution_name": "CLUBE NAVAL - CAIXA BENEFICIENTE",
       "institution_name_key": "CLUBE NAVAL CAIXA BENEFICIENTE",
@@ -7535,7 +7498,44 @@
       ]
     },
     {
-      "source_record_index": 171,
+      "source_record_index": 86,
+      "institution_id": null,
+      "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
+      "cnpj": "48041735",
+      "cnpj_root": "48041735",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA VOLUNTÁRIOS DA PÁTRIA, 40",
+      "neighborhood": "BOTAFOGO",
+      "city": "RIO DE JANEIRO",
+      "uf": "RJ",
+      "zip_code": "22270010",
+      "phone": "33665736",
+      "start_date": "2006-04-12",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 198,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -7572,7 +7572,7 @@
       ]
     },
     {
-      "source_record_index": 232,
+      "source_record_index": 218,
       "institution_id": null,
       "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "DISAL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -7609,7 +7609,7 @@
       ]
     },
     {
-      "source_record_index": 266,
+      "source_record_index": 253,
       "institution_id": null,
       "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
@@ -7646,7 +7646,7 @@
       ]
     },
     {
-      "source_record_index": 256,
+      "source_record_index": 283,
       "institution_id": null,
       "institution_name": "UNIÃO CATARINENSE ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "UNIAO CATARINENSE ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -7683,44 +7683,7 @@
       ]
     },
     {
-      "source_record_index": 9,
-      "institution_id": null,
-      "institution_name": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
-      "institution_name_key": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
-      "cnpj": "13548938",
-      "cnpj_root": "13548938",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AV. 7 DE SETEMBRO, 88 ED.BARAO DO RIO",
-      "neighborhood": "SAO PEDRO",
-      "city": "SALVADOR",
-      "uf": "BA",
-      "zip_code": "40110000",
-      "phone": null,
-      "start_date": "1993-02-07",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 34,
+      "source_record_index": 21,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -7757,7 +7720,44 @@
       ]
     },
     {
-      "source_record_index": 170,
+      "source_record_index": 37,
+      "institution_id": null,
+      "institution_name": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
+      "institution_name_key": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
+      "cnpj": "13548938",
+      "cnpj_root": "13548938",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AV. 7 DE SETEMBRO, 88 ED.BARAO DO RIO",
+      "neighborhood": "SAO PEDRO",
+      "city": "SALVADOR",
+      "uf": "BA",
+      "zip_code": "40110000",
+      "phone": null,
+      "start_date": "1993-02-07",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 197,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -7794,7 +7794,7 @@
       ]
     },
     {
-      "source_record_index": 233,
+      "source_record_index": 219,
       "institution_id": null,
       "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "DISAL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -7831,7 +7831,7 @@
       ]
     },
     {
-      "source_record_index": 271,
+      "source_record_index": 258,
       "institution_id": null,
       "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
@@ -7979,44 +7979,7 @@
       ]
     },
     {
-      "source_record_index": 183,
-      "institution_id": null,
-      "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
-      "cnpj": "58113812",
-      "cnpj_root": "58113812",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AVENIDA YOJIRO TAKAOKA",
-      "neighborhood": "ALPHAVILLE",
-      "city": "SANTANA DE PARNAIBA",
-      "uf": "SP",
-      "zip_code": "06541038",
-      "phone": "21853156",
-      "start_date": "2012-09-08",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 185,
+      "source_record_index": 172,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -8053,7 +8016,44 @@
       ]
     },
     {
-      "source_record_index": 75,
+      "source_record_index": 209,
+      "institution_id": null,
+      "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
+      "cnpj": "58113812",
+      "cnpj_root": "58113812",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AVENIDA YOJIRO TAKAOKA",
+      "neighborhood": "ALPHAVILLE",
+      "city": "SANTANA DE PARNAIBA",
+      "uf": "SP",
+      "zip_code": "06541038",
+      "phone": "21853156",
+      "start_date": "2012-09-08",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 62,
       "institution_id": null,
       "institution_name": "CONSHOP ADMINISTRADORA DE CONSORCIOS LTDA.",
       "institution_name_key": "CONSHOP ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -8090,7 +8090,7 @@
       ]
     },
     {
-      "source_record_index": 204,
+      "source_record_index": 191,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -8127,7 +8127,7 @@
       ]
     },
     {
-      "source_record_index": 242,
+      "source_record_index": 228,
       "institution_id": null,
       "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
       "institution_name_key": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
@@ -8164,7 +8164,7 @@
       ]
     },
     {
-      "source_record_index": 106,
+      "source_record_index": 93,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -8201,7 +8201,7 @@
       ]
     },
     {
-      "source_record_index": 107,
+      "source_record_index": 94,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -8238,7 +8238,7 @@
       ]
     },
     {
-      "source_record_index": 186,
+      "source_record_index": 173,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -8275,7 +8275,7 @@
       ]
     },
     {
-      "source_record_index": 137,
+      "source_record_index": 163,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -8312,44 +8312,7 @@
       ]
     },
     {
-      "source_record_index": 221,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AV MARECHAL DEODORO",
-      "neighborhood": "CENTRO",
-      "city": "SAO BERNARDO DO CAMPO",
-      "uf": "SP",
-      "zip_code": "09710000",
-      "phone": "33719155",
-      "start_date": "2015-12-01",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 245,
+      "source_record_index": 231,
       "institution_id": null,
       "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
       "institution_name_key": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
@@ -8368,6 +8331,43 @@
       "zip_code": "09710210",
       "phone": "30392300",
       "start_date": "2015-06-02",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 248,
+      "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AV MARECHAL DEODORO",
+      "neighborhood": "CENTRO",
+      "city": "SAO BERNARDO DO CAMPO",
+      "uf": "SP",
+      "zip_code": "09710000",
+      "phone": "33719155",
+      "start_date": "2015-12-01",
       "source_fields_present": [
         "Bairro",
         "CEP",
@@ -8423,7 +8423,7 @@
       ]
     },
     {
-      "source_record_index": 79,
+      "source_record_index": 66,
       "institution_id": null,
       "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
       "institution_name_key": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
@@ -8460,7 +8460,7 @@
       ]
     },
     {
-      "source_record_index": 113,
+      "source_record_index": 100,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -8497,7 +8497,7 @@
       ]
     },
     {
-      "source_record_index": 152,
+      "source_record_index": 139,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -8534,7 +8534,7 @@
       ]
     },
     {
-      "source_record_index": 246,
+      "source_record_index": 232,
       "institution_id": null,
       "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
       "institution_name_key": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
@@ -8571,7 +8571,7 @@
       ]
     },
     {
-      "source_record_index": 203,
+      "source_record_index": 190,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -8608,7 +8608,7 @@
       ]
     },
     {
-      "source_record_index": 80,
+      "source_record_index": 67,
       "institution_id": null,
       "institution_name": "BRQUALY ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "BRQUALY ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -8645,7 +8645,7 @@
       ]
     },
     {
-      "source_record_index": 92,
+      "source_record_index": 79,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -8682,7 +8682,7 @@
       ]
     },
     {
-      "source_record_index": 105,
+      "source_record_index": 92,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -8719,7 +8719,7 @@
       ]
     },
     {
-      "source_record_index": 119,
+      "source_record_index": 106,
       "institution_id": null,
       "institution_name": "PRIMO ROSSI ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "PRIMO ROSSI ADMINISTRADORA DE CONSORCIO LTDA",
@@ -8756,7 +8756,7 @@
       ]
     },
     {
-      "source_record_index": 122,
+      "source_record_index": 109,
       "institution_id": null,
       "institution_name": "RODOBENS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "RODOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -8793,7 +8793,7 @@
       ]
     },
     {
-      "source_record_index": 123,
+      "source_record_index": 110,
       "institution_id": null,
       "institution_name": "RODOBENS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "RODOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -8830,7 +8830,7 @@
       ]
     },
     {
-      "source_record_index": 125,
+      "source_record_index": 112,
       "institution_id": null,
       "institution_name": "TARRAF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "TARRAF ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -8867,7 +8867,7 @@
       ]
     },
     {
-      "source_record_index": 138,
+      "source_record_index": 164,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -8904,7 +8904,7 @@
       ]
     },
     {
-      "source_record_index": 264,
+      "source_record_index": 251,
       "institution_id": null,
       "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
@@ -8978,7 +8978,7 @@
       ]
     },
     {
-      "source_record_index": 50,
+      "source_record_index": 78,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -9015,7 +9015,7 @@
       ]
     },
     {
-      "source_record_index": 109,
+      "source_record_index": 96,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -9052,7 +9052,7 @@
       ]
     },
     {
-      "source_record_index": 115,
+      "source_record_index": 102,
       "institution_id": null,
       "institution_name": "VINAC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "VINAC ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -9089,7 +9089,7 @@
       ]
     },
     {
-      "source_record_index": 142,
+      "source_record_index": 168,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -9126,7 +9126,7 @@
       ]
     },
     {
-      "source_record_index": 219,
+      "source_record_index": 246,
       "institution_id": null,
       "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -9163,7 +9163,7 @@
       ]
     },
     {
-      "source_record_index": 39,
+      "source_record_index": 26,
       "institution_id": null,
       "institution_name": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "APEC ADMINISTRADORA DE CONSORCIOS S A",
@@ -9200,7 +9200,7 @@
       ]
     },
     {
-      "source_record_index": 1,
+      "source_record_index": 4,
       "institution_id": null,
       "institution_name": "ITAÚ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "ITAU ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -9237,44 +9237,7 @@
       ]
     },
     {
-      "source_record_index": 17,
-      "institution_id": null,
-      "institution_name": "VIVIANI ADMINISTRADORA DE CONSÓRCIO NACIONAL LTDA.",
-      "institution_name_key": "VIVIANI ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
-      "cnpj": "22245020",
-      "cnpj_root": "22245020",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA DA CONSOLAÇÃO",
-      "neighborhood": "CERQUEIRA CÉSAR",
-      "city": "SAO PAULO",
-      "uf": "SP",
-      "zip_code": "01416000",
-      "phone": "337101",
-      "start_date": "2016-01-03",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 52,
+      "source_record_index": 39,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -9311,25 +9274,25 @@
       ]
     },
     {
-      "source_record_index": 57,
+      "source_record_index": 45,
       "institution_id": null,
-      "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
-      "cnpj": "48041735",
-      "cnpj_root": "48041735",
+      "institution_name": "VIVIANI ADMINISTRADORA DE CONSÓRCIO NACIONAL LTDA.",
+      "institution_name_key": "VIVIANI ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
+      "cnpj": "22245020",
+      "cnpj_root": "22245020",
       "unit_code": null,
       "unit_name": null,
       "unit_name_key": null,
       "unit_type": null,
       "status_text": null,
       "is_active": null,
-      "address": "AL BARAO DE PIRACICABA, 740",
-      "neighborhood": "CAMPOS ELISEOS",
+      "address": "RUA DA CONSOLAÇÃO",
+      "neighborhood": "CERQUEIRA CÉSAR",
       "city": "SAO PAULO",
       "uf": "SP",
-      "zip_code": "01216010",
-      "phone": "33665736",
-      "start_date": "1993-02-07",
+      "zip_code": "01416000",
+      "phone": "337101",
+      "start_date": "2016-01-03",
       "source_fields_present": [
         "Bairro",
         "CEP",
@@ -9348,7 +9311,7 @@
       ]
     },
     {
-      "source_record_index": 67,
+      "source_record_index": 54,
       "institution_id": null,
       "institution_name": "MYCON ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "MYCON ADMINISTRADORA DE CONSORCIOS S A",
@@ -9385,7 +9348,7 @@
       ]
     },
     {
-      "source_record_index": 72,
+      "source_record_index": 59,
       "institution_id": null,
       "institution_name": "BBC ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BBC ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -9422,7 +9385,7 @@
       ]
     },
     {
-      "source_record_index": 73,
+      "source_record_index": 60,
       "institution_id": null,
       "institution_name": "XS5 ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "XS5 ADMINISTRADORA DE CONSORCIOS S A",
@@ -9459,7 +9422,7 @@
       ]
     },
     {
-      "source_record_index": 82,
+      "source_record_index": 69,
       "institution_id": null,
       "institution_name": "MASSEY FERGUSON ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "MASSEY FERGUSON ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -9496,7 +9459,7 @@
       ]
     },
     {
-      "source_record_index": 83,
+      "source_record_index": 70,
       "institution_id": null,
       "institution_name": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -9533,7 +9496,7 @@
       ]
     },
     {
-      "source_record_index": 84,
+      "source_record_index": 71,
       "institution_id": null,
       "institution_name": "YAMAHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "YAMAHA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -9570,7 +9533,7 @@
       ]
     },
     {
-      "source_record_index": 85,
+      "source_record_index": 72,
       "institution_id": null,
       "institution_name": "CONSÓRCIO NACIONAL VOLKSWAGEN - ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "CONSORCIO NACIONAL VOLKSWAGEN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -9607,25 +9570,25 @@
       ]
     },
     {
-      "source_record_index": 101,
+      "source_record_index": 85,
       "institution_id": null,
-      "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
-      "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
-      "cnpj": "58113812",
-      "cnpj_root": "58113812",
+      "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
+      "cnpj": "48041735",
+      "cnpj_root": "48041735",
       "unit_code": null,
       "unit_name": null,
       "unit_name_key": null,
       "unit_type": null,
       "status_text": null,
       "is_active": null,
-      "address": "R FORMOSA",
-      "neighborhood": "CENTRO",
+      "address": "AL BARAO DE PIRACICABA, 740",
+      "neighborhood": "CAMPOS ELISEOS",
       "city": "SAO PAULO",
       "uf": "SP",
-      "zip_code": "01049000",
-      "phone": "21852400",
-      "start_date": "1990-04-11",
+      "zip_code": "01216010",
+      "phone": "33665736",
+      "start_date": "1993-02-07",
       "source_fields_present": [
         "Bairro",
         "CEP",
@@ -9644,7 +9607,7 @@
       ]
     },
     {
-      "source_record_index": 114,
+      "source_record_index": 101,
       "institution_id": null,
       "institution_name": "GMAC ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "GMAC ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -9681,7 +9644,7 @@
       ]
     },
     {
-      "source_record_index": 116,
+      "source_record_index": 103,
       "institution_id": null,
       "institution_name": "UNAFISCO - ASSOCIAÇÃO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
       "institution_name_key": "UNAFISCO ASSOCIACAO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
@@ -9718,7 +9681,7 @@
       ]
     },
     {
-      "source_record_index": 117,
+      "source_record_index": 104,
       "institution_id": null,
       "institution_name": "UNAFISCO - ASSOCIAÇÃO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
       "institution_name_key": "UNAFISCO ASSOCIACAO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
@@ -9755,7 +9718,7 @@
       ]
     },
     {
-      "source_record_index": 120,
+      "source_record_index": 107,
       "institution_id": null,
       "institution_name": "PRIMO ROSSI ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "PRIMO ROSSI ADMINISTRADORA DE CONSORCIO LTDA",
@@ -9792,7 +9755,7 @@
       ]
     },
     {
-      "source_record_index": 128,
+      "source_record_index": 115,
       "institution_id": null,
       "institution_name": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SANTANDER BRASIL ADMINISTRADORA DE CONSORCIO LTDA",
@@ -9829,7 +9792,7 @@
       ]
     },
     {
-      "source_record_index": 132,
+      "source_record_index": 128,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -9841,13 +9804,13 @@
       "unit_type": null,
       "status_text": null,
       "is_active": null,
-      "address": "RUA SAPETUBA",
-      "neighborhood": "BUTANTA",
+      "address": "R FORMOSA",
+      "neighborhood": "CENTRO",
       "city": "SAO PAULO",
       "uf": "SP",
-      "zip_code": "05510001",
-      "phone": null,
-      "start_date": "2009-03-04",
+      "zip_code": "01049000",
+      "phone": "21852400",
+      "start_date": "1990-04-11",
       "source_fields_present": [
         "Bairro",
         "CEP",
@@ -9866,7 +9829,7 @@
       ]
     },
     {
-      "source_record_index": 157,
+      "source_record_index": 144,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -9903,7 +9866,7 @@
       ]
     },
     {
-      "source_record_index": 160,
+      "source_record_index": 147,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -9940,7 +9903,7 @@
       ]
     },
     {
-      "source_record_index": 167,
+      "source_record_index": 154,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -9977,7 +9940,44 @@
       ]
     },
     {
-      "source_record_index": 198,
+      "source_record_index": 159,
+      "institution_id": null,
+      "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
+      "cnpj": "58113812",
+      "cnpj_root": "58113812",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA SAPETUBA",
+      "neighborhood": "BUTANTA",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "zip_code": "05510001",
+      "phone": null,
+      "start_date": "2009-03-04",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 185,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -10014,7 +10014,7 @@
       ]
     },
     {
-      "source_record_index": 200,
+      "source_record_index": 187,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -10051,7 +10051,7 @@
       ]
     },
     {
-      "source_record_index": 205,
+      "source_record_index": 192,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -10088,303 +10088,7 @@
       ]
     },
     {
-      "source_record_index": 210,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA PEDROSO, 407",
-      "neighborhood": "LIBERDADE",
-      "city": "SAO PAULO",
-      "uf": "SP",
-      "zip_code": "1322000",
-      "phone": null,
-      "start_date": "1993-02-07",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 211,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AV. EUSEBIO MATOSO",
-      "neighborhood": "SANTO AMARO",
-      "city": "SAO PAULO",
-      "uf": "SP",
-      "zip_code": "05423000",
-      "phone": "33729155",
-      "start_date": "1993-02-07",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 212,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AV. JABAQUARA, 1780",
-      "neighborhood": "JABAQUARA",
-      "city": "SAO PAULO",
-      "uf": "SP",
-      "zip_code": "4046300",
-      "phone": null,
-      "start_date": "1993-02-07",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 213,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA PEDROSO, 441",
-      "neighborhood": "LIBERDADE",
-      "city": "SAO PAULO",
-      "uf": "SP",
-      "zip_code": "01322010",
-      "phone": "33729155",
-      "start_date": "1993-01-07",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 214,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AVENIDA GUILHERME COTCHING",
-      "neighborhood": "VILA MARIA",
-      "city": "SAO PAULO",
-      "uf": "SP",
-      "zip_code": "02113012",
-      "phone": null,
-      "start_date": "1993-02-07",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 217,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AVENIDA SANTA MARINA",
-      "neighborhood": "FREGUESIA DO 'O",
-      "city": "SAO PAULO",
-      "uf": "SP",
-      "zip_code": "02732040",
-      "phone": "32849155",
-      "start_date": "1997-02-04",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 218,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA TUIUTI, 1773-1.ANDAR",
-      "neighborhood": "TATUAPE",
-      "city": "SAO PAULO",
-      "uf": "SP",
-      "zip_code": "3307000",
-      "phone": null,
-      "start_date": "1997-02-04",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 220,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AV. CONSELHEIRO CARRAO",
-      "neighborhood": "VILA CARRÃO",
-      "city": "SAO PAULO",
-      "uf": "SP",
-      "zip_code": "03402002",
-      "phone": "33729158",
-      "start_date": "2013-05-12",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 235,
+      "source_record_index": 221,
       "institution_id": null,
       "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "DISAL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -10421,7 +10125,7 @@
       ]
     },
     {
-      "source_record_index": 237,
+      "source_record_index": 223,
       "institution_id": null,
       "institution_name": "TRADIÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "TRADICAO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -10458,7 +10162,7 @@
       ]
     },
     {
-      "source_record_index": 240,
+      "source_record_index": 226,
       "institution_id": null,
       "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
       "institution_name_key": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
@@ -10495,7 +10199,7 @@
       ]
     },
     {
-      "source_record_index": 241,
+      "source_record_index": 227,
       "institution_id": null,
       "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
       "institution_name_key": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
@@ -10532,7 +10236,7 @@
       ]
     },
     {
-      "source_record_index": 243,
+      "source_record_index": 229,
       "institution_id": null,
       "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
       "institution_name_key": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
@@ -10569,7 +10273,7 @@
       ]
     },
     {
-      "source_record_index": 244,
+      "source_record_index": 230,
       "institution_id": null,
       "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
       "institution_name_key": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
@@ -10606,7 +10310,303 @@
       ]
     },
     {
-      "source_record_index": 272,
+      "source_record_index": 237,
+      "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA PEDROSO, 407",
+      "neighborhood": "LIBERDADE",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "zip_code": "1322000",
+      "phone": null,
+      "start_date": "1993-02-07",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 238,
+      "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AV. EUSEBIO MATOSO",
+      "neighborhood": "SANTO AMARO",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "zip_code": "05423000",
+      "phone": "33729155",
+      "start_date": "1993-02-07",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 239,
+      "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AV. JABAQUARA, 1780",
+      "neighborhood": "JABAQUARA",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "zip_code": "4046300",
+      "phone": null,
+      "start_date": "1993-02-07",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 240,
+      "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA PEDROSO, 441",
+      "neighborhood": "LIBERDADE",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "zip_code": "01322010",
+      "phone": "33729155",
+      "start_date": "1993-01-07",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 241,
+      "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AVENIDA GUILHERME COTCHING",
+      "neighborhood": "VILA MARIA",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "zip_code": "02113012",
+      "phone": null,
+      "start_date": "1993-02-07",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 244,
+      "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AVENIDA SANTA MARINA",
+      "neighborhood": "FREGUESIA DO 'O",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "zip_code": "02732040",
+      "phone": "32849155",
+      "start_date": "1997-02-04",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 245,
+      "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA TUIUTI, 1773-1.ANDAR",
+      "neighborhood": "TATUAPE",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "zip_code": "3307000",
+      "phone": null,
+      "start_date": "1997-02-04",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 247,
+      "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AV. CONSELHEIRO CARRAO",
+      "neighborhood": "VILA CARRÃO",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "zip_code": "03402002",
+      "phone": "33729158",
+      "start_date": "2013-05-12",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 259,
       "institution_id": null,
       "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
@@ -10643,7 +10643,7 @@
       ]
     },
     {
-      "source_record_index": 19,
+      "source_record_index": 47,
       "institution_id": null,
       "institution_name": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -10680,7 +10680,7 @@
       ]
     },
     {
-      "source_record_index": 140,
+      "source_record_index": 166,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -10717,7 +10717,7 @@
       ]
     },
     {
-      "source_record_index": 112,
+      "source_record_index": 99,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -10754,7 +10754,7 @@
       ]
     },
     {
-      "source_record_index": 168,
+      "source_record_index": 155,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -10791,7 +10791,7 @@
       ]
     },
     {
-      "source_record_index": 230,
+      "source_record_index": 216,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -10828,7 +10828,7 @@
       ]
     },
     {
-      "source_record_index": 195,
+      "source_record_index": 182,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -10865,7 +10865,7 @@
       ]
     },
     {
-      "source_record_index": 144,
+      "source_record_index": 170,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -10902,7 +10902,7 @@
       ]
     },
     {
-      "source_record_index": 37,
+      "source_record_index": 24,
       "institution_id": null,
       "institution_name": "H. ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "H ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -10939,7 +10939,7 @@
       ]
     },
     {
-      "source_record_index": 259,
+      "source_record_index": 286,
       "institution_id": null,
       "institution_name": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "GLOBO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -11013,7 +11013,7 @@
       ]
     },
     {
-      "source_record_index": 65,
+      "source_record_index": 52,
       "institution_id": null,
       "institution_name": "SM ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SM ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -11050,7 +11050,7 @@
       ]
     },
     {
-      "source_record_index": 31,
+      "source_record_index": 18,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -11087,7 +11087,7 @@
       ]
     },
     {
-      "source_record_index": 93,
+      "source_record_index": 80,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -11124,7 +11124,7 @@
       ]
     },
     {
-      "source_record_index": 118,
+      "source_record_index": 105,
       "institution_id": null,
       "institution_name": "PRIMO ROSSI ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "PRIMO ROSSI ADMINISTRADORA DE CONSORCIO LTDA",
@@ -11161,7 +11161,7 @@
       ]
     },
     {
-      "source_record_index": 163,
+      "source_record_index": 150,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -11198,7 +11198,7 @@
       ]
     },
     {
-      "source_record_index": 56,
+      "source_record_index": 84,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -11235,7 +11235,7 @@
       ]
     },
     {
-      "source_record_index": 143,
+      "source_record_index": 169,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -11346,7 +11346,7 @@
       ]
     },
     {
-      "source_record_index": 224,
+      "source_record_index": 210,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -11383,7 +11383,7 @@
       ]
     },
     {
-      "source_record_index": 24,
+      "source_record_index": 11,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -11420,7 +11420,7 @@
       ]
     },
     {
-      "source_record_index": 66,
+      "source_record_index": 53,
       "institution_id": null,
       "institution_name": "MYCON ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "MYCON ADMINISTRADORA DE CONSORCIOS S A",
@@ -11457,7 +11457,7 @@
       ]
     },
     {
-      "source_record_index": 111,
+      "source_record_index": 98,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -11494,7 +11494,7 @@
       ]
     },
     {
-      "source_record_index": 162,
+      "source_record_index": 149,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -11531,7 +11531,7 @@
       ]
     },
     {
-      "source_record_index": 273,
+      "source_record_index": 260,
       "institution_id": null,
       "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
