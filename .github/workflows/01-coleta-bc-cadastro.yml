@@ -3,8 +3,9 @@ name: 01 · Coleta BC Cadastro
 on:
   workflow_dispatch:
   schedule:
-    # 05:10 BRT = 08:10 UTC
-    - cron: "10 8 * * *"
+    # 05:27 BRT = 08:27 UTC
+    # Horário levemente deslocado para reduzir colisão com instabilidades pontuais do endpoint BC/Olinda.
+    - cron: "27 8 * * *"
 
 permissions:
   contents: write
@@ -19,7 +20,7 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -46,10 +47,39 @@ jobs:
 
       - name: Run collector
         id: collect
+        shell: bash
         run: |
-          python collectors/bc_cadastro_admins.py \
-            --config config/sources.json \
-            --source bc_cadastro_admins
+          set -Eeuo pipefail
+
+          attempts=2
+          delay_seconds=300
+
+          for attempt in $(seq 1 "$attempts"); do
+            echo "::group::Coleta BC Cadastro — tentativa ${attempt}/${attempts}"
+
+            set +e
+            python collectors/bc_cadastro_admins.py \
+              --config config/sources.json \
+              --source bc_cadastro_admins
+            status=$?
+            set -e
+
+            echo "::endgroup::"
+
+            if [ "$status" -eq 0 ]; then
+              echo "Coleta BC Cadastro concluída com sucesso na tentativa ${attempt}/${attempts}."
+              exit 0
+            fi
+
+            if [ "$attempt" -lt "$attempts" ]; then
+              echo "Tentativa ${attempt}/${attempts} falhou com status ${status}."
+              echo "Aguardando ${delay_seconds}s antes de nova tentativa..."
+              sleep "$delay_seconds"
+            else
+              echo "Falha final da Coleta BC Cadastro após ${attempts} tentativas."
+              exit "$status"
+            fi
+          done
 
       - name: Upload collector outputs
         if: always()
