@@ -2,11 +2,11 @@
   "metadata": {
     "source": "bc_cadastro_admins",
     "collector": "collectors/bc_cadastro_admins.py",
-    "collected_at": "2026-05-04T10:22:15+00:00",
+    "collected_at": "2026-05-05T17:54:14+00:00",
     "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Instituicoes_em_funcionamento/versao/v1/odata/SedesConsorcios",
     "mode_used": "odata-csv",
     "record_count": 131,
-    "raw_hash": "a2d34fffb7081415f115224b31b74d493b180cb8019bd814c4ccaa8ee9a4c941",
+    "raw_hash": "1a553a071583bea2a015946c5e80b760f89e9376736e0c7ca4f241a0e96402fd",
     "fetch_meta": {
       "mode": "odata-csv",
       "url": "https://olinda.bcb.gov.br/olinda/servico/Instituicoes_em_funcionamento/versao/v1/odata/SedesConsorcios?%24format=text%2Fcsv",
@@ -22,7 +22,7 @@
   },
   "items": [
     {
-      "source_record_index": 112,
+      "source_record_index": 107,
       "institution_id": null,
       "institution_name": "ITAÚ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "ITAU ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -86,7 +86,7 @@
       ]
     },
     {
-      "source_record_index": 31,
+      "source_record_index": 49,
       "institution_id": null,
       "institution_name": "FERRAZ ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "FERRAZ ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -118,7 +118,7 @@
       ]
     },
     {
-      "source_record_index": 8,
+      "source_record_index": 37,
       "institution_id": null,
       "institution_name": "FUNDACAO HABITACIONAL DO EXERCITO - FHE",
       "institution_name_key": "FUNDACAO HABITACIONAL DO EXERCITO FHE",
@@ -182,7 +182,7 @@
       ]
     },
     {
-      "source_record_index": 44,
+      "source_record_index": 38,
       "institution_id": null,
       "institution_name": "IRMÃOS DE MARCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "IRMAOS DE MARCO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -214,7 +214,7 @@
       ]
     },
     {
-      "source_record_index": 42,
+      "source_record_index": 54,
       "institution_id": null,
       "institution_name": "H. ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "H ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -246,7 +246,7 @@
       ]
     },
     {
-      "source_record_index": 73,
+      "source_record_index": 83,
       "institution_id": null,
       "institution_name": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
@@ -278,7 +278,7 @@
       ]
     },
     {
-      "source_record_index": 126,
+      "source_record_index": 91,
       "institution_id": null,
       "institution_name": "ÁPICE ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "APICE ADMINISTRADORA DE CONSORCIO LTDA",
@@ -310,7 +310,7 @@
       ]
     },
     {
-      "source_record_index": 76,
+      "source_record_index": 85,
       "institution_id": null,
       "institution_name": "ADMINISTRADORA DE CONSÓRCIOS BECKER LTDA.",
       "institution_name_key": "ADMINISTRADORA DE CONSORCIOS BECKER LTDA",
@@ -342,7 +342,7 @@
       ]
     },
     {
-      "source_record_index": 47,
+      "source_record_index": 41,
       "institution_id": null,
       "institution_name": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "APEC ADMINISTRADORA DE CONSORCIOS S A",
@@ -438,7 +438,7 @@
       ]
     },
     {
-      "source_record_index": 99,
+      "source_record_index": 95,
       "institution_id": null,
       "institution_name": "MAGGI ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "MAGGI ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -470,7 +470,7 @@
       ]
     },
     {
-      "source_record_index": 92,
+      "source_record_index": 119,
       "institution_id": null,
       "institution_name": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "FRANCAUTO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -502,7 +502,7 @@
       ]
     },
     {
-      "source_record_index": 131,
+      "source_record_index": 27,
       "institution_id": null,
       "institution_name": "MOTOASA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "MOTOASA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -534,7 +534,7 @@
       ]
     },
     {
-      "source_record_index": 84,
+      "source_record_index": 82,
       "institution_id": null,
       "institution_name": "CNP CONSÓRCIO S.A. ADMINISTRADORA DE CONSÓRCIOS",
       "institution_name_key": "CNP CONSORCIO S A ADMINISTRADORA DE CONSORCIOS",
@@ -566,7 +566,7 @@
       ]
     },
     {
-      "source_record_index": 89,
+      "source_record_index": 131,
       "institution_id": null,
       "institution_name": "NOVOTEMPO ADMINISTRADORA DE CONSORCIOS LTDA.",
       "institution_name_key": "NOVOTEMPO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -662,7 +662,7 @@
       ]
     },
     {
-      "source_record_index": 80,
+      "source_record_index": 40,
       "institution_id": null,
       "institution_name": "DESTAQUE ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "DESTAQUE ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -726,7 +726,7 @@
       ]
     },
     {
-      "source_record_index": 21,
+      "source_record_index": 30,
       "institution_id": null,
       "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
       "institution_name_key": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
@@ -758,7 +758,7 @@
       ]
     },
     {
-      "source_record_index": 5,
+      "source_record_index": 68,
       "institution_id": null,
       "institution_name": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -790,7 +790,7 @@
       ]
     },
     {
-      "source_record_index": 68,
+      "source_record_index": 5,
       "institution_id": null,
       "institution_name": "BP ADMINISTRADORA DE CONSÓRCIO LTDA",
       "institution_name_key": "BP ADMINISTRADORA DE CONSORCIO LTDA",
@@ -886,7 +886,7 @@
       ]
     },
     {
-      "source_record_index": 81,
+      "source_record_index": 51,
       "institution_id": null,
       "institution_name": "ADMINISTRADORA DE CONSORCIOS SICREDI LTDA",
       "institution_name_key": "ADMINISTRADORA DE CONSORCIOS SICREDI LTDA",
@@ -1014,7 +1014,7 @@
       ]
     },
     {
-      "source_record_index": 36,
+      "source_record_index": 59,
       "institution_id": null,
       "institution_name": "ADMINISTRADORA DE CONSÓRCIO UNICOOB LTDA",
       "institution_name_key": "ADMINISTRADORA DE CONSORCIO UNICOOB LTDA",
@@ -1110,7 +1110,7 @@
       ]
     },
     {
-      "source_record_index": 7,
+      "source_record_index": 78,
       "institution_id": null,
       "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BR CONSORCIOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1142,7 +1142,7 @@
       ]
     },
     {
-      "source_record_index": 49,
+      "source_record_index": 8,
       "institution_id": null,
       "institution_name": "SICOOB ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SICOOB ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1206,7 +1206,7 @@
       ]
     },
     {
-      "source_record_index": 101,
+      "source_record_index": 99,
       "institution_id": null,
       "institution_name": "VIVIANI ADMINISTRADORA DE CONSÓRCIO NACIONAL LTDA.",
       "institution_name_key": "VIVIANI ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
@@ -1238,7 +1238,7 @@
       ]
     },
     {
-      "source_record_index": 35,
+      "source_record_index": 47,
       "institution_id": null,
       "institution_name": "ZEMA ADMINISTRADORA DE CONSÓRCIO LTDA",
       "institution_name_key": "ZEMA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -1270,7 +1270,7 @@
       ]
     },
     {
-      "source_record_index": 53,
+      "source_record_index": 35,
       "institution_id": null,
       "institution_name": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1302,7 +1302,7 @@
       ]
     },
     {
-      "source_record_index": 91,
+      "source_record_index": 121,
       "institution_id": null,
       "institution_name": "GROSCON ADMINISTRADORA DE CONSORCIOS LTDA.",
       "institution_name_key": "GROSCON ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1334,7 +1334,7 @@
       ]
     },
     {
-      "source_record_index": 41,
+      "source_record_index": 53,
       "institution_id": null,
       "institution_name": "SM ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SM ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1398,7 +1398,7 @@
       ]
     },
     {
-      "source_record_index": 104,
+      "source_record_index": 118,
       "institution_id": null,
       "institution_name": "QUALINVEST ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "QUALINVEST ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1430,7 +1430,7 @@
       ]
     },
     {
-      "source_record_index": 6,
+      "source_record_index": 20,
       "institution_id": null,
       "institution_name": "RESERVA ADMINISTRADORA DE CONSÓRCIO LTDA",
       "institution_name_key": "RESERVA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -1462,7 +1462,7 @@
       ]
     },
     {
-      "source_record_index": 37,
+      "source_record_index": 31,
       "institution_id": null,
       "institution_name": "FEDERACAO NAC. DE ASSOCIACOES DOS SERVIDORES DO BCO CENTRAL",
       "institution_name_key": "FEDERACAO NAC DE ASSOCIACOES DOS SERVIDORES DO BCO CENTRAL",
@@ -1494,7 +1494,7 @@
       ]
     },
     {
-      "source_record_index": 20,
+      "source_record_index": 6,
       "institution_id": null,
       "institution_name": "CLUBE NAVAL - CAIXA BENEFICIENTE",
       "institution_name_key": "CLUBE NAVAL CAIXA BENEFICIENTE",
@@ -1526,7 +1526,7 @@
       ]
     },
     {
-      "source_record_index": 120,
+      "source_record_index": 102,
       "institution_id": null,
       "institution_name": "BBC ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BBC ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1558,7 +1558,7 @@
       ]
     },
     {
-      "source_record_index": 110,
+      "source_record_index": 100,
       "institution_id": null,
       "institution_name": "XS5 ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "XS5 ADMINISTRADORA DE CONSORCIOS S A",
@@ -1590,7 +1590,7 @@
       ]
     },
     {
-      "source_record_index": 107,
+      "source_record_index": 116,
       "institution_id": null,
       "institution_name": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
       "institution_name_key": "EUTBEM ADMINISTRADORA DE CONSORCIO S A",
@@ -1622,7 +1622,7 @@
       ]
     },
     {
-      "source_record_index": 109,
+      "source_record_index": 104,
       "institution_id": null,
       "institution_name": "KLUBI ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "KLUBI ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1654,7 +1654,7 @@
       ]
     },
     {
-      "source_record_index": 121,
+      "source_record_index": 110,
       "institution_id": null,
       "institution_name": "ITAÚ UNIBANCO VEÍCULOS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "ITAU UNIBANCO VEICULOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1686,7 +1686,7 @@
       ]
     },
     {
-      "source_record_index": 130,
+      "source_record_index": 18,
       "institution_id": null,
       "institution_name": "EVOY ADMINISTRADORA DE CONSORCIO LTDA.",
       "institution_name_key": "EVOY ADMINISTRADORA DE CONSORCIO LTDA",
@@ -1718,7 +1718,7 @@
       ]
     },
     {
-      "source_record_index": 115,
+      "source_record_index": 112,
       "institution_id": null,
       "institution_name": "TOYOTA ADMINISTRADORA DE CONSÓRCIOS DO BRASIL LTDA.",
       "institution_name_key": "TOYOTA ADMINISTRADORA DE CONSORCIOS DO BRASIL LTDA",
@@ -1750,7 +1750,7 @@
       ]
     },
     {
-      "source_record_index": 67,
+      "source_record_index": 89,
       "institution_id": null,
       "institution_name": "CONSHOP ADMINISTRADORA DE CONSORCIOS LTDA.",
       "institution_name_key": "CONSHOP ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1782,7 +1782,7 @@
       ]
     },
     {
-      "source_record_index": 103,
+      "source_record_index": 126,
       "institution_id": null,
       "institution_name": "COMAUTO ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "COMAUTO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -1814,7 +1814,7 @@
       ]
     },
     {
-      "source_record_index": 102,
+      "source_record_index": 97,
       "institution_id": null,
       "institution_name": "FRA-FREIRE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "FRA FREIRE ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1846,7 +1846,7 @@
       ]
     },
     {
-      "source_record_index": 74,
+      "source_record_index": 128,
       "institution_id": null,
       "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
       "institution_name_key": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
@@ -1878,7 +1878,7 @@
       ]
     },
     {
-      "source_record_index": 97,
+      "source_record_index": 94,
       "institution_id": null,
       "institution_name": "GAP ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAP ADMINISTRADORA DE CONSORCIO LTDA",
@@ -1910,7 +1910,7 @@
       ]
     },
     {
-      "source_record_index": 128,
+      "source_record_index": 52,
       "institution_id": null,
       "institution_name": "BRQUALY ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "BRQUALY ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1942,7 +1942,7 @@
       ]
     },
     {
-      "source_record_index": 34,
+      "source_record_index": 127,
       "institution_id": null,
       "institution_name": "FINAMA ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "FINAMA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -1974,7 +1974,7 @@
       ]
     },
     {
-      "source_record_index": 96,
+      "source_record_index": 93,
       "institution_id": null,
       "institution_name": "MASSEY FERGUSON ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "MASSEY FERGUSON ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2006,7 +2006,7 @@
       ]
     },
     {
-      "source_record_index": 114,
+      "source_record_index": 117,
       "institution_id": null,
       "institution_name": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2038,7 +2038,7 @@
       ]
     },
     {
-      "source_record_index": 46,
+      "source_record_index": 67,
       "institution_id": null,
       "institution_name": "UNECONSORCIO ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "UNECONSORCIO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2070,7 +2070,7 @@
       ]
     },
     {
-      "source_record_index": 111,
+      "source_record_index": 106,
       "institution_id": null,
       "institution_name": "YAMAHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "YAMAHA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2102,7 +2102,7 @@
       ]
     },
     {
-      "source_record_index": 117,
+      "source_record_index": 111,
       "institution_id": null,
       "institution_name": "CONSÓRCIO NACIONAL VOLKSWAGEN - ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "CONSORCIO NACIONAL VOLKSWAGEN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2134,7 +2134,7 @@
       ]
     },
     {
-      "source_record_index": 98,
+      "source_record_index": 96,
       "institution_id": null,
       "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "GAPLAN ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2166,7 +2166,7 @@
       ]
     },
     {
-      "source_record_index": 106,
+      "source_record_index": 113,
       "institution_id": null,
       "institution_name": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "PORTO SEGURO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2198,7 +2198,7 @@
       ]
     },
     {
-      "source_record_index": 113,
+      "source_record_index": 103,
       "institution_id": null,
       "institution_name": "GMAC ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "GMAC ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2230,7 +2230,7 @@
       ]
     },
     {
-      "source_record_index": 100,
+      "source_record_index": 98,
       "institution_id": null,
       "institution_name": "VINAC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "VINAC ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2262,7 +2262,7 @@
       ]
     },
     {
-      "source_record_index": 116,
+      "source_record_index": 108,
       "institution_id": null,
       "institution_name": "UNAFISCO - ASSOCIAÇÃO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
       "institution_name_key": "UNAFISCO ASSOCIACAO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
@@ -2294,7 +2294,7 @@
       ]
     },
     {
-      "source_record_index": 122,
+      "source_record_index": 114,
       "institution_id": null,
       "institution_name": "PRIMO ROSSI ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "PRIMO ROSSI ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2326,7 +2326,7 @@
       ]
     },
     {
-      "source_record_index": 52,
+      "source_record_index": 57,
       "institution_id": null,
       "institution_name": "RODOBENS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "RODOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2358,7 +2358,7 @@
       ]
     },
     {
-      "source_record_index": 129,
+      "source_record_index": 124,
       "institution_id": null,
       "institution_name": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "BRADESCO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2390,7 +2390,7 @@
       ]
     },
     {
-      "source_record_index": 57,
+      "source_record_index": 74,
       "institution_id": null,
       "institution_name": "TARRAF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "TARRAF ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2422,7 +2422,7 @@
       ]
     },
     {
-      "source_record_index": 71,
+      "source_record_index": 88,
       "institution_id": null,
       "institution_name": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
       "institution_name_key": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
@@ -2454,7 +2454,7 @@
       ]
     },
     {
-      "source_record_index": 108,
+      "source_record_index": 105,
       "institution_id": null,
       "institution_name": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SANTANDER BRASIL ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2486,7 +2486,7 @@
       ]
     },
     {
-      "source_record_index": 48,
+      "source_record_index": 36,
       "institution_id": null,
       "institution_name": "CONSCLIC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "CONSCLIC ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2518,7 +2518,7 @@
       ]
     },
     {
-      "source_record_index": 95,
+      "source_record_index": 92,
       "institution_id": null,
       "institution_name": "VALTRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "VALTRA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2550,7 +2550,7 @@
       ]
     },
     {
-      "source_record_index": 90,
+      "source_record_index": 123,
       "institution_id": null,
       "institution_name": "VANGUARDA ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "VANGUARDA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2582,7 +2582,7 @@
       ]
     },
     {
-      "source_record_index": 127,
+      "source_record_index": 90,
       "institution_id": null,
       "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SUZUKI MOTOS ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2614,7 +2614,7 @@
       ]
     },
     {
-      "source_record_index": 125,
+      "source_record_index": 2,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -2646,7 +2646,7 @@
       ]
     },
     {
-      "source_record_index": 26,
+      "source_record_index": 56,
       "institution_id": null,
       "institution_name": "M.I6 ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "M I6 ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2678,7 +2678,7 @@
       ]
     },
     {
-      "source_record_index": 105,
+      "source_record_index": 115,
       "institution_id": null,
       "institution_name": "CONVEF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "CONVEF ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2710,7 +2710,7 @@
       ]
     },
     {
-      "source_record_index": 40,
+      "source_record_index": 71,
       "institution_id": null,
       "institution_name": "CNF - ADMINISTRADORA DE CONSÓRCIOS NACIONAL LTDA.",
       "institution_name_key": "CNF ADMINISTRADORA DE CONSORCIOS NACIONAL LTDA",
@@ -2742,7 +2742,7 @@
       ]
     },
     {
-      "source_record_index": 118,
+      "source_record_index": 109,
       "institution_id": null,
       "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "DISAL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2774,7 +2774,7 @@
       ]
     },
     {
-      "source_record_index": 88,
+      "source_record_index": 86,
       "institution_id": null,
       "institution_name": "TRADIÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "TRADICAO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -2806,7 +2806,7 @@
       ]
     },
     {
-      "source_record_index": 18,
+      "source_record_index": 46,
       "institution_id": null,
       "institution_name": "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA.",
       "institution_name_key": "ADMINISTRADORA DE CONSORCIO NACIONAL VIME LTDA",
@@ -2838,7 +2838,7 @@
       ]
     },
     {
-      "source_record_index": 93,
+      "source_record_index": 122,
       "institution_id": null,
       "institution_name": "LUIZA ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "LUIZA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2870,7 +2870,7 @@
       ]
     },
     {
-      "source_record_index": 94,
+      "source_record_index": 120,
       "institution_id": null,
       "institution_name": "ANCORA ADMINISTRADORA DE CONSORCIOS S.A.",
       "institution_name_key": "ANCORA ADMINISTRADORA DE CONSORCIOS S A",
@@ -2902,7 +2902,7 @@
       ]
     },
     {
-      "source_record_index": 123,
+      "source_record_index": 130,
       "institution_id": null,
       "institution_name": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
       "institution_name_key": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
@@ -2934,7 +2934,7 @@
       ]
     },
     {
-      "source_record_index": 77,
+      "source_record_index": 34,
       "institution_id": null,
       "institution_name": "ICONSÓRCIO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "ICONSORCIO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2966,7 +2966,7 @@
       ]
     },
     {
-      "source_record_index": 86,
+      "source_record_index": 84,
       "institution_id": null,
       "institution_name": "COOPERATIVA MISTA ROMA - (ANTIGA JOCKEY , PROIBIDA DE COMERCIALIZAR COTAS NO ESTADO DE GOIÁS ATÉ 19/10/2027",
       "institution_name_key": "COOPERATIVA MISTA ROMA ANTIGA JOCKEY PROIBIDA DE COMERCIALIZAR COTAS NO ESTADO DE GOIAS ATE 19 10 2027",
@@ -3030,7 +3030,7 @@
       ]
     },
     {
-      "source_record_index": 119,
+      "source_record_index": 101,
       "institution_id": null,
       "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -3062,7 +3062,7 @@
       ]
     },
     {
-      "source_record_index": 61,
+      "source_record_index": 26,
       "institution_id": null,
       "institution_name": "FF ADMINISTRADORA DE CONSÓRCIO LTDA",
       "institution_name_key": "FF ADMINISTRADORA DE CONSORCIO LTDA",
@@ -3094,7 +3094,7 @@
       ]
     },
     {
-      "source_record_index": 82,
+      "source_record_index": 80,
       "institution_id": null,
       "institution_name": "KSK ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "KSK ADMINISTRADORA DE CONSORCIO LTDA",
@@ -3190,7 +3190,7 @@
       ]
     },
     {
-      "source_record_index": 38,
+      "source_record_index": 50,
       "institution_id": null,
       "institution_name": "CAMVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "CAMVEL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3222,7 +3222,7 @@
       ]
     },
     {
-      "source_record_index": 124,
+      "source_record_index": 129,
       "institution_id": null,
       "institution_name": "ADMINISTRADORA DE CONSÓRCIO RCI BRASIL LTDA",
       "institution_name_key": "ADMINISTRADORA DE CONSORCIO RCI BRASIL LTDA",
@@ -3254,7 +3254,7 @@
       ]
     },
     {
-      "source_record_index": 32,
+      "source_record_index": 65,
       "institution_id": null,
       "institution_name": "BREITKOPF ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "BREITKOPF ADMINISTRADORA DE CONSORCIO LTDA",
@@ -3286,7 +3286,7 @@
       ]
     },
     {
-      "source_record_index": 85,
+      "source_record_index": 73,
       "institution_id": null,
       "institution_name": "HS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "HS ADMINISTRADORA DE CONSORCIOS S A",
@@ -3318,7 +3318,7 @@
       ]
     },
     {
-      "source_record_index": 54,
+      "source_record_index": 69,
       "institution_id": null,
       "institution_name": "VOLVO ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "VOLVO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -3350,7 +3350,7 @@
       ]
     },
     {
-      "source_record_index": 27,
+      "source_record_index": 62,
       "institution_id": null,
       "institution_name": "CONBR ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "CONBR ADMINISTRADORA DE CONSORCIOS S A",
@@ -3382,7 +3382,7 @@
       ]
     },
     {
-      "source_record_index": 59,
+      "source_record_index": 42,
       "institution_id": null,
       "institution_name": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3414,7 +3414,7 @@
       ]
     },
     {
-      "source_record_index": 13,
+      "source_record_index": 44,
       "institution_id": null,
       "institution_name": "MENEGALLI ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "MENEGALLI ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3446,7 +3446,7 @@
       ]
     },
     {
-      "source_record_index": 69,
+      "source_record_index": 64,
       "institution_id": null,
       "institution_name": "TRIÂNGULO ADMINISTRADORA DE CONSÓRCIOS S/A",
       "institution_name_key": "TRIANGULO ADMINISTRADORA DE CONSORCIOS S A",
@@ -3478,7 +3478,7 @@
       ]
     },
     {
-      "source_record_index": 30,
+      "source_record_index": 72,
       "institution_id": null,
       "institution_name": "FIPAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "FIPAL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3510,7 +3510,7 @@
       ]
     },
     {
-      "source_record_index": 72,
+      "source_record_index": 21,
       "institution_id": null,
       "institution_name": "RIVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "RIVEL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3574,7 +3574,7 @@
       ]
     },
     {
-      "source_record_index": 50,
+      "source_record_index": 32,
       "institution_id": null,
       "institution_name": "GAMBATTO ADMINISTRADORA DE CONSORCIOS LTDA.",
       "institution_name_key": "GAMBATTO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3638,7 +3638,7 @@
       ]
     },
     {
-      "source_record_index": 64,
+      "source_record_index": 48,
       "institution_id": null,
       "institution_name": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "ADEMICON ADMINISTRADORA DE CONSORCIOS S A",
@@ -3670,7 +3670,7 @@
       ]
     },
     {
-      "source_record_index": 65,
+      "source_record_index": 13,
       "institution_id": null,
       "institution_name": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "GLOBO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3702,7 +3702,7 @@
       ]
     },
     {
-      "source_record_index": 62,
+      "source_record_index": 77,
       "institution_id": null,
       "institution_name": "PORTOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "PORTOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3734,7 +3734,7 @@
       ]
     },
     {
-      "source_record_index": 70,
+      "source_record_index": 33,
       "institution_id": null,
       "institution_name": "SPONCHIADO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SPONCHIADO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3766,7 +3766,7 @@
       ]
     },
     {
-      "source_record_index": 33,
+      "source_record_index": 45,
       "institution_id": null,
       "institution_name": "SIMPALA LANÇADORA E ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SIMPALA LANCADORA E ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3798,7 +3798,7 @@
       ]
     },
     {
-      "source_record_index": 51,
+      "source_record_index": 70,
       "institution_id": null,
       "institution_name": "SERRANA ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "SERRANA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3830,7 +3830,7 @@
       ]
     },
     {
-      "source_record_index": 66,
+      "source_record_index": 81,
       "institution_id": null,
       "institution_name": "ALPHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "ALPHA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -3862,7 +3862,7 @@
       ]
     },
     {
-      "source_record_index": 56,
+      "source_record_index": 66,
       "institution_id": null,
       "institution_name": "FARROUPILHA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "FARROUPILHA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3894,7 +3894,7 @@
       ]
     },
     {
-      "source_record_index": 87,
+      "source_record_index": 17,
       "institution_id": null,
       "institution_name": "RANDON ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "RANDON ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3926,7 +3926,7 @@
       ]
     },
     {
-      "source_record_index": 79,
+      "source_record_index": 1,
       "institution_id": null,
       "institution_name": "GRAVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "GRAVEL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3958,7 +3958,7 @@
       ]
     },
     {
-      "source_record_index": 45,
+      "source_record_index": 87,
       "institution_id": null,
       "institution_name": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
       "institution_name_key": "ADMINISTRADORA DE CONSORCIO SPENGLER LTDA",
@@ -3990,7 +3990,7 @@
       ]
     },
     {
-      "source_record_index": 78,
+      "source_record_index": 7,
       "institution_id": null,
       "institution_name": "REDE OESTE ADMINISTRADORA DE CONSORCIOS LTDA.",
       "institution_name_key": "REDE OESTE ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -4022,7 +4022,7 @@
       ]
     },
     {
-      "source_record_index": 83,
+      "source_record_index": 76,
       "institution_id": null,
       "institution_name": "CONESUL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "CONESUL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -4054,7 +4054,7 @@
       ]
     },
     {
-      "source_record_index": 39,
+      "source_record_index": 61,
       "institution_id": null,
       "institution_name": "BANRISUL S.A. - ADMINISTRADORA DE CONSÓRCIOS",
       "institution_name_key": "BANRISUL S A ADMINISTRADORA DE CONSORCIOS",
@@ -4086,7 +4086,7 @@
       ]
     },
     {
-      "source_record_index": 17,
+      "source_record_index": 39,
       "institution_id": null,
       "institution_name": "ASSOCIACAO DOS JUIZES DO RIO GRANDE DO SUL",
       "institution_name_key": "ASSOCIACAO DOS JUIZES DO RIO GRANDE DO SUL",
@@ -4118,7 +4118,7 @@
       ]
     },
     {
-      "source_record_index": 1,
+      "source_record_index": 79,
       "institution_id": null,
       "institution_name": "SERELLO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "SERELLO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -4182,7 +4182,7 @@
       ]
     },
     {
-      "source_record_index": 2,
+      "source_record_index": 125,
       "institution_id": null,
       "institution_name": "SCANIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SCANIA ADMINISTRADORA DE CONSORCIOS LTDA",
