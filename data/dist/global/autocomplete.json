@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "generated_at": "2026-05-09T13:56:06+00:00",
-    "count": 149
+    "generated_at": "2026-05-09T14:48:07+00:00",
+    "count": 150
   },
   "items": [
     {
@@ -792,12 +792,6 @@
     },
     {
       "type": "produto",
-      "label": "Consórcio de eletroeletrônicos",
-      "target": "/financas/consorcio/",
-      "categoria_key": "eletroeletronicos"
-    },
-    {
-      "type": "produto",
       "label": "Consórcio de imóveis",
       "target": "/financas/consorcio/",
       "categoria_key": "imobiliario"
@@ -810,21 +804,27 @@
     },
     {
       "type": "produto",
-      "label": "Consórcio de outros bens móveis",
+      "label": "Consórcio de outros bens móveis duráveis",
       "target": "/financas/consorcio/",
       "categoria_key": "outros_bens_moveis"
     },
     {
       "type": "produto",
-      "label": "Consórcio de serviços",
+      "label": "Consórcio de serviços turísticos",
       "target": "/financas/consorcio/",
       "categoria_key": "servicos"
     },
     {
       "type": "produto",
-      "label": "Consórcio de veículos",
+      "label": "Consórcio de veículos leves",
       "target": "/financas/consorcio/",
       "categoria_key": "veiculos"
+    },
+    {
+      "type": "produto",
+      "label": "Consórcio de veículos pesados, máquinas e equipamentos",
+      "target": "/financas/consorcio/",
+      "categoria_key": "veiculos_pesados_maquinas"
     },
     {
       "type": "produto",
@@ -842,6 +842,12 @@
       "type": "produto",
       "label": "Consórcio Imobiliário",
       "target": "/financas/consorcio/imobiliario/",
+      "semantic": true
+    },
+    {
+      "type": "produto",
+      "label": "Consórcio de Serviços",
+      "target": "/financas/consorcio/",
       "semantic": true
     },
     {

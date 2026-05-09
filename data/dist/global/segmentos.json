@@ -1,48 +1,25 @@
 {
   "metadata": {
-    "generated_at": "2026-05-09T13:56:06+00:00",
+    "generated_at": "2026-05-09T14:48:07+00:00",
     "count": 6,
     "contract": "segmentos.v1",
     "source": "BCB ConsorcioBD"
   },
   "items": [
     {
-      "segmento": "veiculos",
-      "label": "Consórcio de veículos",
+      "segmento": "imobiliario",
+      "label": "Consórcio de imóveis",
       "priority": 1,
       "administradoras_count": 71,
       "operacao": {
         "grupos_ativos": 2714,
-        "cotas_ativas": 2592662,
-        "contemplacoes_mes": 12595,
-        "inadimplentes": 314967,
+        "cotas_ativas": 5185324,
+        "contemplacoes_mes": 25190,
+        "inadimplentes": 629934,
         "inadimplencia_ratio": 0.121484
       },
       "benchmarks_observados": {
-        "taxa_adm_aprox_pct": 20.3712,
-        "prazo_medio_meses": null,
-        "credito_medio": null,
-        "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual."
-      },
-      "source_members": [
-        "202602Segmentos_Consolidados.csv"
-      ],
-      "row_count": 71
-    },
-    {
-      "segmento": "imobiliario",
-      "label": "Consórcio de imóveis",
-      "priority": 2,
-      "administradoras_count": 109,
-      "operacao": {
-        "grupos_ativos": 6762,
-        "cotas_ativas": 7445308,
-        "contemplacoes_mes": 73065,
-        "inadimplentes": 865960,
-        "inadimplencia_ratio": 0.116309
-      },
-      "benchmarks_observados": {
-        "taxa_adm_aprox_pct": 16.4337,
+        "taxa_adm_aprox_pct": 20.3708,
         "prazo_medio_meses": 224.95,
         "credito_medio": 252930.48,
         "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual."
@@ -51,22 +28,22 @@
         "202602Bens_Imoveis_Grupos.csv",
         "202602Segmentos_Consolidados.csv"
       ],
-      "row_count": 109
+      "row_count": 71
     },
     {
-      "segmento": "motos",
-      "label": "Consórcio de motocicletas",
-      "priority": 3,
-      "administradoras_count": 56,
+      "segmento": "veiculos",
+      "label": "Consórcio de veículos leves",
+      "priority": 2,
+      "administradoras_count": 108,
       "operacao": {
-        "grupos_ativos": 1438,
-        "cotas_ativas": 813394,
-        "contemplacoes_mes": 6975,
-        "inadimplentes": 111286,
-        "inadimplencia_ratio": 0.136817
+        "grupos_ativos": 6762,
+        "cotas_ativas": 4852646,
+        "contemplacoes_mes": 60470,
+        "inadimplentes": 550993,
+        "inadimplencia_ratio": 0.113545
       },
       "benchmarks_observados": {
-        "taxa_adm_aprox_pct": 15.3166,
+        "taxa_adm_aprox_pct": 15.3012,
         "prazo_medio_meses": null,
         "credito_medio": null,
         "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual."
@@ -74,12 +51,12 @@
       "source_members": [
         "202602Segmentos_Consolidados.csv"
       ],
-      "row_count": 56
+      "row_count": 108
     },
     {
-      "segmento": "servicos",
-      "label": "Consórcio de serviços",
-      "priority": 4,
+      "segmento": "motos",
+      "label": "Consórcio de motocicletas",
+      "priority": 3,
       "administradoras_count": 67,
       "operacao": {
         "grupos_ativos": 4888,
@@ -100,19 +77,19 @@
       "row_count": 67
     },
     {
-      "segmento": "outros_bens_moveis",
-      "label": "Consórcio de outros bens móveis",
-      "priority": 8,
-      "administradoras_count": 38,
+      "segmento": "veiculos_pesados_maquinas",
+      "label": "Consórcio de veículos pesados, máquinas e equipamentos",
+      "priority": 4,
+      "administradoras_count": 56,
       "operacao": {
-        "grupos_ativos": 286,
-        "cotas_ativas": 115833,
-        "contemplacoes_mes": 2960,
-        "inadimplentes": 16267,
-        "inadimplencia_ratio": 0.140435
+        "grupos_ativos": 1438,
+        "cotas_ativas": 813394,
+        "contemplacoes_mes": 6975,
+        "inadimplentes": 111286,
+        "inadimplencia_ratio": 0.136817
       },
       "benchmarks_observados": {
-        "taxa_adm_aprox_pct": 18.3842,
+        "taxa_adm_aprox_pct": 15.3166,
         "prazo_medio_meses": null,
         "credito_medio": null,
         "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual."
@@ -120,12 +97,12 @@
       "source_members": [
         "202602Segmentos_Consolidados.csv"
       ],
-      "row_count": 38
+      "row_count": 56
     },
     {
-      "segmento": "eletroeletronicos",
-      "label": "Consórcio de eletroeletrônicos",
-      "priority": 9,
+      "segmento": "outros_bens_moveis",
+      "label": "Consórcio de outros bens móveis duráveis",
+      "priority": 5,
       "administradoras_count": 27,
       "operacao": {
         "grupos_ativos": 299,
@@ -144,6 +121,29 @@
         "202602Segmentos_Consolidados.csv"
       ],
       "row_count": 27
+    },
+    {
+      "segmento": "servicos",
+      "label": "Consórcio de serviços turísticos",
+      "priority": 6,
+      "administradoras_count": 38,
+      "operacao": {
+        "grupos_ativos": 286,
+        "cotas_ativas": 115833,
+        "contemplacoes_mes": 2960,
+        "inadimplentes": 16267,
+        "inadimplencia_ratio": 0.140435
+      },
+      "benchmarks_observados": {
+        "taxa_adm_aprox_pct": 18.3842,
+        "prazo_medio_meses": null,
+        "credito_medio": null,
+        "observacao": "Dados agregados; úteis para contexto, não para promessa de oferta individual."
+      },
+      "source_members": [
+        "202602Segmentos_Consolidados.csv"
+      ],
+      "row_count": 38
     }
   ]
 }

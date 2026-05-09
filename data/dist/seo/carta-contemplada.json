@@ -9,7 +9,7 @@
   "snapshot": {
     "instituicoes_count": 131,
     "ranking_count": 125,
-    "products_count": 368
+    "products_count": 367
   },
   "top_instituicoes": [
     {
@@ -629,5 +629,5 @@
       }
     }
   ],
-  "meta_hash": "a480881422d45f226280fe60a117a695ec405d982054edb8d7be7924e9998aac"
+  "meta_hash": "afa6ba897017273ed5339a70d56ddc0618bbea9e2ac1a418b9a2ba1aec596694"
 }
