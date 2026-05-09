@@ -796,21 +796,21 @@ def build_products(
     generated_at = utc_now_iso()
 
     segment_labels = {
-        "1": "Consórcio de veículos",
-        "2": "Consórcio de motocicletas",
-        "3": "Consórcio de imóveis",
-        "4": "Consórcio de serviços",
-        "5": "Consórcio de eletroeletrônicos",
-        "6": "Consórcio de outros bens móveis",
+        "1": "Consórcio de imóveis",
+        "2": "Consórcio de veículos pesados, máquinas e equipamentos",
+        "3": "Consórcio de veículos leves",
+        "4": "Consórcio de motocicletas",
+        "5": "Consórcio de outros bens móveis duráveis",
+        "6": "Consórcio de serviços turísticos",
     }
 
     segment_keys = {
-        "1": "veiculos",
-        "2": "motos",
-        "3": "imobiliario",
-        "4": "servicos",
-        "5": "eletroeletronicos",
-        "6": "outros_bens_moveis",
+        "1": "imobiliario",
+        "2": "veiculos_pesados_maquinas",
+        "3": "veiculos",
+        "4": "motos",
+        "5": "outros_bens_moveis",
+        "6": "servicos",
     }
 
     def infer_segment_from_member(member_name: str, row: Dict[str, Any]) -> Tuple[str, str]:
@@ -1239,12 +1239,12 @@ def build_segmentos(produtos_payload: Dict[str, Any]) -> Dict[str, Any]:
     grouped: Dict[str, Dict[str, Any]] = {}
 
     priority = {
-        "veiculos": 1,
-        "imobiliario": 2,
+        "imobiliario": 1,
+        "veiculos": 2,
         "motos": 3,
-        "servicos": 4,
-        "outros_bens_moveis": 8,
-        "eletroeletronicos": 9,
+        "veiculos_pesados_maquinas": 4,
+        "outros_bens_moveis": 5,
+        "servicos": 6,
     }
 
     for product in produtos_payload.get("items", []):
@@ -1671,10 +1671,35 @@ def build_seo_payloads(
                 if product not in related_products:
                     related_products.append(product)
 
-        if not related_products and slug in ("carro", "moto", "imobiliario"):
-            key_map = {"carro": "veiculos", "moto": "motos", "imobiliario": "imobiliario"}
-            wanted = key_map.get(slug)
-            related_products = [p for p in products if p.get("categoria_key") == wanted][:50]
+        fallback_products_by_slug = {
+            "carro": "veiculos",
+            "moto": "motos",
+            "imobiliario": "imobiliario",
+        }
+        
+        wanted = fallback_products_by_slug.get(slug)
+        
+        if wanted:
+            fallback_matches = [
+                p for p in products
+                if p.get("categoria_key") == wanted
+            ][:50]
+        
+            has_real_fallback = any(
+                isinstance(p, dict)
+                and p.get("categoria_key") == wanted
+                and (p.get("cnpj_root") or p.get("cnpj_da_administradora"))
+                for p in related_products
+            )
+        
+            if fallback_matches and not has_real_fallback:
+                related_products = fallback_matches + [
+                    p for p in related_products
+                    if not (
+                        isinstance(p, dict)
+                        and p.get("categoria_key") == wanted
+                    )
+                ]
 
         route_payload = {
             "route": route,
