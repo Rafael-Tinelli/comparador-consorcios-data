@@ -1675,6 +1675,10 @@ def build_seo_payloads(
             "carro": "veiculos",
             "moto": "motos",
             "imobiliario": "imobiliario",
+            "eletroeletronicos": "outros_bens_moveis",
+            "moveis-planejados": "outros_bens_moveis",
+            "moveis": "outros_bens_moveis",
+            "eletrodomesticos": "outros_bens_moveis",
         }
         
         wanted = fallback_products_by_slug.get(slug)
