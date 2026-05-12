@@ -2,7 +2,7 @@
   "metadata": {
     "source": "bc_consorciobd_trimestral",
     "collector": "collectors/bc_consorciobd_trimestral.py",
-    "collected_at": "2026-04-23T15:58:05+00:00",
+    "collected_at": "2026-05-12T11:28:16+00:00",
     "mode_used": "direct-content-download",
     "family_count": 2
   },
@@ -13,41 +13,41 @@
       "selected_candidate": {
         "family_key": "uf",
         "family_label": "Dados por Unidade da Federação",
-        "year": 2025,
-        "month": 12,
-        "yyyymm": "202512",
-        "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_UF.zip"
+        "year": 2026,
+        "month": 3,
+        "yyyymm": "202603",
+        "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_UF.zip"
       },
       "selected_probe": {
         "method": "HEAD",
         "status_code": 200,
-        "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_UF.zip",
+        "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_UF.zip",
         "content_type": "application/x-zip-compressed",
-        "content_length": "104829",
+        "content_length": "96597",
         "ok": true
       },
       "download_meta": {
         "status_code": 200,
-        "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_UF.zip",
+        "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_UF.zip",
         "content_type": "application/x-zip-compressed",
-        "content_length": "104829",
-        "last_modified": "Sat, 11 Apr 2026 02:37:52 GMT",
-        "etag": "\"ac96a1315cc9dc1:0\""
+        "content_length": "96597",
+        "last_modified": "Mon, 11 May 2026 02:34:09 GMT",
+        "etag": "\"7d9c35a5eee0dc1:0\""
       },
       "inspection": {
         "detected_format": "zip_with_csv",
         "content_type": "application/x-zip-compressed",
-        "size_bytes": 104829,
+        "size_bytes": 96597,
         "archive_members": [
           "Significado_dos_campos_UF.csv",
-          "202512Consorcios_UF.csv"
+          "202603Consorcios_UF.csv"
         ],
         "archive_members_preview": [
           "Significado_dos_campos_UF.csv",
-          "202512Consorcios_UF.csv"
+          "202603Consorcios_UF.csv"
         ]
       },
-      "sha256": "9110a9df026159544b0fbb54335b5b22975ddb3d42035dfe618f18e2eed16f93",
+      "sha256": "51660059a41b36e66b0da885ca44f0286e9220cf4436bea238269ba27660a5d2",
       "binary_file": "data/raw/bc/consorciobd_trimestral/latest_uf.bin",
       "changed": true
     },
@@ -97,7 +97,7 @@
       },
       "sha256": "b47f18b6bae337e580392ab12d5c79357282f99a211b90758e107a1676afadc6",
       "binary_file": "data/raw/bc/consorciobd_trimestral/latest_adm.bin",
-      "changed": true
+      "changed": false
     }
   ],
   "probe_results_by_family": {
@@ -114,40 +114,10 @@
         "probes": [
           {
             "method": "HEAD",
-            "status_code": 404,
-            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_UF.zip",
-            "content_type": "text/html",
-            "content_length": "6245",
-            "ok": false
-          },
-          {
-            "method": "GET",
-            "status_code": 404,
-            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_UF.zip",
-            "content_type": "text/html",
-            "content_length": "6245",
-            "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
-            "first_chunk_preview_hex": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227074",
-            "ok": false
-          }
-        ]
-      },
-      {
-        "candidate": {
-          "family_key": "uf",
-          "family_label": "Dados por Unidade da Federação",
-          "year": 2025,
-          "month": 12,
-          "yyyymm": "202512",
-          "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_UF.zip"
-        },
-        "probes": [
-          {
-            "method": "HEAD",
             "status_code": 200,
-            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202512Consorcios_UF.zip",
+            "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202603Consorcios_UF.zip",
             "content_type": "application/x-zip-compressed",
-            "content_length": "104829",
+            "content_length": "96597",
             "ok": true
           }
         ]
