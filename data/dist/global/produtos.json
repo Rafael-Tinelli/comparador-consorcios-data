@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-05-12T11:14:28+00:00",
+    "generated_at": "2026-05-12T11:28:57+00:00",
     "count": 332,
     "semantic_products_count": 4,
     "source": "Banco Central do Brasil — ConsorcioBD",
@@ -120,8 +120,8 @@
           ]
         },
         {
-          "member": "202512Consorcios_UF.csv",
-          "row_count": 7622,
+          "member": "202603Consorcios_UF.csv",
+          "row_count": 6877,
           "headers": [
             "data_base",
             "cnpj_da_administradora",
@@ -159,7 +159,7 @@
         "quantidade_de_consorciados_excluidos_nao_contemplados",
         "unidade_da_federacao_do_consorciado"
       ],
-      "row_count_total": 7636
+      "row_count_total": 6891
     },
     "adm_summary": {
       "exists": true,
