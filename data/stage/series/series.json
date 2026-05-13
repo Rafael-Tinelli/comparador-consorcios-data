@@ -2,11 +2,11 @@
   "metadata": {
     "source": "bc_sgs_series",
     "collector": "collectors/bc_sgs_series.py",
-    "collected_at": "2026-05-12T11:00:56+00:00",
+    "collected_at": "2026-05-13T11:12:19+00:00",
     "mode_used": "sgs-json-range",
     "series_count": 6,
     "point_count_total": 120,
-    "content_hash": "ec6930b43dd11a422c91392b263d1044ee4a703a7581b2cc694ed948fda01dfd"
+    "content_hash": "9531354dd687afaccb3582241576afc25fcf2cb065ecee0c1981403bfe7f695c"
   },
   "series": [
     {
@@ -167,16 +167,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "09/04/2026",
-      "latest_date": "08/05/2026",
+      "first_date": "10/04/2026",
+      "latest_date": "11/05/2026",
       "latest_value": 0.0534,
       "values": [
-        {
-          "date": "09/04/2026",
-          "data": "09/04/2026",
-          "value": 0.054266,
-          "raw_value": "0.054266"
-        },
         {
           "date": "10/04/2026",
           "data": "10/04/2026",
@@ -290,6 +284,12 @@
           "data": "08/05/2026",
           "value": 0.0534,
           "raw_value": "0.053400"
+        },
+        {
+          "date": "11/05/2026",
+          "data": "11/05/2026",
+          "value": 0.0534,
+          "raw_value": "0.053400"
         }
       ],
       "request": {
@@ -312,16 +312,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/08/2024",
-      "latest_date": "01/03/2026",
-      "latest_value": 0.88,
+      "first_date": "01/09/2024",
+      "latest_date": "01/04/2026",
+      "latest_value": 0.67,
       "values": [
-        {
-          "date": "01/08/2024",
-          "data": "01/08/2024",
-          "value": -0.02,
-          "raw_value": "-0.02"
-        },
         {
           "date": "01/09/2024",
           "data": "01/09/2024",
@@ -435,6 +429,12 @@
           "data": "01/03/2026",
           "value": 0.88,
           "raw_value": "0.88"
+        },
+        {
+          "date": "01/04/2026",
+          "data": "01/04/2026",
+          "value": 0.67,
+          "raw_value": "0.67"
         }
       ],
       "request": {
