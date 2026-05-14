@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-05-13T15:17:35+00:00",
+    "generated_at": "2026-05-14T10:40:43+00:00",
     "count": 150
   },
   "items": [
@@ -648,7 +648,7 @@
     },
     {
       "type": "instituicao",
-      "label": "COOPERATIVA MISTA ROMA - (ANTIGA JOCKEY , PROIBIDA DE COMERCIALIZAR COTAS NO ESTADO DE GOIÁS ATÉ 19/10/2027",
+      "label": "COOPERATIVA MISTA ROMA - PROIBIDA DE CONSTITUIR NOVOS GRUPOS DE CONSÓRCIO ATÉ 21.4.2029",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "61550836"
     },
