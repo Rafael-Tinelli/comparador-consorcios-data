@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-05-26T12:49:24+00:00",
+    "generated_at": "2026-05-26T16:13:00+00:00",
     "count": 131
   },
   "items": [
@@ -1198,6 +1198,25 @@
     },
     {
       "institution_id": null,
+      "cnpj": "40513064",
+      "cnpj_root": "40513064",
+      "institution_name": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
+      "normalized_name": "eutbem_administradora_de_consorcio_s_a",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 50,
+      "ranking_index": null,
+      "ranking_complaints": 6,
+      "ranking_clients": 2174,
+      "ranking_complaints_regulated_procedent": 5,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
       "cnpj": "91107581",
       "cnpj_root": "91107581",
       "institution_name": "FARROUPILHA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
@@ -2111,23 +2130,6 @@
       "ranking_complaints": 3,
       "ranking_clients": null,
       "ranking_complaints_regulated_procedent": 1,
-      "score": 50.0
-    },
-    {
-      "institution_id": null,
-      "cnpj": "40513064",
-      "cnpj_root": "40513064",
-      "institution_name": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
-      "normalized_name": "eutbem_administradora_de_consorcio_s_a",
-      "status": null,
-      "branch_count": 0,
-      "ufs": [],
-      "cities_sample": [],
-      "ranking_position": 50,
-      "ranking_index": null,
-      "ranking_complaints": 6,
-      "ranking_clients": 2174,
-      "ranking_complaints_regulated_procedent": 5,
       "score": 50.0
     },
     {

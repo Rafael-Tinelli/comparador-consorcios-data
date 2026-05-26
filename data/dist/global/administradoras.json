@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-05-26T12:49:27+00:00",
+    "generated_at": "2026-05-26T16:13:02+00:00",
     "count": 131,
     "contract": "administradoras.v1",
     "source": "BCB Cadastro + ConsorcioBD + Ranking de Reclamações"
@@ -3343,69 +3343,6 @@
         "ranking_complaints": 9,
         "ranking_clients": 10494,
         "ranking_complaints_regulated_procedent": 0,
-        "score": 50.0
-      }
-    },
-    {
-      "id": "40513064",
-      "cnpj_root": "40513064",
-      "nome": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
-      "nome_normalizado": "eutbem_administradora_de_consorcio_s_a",
-      "status": null,
-      "ufs": [],
-      "segmentos_ativos": [],
-      "presenca_score": null,
-      "escala": {
-        "grupos_ativos": null,
-        "cotas_ativas": null
-      },
-      "operacao": {
-        "contemplacoes_mes": null,
-        "inadimplentes": null,
-        "inadimplencia_ratio": null
-      },
-      "reputacao": {
-        "bc_index": null,
-        "reclamacoes": 6,
-        "clientes": 2174,
-        "ranking_position": 50,
-        "periodo": {
-          "ano": 2025,
-          "semestre": "2º"
-        }
-      },
-      "benchmarks": {
-        "taxa_adm_aprox_pct": null,
-        "prazo_medio_meses": null,
-        "credito_medio": null,
-        "observacao": "Benchmarks derivados de dados agregados; não equivalem a oferta comercial individual."
-      },
-      "scores": {
-        "geral": 50.0,
-        "escala": null,
-        "operacao": null,
-        "reputacao": null,
-        "presenca": null
-      },
-      "data_quality_flags": [
-        "sem_operacao_consorciobd_vinculada",
-        "sem_indice_bc_calculado"
-      ],
-      "legacy": {
-        "institution_id": null,
-        "cnpj": "40513064",
-        "cnpj_root": "40513064",
-        "institution_name": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
-        "normalized_name": "eutbem_administradora_de_consorcio_s_a",
-        "status": null,
-        "branch_count": 0,
-        "ufs": [],
-        "cities_sample": [],
-        "ranking_position": 50,
-        "ranking_index": null,
-        "ranking_complaints": 6,
-        "ranking_clients": 2174,
-        "ranking_complaints_regulated_procedent": 5,
         "score": 50.0
       }
     },
@@ -8712,6 +8649,73 @@
         "ranking_complaints": 1,
         "ranking_clients": 5340,
         "ranking_complaints_regulated_procedent": 0,
+        "score": 51.2
+      }
+    },
+    {
+      "id": "40513064",
+      "cnpj_root": "40513064",
+      "nome": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
+      "nome_normalizado": "eutbem_administradora_de_consorcio_s_a",
+      "status": null,
+      "ufs": [
+        "SP"
+      ],
+      "segmentos_ativos": [],
+      "presenca_score": 0.0,
+      "escala": {
+        "grupos_ativos": null,
+        "cotas_ativas": null
+      },
+      "operacao": {
+        "contemplacoes_mes": null,
+        "inadimplentes": null,
+        "inadimplencia_ratio": null
+      },
+      "reputacao": {
+        "bc_index": null,
+        "reclamacoes": 6,
+        "clientes": 2174,
+        "ranking_position": 50,
+        "periodo": {
+          "ano": 2025,
+          "semestre": "2º"
+        }
+      },
+      "benchmarks": {
+        "taxa_adm_aprox_pct": null,
+        "prazo_medio_meses": null,
+        "credito_medio": null,
+        "observacao": "Benchmarks derivados de dados agregados; não equivalem a oferta comercial individual."
+      },
+      "scores": {
+        "geral": 0.0,
+        "escala": null,
+        "operacao": null,
+        "reputacao": null,
+        "presenca": 0.0
+      },
+      "data_quality_flags": [
+        "sem_operacao_consorciobd_vinculada",
+        "sem_indice_bc_calculado"
+      ],
+      "legacy": {
+        "institution_id": null,
+        "cnpj": "40513064",
+        "cnpj_root": "40513064",
+        "institution_name": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
+        "normalized_name": "eutbem_administradora_de_consorcio_s_a",
+        "status": null,
+        "branch_count": 1,
+        "ufs": [
+          "SP"
+        ],
+        "cities_sample": [],
+        "ranking_position": 50,
+        "ranking_index": null,
+        "ranking_complaints": 6,
+        "ranking_clients": 2174,
+        "ranking_complaints_regulated_procedent": 5,
         "score": 51.2
       }
     },

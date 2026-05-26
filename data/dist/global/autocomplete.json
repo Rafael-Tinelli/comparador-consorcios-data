@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-05-26T12:49:27+00:00",
+    "generated_at": "2026-05-26T16:13:02+00:00",
     "count": 150
   },
   "items": [
@@ -366,6 +366,12 @@
     },
     {
       "type": "instituicao",
+      "label": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "40513064"
+    },
+    {
+      "type": "instituicao",
       "label": "FARROUPILHA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "91107581"
@@ -657,12 +663,6 @@
       "label": "DESTAQUE ADMINISTRADORA DE CONSORCIOS LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "05794450"
-    },
-    {
-      "type": "instituicao",
-      "label": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "40513064"
     },
     {
       "type": "instituicao",
