@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-06-12T13:44:01+00:00",
+    "generated_at": "2026-06-12T15:44:09+00:00",
     "count": 131,
     "contract": "administradoras.v1",
     "source": "BCB Cadastro + ConsorcioBD + Ranking de Reclamações"
@@ -465,6 +465,70 @@
       }
     },
     {
+      "id": "59395061",
+      "cnpj_root": "59395061",
+      "nome": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "disal_administradora_de_consorcios_ltda",
+      "status": null,
+      "ufs": [],
+      "segmentos_ativos": [
+        "imobiliario",
+        "motos",
+        "veiculos"
+      ],
+      "presenca_score": null,
+      "escala": {
+        "grupos_ativos": 211,
+        "cotas_ativas": 127913
+      },
+      "operacao": {
+        "contemplacoes_mes": 1316,
+        "inadimplentes": 21573,
+        "inadimplencia_ratio": 0.168654
+      },
+      "reputacao": {
+        "bc_index": 234.85,
+        "reclamacoes": 90,
+        "clientes": 144768,
+        "ranking_position": 47,
+        "periodo": {
+          "ano": 2025,
+          "semestre": "2º"
+        }
+      },
+      "benchmarks": {
+        "taxa_adm_aprox_pct": 18.8417,
+        "prazo_medio_meses": 218.28,
+        "credito_medio": 324795.97,
+        "observacao": "Benchmarks derivados de dados agregados; não equivalem a oferta comercial individual."
+      },
+      "scores": {
+        "geral": 78.66,
+        "escala": 66.84,
+        "operacao": 76.53,
+        "reputacao": 92.26,
+        "presenca": null
+      },
+      "data_quality_flags": [],
+      "legacy": {
+        "institution_id": null,
+        "cnpj": "59395061",
+        "cnpj_root": "59395061",
+        "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+        "normalized_name": "disal_administradora_de_consorcios_ltda",
+        "status": null,
+        "branch_count": 0,
+        "ufs": [],
+        "cities_sample": [],
+        "ranking_position": 47,
+        "ranking_index": 234.85,
+        "ranking_complaints": 90,
+        "ranking_clients": 144768,
+        "ranking_complaints_regulated_procedent": 34,
+        "score": 50.0
+      }
+    },
+    {
       "id": "16551061",
       "cnpj_root": "16551061",
       "nome": "SICOOB ADMINISTRADORA DE CONSÓRCIOS LTDA.",
@@ -885,82 +949,6 @@
         "ranking_clients": 405144,
         "ranking_complaints_regulated_procedent": 56,
         "score": 51.2
-      }
-    },
-    {
-      "id": "59395061",
-      "cnpj_root": "59395061",
-      "nome": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "nome_normalizado": "disal_administradora_de_consorcios_ltda",
-      "status": null,
-      "ufs": [
-        "BA",
-        "MT",
-        "PE",
-        "RJ",
-        "SP"
-      ],
-      "segmentos_ativos": [
-        "imobiliario",
-        "motos",
-        "veiculos"
-      ],
-      "presenca_score": 28.61,
-      "escala": {
-        "grupos_ativos": 211,
-        "cotas_ativas": 127913
-      },
-      "operacao": {
-        "contemplacoes_mes": 1316,
-        "inadimplentes": 21573,
-        "inadimplencia_ratio": 0.168654
-      },
-      "reputacao": {
-        "bc_index": 234.85,
-        "reclamacoes": 90,
-        "clientes": 144768,
-        "ranking_position": 47,
-        "periodo": {
-          "ano": 2025,
-          "semestre": "2º"
-        }
-      },
-      "benchmarks": {
-        "taxa_adm_aprox_pct": 18.8417,
-        "prazo_medio_meses": 218.28,
-        "credito_medio": 324795.97,
-        "observacao": "Benchmarks derivados de dados agregados; não equivalem a oferta comercial individual."
-      },
-      "scores": {
-        "geral": 71.15,
-        "escala": 66.84,
-        "operacao": 76.53,
-        "reputacao": 92.26,
-        "presenca": 28.61
-      },
-      "data_quality_flags": [],
-      "legacy": {
-        "institution_id": null,
-        "cnpj": "59395061",
-        "cnpj_root": "59395061",
-        "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
-        "normalized_name": "disal_administradora_de_consorcios_ltda",
-        "status": null,
-        "branch_count": 5,
-        "ufs": [
-          "BA",
-          "MT",
-          "PE",
-          "RJ",
-          "SP"
-        ],
-        "cities_sample": [],
-        "ranking_position": 47,
-        "ranking_index": 234.85,
-        "ranking_complaints": 90,
-        "ranking_clients": 144768,
-        "ranking_complaints_regulated_procedent": 34,
-        "score": 56.0
       }
     },
     {

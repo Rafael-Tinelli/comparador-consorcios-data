@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-06-12T13:44:00+00:00",
+    "generated_at": "2026-06-12T15:44:09+00:00",
     "count": 131
   },
   "items": [
@@ -485,29 +485,6 @@
       "ranking_complaints": 21,
       "ranking_clients": 88044,
       "ranking_complaints_regulated_procedent": 4,
-      "score": 56.0
-    },
-    {
-      "institution_id": null,
-      "cnpj": "59395061",
-      "cnpj_root": "59395061",
-      "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "normalized_name": "disal_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 5,
-      "ufs": [
-        "BA",
-        "MT",
-        "PE",
-        "RJ",
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 47,
-      "ranking_index": 234.85,
-      "ranking_complaints": 90,
-      "ranking_clients": 144768,
-      "ranking_complaints_regulated_procedent": 34,
       "score": 56.0
     },
     {
@@ -2130,6 +2107,23 @@
       "ranking_complaints": 3,
       "ranking_clients": null,
       "ranking_complaints_regulated_procedent": 1,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "59395061",
+      "cnpj_root": "59395061",
+      "institution_name": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "disal_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": 47,
+      "ranking_index": 234.85,
+      "ranking_complaints": 90,
+      "ranking_clients": 144768,
+      "ranking_complaints_regulated_procedent": 34,
       "score": 50.0
     },
     {

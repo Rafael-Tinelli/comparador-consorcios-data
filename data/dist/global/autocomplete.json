@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-06-12T13:44:01+00:00",
+    "generated_at": "2026-06-12T15:44:09+00:00",
     "count": 150
   },
   "items": [
@@ -141,12 +141,6 @@
       "label": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "14723388"
-    },
-    {
-      "type": "instituicao",
-      "label": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "59395061"
     },
     {
       "type": "instituicao",
@@ -663,6 +657,12 @@
       "label": "DESTAQUE ADMINISTRADORA DE CONSORCIOS LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "05794450"
+    },
+    {
+      "type": "instituicao",
+      "label": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "59395061"
     },
     {
       "type": "instituicao",
