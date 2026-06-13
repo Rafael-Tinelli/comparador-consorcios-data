@@ -2211,15 +2211,15 @@
       "key": "cdi",
       "label": "CDI",
       "value": 0.0534,
-      "date": "10/06/2026",
+      "date": "11/06/2026",
       "unit": "% a.d.",
       "frequency": "daily"
     },
     {
       "key": "ipca",
       "label": "IPCA",
-      "value": 0.67,
-      "date": "01/04/2026",
+      "value": 0.58,
+      "date": "01/05/2026",
       "unit": "% a.m.",
       "frequency": "monthly"
     },
@@ -2297,5 +2297,5 @@
       }
     }
   ],
-  "meta_hash": "d6d09e0afa88ea880e7f14afe669fa00dff9379f87e6a9b32789ffa08252233f"
+  "meta_hash": "d0651cd763bdc503ed0617c47261b18f46e406a7587d438bb2fb6ba2d1de0361"
 }
