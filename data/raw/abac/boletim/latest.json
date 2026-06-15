@@ -2,34 +2,48 @@
   "metadata": {
     "source": "abac_boletim",
     "collector": "collectors/abac_boletim.py",
-    "collected_at": "2026-04-23T16:28:16+00:00",
+    "collected_at": "2026-06-15T15:32:17+00:00",
     "mode_used": "materials-page-download",
-    "resource_sha256": "c8020c91124182a1ea429f720e5ca46863ef57749271ee7353e771ac007cd372",
-    "candidate_count": 50
+    "resource_sha256": "327b0273be69ab4f7c1823e91a1ce890a965474ce63d053a4d7da2d89777b692",
+    "candidate_count": 52
   },
   "selected": {
-    "period_label": "Fevereiro/26",
+    "period_label": "Abril/26",
     "year": 2026,
-    "month": 2,
-    "download_url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F177489141602-BOLETIM-FEV26.pdf",
+    "month": 4,
+    "download_url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F178050380304-BOLETIM-ABR26.pdf",
     "selected_probe": {
       "method": "HEAD",
       "status_code": 200,
-      "final_url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F177489141602-BOLETIM-FEV26.pdf",
+      "final_url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F178050380304-BOLETIM-ABR26.pdf",
       "content_type": ",application/pdf",
-      "content_length": "367154",
+      "content_length": "140991",
       "ok": true
     },
     "download_meta": {
       "status_code": 200,
-      "final_url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F177489141602-BOLETIM-FEV26.pdf",
+      "final_url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F178050380304-BOLETIM-ABR26.pdf",
       "content_type": ",application/pdf",
-      "content_length": "367154",
-      "last_modified": "Mon, 30 Mar 2026 17:23:41 GMT",
-      "etag": "\"9d55eb371f70de8239b25762a83b6915\""
+      "content_length": "140991",
+      "last_modified": "Wed, 03 Jun 2026 16:23:32 GMT",
+      "etag": "\"66a1943814c4b79ddd5869d0390529a0\""
     }
   },
   "top_candidates": [
+    {
+      "period_label": "Abril/26",
+      "year": 2026,
+      "month": 4,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F178050380304-BOLETIM-ABR26.pdf",
+      "link_text": "BAIXAR"
+    },
+    {
+      "period_label": "Abril/26",
+      "year": 2026,
+      "month": 4,
+      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F177798838703-BOLETIM-MAR26.pdf",
+      "link_text": "BAIXAR"
+    },
     {
       "period_label": "Fevereiro/26",
       "year": 2026,
@@ -155,38 +169,24 @@
       "month": 9,
       "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F173015181909-BOLETIM-SET24_v2.pdf",
       "link_text": "BAIXAR"
-    },
-    {
-      "period_label": "Agosto/24",
-      "year": 2024,
-      "month": 8,
-      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F172718913008-BOLETIM-AGO24_v2.pdf",
-      "link_text": "BAIXAR"
-    },
-    {
-      "period_label": "Julho/24",
-      "year": 2024,
-      "month": 7,
-      "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F172435835507-BOLETIM-JUL24_v1.pdf",
-      "link_text": "BAIXAR"
     }
   ],
   "probe_results": [
     {
       "candidate": {
-        "period_label": "Fevereiro/26",
+        "period_label": "Abril/26",
         "year": 2026,
-        "month": 2,
-        "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F177489141602-BOLETIM-FEV26.pdf",
+        "month": 4,
+        "url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F178050380304-BOLETIM-ABR26.pdf",
         "link_text": "BAIXAR"
       },
       "probes": [
         {
           "method": "HEAD",
           "status_code": 200,
-          "final_url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F177489141602-BOLETIM-FEV26.pdf",
+          "final_url": "https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F39030%2F178050380304-BOLETIM-ABR26.pdf",
           "content_type": ",application/pdf",
-          "content_length": "367154",
+          "content_length": "140991",
           "ok": true
         }
       ]
