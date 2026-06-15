@@ -2291,11 +2291,11 @@
     {
       "key": "abac_contexto_setorial",
       "headline": "Boletim setorial da ABAC disponível como apoio interpretativo",
-      "description": "O boletim mais recente identificado foi Fevereiro/26. Ele entra como contexto complementar, sem substituir a base oficial do BCB.",
+      "description": "O boletim mais recente identificado foi Abril/26. Ele entra como contexto complementar, sem substituir a base oficial do BCB.",
       "evidence": {
-        "abac_period": "Fevereiro/26"
+        "abac_period": "Abril/26"
       }
     }
   ],
-  "meta_hash": "32925f9fc9e6d90a1ea25aca00e556f20812caa6b449bb20c7270970001401fd"
+  "meta_hash": "3eb30e3812fede3194aac23ed06c73bf43f30170767765b0b227fcc14565f0a7"
 }
