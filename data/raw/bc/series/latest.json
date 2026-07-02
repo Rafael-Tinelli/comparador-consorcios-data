@@ -2,12 +2,12 @@
   "metadata": {
     "source": "bc_sgs_series",
     "collector": "collectors/bc_sgs_series.py",
-    "collected_at": "2026-07-01T11:39:49+00:00",
+    "collected_at": "2026-07-02T11:11:45+00:00",
     "mode_used": "sgs-json-range",
     "series_map_file": "config/series_map.json",
     "series_count": 6,
     "point_count_total": 120,
-    "content_hash": "55815967e44978f866a62de243222fdc787119f5256fa112b26c87c63c6db01a"
+    "content_hash": "9b0e011826ea409912471e0e2bfe84b1cb989d4f4b8a9734b40e0bb5f7627e30"
   },
   "request_log": [
     {
@@ -224,16 +224,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/06/2026",
-      "latest_date": "29/06/2026",
+      "first_date": "02/06/2026",
+      "latest_date": "30/06/2026",
       "latest_value": 0.052531,
       "values": [
-        {
-          "date": "01/06/2026",
-          "data": "01/06/2026",
-          "value": 0.0534,
-          "raw_value": "0.053400"
-        },
         {
           "date": "02/06/2026",
           "data": "02/06/2026",
@@ -345,6 +339,12 @@
         {
           "date": "29/06/2026",
           "data": "29/06/2026",
+          "value": 0.052531,
+          "raw_value": "0.052531"
+        },
+        {
+          "date": "30/06/2026",
+          "data": "30/06/2026",
           "value": 0.052531,
           "raw_value": "0.052531"
         }
@@ -514,16 +514,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/09/2024",
-      "latest_date": "01/04/2026",
-      "latest_value": 63.04,
+      "first_date": "01/10/2024",
+      "latest_date": "01/05/2026",
+      "latest_value": 62.82,
       "values": [
-        {
-          "date": "01/09/2024",
-          "data": "01/09/2024",
-          "value": 52.26,
-          "raw_value": "52.26"
-        },
         {
           "date": "01/10/2024",
           "data": "01/10/2024",
@@ -545,98 +539,104 @@
         {
           "date": "01/01/2025",
           "data": "01/01/2025",
-          "value": 54.28,
-          "raw_value": "54.28"
+          "value": 54.22,
+          "raw_value": "54.22"
         },
         {
           "date": "01/02/2025",
           "data": "01/02/2025",
-          "value": 56.64,
-          "raw_value": "56.64"
+          "value": 56.82,
+          "raw_value": "56.82"
         },
         {
           "date": "01/03/2025",
           "data": "01/03/2025",
-          "value": 56.77,
-          "raw_value": "56.77"
+          "value": 57.08,
+          "raw_value": "57.08"
         },
         {
           "date": "01/04/2025",
           "data": "01/04/2025",
-          "value": 58.01,
-          "raw_value": "58.01"
+          "value": 58.31,
+          "raw_value": "58.31"
         },
         {
           "date": "01/05/2025",
           "data": "01/05/2025",
-          "value": 58.7,
-          "raw_value": "58.70"
+          "value": 58.98,
+          "raw_value": "58.98"
         },
         {
           "date": "01/06/2025",
           "data": "01/06/2025",
-          "value": 59.03,
-          "raw_value": "59.03"
+          "value": 59.4,
+          "raw_value": "59.40"
         },
         {
           "date": "01/07/2025",
           "data": "01/07/2025",
-          "value": 57.99,
-          "raw_value": "57.99"
+          "value": 58.44,
+          "raw_value": "58.44"
         },
         {
           "date": "01/08/2025",
           "data": "01/08/2025",
-          "value": 58.35,
-          "raw_value": "58.35"
+          "value": 58.79,
+          "raw_value": "58.79"
         },
         {
           "date": "01/09/2025",
           "data": "01/09/2025",
-          "value": 58.26,
-          "raw_value": "58.26"
+          "value": 58.66,
+          "raw_value": "58.66"
         },
         {
           "date": "01/10/2025",
           "data": "01/10/2025",
-          "value": 58.72,
-          "raw_value": "58.72"
+          "value": 59.16,
+          "raw_value": "59.16"
         },
         {
           "date": "01/11/2025",
           "data": "01/11/2025",
-          "value": 60.63,
-          "raw_value": "60.63"
+          "value": 61.08,
+          "raw_value": "61.08"
         },
         {
           "date": "01/12/2025",
           "data": "01/12/2025",
-          "value": 60.14,
-          "raw_value": "60.14"
+          "value": 60.5,
+          "raw_value": "60.50"
         },
         {
           "date": "01/01/2026",
           "data": "01/01/2026",
-          "value": 61.03,
-          "raw_value": "61.03"
+          "value": 61.23,
+          "raw_value": "61.23"
         },
         {
           "date": "01/02/2026",
           "data": "01/02/2026",
-          "value": 61.85,
-          "raw_value": "61.85"
+          "value": 62.12,
+          "raw_value": "62.12"
         },
         {
           "date": "01/03/2026",
           "data": "01/03/2026",
-          "value": 61.53,
-          "raw_value": "61.53"
+          "value": 61.72,
+          "raw_value": "61.72"
         },
         {
           "date": "01/04/2026",
           "data": "01/04/2026",
-          "value": 63.04,
-          "raw_value": "63.04"
+          "value": 62.99,
+          "raw_value": "62.99"
+        },
+        {
+          "date": "01/05/2026",
+          "data": "01/05/2026",
+          "value": 62.82,
+          "raw_value": "62.82"
         }
       ],
       "request": {
@@ -659,16 +659,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/09/2024",
-      "latest_date": "01/04/2026",
-      "latest_value": 26.64,
+      "first_date": "01/10/2024",
+      "latest_date": "01/05/2026",
+      "latest_value": 26.31,
       "values": [
-        {
-          "date": "01/09/2024",
-          "data": "01/09/2024",
-          "value": 25.51,
-          "raw_value": "25.51"
-        },
         {
           "date": "01/10/2024",
           "data": "01/10/2024",
@@ -782,6 +776,12 @@
           "data": "01/04/2026",
           "value": 26.64,
           "raw_value": "26.64"
+        },
+        {
+          "date": "01/05/2026",
+          "data": "01/05/2026",
+          "value": 26.31,
+          "raw_value": "26.31"
         }
       ],
       "request": {
@@ -804,16 +804,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/09/2024",
-      "latest_date": "01/04/2026",
+      "first_date": "01/10/2024",
+      "latest_date": "01/05/2026",
       "latest_value": 1.12,
       "values": [
-        {
-          "date": "01/09/2024",
-          "data": "01/09/2024",
-          "value": 0.91,
-          "raw_value": "0.91"
-        },
         {
           "date": "01/10/2024",
           "data": "01/10/2024",
@@ -859,8 +853,8 @@
         {
           "date": "01/05/2025",
           "data": "01/05/2025",
-          "value": 1.15,
-          "raw_value": "1.15"
+          "value": 1.14,
+          "raw_value": "1.14"
         },
         {
           "date": "01/06/2025",
@@ -925,6 +919,12 @@
         {
           "date": "01/04/2026",
           "data": "01/04/2026",
+          "value": 1.12,
+          "raw_value": "1.12"
+        },
+        {
+          "date": "01/05/2026",
+          "data": "01/05/2026",
           "value": 1.12,
           "raw_value": "1.12"
         }
