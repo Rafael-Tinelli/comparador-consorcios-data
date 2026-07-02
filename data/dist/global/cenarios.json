@@ -1,15 +1,15 @@
 {
   "metadata": {
-    "generated_at": "2026-07-02T11:05:08+00:00",
+    "generated_at": "2026-07-02T11:12:15+00:00",
     "count": 5
   },
   "items": [
     {
       "key": "consorcio_ou_financiamento_veiculos",
       "headline": "Veículos: comparar consórcio com financiamento segue essencial",
-      "description": "Taxa média observada no financiamento de veículos PF: 26.64. Meta Selic: 14.25. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
+      "description": "Taxa média observada no financiamento de veículos PF: 26.31. Meta Selic: 14.25. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
       "evidence": {
-        "taxa_financiamento_veiculos_pf": 26.64,
+        "taxa_financiamento_veiculos_pf": 26.31,
         "selic_meta": 14.25
       }
     },
@@ -24,9 +24,9 @@
     {
       "key": "credito_livre_contexto",
       "headline": "Crédito livre PF segue como baliza macro para decisão",
-      "description": "A taxa média de crédito livre PF observada foi 63.04. O usuário tende a comparar consórcio com alternativas de crédito mesmo quando a busca começa por produto.",
+      "description": "A taxa média de crédito livre PF observada foi 62.82. O usuário tende a comparar consórcio com alternativas de crédito mesmo quando a busca começa por produto.",
       "evidence": {
-        "taxa_credito_livre_pf": 63.04
+        "taxa_credito_livre_pf": 62.82
       }
     },
     {
