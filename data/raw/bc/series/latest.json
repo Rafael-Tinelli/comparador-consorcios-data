@@ -2,12 +2,12 @@
   "metadata": {
     "source": "bc_sgs_series",
     "collector": "collectors/bc_sgs_series.py",
-    "collected_at": "2026-07-08T10:37:12+00:00",
+    "collected_at": "2026-07-10T11:27:32+00:00",
     "mode_used": "sgs-json-range",
     "series_map_file": "config/series_map.json",
     "series_count": 6,
     "point_count_total": 120,
-    "content_hash": "b42cbd142d69273a09e5a211367ce21639908a78c2497e594c18b60ec209fe2a"
+    "content_hash": "5d3c760daafd7b4afb12ef959e98d9d86fd067bf063cbf9afcc9e33773536e94"
   },
   "request_log": [
     {
@@ -24,7 +24,7 @@
       "serie": 12,
       "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados/ultimos/20?formato=json",
       "status_code": 200,
-      "content_type": "application/json; charset=utf-8",
+      "content_type": "text/html; charset=utf-8",
       "requested_points": 20,
       "rows_returned": 20
     },
@@ -224,22 +224,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "09/06/2026",
-      "latest_date": "06/07/2026",
+      "first_date": "11/06/2026",
+      "latest_date": "08/07/2026",
       "latest_value": 0.052531,
       "values": [
-        {
-          "date": "09/06/2026",
-          "data": "09/06/2026",
-          "value": 0.0534,
-          "raw_value": "0.053400"
-        },
-        {
-          "date": "10/06/2026",
-          "data": "10/06/2026",
-          "value": 0.0534,
-          "raw_value": "0.053400"
-        },
         {
           "date": "11/06/2026",
           "data": "11/06/2026",
@@ -347,12 +335,24 @@
           "data": "06/07/2026",
           "value": 0.052531,
           "raw_value": "0.052531"
+        },
+        {
+          "date": "07/07/2026",
+          "data": "07/07/2026",
+          "value": 0.052531,
+          "raw_value": "0.052531"
+        },
+        {
+          "date": "08/07/2026",
+          "data": "08/07/2026",
+          "value": 0.052531,
+          "raw_value": "0.052531"
         }
       ],
       "request": {
         "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados/ultimos/20?formato=json",
         "status_code": 200,
-        "content_type": "application/json; charset=utf-8",
+        "content_type": "text/html; charset=utf-8",
         "requested_points": 20
       }
     },
