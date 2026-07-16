@@ -2,11 +2,11 @@
   "metadata": {
     "source": "bc_filiais",
     "collector": "collectors/bc_filiais.py",
-    "collected_at": "2026-07-15T14:13:35+00:00",
+    "collected_at": "2026-07-16T14:26:52+00:00",
     "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais",
     "mode_used": "odata-csv",
     "record_count": 308,
-    "raw_hash": "79df267e3e98c8540e43998a4accf9b968192bb612a3e449042baacc70e96fad",
+    "raw_hash": "53a95c1d878ba68aa1f0288aabd6dee2d51d3b35a5a1f2315d56acdea94e5e8e",
     "fetch_meta": {
       "mode": "odata-csv",
       "url": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais?%24format=text%2Fcsv",
@@ -172,7 +172,7 @@
       ]
     },
     {
-      "source_record_index": 27,
+      "source_record_index": 19,
       "institution_id": null,
       "institution_name": "CIMAVEL ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "CIMAVEL ADMINISTRADORA DE CONSORCIO LTDA",
@@ -209,7 +209,7 @@
       ]
     },
     {
-      "source_record_index": 33,
+      "source_record_index": 25,
       "institution_id": null,
       "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BR CONSORCIOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -431,7 +431,7 @@
       ]
     },
     {
-      "source_record_index": 21,
+      "source_record_index": 13,
       "institution_id": null,
       "institution_name": "CNP CONSÓRCIO S.A. ADMINISTRADORA DE CONSÓRCIOS",
       "institution_name_key": "CNP CONSORCIO S A ADMINISTRADORA DE CONSORCIOS",
@@ -653,44 +653,7 @@
       ]
     },
     {
-      "source_record_index": 13,
-      "institution_id": null,
-      "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
-      "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
-      "cnpj": "02010478",
-      "cnpj_root": "02010478",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "TV QUINTINO BOCAIUVA",
-      "neighborhood": "CREMACAO",
-      "city": "BELEM",
-      "uf": "PA",
-      "zip_code": "66045315",
-      "phone": "33147190",
-      "start_date": "2026-09-02",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 22,
+      "source_record_index": 14,
       "institution_id": null,
       "institution_name": "TÁGIDE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "TAGIDE ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -709,6 +672,43 @@
       "zip_code": "66030000",
       "phone": "40057222",
       "start_date": "1993-02-07",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 31,
+      "institution_id": null,
+      "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
+      "cnpj": "02010478",
+      "cnpj_root": "02010478",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "TV QUINTINO BOCAIUVA",
+      "neighborhood": "CREMACAO",
+      "city": "BELEM",
+      "uf": "PA",
+      "zip_code": "66045315",
+      "phone": "33147190",
+      "start_date": "2026-09-02",
       "source_fields_present": [
         "Bairro",
         "CEP",
@@ -912,7 +912,7 @@
       ]
     },
     {
-      "source_record_index": 11,
+      "source_record_index": 29,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -1393,7 +1393,7 @@
       ]
     },
     {
-      "source_record_index": 34,
+      "source_record_index": 40,
       "institution_id": null,
       "institution_name": "SICOOB ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SICOOB ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1578,7 +1578,7 @@
       ]
     },
     {
-      "source_record_index": 18,
+      "source_record_index": 10,
       "institution_id": null,
       "institution_name": "SOLUÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SOLUCAO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1689,7 +1689,7 @@
       ]
     },
     {
-      "source_record_index": 40,
+      "source_record_index": 34,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -2281,7 +2281,7 @@
       ]
     },
     {
-      "source_record_index": 14,
+      "source_record_index": 38,
       "institution_id": null,
       "institution_name": "IRMÃOS DE MARCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "IRMAOS DE MARCO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -2429,7 +2429,7 @@
       ]
     },
     {
-      "source_record_index": 31,
+      "source_record_index": 23,
       "institution_id": null,
       "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BR CONSORCIOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3095,44 +3095,7 @@
       ]
     },
     {
-      "source_record_index": 9,
-      "institution_id": null,
-      "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
-      "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
-      "cnpj": "02010478",
-      "cnpj_root": "02010478",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "AV SANTOS DUMONT",
-      "neighborhood": "ALDEOTA",
-      "city": "FORTALEZA",
-      "uf": "CE",
-      "zip_code": "60150162",
-      "phone": "33147190",
-      "start_date": "2022-09-08",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 24,
+      "source_record_index": 16,
       "institution_id": null,
       "institution_name": "CONBRAV - ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "CONBRAV ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3151,6 +3114,43 @@
       "zip_code": "60325330",
       "phone": "23139850",
       "start_date": "1993-02-07",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 27,
+      "institution_id": null,
+      "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
+      "cnpj": "02010478",
+      "cnpj_root": "02010478",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "AV SANTOS DUMONT",
+      "neighborhood": "ALDEOTA",
+      "city": "FORTALEZA",
+      "uf": "CE",
+      "zip_code": "60150162",
+      "phone": "33147190",
+      "start_date": "2022-09-08",
       "source_fields_present": [
         "Bairro",
         "CEP",
@@ -3354,7 +3354,7 @@
       ]
     },
     {
-      "source_record_index": 29,
+      "source_record_index": 21,
       "institution_id": null,
       "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BR CONSORCIOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3391,7 +3391,7 @@
       ]
     },
     {
-      "source_record_index": 20,
+      "source_record_index": 12,
       "institution_id": null,
       "institution_name": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "FRANCAUTO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -3835,7 +3835,7 @@
       ]
     },
     {
-      "source_record_index": 35,
+      "source_record_index": 41,
       "institution_id": null,
       "institution_name": "OPÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "OPCAO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -4131,7 +4131,7 @@
       ]
     },
     {
-      "source_record_index": 23,
+      "source_record_index": 15,
       "institution_id": null,
       "institution_name": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -4353,7 +4353,7 @@
       ]
     },
     {
-      "source_record_index": 19,
+      "source_record_index": 11,
       "institution_id": null,
       "institution_name": "MAGGI ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "MAGGI ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -4538,7 +4538,7 @@
       ]
     },
     {
-      "source_record_index": 12,
+      "source_record_index": 30,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -4649,7 +4649,7 @@
       ]
     },
     {
-      "source_record_index": 43,
+      "source_record_index": 37,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -4982,7 +4982,7 @@
       ]
     },
     {
-      "source_record_index": 16,
+      "source_record_index": 8,
       "institution_id": null,
       "institution_name": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
@@ -5315,7 +5315,7 @@
       ]
     },
     {
-      "source_record_index": 38,
+      "source_record_index": 32,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -5389,7 +5389,7 @@
       ]
     },
     {
-      "source_record_index": 41,
+      "source_record_index": 35,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -5870,7 +5870,7 @@
       ]
     },
     {
-      "source_record_index": 30,
+      "source_record_index": 22,
       "institution_id": null,
       "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BR CONSORCIOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -5944,7 +5944,7 @@
       ]
     },
     {
-      "source_record_index": 26,
+      "source_record_index": 18,
       "institution_id": null,
       "institution_name": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -6018,7 +6018,7 @@
       ]
     },
     {
-      "source_record_index": 25,
+      "source_record_index": 17,
       "institution_id": null,
       "institution_name": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -6684,7 +6684,7 @@
       ]
     },
     {
-      "source_record_index": 10,
+      "source_record_index": 28,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -7017,7 +7017,7 @@
       ]
     },
     {
-      "source_record_index": 37,
+      "source_record_index": 43,
       "institution_id": null,
       "institution_name": "ZEMA ADMINISTRADORA DE CONSÓRCIO LTDA",
       "institution_name_key": "ZEMA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -7202,7 +7202,7 @@
       ]
     },
     {
-      "source_record_index": 32,
+      "source_record_index": 24,
       "institution_id": null,
       "institution_name": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "BR CONSORCIOS ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -7609,7 +7609,7 @@
       ]
     },
     {
-      "source_record_index": 28,
+      "source_record_index": 20,
       "institution_id": null,
       "institution_name": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
       "institution_name_key": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
@@ -7646,7 +7646,7 @@
       ]
     },
     {
-      "source_record_index": 42,
+      "source_record_index": 36,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -9052,7 +9052,7 @@
       ]
     },
     {
-      "source_record_index": 17,
+      "source_record_index": 9,
       "institution_id": null,
       "institution_name": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "APEC ADMINISTRADORA DE CONSORCIOS S A",
@@ -9126,7 +9126,7 @@
       ]
     },
     {
-      "source_record_index": 36,
+      "source_record_index": 42,
       "institution_id": null,
       "institution_name": "VIVIANI ADMINISTRADORA DE CONSÓRCIO NACIONAL LTDA.",
       "institution_name_key": "VIVIANI ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
@@ -10754,7 +10754,7 @@
       ]
     },
     {
-      "source_record_index": 15,
+      "source_record_index": 39,
       "institution_id": null,
       "institution_name": "H. ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "H ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -10902,7 +10902,7 @@
       ]
     },
     {
-      "source_record_index": 39,
+      "source_record_index": 33,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -11235,7 +11235,7 @@
       ]
     },
     {
-      "source_record_index": 8,
+      "source_record_index": 26,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
