@@ -2,11 +2,11 @@
   "metadata": {
     "source": "bc_sgs_series",
     "collector": "collectors/bc_sgs_series.py",
-    "collected_at": "2026-07-30T10:39:21+00:00",
+    "collected_at": "2026-07-31T11:08:20+00:00",
     "mode_used": "sgs-json-range",
     "series_count": 6,
     "point_count_total": 120,
-    "content_hash": "59d6d8a75cbcabc9c95eb482fd519fb9af84455b4663a2ec06aa0b979c7e0f91"
+    "content_hash": "a3764c378cb7bb596449b209f8066c3a706299bbb76ff5d261ec2cde7add5948"
   },
   "series": [
     {
@@ -167,16 +167,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/07/2026",
-      "latest_date": "28/07/2026",
+      "first_date": "02/07/2026",
+      "latest_date": "29/07/2026",
       "latest_value": 0.052531,
       "values": [
-        {
-          "date": "01/07/2026",
-          "data": "01/07/2026",
-          "value": 0.052531,
-          "raw_value": "0.052531"
-        },
         {
           "date": "02/07/2026",
           "data": "02/07/2026",
@@ -288,6 +282,12 @@
         {
           "date": "28/07/2026",
           "data": "28/07/2026",
+          "value": 0.052531,
+          "raw_value": "0.052531"
+        },
+        {
+          "date": "29/07/2026",
+          "data": "29/07/2026",
           "value": 0.052531,
           "raw_value": "0.052531"
         }
@@ -457,16 +457,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/10/2024",
-      "latest_date": "01/05/2026",
-      "latest_value": 62.82,
+      "first_date": "01/11/2024",
+      "latest_date": "01/06/2026",
+      "latest_value": 63.95,
       "values": [
-        {
-          "date": "01/10/2024",
-          "data": "01/10/2024",
-          "value": 52.39,
-          "raw_value": "52.39"
-        },
         {
           "date": "01/11/2024",
           "data": "01/11/2024",
@@ -578,8 +572,14 @@
         {
           "date": "01/05/2026",
           "data": "01/05/2026",
-          "value": 62.82,
-          "raw_value": "62.82"
+          "value": 62.76,
+          "raw_value": "62.76"
+        },
+        {
+          "date": "01/06/2026",
+          "data": "01/06/2026",
+          "value": 63.95,
+          "raw_value": "63.95"
         }
       ],
       "request": {
@@ -602,16 +602,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/10/2024",
-      "latest_date": "01/05/2026",
-      "latest_value": 26.31,
+      "first_date": "01/11/2024",
+      "latest_date": "01/06/2026",
+      "latest_value": 26.44,
       "values": [
-        {
-          "date": "01/10/2024",
-          "data": "01/10/2024",
-          "value": 25.9,
-          "raw_value": "25.90"
-        },
         {
           "date": "01/11/2024",
           "data": "01/11/2024",
@@ -725,6 +719,12 @@
           "data": "01/05/2026",
           "value": 26.31,
           "raw_value": "26.31"
+        },
+        {
+          "date": "01/06/2026",
+          "data": "01/06/2026",
+          "value": 26.44,
+          "raw_value": "26.44"
         }
       ],
       "request": {
@@ -747,16 +747,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "01/10/2024",
-      "latest_date": "01/05/2026",
+      "first_date": "01/11/2024",
+      "latest_date": "01/06/2026",
       "latest_value": 1.12,
       "values": [
-        {
-          "date": "01/10/2024",
-          "data": "01/10/2024",
-          "value": 0.92,
-          "raw_value": "0.92"
-        },
         {
           "date": "01/11/2024",
           "data": "01/11/2024",
@@ -868,6 +862,12 @@
         {
           "date": "01/05/2026",
           "data": "01/05/2026",
+          "value": 1.12,
+          "raw_value": "1.12"
+        },
+        {
+          "date": "01/06/2026",
+          "data": "01/06/2026",
           "value": 1.12,
           "raw_value": "1.12"
         }
