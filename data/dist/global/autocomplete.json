@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-07-30T14:37:00+00:00",
+    "generated_at": "2026-07-31T11:04:05+00:00",
     "count": 150
   },
   "items": [
@@ -462,12 +462,6 @@
     },
     {
       "type": "instituicao",
-      "label": "OPÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "20919916"
-    },
-    {
-      "type": "instituicao",
       "label": "PORTOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "87433413"
@@ -639,6 +633,12 @@
       "label": "CONSCLIC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "56103171"
+    },
+    {
+      "type": "instituicao",
+      "label": "CONSÓRCIO NACIONAL GARANTIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "20919916"
     },
     {
       "type": "instituicao",
