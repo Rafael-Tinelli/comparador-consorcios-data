@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-07-31T12:17:33+00:00",
+    "generated_at": "2026-07-31T14:40:56+00:00",
     "count": 150
   },
   "items": [
@@ -354,6 +354,12 @@
     },
     {
       "type": "instituicao",
+      "label": "CONSÓRCIO NACIONAL GARANTIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "20919916"
+    },
+    {
+      "type": "instituicao",
       "label": "CONSÓRCIO NACIONAL VOLKSWAGEN - ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "47658539"
@@ -633,12 +639,6 @@
       "label": "CONSCLIC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "56103171"
-    },
-    {
-      "type": "instituicao",
-      "label": "CONSÓRCIO NACIONAL GARANTIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "20919916"
     },
     {
       "type": "instituicao",

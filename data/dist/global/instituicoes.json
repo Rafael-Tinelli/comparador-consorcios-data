@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-07-31T12:17:32+00:00",
+    "generated_at": "2026-07-31T14:40:55+00:00",
     "count": 131
   },
   "items": [
@@ -1156,6 +1156,25 @@
     },
     {
       "institution_id": null,
+      "cnpj": "20919916",
+      "cnpj_root": "20919916",
+      "institution_name": "CONSÓRCIO NACIONAL GARANTIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "consorcio_nacional_garantia_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "MG"
+      ],
+      "cities_sample": [],
+      "ranking_position": 84,
+      "ranking_index": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 3310,
+      "ranking_complaints_regulated_procedent": 0,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
       "cnpj": "47658539",
       "cnpj_root": "47658539",
       "institution_name": "CONSÓRCIO NACIONAL VOLKSWAGEN - ADMINISTRADORA DE CONSÓRCIO LTDA.",
@@ -2036,23 +2055,6 @@
       "ranking_index": null,
       "ranking_complaints": 1,
       "ranking_clients": 2164,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 50.0
-    },
-    {
-      "institution_id": null,
-      "cnpj": "20919916",
-      "cnpj_root": "20919916",
-      "institution_name": "CONSÓRCIO NACIONAL GARANTIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "consorcio_nacional_garantia_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 0,
-      "ufs": [],
-      "cities_sample": [],
-      "ranking_position": 84,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 3310,
       "ranking_complaints_regulated_procedent": 0,
       "score": 50.0
     },

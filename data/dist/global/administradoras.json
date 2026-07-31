@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-07-31T12:17:33+00:00",
+    "generated_at": "2026-07-31T14:40:56+00:00",
     "count": 131,
     "contract": "administradoras.v1",
     "source": "BCB Cadastro + ConsorcioBD + Ranking de Reclamações"
@@ -4570,72 +4570,6 @@
       }
     },
     {
-      "id": "20919916",
-      "cnpj_root": "20919916",
-      "nome": "CONSÓRCIO NACIONAL GARANTIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "nome_normalizado": "consorcio_nacional_garantia_administradora_de_consorcios_ltda",
-      "status": null,
-      "ufs": [],
-      "segmentos_ativos": [
-        "motos",
-        "servicos",
-        "veiculos"
-      ],
-      "presenca_score": null,
-      "escala": {
-        "grupos_ativos": 12,
-        "cotas_ativas": 3061
-      },
-      "operacao": {
-        "contemplacoes_mes": 55,
-        "inadimplentes": 518,
-        "inadimplencia_ratio": 0.169226
-      },
-      "reputacao": {
-        "bc_index": null,
-        "reclamacoes": 1,
-        "clientes": 3310,
-        "ranking_position": 84,
-        "periodo": {
-          "ano": 2025,
-          "semestre": "2º"
-        }
-      },
-      "benchmarks": {
-        "taxa_adm_aprox_pct": 16.8897,
-        "prazo_medio_meses": null,
-        "credito_medio": null,
-        "observacao": "Benchmarks derivados de dados agregados; não equivalem a oferta comercial individual."
-      },
-      "scores": {
-        "geral": 43.67,
-        "escala": 29.86,
-        "operacao": 60.24,
-        "reputacao": null,
-        "presenca": null
-      },
-      "data_quality_flags": [
-        "sem_indice_bc_calculado"
-      ],
-      "legacy": {
-        "institution_id": null,
-        "cnpj": "20919916",
-        "cnpj_root": "20919916",
-        "institution_name": "CONSÓRCIO NACIONAL GARANTIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-        "normalized_name": "consorcio_nacional_garantia_administradora_de_consorcios_ltda",
-        "status": null,
-        "branch_count": 0,
-        "ufs": [],
-        "cities_sample": [],
-        "ranking_position": 84,
-        "ranking_index": null,
-        "ranking_complaints": 1,
-        "ranking_clients": 3310,
-        "ranking_complaints_regulated_procedent": 0,
-        "score": 50.0
-      }
-    },
-    {
       "id": "44474674",
       "cnpj_root": "44474674",
       "nome": "COMAUTO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -6960,6 +6894,76 @@
         "ranking_clients": 1020,
         "ranking_complaints_regulated_procedent": 0,
         "score": 61.2
+      }
+    },
+    {
+      "id": "20919916",
+      "cnpj_root": "20919916",
+      "nome": "CONSÓRCIO NACIONAL GARANTIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "consorcio_nacional_garantia_administradora_de_consorcios_ltda",
+      "status": null,
+      "ufs": [
+        "MG"
+      ],
+      "segmentos_ativos": [
+        "motos",
+        "servicos",
+        "veiculos"
+      ],
+      "presenca_score": 0.0,
+      "escala": {
+        "grupos_ativos": 12,
+        "cotas_ativas": 3061
+      },
+      "operacao": {
+        "contemplacoes_mes": 55,
+        "inadimplentes": 518,
+        "inadimplencia_ratio": 0.169226
+      },
+      "reputacao": {
+        "bc_index": null,
+        "reclamacoes": 1,
+        "clientes": 3310,
+        "ranking_position": 84,
+        "periodo": {
+          "ano": 2025,
+          "semestre": "2º"
+        }
+      },
+      "benchmarks": {
+        "taxa_adm_aprox_pct": 16.8897,
+        "prazo_medio_meses": null,
+        "credito_medio": null,
+        "observacao": "Benchmarks derivados de dados agregados; não equivalem a oferta comercial individual."
+      },
+      "scores": {
+        "geral": 34.31,
+        "escala": 29.86,
+        "operacao": 60.24,
+        "reputacao": null,
+        "presenca": 0.0
+      },
+      "data_quality_flags": [
+        "sem_indice_bc_calculado"
+      ],
+      "legacy": {
+        "institution_id": null,
+        "cnpj": "20919916",
+        "cnpj_root": "20919916",
+        "institution_name": "CONSÓRCIO NACIONAL GARANTIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+        "normalized_name": "consorcio_nacional_garantia_administradora_de_consorcios_ltda",
+        "status": null,
+        "branch_count": 1,
+        "ufs": [
+          "MG"
+        ],
+        "cities_sample": [],
+        "ranking_position": 84,
+        "ranking_index": null,
+        "ranking_complaints": 1,
+        "ranking_clients": 3310,
+        "ranking_complaints_regulated_procedent": 0,
+        "score": 51.2
       }
     },
     {
