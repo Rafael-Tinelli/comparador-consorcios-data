@@ -2199,8 +2199,8 @@
     {
       "key": "selic_meta",
       "label": "Meta Selic",
-      "value": 14.25,
-      "date": "05/08/2026",
+      "value": 14.0,
+      "date": "16/09/2026",
       "unit": "% a.a.",
       "frequency": "daily"
     },
@@ -2208,7 +2208,7 @@
       "key": "cdi",
       "label": "CDI",
       "value": 0.052531,
-      "date": "03/08/2026",
+      "date": "04/08/2026",
       "unit": "% a.d.",
       "frequency": "daily"
     },
@@ -2249,10 +2249,10 @@
     {
       "key": "consorcio_ou_financiamento_veiculos",
       "headline": "Veículos: comparar consórcio com financiamento segue essencial",
-      "description": "Taxa média observada no financiamento de veículos PF: 26.44. Meta Selic: 14.25. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
+      "description": "Taxa média observada no financiamento de veículos PF: 26.44. Meta Selic: 14.00. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
       "evidence": {
         "taxa_financiamento_veiculos_pf": 26.44,
-        "selic_meta": 14.25
+        "selic_meta": 14.0
       }
     },
     {
@@ -2294,5 +2294,5 @@
       }
     }
   ],
-  "meta_hash": "471ddc32df74e1cc8c0e5fbde15916130985ea101b5d4dc600768c023dc73a41"
+  "meta_hash": "f216cad3ac2e676f8472650f38994fc8a54d003c5f8e4dc8a4d0d1a54f3946a0"
 }
