@@ -2,12 +2,12 @@
   "metadata": {
     "source": "bc_sgs_series",
     "collector": "collectors/bc_sgs_series.py",
-    "collected_at": "2026-08-05T11:02:08+00:00",
+    "collected_at": "2026-08-06T11:02:53+00:00",
     "mode_used": "sgs-json-range",
     "series_map_file": "config/series_map.json",
     "series_count": 6,
     "point_count_total": 120,
-    "content_hash": "59aedd723f85a26cd917b8ee66c4b34dca5f112697f20c9e3c2088a1561a7dea"
+    "content_hash": "559b2cd6e7db30ebd19a0229635adaa94627312e3d868372e46741966d3484e6"
   },
   "request_log": [
     {
@@ -79,129 +79,129 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "17/07/2026",
-      "latest_date": "05/08/2026",
-      "latest_value": 14.25,
+      "first_date": "28/08/2026",
+      "latest_date": "16/09/2026",
+      "latest_value": 14.0,
       "values": [
         {
-          "date": "17/07/2026",
-          "data": "17/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "28/08/2026",
+          "data": "28/08/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "18/07/2026",
-          "data": "18/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "29/08/2026",
+          "data": "29/08/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "19/07/2026",
-          "data": "19/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "30/08/2026",
+          "data": "30/08/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "20/07/2026",
-          "data": "20/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "31/08/2026",
+          "data": "31/08/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "21/07/2026",
-          "data": "21/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "01/09/2026",
+          "data": "01/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "22/07/2026",
-          "data": "22/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "02/09/2026",
+          "data": "02/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "23/07/2026",
-          "data": "23/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "03/09/2026",
+          "data": "03/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "24/07/2026",
-          "data": "24/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "04/09/2026",
+          "data": "04/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "25/07/2026",
-          "data": "25/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "05/09/2026",
+          "data": "05/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "26/07/2026",
-          "data": "26/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "06/09/2026",
+          "data": "06/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "27/07/2026",
-          "data": "27/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "07/09/2026",
+          "data": "07/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "28/07/2026",
-          "data": "28/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "08/09/2026",
+          "data": "08/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "29/07/2026",
-          "data": "29/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "09/09/2026",
+          "data": "09/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "30/07/2026",
-          "data": "30/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "10/09/2026",
+          "data": "10/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "31/07/2026",
-          "data": "31/07/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "11/09/2026",
+          "data": "11/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "01/08/2026",
-          "data": "01/08/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "12/09/2026",
+          "data": "12/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "02/08/2026",
-          "data": "02/08/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "13/09/2026",
+          "data": "13/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "03/08/2026",
-          "data": "03/08/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "14/09/2026",
+          "data": "14/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "04/08/2026",
-          "data": "04/08/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "15/09/2026",
+          "data": "15/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         },
         {
-          "date": "05/08/2026",
-          "data": "05/08/2026",
-          "value": 14.25,
-          "raw_value": "14.25"
+          "date": "16/09/2026",
+          "data": "16/09/2026",
+          "value": 14.0,
+          "raw_value": "14.00"
         }
       ],
       "request": {
@@ -224,16 +224,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "07/07/2026",
-      "latest_date": "03/08/2026",
+      "first_date": "08/07/2026",
+      "latest_date": "04/08/2026",
       "latest_value": 0.052531,
       "values": [
-        {
-          "date": "07/07/2026",
-          "data": "07/07/2026",
-          "value": 0.052531,
-          "raw_value": "0.052531"
-        },
         {
           "date": "08/07/2026",
           "data": "08/07/2026",
@@ -345,6 +339,12 @@
         {
           "date": "03/08/2026",
           "data": "03/08/2026",
+          "value": 0.052531,
+          "raw_value": "0.052531"
+        },
+        {
+          "date": "04/08/2026",
+          "data": "04/08/2026",
           "value": 0.052531,
           "raw_value": "0.052531"
         }
