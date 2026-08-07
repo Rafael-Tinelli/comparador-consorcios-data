@@ -2,21 +2,21 @@
   "metadata": {
     "source": "bc_ranking_reclamacoes",
     "collector": "collectors/bc_ranking_reclamacoes.py",
-    "collected_at": "2026-04-23T16:15:28+00:00",
+    "collected_at": "2026-08-07T10:29:27+00:00",
     "mode_used": "direct-content-download",
-    "resource_sha256": "be219d5383e7aec9e10745486b06fb5dba4a2cb1da64b1be7a263cdadc53d6af"
+    "resource_sha256": "9688b737cd647f63722e40df0b96b3db26c0753ab4a17df95e162acb167fc12e"
   },
   "selected": {
-    "ano": 2025,
-    "periodo": 2,
+    "ano": 2026,
+    "periodo": 1,
     "periodicidade": "SEMESTRAL",
     "tipo": "Consorcios",
-    "download_url": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano=2025&periodicidade=SEMESTRAL&periodo=2&tipo=Consorcios",
+    "download_url": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano=2026&periodicidade=SEMESTRAL&periodo=1&tipo=Consorcios",
     "download_meta": {
       "status_code": 200,
-      "final_url": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano=2025&periodicidade=SEMESTRAL&periodo=2&tipo=Consorcios",
+      "final_url": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano=2026&periodicidade=SEMESTRAL&periodo=1&tipo=Consorcios",
       "content_type": "application/octet-stream",
-      "content_length": "10106",
+      "content_length": "7140",
       "last_modified": null,
       "etag": null
     },
@@ -38,46 +38,46 @@
       ],
       "sample_rows": [
         [
-          "2025",
-          "2º",
+          "2026",
+          "1º",
           "84911098",
           "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
-          "34,56",
-          "17",
-          "50",
-          "6",
-          "73",
-          "491794",
+          "47,19",
+          "32",
+          "56",
+          "2",
+          "90",
+          "678086",
           ""
         ],
         [
-          "2025",
-          "2º",
+          "2026",
+          "1º",
           "06044551",
           "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
           " ",
-          "1",
-          "3",
-          "1",
           "5",
-          "73070",
+          "13",
+          "1",
+          "19",
+          "83161",
           ""
         ],
         [
-          "2025",
-          "2º",
+          "2026",
+          "1º",
           "45441789",
           "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
-          "28,80",
-          "70",
-          "59",
+          "50,47",
+          "128",
+          "129",
           "42",
-          "171",
-          "2429892",
+          "299",
+          "2535783",
           ""
         ]
       ],
-      "preview": "Ano;Semestre;CNPJ AC;Administradora de consórcio;Índice;Quantidade de reclamações reguladas procedentes;Quantidade de reclamações reguladas - outras;Quantidade de reclamações não reguladas;Quantidade total de reclamações;Quantidade de clientes  Consorciados; 2025;2º;84911098;ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.;34,56;17;50;6;73;491794; 2025;"
+      "preview": "Ano;Semestre;CNPJ AC;Administradora de consórcio;Índice;Quantidade de reclamações reguladas procedentes;Quantidade de reclamações reguladas - outras;Quantidade de reclamações não reguladas;Quantidade total de reclamações;Quantidade de clientes  Consorciados; 2026;1º;84911098;ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.;47,19;32;56;2;90;678086; 2026;"
     }
   },
   "probe_results": [
@@ -129,40 +129,11 @@
         },
         {
           "method": "GET",
-          "status_code": 204,
-          "final_url": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano=2026&periodicidade=SEMESTRAL&periodo=1&tipo=Consorcios",
-          "content_type": null,
-          "content_length": null,
-          "first_chunk_sha256": null,
-          "first_chunk_preview_hex": null,
-          "ok": false
-        }
-      ]
-    },
-    {
-      "candidate": {
-        "ano": 2025,
-        "periodo": 2,
-        "periodicidade": "SEMESTRAL",
-        "tipo": "Consorcios",
-        "url": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano=2025&periodicidade=SEMESTRAL&periodo=2&tipo=Consorcios"
-      },
-      "probes": [
-        {
-          "method": "HEAD",
-          "status_code": 405,
-          "final_url": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano=2025&periodicidade=SEMESTRAL&periodo=2&tipo=Consorcios",
-          "content_type": "text/html;charset=UTF-8",
-          "content_length": null,
-          "ok": false
-        },
-        {
-          "method": "GET",
           "status_code": 200,
-          "final_url": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano=2025&periodicidade=SEMESTRAL&periodo=2&tipo=Consorcios",
+          "final_url": "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking/arquivo?ano=2026&periodicidade=SEMESTRAL&periodo=1&tipo=Consorcios",
           "content_type": "application/octet-stream",
-          "content_length": "10106",
-          "first_chunk_sha256": "a32efdcbdf4195306e289fe3f3cc26ac3790eddf80fd27233a8739a140f2c0bf",
+          "content_length": "7140",
+          "first_chunk_sha256": "1426e6b3af8d7388369167a111b1ea0f43cbb82a2e4b855a4dc22b93f07bf308",
           "first_chunk_preview_hex": "416e6f3b53656d65737472653b434e504a2041433b41646d696e697374726164",
           "ok": true
         }
