@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-08-07T09:35:21+00:00",
+    "generated_at": "2026-08-07T10:30:13+00:00",
     "count": 131
   },
   "items": [
@@ -28,12 +28,12 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 17,
+      "ranking_position": 11,
       "ranking_index": null,
-      "ranking_complaints": 15,
-      "ranking_clients": 28020,
+      "ranking_complaints": 23,
+      "ranking_clients": 30599,
       "ranking_complaints_regulated_procedent": 4,
-      "score": 72.0
+      "score": 76.2
     },
     {
       "institution_id": null,
@@ -65,11 +65,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 49,
-      "ranking_index": 256.72,
-      "ranking_complaints": 233,
-      "ranking_clients": 331089,
-      "ranking_complaints_regulated_procedent": 85,
+      "ranking_position": 30,
+      "ranking_index": 276.3,
+      "ranking_complaints": 313,
+      "ranking_clients": 376401,
+      "ranking_complaints_regulated_procedent": 104,
       "score": 70.0
     },
     {
@@ -91,11 +91,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 85,
-      "ranking_index": 614.51,
-      "ranking_complaints": 501,
-      "ranking_clients": 528876,
-      "ranking_complaints_regulated_procedent": 325,
+      "ranking_position": 55,
+      "ranking_index": 468.21,
+      "ranking_complaints": 437,
+      "ranking_clients": 559571,
+      "ranking_complaints_regulated_procedent": 262,
       "score": 69.2
     },
     {
@@ -112,131 +112,11 @@
       ],
       "cities_sample": [],
       "ranking_position": 1,
-      "ranking_index": 34.56,
-      "ranking_complaints": 73,
-      "ranking_clients": 491794,
-      "ranking_complaints_regulated_procedent": 17,
+      "ranking_index": 47.19,
+      "ranking_complaints": 90,
+      "ranking_clients": 678086,
+      "ranking_complaints_regulated_procedent": 32,
       "score": 66.4
-    },
-    {
-      "institution_id": null,
-      "cnpj": "47820097",
-      "cnpj_root": "47820097",
-      "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "normalized_name": "gaplan_administradora_de_consorcio_ltda",
-      "status": null,
-      "branch_count": 12,
-      "ufs": [
-        "MT",
-        "PR",
-        "SC",
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 65,
-      "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 19301,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 64.4
-    },
-    {
-      "institution_id": null,
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "normalized_name": "remaza_administradora_de_consorcio_ltda",
-      "status": null,
-      "branch_count": 12,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 94,
-      "ranking_index": null,
-      "ranking_complaints": 12,
-      "ranking_clients": 15864,
-      "ranking_complaints_regulated_procedent": 1,
-      "score": 64.4
-    },
-    {
-      "institution_id": null,
-      "cnpj": "57723801",
-      "cnpj_root": "57723801",
-      "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "normalized_name": "suzuki_motos_administradora_de_consorcio_ltda",
-      "status": null,
-      "branch_count": 12,
-      "ufs": [
-        "BA",
-        "MG",
-        "PA",
-        "RO",
-        "RS",
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 111,
-      "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 4485,
-      "ranking_complaints_regulated_procedent": 1,
-      "score": 64.4
-    },
-    {
-      "institution_id": null,
-      "cnpj": "45441789",
-      "cnpj_root": "45441789",
-      "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
-      "normalized_name": "administradora_de_consorcio_nacional_honda_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 3,
-      "ranking_index": 28.8,
-      "ranking_complaints": 171,
-      "ranking_clients": 2429892,
-      "ranking_complaints_regulated_procedent": 70,
-      "score": 63.8
-    },
-    {
-      "institution_id": null,
-      "cnpj": "91341925",
-      "cnpj_root": "91341925",
-      "institution_name": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
-      "normalized_name": "administradora_de_consorcio_spengler_ltda",
-      "status": null,
-      "branch_count": 3,
-      "ufs": [
-        "RS"
-      ],
-      "cities_sample": [],
-      "ranking_position": 7,
-      "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 5087,
-      "ranking_complaints_regulated_procedent": 1,
-      "score": 63.4
-    },
-    {
-      "institution_id": null,
-      "cnpj": "06044551",
-      "cnpj_root": "06044551",
-      "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
-      "normalized_name": "administradora_de_consorcio_nacional_gazin_ltda",
-      "status": null,
-      "branch_count": 0,
-      "ufs": [],
-      "cities_sample": [],
-      "ranking_position": 2,
-      "ranking_index": null,
-      "ranking_complaints": 5,
-      "ranking_clients": 73070,
-      "ranking_complaints_regulated_procedent": 1,
-      "score": 63.3
     },
     {
       "institution_id": null,
@@ -259,12 +139,132 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 29,
+      "ranking_position": 19,
+      "ranking_index": 54.82,
+      "ranking_complaints": 29,
+      "ranking_clients": 109439,
+      "ranking_complaints_regulated_procedent": 6,
+      "score": 64.6
+    },
+    {
+      "institution_id": null,
+      "cnpj": "47820097",
+      "cnpj_root": "47820097",
+      "institution_name": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "gaplan_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "MT",
+        "PR",
+        "SC",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 20,
-      "ranking_clients": 102076,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "remaza_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 61,
+      "ranking_index": null,
+      "ranking_complaints": 15,
+      "ranking_clients": 15381,
+      "ranking_complaints_regulated_procedent": 2,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "57723801",
+      "cnpj_root": "57723801",
+      "institution_name": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "suzuki_motos_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 12,
+      "ufs": [
+        "BA",
+        "MG",
+        "PA",
+        "RO",
+        "RS",
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 74,
+      "ranking_index": null,
+      "ranking_complaints": 4,
+      "ranking_clients": 5396,
+      "ranking_complaints_regulated_procedent": 1,
+      "score": 64.4
+    },
+    {
+      "institution_id": null,
+      "cnpj": "91341925",
+      "cnpj_root": "91341925",
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
+      "normalized_name": "administradora_de_consorcio_spengler_ltda",
+      "status": null,
+      "branch_count": 3,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": 6,
+      "ranking_index": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 4178,
       "ranking_complaints_regulated_procedent": 0,
-      "score": 63.2
+      "score": 64.1
+    },
+    {
+      "institution_id": null,
+      "cnpj": "45441789",
+      "cnpj_root": "45441789",
+      "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
+      "normalized_name": "administradora_de_consorcio_nacional_honda_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 3,
+      "ranking_index": 50.47,
+      "ranking_complaints": 299,
+      "ranking_clients": 2535783,
+      "ranking_complaints_regulated_procedent": 128,
+      "score": 63.8
+    },
+    {
+      "institution_id": null,
+      "cnpj": "06044551",
+      "cnpj_root": "06044551",
+      "institution_name": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
+      "normalized_name": "administradora_de_consorcio_nacional_gazin_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": 2,
+      "ranking_index": null,
+      "ranking_complaints": 19,
+      "ranking_clients": 83161,
+      "ranking_complaints_regulated_procedent": 5,
+      "score": 63.3
     },
     {
       "institution_id": null,
@@ -278,11 +278,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 118,
-      "ranking_index": 264.52,
-      "ranking_complaints": 34,
-      "ranking_clients": 30243,
-      "ranking_complaints_regulated_procedent": 8,
+      "ranking_position": 79,
+      "ranking_index": 290.34,
+      "ranking_complaints": 32,
+      "ranking_clients": 30998,
+      "ranking_complaints_regulated_procedent": 9,
       "score": 62.0
     },
     {
@@ -296,28 +296,11 @@
       "ufs": [],
       "cities_sample": [],
       "ranking_position": 4,
-      "ranking_index": 29.36,
-      "ranking_complaints": 36,
-      "ranking_clients": 476708,
-      "ranking_complaints_regulated_procedent": 14,
+      "ranking_index": 33.04,
+      "ranking_complaints": 61,
+      "ranking_clients": 514496,
+      "ranking_complaints_regulated_procedent": 17,
       "score": 61.9
-    },
-    {
-      "institution_id": null,
-      "cnpj": "59999300",
-      "cnpj_root": "59999300",
-      "institution_name": "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA.",
-      "normalized_name": "administradora_de_consorcio_nacional_vime_ltda",
-      "status": null,
-      "branch_count": 0,
-      "ufs": [],
-      "cities_sample": [],
-      "ranking_position": 5,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 1020,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 61.2
     },
     {
       "institution_id": null,
@@ -329,29 +312,12 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 6,
+      "ranking_position": 5,
       "ranking_index": null,
-      "ranking_complaints": 27,
-      "ranking_clients": 21914,
-      "ranking_complaints_regulated_procedent": 5,
-      "score": 60.5
-    },
-    {
-      "institution_id": null,
-      "cnpj": "12228808",
-      "cnpj_root": "12228808",
-      "institution_name": "ADMINISTRADORA DE CONSÓRCIO UNICOOB LTDA",
-      "normalized_name": "administradora_de_consorcio_unicoob_ltda",
-      "status": null,
-      "branch_count": 0,
-      "ufs": [],
-      "cities_sample": [],
-      "ranking_position": 8,
-      "ranking_index": null,
-      "ranking_complaints": 3,
-      "ranking_clients": 57517,
+      "ranking_complaints": 29,
+      "ranking_clients": 19975,
       "ranking_complaints_regulated_procedent": 2,
-      "score": 59.1
+      "score": 61.2
     },
     {
       "institution_id": null,
@@ -365,29 +331,29 @@
         "RS"
       ],
       "cities_sample": [],
-      "ranking_position": 10,
-      "ranking_index": 1403.82,
-      "ranking_complaints": 70,
-      "ranking_clients": 33480,
-      "ranking_complaints_regulated_procedent": 47,
-      "score": 58.9
+      "ranking_position": 8,
+      "ranking_index": 2666.58,
+      "ranking_complaints": 134,
+      "ranking_clients": 33751,
+      "ranking_complaints_regulated_procedent": 90,
+      "score": 60.3
     },
     {
       "institution_id": null,
-      "cnpj": "03828278",
-      "cnpj_root": "03828278",
-      "institution_name": "ADMINISTRADORA DE CONSÓRCIOS BECKER LTDA.",
-      "normalized_name": "administradora_de_consorcios_becker_ltda",
+      "cnpj": "12228808",
+      "cnpj_root": "12228808",
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO UNICOOB LTDA",
+      "normalized_name": "administradora_de_consorcio_unicoob_ltda",
       "status": null,
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 9,
+      "ranking_position": 7,
       "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 10205,
-      "ranking_complaints_regulated_procedent": 1,
-      "score": 58.4
+      "ranking_complaints": 5,
+      "ranking_clients": 58694,
+      "ranking_complaints_regulated_procedent": 0,
+      "score": 59.8
     },
     {
       "institution_id": null,
@@ -401,69 +367,12 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 11,
-      "ranking_index": 241.98,
-      "ranking_complaints": 57,
-      "ranking_clients": 107443,
-      "ranking_complaints_regulated_procedent": 26,
-      "score": 58.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "03832228",
-      "cnpj_root": "03832228",
-      "institution_name": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
-      "normalized_name": "apec_administradora_de_consorcios_s_a",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "MG"
-      ],
-      "cities_sample": [],
-      "ranking_position": 12,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 159,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 57.5
-    },
-    {
-      "institution_id": null,
-      "cnpj": "13548938",
-      "cnpj_root": "13548938",
-      "institution_name": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
-      "normalized_name": "associacao_bahiana_de_medicina_abm",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "BA"
-      ],
-      "cities_sample": [],
-      "ranking_position": 13,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 254,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 56.8
-    },
-    {
-      "institution_id": null,
-      "cnpj": "92965748",
-      "cnpj_root": "92965748",
-      "institution_name": "ASSOCIACAO DOS JUIZES DO RIO GRANDE DO SUL",
-      "normalized_name": "associacao_dos_juizes_do_rio_grande_do_sul",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "RS"
-      ],
-      "cities_sample": [],
-      "ranking_position": 14,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 300,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 56.1
+      "ranking_position": 9,
+      "ranking_index": 498.55,
+      "ranking_complaints": 128,
+      "ranking_clients": 124360,
+      "ranking_complaints_regulated_procedent": 62,
+      "score": 59.6
     },
     {
       "institution_id": null,
@@ -480,12 +389,67 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 22,
+      "ranking_position": 16,
       "ranking_index": null,
-      "ranking_complaints": 21,
-      "ranking_clients": 88044,
-      "ranking_complaints_regulated_procedent": 4,
-      "score": 56.0
+      "ranking_complaints": 16,
+      "ranking_clients": 86946,
+      "ranking_complaints_regulated_procedent": 3,
+      "score": 59.5
+    },
+    {
+      "institution_id": null,
+      "cnpj": "71045363",
+      "cnpj_root": "71045363",
+      "institution_name": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "bamaq_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "MG"
+      ],
+      "cities_sample": [],
+      "ranking_position": 10,
+      "ranking_index": 170.45,
+      "ranking_complaints": 52,
+      "ranking_clients": 82134,
+      "ranking_complaints_regulated_procedent": 14,
+      "score": 58.9
+    },
+    {
+      "institution_id": null,
+      "cnpj": "92692979",
+      "cnpj_root": "92692979",
+      "institution_name": "BANRISUL S.A. - ADMINISTRADORA DE CONSÓRCIOS",
+      "normalized_name": "banrisul_s_a_administradora_de_consorcios",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": 12,
+      "ranking_index": null,
+      "ranking_complaints": 9,
+      "ranking_clients": 64469,
+      "ranking_complaints_regulated_procedent": 2,
+      "score": 56.3
+    },
+    {
+      "institution_id": null,
+      "cnpj": "36770683",
+      "cnpj_root": "36770683",
+      "institution_name": "BBC ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "bbc_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 14,
+      "ranking_index": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 0,
+      "ranking_complaints_regulated_procedent": 1,
+      "score": 56.1
     },
     {
       "institution_id": null,
@@ -500,11 +464,11 @@
         "SC"
       ],
       "cities_sample": [],
-      "ranking_position": 66,
+      "ranking_position": 40,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 4786,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": 2,
+      "ranking_clients": 4462,
+      "ranking_complaints_regulated_procedent": 1,
       "score": 56.0
     },
     {
@@ -521,11 +485,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 71,
-      "ranking_index": 27.99,
-      "ranking_complaints": 46,
-      "ranking_clients": 357261,
-      "ranking_complaints_regulated_procedent": 10,
+      "ranking_position": 44,
+      "ranking_index": 54.36,
+      "ranking_complaints": 72,
+      "ranking_clients": 386277,
+      "ranking_complaints_regulated_procedent": 21,
       "score": 56.0
     },
     {
@@ -540,12 +504,29 @@
         "PR"
       ],
       "cities_sample": [],
-      "ranking_position": 103,
-      "ranking_index": 44.95,
-      "ranking_complaints": 35,
-      "ranking_clients": 133452,
-      "ranking_complaints_regulated_procedent": 6,
+      "ranking_position": 68,
+      "ranking_index": 104.97,
+      "ranking_complaints": 60,
+      "ranking_clients": 161942,
+      "ranking_complaints_regulated_procedent": 17,
       "score": 56.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "06043050",
+      "cnpj_root": "06043050",
+      "institution_name": "BB ADMINISTRADORA DE CONSORCIOS S.A.",
+      "normalized_name": "bb_administradora_de_consorcios_s_a",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": 13,
+      "ranking_index": 71.63,
+      "ranking_complaints": 259,
+      "ranking_clients": 1814631,
+      "ranking_complaints_regulated_procedent": 130,
+      "score": 55.6
     },
     {
       "institution_id": null,
@@ -559,11 +540,11 @@
         "SC"
       ],
       "cities_sample": [],
-      "ranking_position": 24,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 3,
-      "ranking_clients": 6239,
-      "ranking_complaints_regulated_procedent": 1,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 54.8
     },
     {
@@ -579,11 +560,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 87,
-      "ranking_index": 192.77,
-      "ranking_complaints": 11,
-      "ranking_clients": 31124,
-      "ranking_complaints_regulated_procedent": 6,
+      "ranking_position": 56,
+      "ranking_index": null,
+      "ranking_complaints": 6,
+      "ranking_clients": 32609,
+      "ranking_complaints_regulated_procedent": 1,
       "score": 54.8
     },
     {
@@ -601,11 +582,11 @@
         "PA"
       ],
       "cities_sample": [],
-      "ranking_position": 91,
-      "ranking_index": null,
-      "ranking_complaints": 18,
-      "ranking_clients": 26351,
-      "ranking_complaints_regulated_procedent": 4,
+      "ranking_position": 59,
+      "ranking_index": 433.8,
+      "ranking_complaints": 28,
+      "ranking_clients": 27662,
+      "ranking_complaints_regulated_procedent": 12,
       "score": 54.8
     },
     {
@@ -620,48 +601,67 @@
         "RS"
       ],
       "cities_sample": [],
-      "ranking_position": 110,
+      "ranking_position": 73,
       "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 4261,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": 3,
+      "ranking_clients": 4236,
+      "ranking_complaints_regulated_procedent": 1,
       "score": 54.8
     },
     {
       "institution_id": null,
-      "cnpj": "71045363",
-      "cnpj_root": "71045363",
-      "institution_name": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "normalized_name": "bamaq_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "MG"
-      ],
-      "cities_sample": [],
-      "ranking_position": 16,
-      "ranking_index": 193.09,
-      "ranking_complaints": 39,
-      "ranking_clients": 77680,
-      "ranking_complaints_regulated_procedent": 15,
-      "score": 54.7
-    },
-    {
-      "institution_id": null,
-      "cnpj": "03762583",
-      "cnpj_root": "03762583",
-      "institution_name": "ÁPICE ADMINISTRADORA DE CONSORCIO LTDA",
-      "normalized_name": "apice_administradora_de_consorcio_ltda",
+      "cnpj": "06181431",
+      "cnpj_root": "06181431",
+      "institution_name": "BP ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "normalized_name": "bp_administradora_de_consorcio_ltda",
       "status": null,
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
       "ranking_position": 15,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 6375,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": 2,
+      "ranking_clients": 11910,
+      "ranking_complaints_regulated_procedent": 1,
       "score": 54.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "52568821",
+      "cnpj_root": "52568821",
+      "institution_name": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "bradesco_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 17,
+      "ranking_index": 144.91,
+      "ranking_complaints": 584,
+      "ranking_clients": 1628530,
+      "ranking_complaints_regulated_procedent": 236,
+      "score": 54.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "45713971",
+      "cnpj_root": "45713971",
+      "institution_name": "BRQUALY ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "brqualy_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 18,
+      "ranking_index": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 590,
+      "ranking_complaints_regulated_procedent": 1,
+      "score": 53.3
     },
     {
       "institution_id": null,
@@ -675,11 +675,11 @@
         "RJ"
       ],
       "cities_sample": [],
-      "ranking_position": 33,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 861,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 52.4
     },
     {
@@ -694,11 +694,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 42,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 3280,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_position": 24,
+      "ranking_index": 1913.87,
+      "ranking_complaints": 10,
+      "ranking_clients": 3135,
+      "ranking_complaints_regulated_procedent": 6,
       "score": 52.4
     },
     {
@@ -713,11 +713,11 @@
         "RN"
       ],
       "cities_sample": [],
-      "ranking_position": 48,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 7127,
-      "ranking_complaints_regulated_procedent": 1,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 52.4
     },
     {
@@ -732,11 +732,11 @@
         "RS"
       ],
       "cities_sample": [],
-      "ranking_position": 68,
+      "ranking_position": 42,
       "ranking_index": null,
       "ranking_complaints": 1,
       "ranking_clients": null,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints_regulated_procedent": 1,
       "score": 52.4
     },
     {
@@ -751,11 +751,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 78,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 5,
-      "ranking_clients": 22540,
-      "ranking_complaints_regulated_procedent": 2,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 52.4
     },
     {
@@ -771,11 +771,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 36,
-      "ranking_index": 139.87,
-      "ranking_complaints": 43,
-      "ranking_clients": 64344,
-      "ranking_complaints_regulated_procedent": 9,
+      "ranking_position": 53,
+      "ranking_index": 227.94,
+      "ranking_complaints": 54,
+      "ranking_clients": 70192,
+      "ranking_complaints_regulated_procedent": 16,
       "score": 52.4
     },
     {
@@ -790,11 +790,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 97,
-      "ranking_index": 148.38,
-      "ranking_complaints": 48,
-      "ranking_clients": 121302,
-      "ranking_complaints_regulated_procedent": 18,
+      "ranking_position": 64,
+      "ranking_index": 107.77,
+      "ranking_complaints": 72,
+      "ranking_clients": 129898,
+      "ranking_complaints_regulated_procedent": 14,
       "score": 52.4
     },
     {
@@ -809,11 +809,11 @@
         "RS"
       ],
       "cities_sample": [],
-      "ranking_position": 102,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 1994,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 52.4
     },
     {
@@ -828,11 +828,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 109,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 29909,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 52.4
     },
     {
@@ -875,74 +875,78 @@
     },
     {
       "institution_id": null,
-      "cnpj": "92692979",
-      "cnpj_root": "92692979",
-      "institution_name": "BANRISUL S.A. - ADMINISTRADORA DE CONSÓRCIOS",
-      "normalized_name": "banrisul_s_a_administradora_de_consorcios",
-      "status": null,
-      "branch_count": 0,
-      "ufs": [],
-      "cities_sample": [],
-      "ranking_position": 18,
-      "ranking_index": null,
-      "ranking_complaints": 8,
-      "ranking_clients": 75313,
-      "ranking_complaints_regulated_procedent": 2,
-      "score": 52.1
-    },
-    {
-      "institution_id": null,
-      "cnpj": "36770683",
-      "cnpj_root": "36770683",
-      "institution_name": "BBC ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "normalized_name": "bbc_administradora_de_consorcios_ltda",
+      "cnpj": "00266031",
+      "cnpj_root": "00266031",
+      "institution_name": "CICAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "cical_administradora_de_consorcios_ltda",
       "status": null,
       "branch_count": 1,
       "ufs": [
-        "SP"
+        "GO"
       ],
       "cities_sample": [],
       "ranking_position": 20,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 0,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": 2,
+      "ranking_clients": 1566,
+      "ranking_complaints_regulated_procedent": 1,
       "score": 51.9
     },
     {
       "institution_id": null,
-      "cnpj": "06043050",
-      "cnpj_root": "06043050",
-      "institution_name": "BB ADMINISTRADORA DE CONSORCIOS S.A.",
-      "normalized_name": "bb_administradora_de_consorcios_s_a",
-      "status": null,
-      "branch_count": 0,
-      "ufs": [],
-      "cities_sample": [],
-      "ranking_position": 19,
-      "ranking_index": 57.89,
-      "ranking_complaints": 222,
-      "ranking_clients": 1796296,
-      "ranking_complaints_regulated_procedent": 104,
-      "score": 51.4
-    },
-    {
-      "institution_id": null,
-      "cnpj": "52568821",
-      "cnpj_root": "52568821",
-      "institution_name": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "bradesco_administradora_de_consorcios_ltda",
+      "cnpj": "03832228",
+      "cnpj_root": "03832228",
+      "institution_name": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
+      "normalized_name": "apec_administradora_de_consorcios_s_a",
       "status": null,
       "branch_count": 1,
       "ufs": [
-        "SP"
+        "MG"
       ],
       "cities_sample": [],
-      "ranking_position": 23,
-      "ranking_index": 107.93,
-      "ranking_complaints": 454,
-      "ranking_clients": 1676889,
-      "ranking_complaints_regulated_procedent": 181,
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "13548938",
+      "cnpj_root": "13548938",
+      "institution_name": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
+      "normalized_name": "associacao_bahiana_de_medicina_abm",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "BA"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "92965748",
+      "cnpj_root": "92965748",
+      "institution_name": "ASSOCIACAO DOS JUIZES DO RIO GRANDE DO SUL",
+      "normalized_name": "associacao_dos_juizes_do_rio_grande_do_sul",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 51.2
     },
     {
@@ -957,11 +961,11 @@
         "RS"
       ],
       "cities_sample": [],
-      "ranking_position": 25,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 3334,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 51.2
     },
     {
@@ -976,30 +980,11 @@
         "MG"
       ],
       "cities_sample": [],
-      "ranking_position": 26,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 3514,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "45713971",
-      "cnpj_root": "45713971",
-      "institution_name": "BRQUALY ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "brqualy_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 27,
-      "ranking_index": null,
-      "ranking_complaints": 3,
-      "ranking_clients": 1187,
-      "ranking_complaints_regulated_procedent": 1,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 51.2
     },
     {
@@ -1014,11 +999,11 @@
         "SC"
       ],
       "cities_sample": [],
-      "ranking_position": 28,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 2012,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 51.2
     },
     {
@@ -1033,30 +1018,11 @@
         "SC"
       ],
       "cities_sample": [],
-      "ranking_position": 30,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 5240,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "00266031",
-      "cnpj_root": "00266031",
-      "institution_name": "CICAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "normalized_name": "cical_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "GO"
-      ],
-      "cities_sample": [],
-      "ranking_position": 31,
-      "ranking_index": null,
-      "ranking_complaints": 3,
-      "ranking_clients": 1557,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 51.2
     },
     {
@@ -1071,11 +1037,11 @@
         "SE"
       ],
       "cities_sample": [],
-      "ranking_position": 32,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 2334,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 51.2
     },
     {
@@ -1090,11 +1056,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 35,
-      "ranking_index": 434.58,
-      "ranking_complaints": 93,
-      "ranking_clients": 98945,
-      "ranking_complaints_regulated_procedent": 43,
+      "ranking_position": 22,
+      "ranking_index": 409.8,
+      "ranking_complaints": 83,
+      "ranking_clients": 92727,
+      "ranking_complaints_regulated_procedent": 38,
       "score": 51.2
     },
     {
@@ -1109,10 +1075,10 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 37,
+      "ranking_position": 23,
       "ranking_index": null,
       "ranking_complaints": 2,
-      "ranking_clients": 8085,
+      "ranking_clients": 7408,
       "ranking_complaints_regulated_procedent": 1,
       "score": 51.2
     },
@@ -1128,11 +1094,11 @@
         "CE"
       ],
       "cities_sample": [],
-      "ranking_position": 39,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 5340,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 51.2
     },
     {
@@ -1147,11 +1113,11 @@
         "RS"
       ],
       "cities_sample": [],
-      "ranking_position": 40,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
+      "ranking_complaints": null,
       "ranking_clients": null,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints_regulated_procedent": null,
       "score": 51.2
     },
     {
@@ -1166,11 +1132,11 @@
         "MG"
       ],
       "cities_sample": [],
-      "ranking_position": 84,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 3310,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 51.2
     },
     {
@@ -1185,11 +1151,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 43,
-      "ranking_index": 429.81,
-      "ranking_complaints": 78,
-      "ranking_clients": 88411,
-      "ranking_complaints_regulated_procedent": 38,
+      "ranking_position": 25,
+      "ranking_index": 368.23,
+      "ranking_complaints": 96,
+      "ranking_clients": 95048,
+      "ranking_complaints_regulated_procedent": 35,
       "score": 51.2
     },
     {
@@ -1204,11 +1170,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 50,
-      "ranking_index": null,
-      "ranking_complaints": 6,
-      "ranking_clients": 2174,
-      "ranking_complaints_regulated_procedent": 5,
+      "ranking_position": 31,
+      "ranking_index": 5549.68,
+      "ranking_complaints": 27,
+      "ranking_clients": 3784,
+      "ranking_complaints_regulated_procedent": 21,
       "score": 51.2
     },
     {
@@ -1223,11 +1189,11 @@
         "RS"
       ],
       "cities_sample": [],
-      "ranking_position": 53,
+      "ranking_position": 34,
       "ranking_index": null,
-      "ranking_complaints": 7,
-      "ranking_clients": 32160,
-      "ranking_complaints_regulated_procedent": 2,
+      "ranking_complaints": 3,
+      "ranking_clients": 5927,
+      "ranking_complaints_regulated_procedent": 0,
       "score": 51.2
     },
     {
@@ -1242,11 +1208,11 @@
         "DF"
       ],
       "cities_sample": [],
-      "ranking_position": 54,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 95,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 51.2
     },
     {
@@ -1261,11 +1227,11 @@
         "DF"
       ],
       "cities_sample": [],
-      "ranking_position": 55,
+      "ranking_position": 35,
       "ranking_index": null,
       "ranking_complaints": 1,
-      "ranking_clients": 3785,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_clients": 4215,
+      "ranking_complaints_regulated_procedent": 1,
       "score": 51.2
     },
     {
@@ -1274,595 +1240,6 @@
       "cnpj_root": "44479061",
       "institution_name": "FRA-FREIRE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "normalized_name": "fra_freire_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 60,
-      "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 1186,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "04751943",
-      "cnpj_root": "04751943",
-      "institution_name": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "normalized_name": "francauto_administradora_de_consorcio_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 61,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": null,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "82942400",
-      "cnpj_root": "82942400",
-      "institution_name": "GAMBATTO ADMINISTRADORA DE CONSORCIOS LTDA.",
-      "normalized_name": "gambatto_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SC"
-      ],
-      "cities_sample": [],
-      "ranking_position": 63,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 3649,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "49937055",
-      "cnpj_root": "49937055",
-      "institution_name": "GMAC ADMINISTRADORA DE CONSORCIOS LTDA",
-      "normalized_name": "gmac_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 67,
-      "ranking_index": 215.45,
-      "ranking_complaints": 68,
-      "ranking_clients": 129959,
-      "ranking_complaints_regulated_procedent": 28,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "26228270",
-      "cnpj_root": "26228270",
-      "institution_name": "GROSCON ADMINISTRADORA DE CONSORCIOS LTDA.",
-      "normalized_name": "groscon_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 69,
-      "ranking_index": null,
-      "ranking_complaints": 4,
-      "ranking_clients": 2622,
-      "ranking_complaints_regulated_procedent": 1,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "03586655",
-      "cnpj_root": "03586655",
-      "institution_name": "H. ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "normalized_name": "h_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "PR"
-      ],
-      "cities_sample": [],
-      "ranking_position": 70,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 715,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "03403333",
-      "cnpj_root": "03403333",
-      "institution_name": "IRMÃOS DE MARCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "irmaos_de_marco_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SC"
-      ],
-      "cities_sample": [],
-      "ranking_position": 72,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 109,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "00000776",
-      "cnpj_root": "00000776",
-      "institution_name": "ITAÚ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "itau_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 73,
-      "ranking_index": 212.31,
-      "ranking_complaints": 339,
-      "ranking_clients": 706485,
-      "ranking_complaints_regulated_procedent": 150,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "41629070",
-      "cnpj_root": "41629070",
-      "institution_name": "KLUBI ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "klubi_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 74,
-      "ranking_index": 95.95,
-      "ranking_complaints": 17,
-      "ranking_clients": 93797,
-      "ranking_complaints_regulated_procedent": 9,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "62798475",
-      "cnpj_root": "62798475",
-      "institution_name": "KSK ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "normalized_name": "ksk_administradora_de_consorcio_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 75,
-      "ranking_index": 376.59,
-      "ranking_complaints": 28,
-      "ranking_clients": 26554,
-      "ranking_complaints_regulated_procedent": 10,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "60250776",
-      "cnpj_root": "60250776",
-      "institution_name": "LUIZA ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "normalized_name": "luiza_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 76,
-      "ranking_index": null,
-      "ranking_complaints": 28,
-      "ranking_clients": 114351,
-      "ranking_complaints_regulated_procedent": 5,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "04250224",
-      "cnpj_root": "04250224",
-      "institution_name": "MAGGI ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "normalized_name": "maggi_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 77,
-      "ranking_index": null,
-      "ranking_complaints": 12,
-      "ranking_clients": 45893,
-      "ranking_complaints_regulated_procedent": 5,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "46349106",
-      "cnpj_root": "46349106",
-      "institution_name": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
-      "normalized_name": "mercabenco_administradora_de_consorcio_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 80,
-      "ranking_index": null,
-      "ranking_complaints": 4,
-      "ranking_clients": 7392,
-      "ranking_complaints_regulated_procedent": 1,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "87433413",
-      "cnpj_root": "87433413",
-      "institution_name": "PORTOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
-      "normalized_name": "portobens_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 86,
-      "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 14324,
-      "ranking_complaints_regulated_procedent": 1,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "91108027",
-      "cnpj_root": "91108027",
-      "institution_name": "RANDON ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "randon_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "RS"
-      ],
-      "cities_sample": [],
-      "ranking_position": 90,
-      "ranking_index": null,
-      "ranking_complaints": 10,
-      "ranking_clients": 111033,
-      "ranking_complaints_regulated_procedent": 5,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "92002609",
-      "cnpj_root": "92002609",
-      "institution_name": "REDE OESTE ADMINISTRADORA DE CONSORCIOS LTDA.",
-      "normalized_name": "rede_oeste_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "PR"
-      ],
-      "cities_sample": [],
-      "ranking_position": 92,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 5370,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "62246228",
-      "cnpj_root": "62246228",
-      "institution_name": "REDENÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "normalized_name": "redencao_administradora_de_consorcio_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "RN"
-      ],
-      "cities_sample": [],
-      "ranking_position": 93,
-      "ranking_index": null,
-      "ranking_complaints": 3,
-      "ranking_clients": 1836,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "28904092",
-      "cnpj_root": "28904092",
-      "institution_name": "RESERVA ADMINISTRADORA DE CONSÓRCIO LTDA",
-      "normalized_name": "reserva_administradora_de_consorcio_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "RJ"
-      ],
-      "cities_sample": [],
-      "ranking_position": 95,
-      "ranking_index": 2622.37,
-      "ranking_complaints": 39,
-      "ranking_clients": 9152,
-      "ranking_complaints_regulated_procedent": 24,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "80402746",
-      "cnpj_root": "80402746",
-      "institution_name": "RIVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "rivel_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "PR"
-      ],
-      "cities_sample": [],
-      "ranking_position": 96,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 5817,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "80674393",
-      "cnpj_root": "80674393",
-      "institution_name": "SANTA FÉ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "santa_fe_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SC"
-      ],
-      "cities_sample": [],
-      "ranking_position": 98,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 724,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "55942312",
-      "cnpj_root": "55942312",
-      "institution_name": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "normalized_name": "santander_brasil_administradora_de_consorcio_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 99,
-      "ranking_index": 138.22,
-      "ranking_complaints": 163,
-      "ranking_clients": 405144,
-      "ranking_complaints_regulated_procedent": 56,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "96479258",
-      "cnpj_root": "96479258",
-      "institution_name": "SCANIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "scania_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 100,
-      "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 19634,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "94187879",
-      "cnpj_root": "94187879",
-      "institution_name": "SERELLO ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "normalized_name": "serello_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "RS"
-      ],
-      "cities_sample": [],
-      "ranking_position": 101,
-      "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 12927,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "16551061",
-      "cnpj_root": "16551061",
-      "institution_name": "SICOOB ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "sicoob_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "DF"
-      ],
-      "cities_sample": [],
-      "ranking_position": 104,
-      "ranking_index": 68.3,
-      "ranking_complaints": 80,
-      "ranking_clients": 468484,
-      "ranking_complaints_regulated_procedent": 32,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "87945218",
-      "cnpj_root": "87945218",
-      "institution_name": "SIMPALA LANÇADORA E ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "simpala_lancadora_e_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "RS"
-      ],
-      "cities_sample": [],
-      "ranking_position": 105,
-      "ranking_index": 2433.22,
-      "ranking_complaints": 66,
-      "ranking_clients": 18494,
-      "ranking_complaints_regulated_procedent": 45,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "26253658",
-      "cnpj_root": "26253658",
-      "institution_name": "SM ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "sm_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "MG"
-      ],
-      "cities_sample": [],
-      "ranking_position": 107,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 1938,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "04058605",
-      "cnpj_root": "04058605",
-      "institution_name": "SOLUÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "solucao_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "ES"
-      ],
-      "cities_sample": [],
-      "ranking_position": 108,
-      "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 9922,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "53211488",
-      "cnpj_root": "53211488",
-      "institution_name": "TARRAF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "tarraf_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 112,
-      "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 16107,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "59956185",
-      "cnpj_root": "59956185",
-      "institution_name": "TRADIÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "normalized_name": "tradicao_administradora_de_consorcio_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SP"
-      ],
-      "cities_sample": [],
-      "ranking_position": 115,
-      "ranking_index": 526.62,
-      "ranking_complaints": 27,
-      "ranking_clients": 32281,
-      "ranking_complaints_regulated_procedent": 17,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "05551841",
-      "cnpj_root": "05551841",
-      "institution_name": "TÁGIDE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "tagide_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "PA"
-      ],
-      "cities_sample": [],
-      "ranking_position": 113,
-      "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": null,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "83553883",
-      "cnpj_root": "83553883",
-      "institution_name": "UNIÃO CATARINENSE ADMINISTRADORA DE CONSORCIOS LTDA",
-      "normalized_name": "uniao_catarinense_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "SC"
-      ],
-      "cities_sample": [],
-      "ranking_position": 117,
-      "ranking_index": null,
-      "ranking_complaints": 5,
-      "ranking_clients": 9916,
-      "ranking_complaints_regulated_procedent": 0,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "56360266",
-      "cnpj_root": "56360266",
-      "institution_name": "VALTRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "normalized_name": "valtra_administradora_de_consorcios_ltda",
       "status": null,
       "branch_count": 1,
       "ufs": [
@@ -1878,6 +1255,595 @@
     },
     {
       "institution_id": null,
+      "cnpj": "04751943",
+      "cnpj_root": "04751943",
+      "institution_name": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "francauto_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "82942400",
+      "cnpj_root": "82942400",
+      "institution_name": "GAMBATTO ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "normalized_name": "gambatto_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": 39,
+      "ranking_index": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 3810,
+      "ranking_complaints_regulated_procedent": 0,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "49937055",
+      "cnpj_root": "49937055",
+      "institution_name": "GMAC ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "gmac_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 41,
+      "ranking_index": 368.19,
+      "ranking_complaints": 112,
+      "ranking_clients": 135798,
+      "ranking_complaints_regulated_procedent": 50,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "26228270",
+      "cnpj_root": "26228270",
+      "institution_name": "GROSCON ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "normalized_name": "groscon_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 43,
+      "ranking_index": null,
+      "ranking_complaints": 4,
+      "ranking_clients": 2712,
+      "ranking_complaints_regulated_procedent": 3,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "03586655",
+      "cnpj_root": "03586655",
+      "institution_name": "H. ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "h_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "PR"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "03403333",
+      "cnpj_root": "03403333",
+      "institution_name": "IRMÃOS DE MARCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "irmaos_de_marco_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "00000776",
+      "cnpj_root": "00000776",
+      "institution_name": "ITAÚ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "itau_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 45,
+      "ranking_index": 174.69,
+      "ranking_complaints": 383,
+      "ranking_clients": 721268,
+      "ranking_complaints_regulated_procedent": 126,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "41629070",
+      "cnpj_root": "41629070",
+      "institution_name": "KLUBI ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "klubi_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 46,
+      "ranking_index": 370.13,
+      "ranking_complaints": 47,
+      "ranking_clients": 78349,
+      "ranking_complaints_regulated_procedent": 29,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "62798475",
+      "cnpj_root": "62798475",
+      "institution_name": "KSK ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "ksk_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 47,
+      "ranking_index": 756.71,
+      "ranking_complaints": 66,
+      "ranking_clients": 37002,
+      "ranking_complaints_regulated_procedent": 28,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "60250776",
+      "cnpj_root": "60250776",
+      "institution_name": "LUIZA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "luiza_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 48,
+      "ranking_index": 117.69,
+      "ranking_complaints": 48,
+      "ranking_clients": 118951,
+      "ranking_complaints_regulated_procedent": 14,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "04250224",
+      "cnpj_root": "04250224",
+      "institution_name": "MAGGI ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "maggi_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 49,
+      "ranking_index": 291.47,
+      "ranking_complaints": 26,
+      "ranking_clients": 48031,
+      "ranking_complaints_regulated_procedent": 14,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "46349106",
+      "cnpj_root": "46349106",
+      "institution_name": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
+      "normalized_name": "mercabenco_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 50,
+      "ranking_index": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 6617,
+      "ranking_complaints_regulated_procedent": 0,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "87433413",
+      "cnpj_root": "87433413",
+      "institution_name": "PORTOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "portobens_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "91108027",
+      "cnpj_root": "91108027",
+      "institution_name": "RANDON ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "randon_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": 58,
+      "ranking_index": null,
+      "ranking_complaints": 10,
+      "ranking_clients": 112230,
+      "ranking_complaints_regulated_procedent": 1,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "92002609",
+      "cnpj_root": "92002609",
+      "institution_name": "REDE OESTE ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "normalized_name": "rede_oeste_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "PR"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "62246228",
+      "cnpj_root": "62246228",
+      "institution_name": "REDENÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "redencao_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RN"
+      ],
+      "cities_sample": [],
+      "ranking_position": 60,
+      "ranking_index": null,
+      "ranking_complaints": 4,
+      "ranking_clients": 2200,
+      "ranking_complaints_regulated_procedent": 1,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "28904092",
+      "cnpj_root": "28904092",
+      "institution_name": "RESERVA ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "normalized_name": "reserva_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RJ"
+      ],
+      "cities_sample": [],
+      "ranking_position": 62,
+      "ranking_index": 3274.99,
+      "ranking_complaints": 51,
+      "ranking_clients": 9771,
+      "ranking_complaints_regulated_procedent": 32,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "80402746",
+      "cnpj_root": "80402746",
+      "institution_name": "RIVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "rivel_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "PR"
+      ],
+      "cities_sample": [],
+      "ranking_position": 63,
+      "ranking_index": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 5879,
+      "ranking_complaints_regulated_procedent": 0,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "80674393",
+      "cnpj_root": "80674393",
+      "institution_name": "SANTA FÉ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "santa_fe_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": 65,
+      "ranking_index": null,
+      "ranking_complaints": 3,
+      "ranking_clients": 1154,
+      "ranking_complaints_regulated_procedent": 3,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "55942312",
+      "cnpj_root": "55942312",
+      "institution_name": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "santander_brasil_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 66,
+      "ranking_index": 233.03,
+      "ranking_complaints": 225,
+      "ranking_clients": 411962,
+      "ranking_complaints_regulated_procedent": 96,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "96479258",
+      "cnpj_root": "96479258",
+      "institution_name": "SCANIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "scania_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 67,
+      "ranking_index": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 19249,
+      "ranking_complaints_regulated_procedent": 0,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "94187879",
+      "cnpj_root": "94187879",
+      "institution_name": "SERELLO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "serello_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "16551061",
+      "cnpj_root": "16551061",
+      "institution_name": "SICOOB ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "sicoob_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "DF"
+      ],
+      "cities_sample": [],
+      "ranking_position": 69,
+      "ranking_index": 69.97,
+      "ranking_complaints": 92,
+      "ranking_clients": 500186,
+      "ranking_complaints_regulated_procedent": 35,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "87945218",
+      "cnpj_root": "87945218",
+      "institution_name": "SIMPALA LANÇADORA E ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "simpala_lancadora_e_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "RS"
+      ],
+      "cities_sample": [],
+      "ranking_position": 70,
+      "ranking_index": 2076.17,
+      "ranking_complaints": 42,
+      "ranking_clients": 13968,
+      "ranking_complaints_regulated_procedent": 29,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "26253658",
+      "cnpj_root": "26253658",
+      "institution_name": "SM ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "sm_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "MG"
+      ],
+      "cities_sample": [],
+      "ranking_position": 71,
+      "ranking_index": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 1036,
+      "ranking_complaints_regulated_procedent": 0,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "04058605",
+      "cnpj_root": "04058605",
+      "institution_name": "SOLUÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "solucao_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "ES"
+      ],
+      "cities_sample": [],
+      "ranking_position": 72,
+      "ranking_index": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 9139,
+      "ranking_complaints_regulated_procedent": 0,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "53211488",
+      "cnpj_root": "53211488",
+      "institution_name": "TARRAF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "tarraf_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 75,
+      "ranking_index": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 16032,
+      "ranking_complaints_regulated_procedent": 0,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "59956185",
+      "cnpj_root": "59956185",
+      "institution_name": "TRADIÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "normalized_name": "tradicao_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 77,
+      "ranking_index": 884.2,
+      "ranking_complaints": 56,
+      "ranking_clients": 32798,
+      "ranking_complaints_regulated_procedent": 29,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "05551841",
+      "cnpj_root": "05551841",
+      "institution_name": "TÁGIDE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "normalized_name": "tagide_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "PA"
+      ],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "83553883",
+      "cnpj_root": "83553883",
+      "institution_name": "UNIÃO CATARINENSE ADMINISTRADORA DE CONSORCIOS LTDA",
+      "normalized_name": "uniao_catarinense_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SC"
+      ],
+      "cities_sample": [],
+      "ranking_position": 78,
+      "ranking_index": null,
+      "ranking_complaints": 6,
+      "ranking_clients": 10425,
+      "ranking_complaints_regulated_procedent": 4,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
+      "cnpj": "56360266",
+      "cnpj_root": "56360266",
+      "institution_name": "VALTRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "normalized_name": "valtra_administradora_de_consorcios_ltda",
+      "status": null,
+      "branch_count": 1,
+      "ufs": [
+        "SP"
+      ],
+      "cities_sample": [],
+      "ranking_position": 80,
+      "ranking_index": null,
+      "ranking_complaints": 5,
+      "ranking_clients": 17695,
+      "ranking_complaints_regulated_procedent": 0,
+      "score": 51.2
+    },
+    {
+      "institution_id": null,
       "cnpj": "49995293",
       "cnpj_root": "49995293",
       "institution_name": "VINAC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
@@ -1888,11 +1854,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 120,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 14708,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 51.2
     },
     {
@@ -1907,11 +1873,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 121,
+      "ranking_position": 81,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 1489,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": 4,
+      "ranking_clients": 1375,
+      "ranking_complaints_regulated_procedent": 1,
       "score": 51.2
     },
     {
@@ -1926,10 +1892,10 @@
         "PR"
       ],
       "cities_sample": [],
-      "ranking_position": 122,
+      "ranking_position": 82,
       "ranking_index": null,
       "ranking_complaints": 1,
-      "ranking_clients": 14749,
+      "ranking_clients": 14773,
       "ranking_complaints_regulated_procedent": 0,
       "score": 51.2
     },
@@ -1945,11 +1911,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 123,
-      "ranking_index": 297.53,
-      "ranking_complaints": 157,
-      "ranking_clients": 255434,
-      "ranking_complaints_regulated_procedent": 76,
+      "ranking_position": 83,
+      "ranking_index": 344.19,
+      "ranking_complaints": 182,
+      "ranking_clients": 290534,
+      "ranking_complaints_regulated_procedent": 100,
       "score": 51.2
     },
     {
@@ -1964,11 +1930,11 @@
         "SP"
       ],
       "cities_sample": [],
-      "ranking_position": 124,
-      "ranking_index": 39.61,
-      "ranking_complaints": 33,
-      "ranking_clients": 176707,
-      "ranking_complaints_regulated_procedent": 7,
+      "ranking_position": 84,
+      "ranking_index": 80.82,
+      "ranking_complaints": 52,
+      "ranking_clients": 185594,
+      "ranking_complaints_regulated_procedent": 15,
       "score": 51.2
     },
     {
@@ -1983,28 +1949,45 @@
         "MG"
       ],
       "cities_sample": [],
-      "ranking_position": 125,
-      "ranking_index": 498.38,
-      "ranking_complaints": 32,
-      "ranking_clients": 16052,
-      "ranking_complaints_regulated_procedent": 8,
+      "ranking_position": 85,
+      "ranking_index": 1548.75,
+      "ranking_complaints": 51,
+      "ranking_clients": 14205,
+      "ranking_complaints_regulated_procedent": 22,
       "score": 51.2
     },
     {
       "institution_id": null,
-      "cnpj": "06181431",
-      "cnpj_root": "06181431",
-      "institution_name": "BP ADMINISTRADORA DE CONSÓRCIO LTDA",
-      "normalized_name": "bp_administradora_de_consorcio_ltda",
+      "cnpj": "59999300",
+      "cnpj_root": "59999300",
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA.",
+      "normalized_name": "administradora_de_consorcio_nacional_vime_ltda",
       "status": null,
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 21,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 3,
-      "ranking_clients": 11193,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "03828278",
+      "cnpj_root": "03828278",
+      "institution_name": "ADMINISTRADORA DE CONSÓRCIOS BECKER LTDA.",
+      "normalized_name": "administradora_de_consorcios_becker_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 50.0
     },
     {
@@ -2017,10 +2000,10 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 34,
+      "ranking_position": 21,
       "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 4611,
+      "ranking_complaints": 1,
+      "ranking_clients": 2897,
       "ranking_complaints_regulated_procedent": 0,
       "score": 50.0
     },
@@ -2034,11 +2017,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 38,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 4570,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 50.0
     },
     {
@@ -2051,11 +2034,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 41,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 2164,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 50.0
     },
     {
@@ -2068,11 +2051,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 44,
+      "ranking_position": 26,
       "ranking_index": null,
       "ranking_complaints": 9,
-      "ranking_clients": 10494,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_clients": 10732,
+      "ranking_complaints_regulated_procedent": 1,
       "score": 50.0
     },
     {
@@ -2085,11 +2068,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 45,
+      "ranking_position": 27,
       "ranking_index": null,
-      "ranking_complaints": 21,
-      "ranking_clients": 14473,
-      "ranking_complaints_regulated_procedent": 3,
+      "ranking_complaints": 22,
+      "ranking_clients": 15572,
+      "ranking_complaints_regulated_procedent": 4,
       "score": 50.0
     },
     {
@@ -2102,10 +2085,10 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 46,
+      "ranking_position": 28,
       "ranking_index": null,
-      "ranking_complaints": 3,
-      "ranking_clients": null,
+      "ranking_complaints": 1,
+      "ranking_clients": 1213,
       "ranking_complaints_regulated_procedent": 1,
       "score": 50.0
     },
@@ -2119,11 +2102,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 47,
-      "ranking_index": 234.85,
-      "ranking_complaints": 90,
-      "ranking_clients": 144768,
-      "ranking_complaints_regulated_procedent": 34,
+      "ranking_position": 29,
+      "ranking_index": 236.63,
+      "ranking_complaints": 104,
+      "ranking_clients": 147906,
+      "ranking_complaints_regulated_procedent": 35,
       "score": 50.0
     },
     {
@@ -2136,11 +2119,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 51,
-      "ranking_index": 2701.94,
-      "ranking_complaints": 40,
-      "ranking_clients": 10733,
-      "ranking_complaints_regulated_procedent": 29,
+      "ranking_position": 32,
+      "ranking_index": 9281.1,
+      "ranking_complaints": 78,
+      "ranking_clients": 6357,
+      "ranking_complaints_regulated_procedent": 59,
       "score": 50.0
     },
     {
@@ -2153,10 +2136,10 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 52,
+      "ranking_position": 33,
       "ranking_index": null,
       "ranking_complaints": 1,
-      "ranking_clients": 2720,
+      "ranking_clients": 2839,
       "ranking_complaints_regulated_procedent": 0,
       "score": 50.0
     },
@@ -2170,11 +2153,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 56,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 0,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 50.0
     },
     {
@@ -2187,11 +2170,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 57,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 3418,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 50.0
     },
     {
@@ -2204,11 +2187,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 58,
+      "ranking_position": 36,
       "ranking_index": null,
       "ranking_complaints": 2,
-      "ranking_clients": 5006,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_clients": 5264,
+      "ranking_complaints_regulated_procedent": 1,
       "score": 50.0
     },
     {
@@ -2221,10 +2204,10 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 59,
+      "ranking_position": 37,
       "ranking_index": null,
       "ranking_complaints": 1,
-      "ranking_clients": 5812,
+      "ranking_clients": 6886,
       "ranking_complaints_regulated_procedent": 0,
       "score": 50.0
     },
@@ -2238,11 +2221,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 62,
+      "ranking_position": 38,
       "ranking_index": null,
-      "ranking_complaints": 6,
-      "ranking_clients": 30017,
-      "ranking_complaints_regulated_procedent": 1,
+      "ranking_complaints": 5,
+      "ranking_clients": 30491,
+      "ranking_complaints_regulated_procedent": 2,
       "score": 50.0
     },
     {
@@ -2255,11 +2238,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 64,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 12438,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 50.0
     },
     {
@@ -2323,11 +2306,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 79,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 2,
-      "ranking_clients": 4378,
-      "ranking_complaints_regulated_procedent": 1,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 50.0
     },
     {
@@ -2340,11 +2323,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 81,
+      "ranking_position": 51,
       "ranking_index": null,
-      "ranking_complaints": 4,
-      "ranking_clients": 10135,
-      "ranking_complaints_regulated_procedent": 1,
+      "ranking_complaints": 1,
+      "ranking_clients": 10137,
+      "ranking_complaints_regulated_procedent": 0,
       "score": 50.0
     },
     {
@@ -2357,11 +2340,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 82,
-      "ranking_index": 772.37,
-      "ranking_complaints": 56,
-      "ranking_clients": 27189,
-      "ranking_complaints_regulated_procedent": 21,
+      "ranking_position": 52,
+      "ranking_index": 1439.09,
+      "ranking_complaints": 98,
+      "ranking_clients": 23626,
+      "ranking_complaints_regulated_procedent": 34,
       "score": 50.0
     },
     {
@@ -2374,11 +2357,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 83,
+      "ranking_position": 54,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 7146,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": 2,
+      "ranking_clients": 6660,
+      "ranking_complaints_regulated_procedent": 1,
       "score": 50.0
     },
     {
@@ -2408,11 +2391,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 88,
-      "ranking_index": 1662.04,
-      "ranking_complaints": 34,
-      "ranking_clients": 10830,
-      "ranking_complaints_regulated_procedent": 18,
+      "ranking_position": 57,
+      "ranking_index": 3041.49,
+      "ranking_complaints": 55,
+      "ranking_clients": 9206,
+      "ranking_complaints_regulated_procedent": 28,
       "score": 50.0
     },
     {
@@ -2425,11 +2408,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 89,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 168,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 50.0
     },
     {
@@ -2442,11 +2425,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 114,
+      "ranking_position": 76,
       "ranking_index": null,
-      "ranking_complaints": 8,
-      "ranking_clients": 20443,
-      "ranking_complaints_regulated_procedent": 2,
+      "ranking_complaints": 16,
+      "ranking_clients": 24217,
+      "ranking_complaints_regulated_procedent": 5,
       "score": 50.0
     },
     {
@@ -2459,11 +2442,11 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 116,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 2702,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 50.0
     },
     {
@@ -2476,11 +2459,28 @@
       "branch_count": 0,
       "ufs": [],
       "cities_sample": [],
-      "ranking_position": 119,
+      "ranking_position": null,
       "ranking_index": null,
-      "ranking_complaints": 1,
-      "ranking_clients": 704,
-      "ranking_complaints_regulated_procedent": 0,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
+      "score": 50.0
+    },
+    {
+      "institution_id": null,
+      "cnpj": "03762583",
+      "cnpj_root": "03762583",
+      "institution_name": "ÁPICE ADMINISTRADORA DE CONSORCIO LTDA",
+      "normalized_name": "apice_administradora_de_consorcio_ltda",
+      "status": null,
+      "branch_count": 0,
+      "ufs": [],
+      "cities_sample": [],
+      "ranking_position": null,
+      "ranking_index": null,
+      "ranking_complaints": null,
+      "ranking_clients": null,
+      "ranking_complaints_regulated_procedent": null,
       "score": 50.0
     }
   ]

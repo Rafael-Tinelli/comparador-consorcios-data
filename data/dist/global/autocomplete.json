@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-08-07T09:35:21+00:00",
+    "generated_at": "2026-08-07T10:30:13+00:00",
     "count": 150
   },
   "items": [
@@ -30,6 +30,12 @@
     },
     {
       "type": "instituicao",
+      "label": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "68318773"
+    },
+    {
+      "type": "instituicao",
       "label": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "47820097"
@@ -48,27 +54,21 @@
     },
     {
       "type": "instituicao",
-      "label": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "45441789"
-    },
-    {
-      "type": "instituicao",
       "label": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "91341925"
     },
     {
       "type": "instituicao",
-      "label": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
+      "label": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "06044551"
+      "cnpj_root": "45441789"
     },
     {
       "type": "instituicao",
-      "label": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
+      "label": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "68318773"
+      "cnpj_root": "06044551"
     },
     {
       "type": "instituicao",
@@ -84,21 +84,9 @@
     },
     {
       "type": "instituicao",
-      "label": "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "59999300"
-    },
-    {
-      "type": "instituicao",
       "label": "ADMINISTRADORA DE CONSÓRCIO RCI BRASIL LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "73230674"
-    },
-    {
-      "type": "instituicao",
-      "label": "ADMINISTRADORA DE CONSÓRCIO UNICOOB LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "12228808"
     },
     {
       "type": "instituicao",
@@ -108,9 +96,9 @@
     },
     {
       "type": "instituicao",
-      "label": "ADMINISTRADORA DE CONSÓRCIOS BECKER LTDA.",
+      "label": "ADMINISTRADORA DE CONSÓRCIO UNICOOB LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "03828278"
+      "cnpj_root": "12228808"
     },
     {
       "type": "instituicao",
@@ -120,27 +108,27 @@
     },
     {
       "type": "instituicao",
-      "label": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "03832228"
-    },
-    {
-      "type": "instituicao",
-      "label": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "13548938"
-    },
-    {
-      "type": "instituicao",
-      "label": "ASSOCIACAO DOS JUIZES DO RIO GRANDE DO SUL",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "92965748"
-    },
-    {
-      "type": "instituicao",
       "label": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "14723388"
+    },
+    {
+      "type": "instituicao",
+      "label": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "71045363"
+    },
+    {
+      "type": "instituicao",
+      "label": "BANRISUL S.A. - ADMINISTRADORA DE CONSÓRCIOS",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "92692979"
+    },
+    {
+      "type": "instituicao",
+      "label": "BBC ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "36770683"
     },
     {
       "type": "instituicao",
@@ -159,6 +147,12 @@
       "label": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "76515071"
+    },
+    {
+      "type": "instituicao",
+      "label": "BB ADMINISTRADORA DE CONSORCIOS S.A.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "06043050"
     },
     {
       "type": "instituicao",
@@ -186,15 +180,21 @@
     },
     {
       "type": "instituicao",
-      "label": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "label": "BP ADMINISTRADORA DE CONSÓRCIO LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "71045363"
+      "cnpj_root": "06181431"
     },
     {
       "type": "instituicao",
-      "label": "ÁPICE ADMINISTRADORA DE CONSORCIO LTDA",
+      "label": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "03762583"
+      "cnpj_root": "52568821"
+    },
+    {
+      "type": "instituicao",
+      "label": "BRQUALY ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "45713971"
     },
     {
       "type": "instituicao",
@@ -264,27 +264,27 @@
     },
     {
       "type": "instituicao",
-      "label": "BANRISUL S.A. - ADMINISTRADORA DE CONSÓRCIOS",
+      "label": "CICAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "92692979"
+      "cnpj_root": "00266031"
     },
     {
       "type": "instituicao",
-      "label": "BBC ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "label": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
       "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "36770683"
+      "cnpj_root": "03832228"
     },
     {
       "type": "instituicao",
-      "label": "BB ADMINISTRADORA DE CONSORCIOS S.A.",
+      "label": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
       "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "06043050"
+      "cnpj_root": "13548938"
     },
     {
       "type": "instituicao",
-      "label": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "label": "ASSOCIACAO DOS JUIZES DO RIO GRANDE DO SUL",
       "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "52568821"
+      "cnpj_root": "92965748"
     },
     {
       "type": "instituicao",
@@ -300,12 +300,6 @@
     },
     {
       "type": "instituicao",
-      "label": "BRQUALY ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "45713971"
-    },
-    {
-      "type": "instituicao",
       "label": "CAMVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "72461643"
@@ -315,12 +309,6 @@
       "label": "CARLESSI ADMINISTRADORA DE CONSORCIOS LTDA",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "95783262"
-    },
-    {
-      "type": "instituicao",
-      "label": "CICAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
-      "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "00266031"
     },
     {
       "type": "instituicao",
@@ -618,9 +606,15 @@
     },
     {
       "type": "instituicao",
-      "label": "BP ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "label": "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA.",
       "target": "/financas/consorcio/ranking-administradoras.php",
-      "cnpj_root": "06181431"
+      "cnpj_root": "59999300"
+    },
+    {
+      "type": "instituicao",
+      "label": "ADMINISTRADORA DE CONSÓRCIOS BECKER LTDA.",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "03828278"
     },
     {
       "type": "instituicao",
@@ -789,6 +783,12 @@
       "label": "VANGUARDA ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "57236840"
+    },
+    {
+      "type": "instituicao",
+      "label": "ÁPICE ADMINISTRADORA DE CONSORCIO LTDA",
+      "target": "/financas/consorcio/ranking-administradoras.php",
+      "cnpj_root": "03762583"
     },
     {
       "type": "produto",
