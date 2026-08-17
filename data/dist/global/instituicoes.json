@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "generated_at": "2026-08-16T13:04:09+00:00",
-    "count": 131
+    "generated_at": "2026-08-17T09:06:16+00:00",
+    "count": 130
   },
   "items": [
     {
@@ -1688,25 +1688,6 @@
       "ranking_complaints": 92,
       "ranking_clients": 500186,
       "ranking_complaints_regulated_procedent": 35,
-      "score": 51.2
-    },
-    {
-      "institution_id": null,
-      "cnpj": "87945218",
-      "cnpj_root": "87945218",
-      "institution_name": "SIMPALA LANÇADORA E ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "normalized_name": "simpala_lancadora_e_administradora_de_consorcios_ltda",
-      "status": null,
-      "branch_count": 1,
-      "ufs": [
-        "RS"
-      ],
-      "cities_sample": [],
-      "ranking_position": 70,
-      "ranking_index": 2076.17,
-      "ranking_complaints": 42,
-      "ranking_clients": 13968,
-      "ranking_complaints_regulated_procedent": 29,
       "score": 51.2
     },
     {

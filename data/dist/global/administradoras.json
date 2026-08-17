@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "generated_at": "2026-08-16T13:04:10+00:00",
-    "count": 131,
+    "generated_at": "2026-08-17T09:06:17+00:00",
+    "count": 130,
     "contract": "administradoras.v1",
     "source": "BCB Cadastro + ConsorcioBD + Ranking de Reclamações"
   },
@@ -3210,73 +3210,6 @@
         "ranking_clients": 11910,
         "ranking_complaints_regulated_procedent": 1,
         "score": 54.2
-      }
-    },
-    {
-      "id": "87945218",
-      "cnpj_root": "87945218",
-      "nome": "SIMPALA LANÇADORA E ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "nome_normalizado": "simpala_lancadora_e_administradora_de_consorcios_ltda",
-      "status": null,
-      "ufs": [
-        "RS"
-      ],
-      "segmentos_ativos": [
-        "imobiliario",
-        "veiculos"
-      ],
-      "presenca_score": 0.0,
-      "escala": {
-        "grupos_ativos": 45,
-        "cotas_ativas": 10282
-      },
-      "operacao": {
-        "contemplacoes_mes": 86,
-        "inadimplentes": 3876,
-        "inadimplencia_ratio": 0.376969
-      },
-      "reputacao": {
-        "bc_index": 2076.17,
-        "reclamacoes": 42,
-        "clientes": 13968,
-        "ranking_position": 70,
-        "periodo": {
-          "ano": 2026,
-          "semestre": "1º"
-        }
-      },
-      "benchmarks": {
-        "taxa_adm_aprox_pct": 25.1101,
-        "prazo_medio_meses": 180.0,
-        "credito_medio": 166179.34,
-        "observacao": "Benchmarks derivados de dados agregados; não equivalem a oferta comercial individual."
-      },
-      "scores": {
-        "geral": 50.75,
-        "escala": 44.19,
-        "operacao": 56.5,
-        "reputacao": 77.91,
-        "presenca": 0.0
-      },
-      "data_quality_flags": [],
-      "legacy": {
-        "institution_id": null,
-        "cnpj": "87945218",
-        "cnpj_root": "87945218",
-        "institution_name": "SIMPALA LANÇADORA E ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-        "normalized_name": "simpala_lancadora_e_administradora_de_consorcios_ltda",
-        "status": null,
-        "branch_count": 1,
-        "ufs": [
-          "RS"
-        ],
-        "cities_sample": [],
-        "ranking_position": 70,
-        "ranking_index": 2076.17,
-        "ranking_complaints": 42,
-        "ranking_clients": 13968,
-        "ranking_complaints_regulated_procedent": 29,
-        "score": 51.2
       }
     },
     {
