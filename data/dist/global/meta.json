@@ -1,13 +1,13 @@
 {
-  "build_timestamp": "2026-08-19T10:46:33+00:00",
+  "build_timestamp": "2026-08-19T13:18:43+00:00",
   "pipeline_version": "3.0.0",
   "project": {
     "name": "comparador-consorcios-data",
-    "generated_at": "2026-08-19T10:46:33+00:00",
-    "git_sha": "105f70a5ab7a2b99d9f59b377de5ba18a10a089f",
+    "generated_at": "2026-08-19T13:18:43+00:00",
+    "git_sha": "06eb4c3f74c5b17d35a199e9e34911452b5c8048",
     "git_ref": "refs/heads/main",
     "github_repository": "Rafael-Tinelli/comparador-consorcios-data",
-    "run_id": "32244295164",
+    "run_id": "32256847186",
     "run_attempt": "1"
   },
   "contracts": {
@@ -38,32 +38,32 @@
     "global": [
       {
         "file": "instituicoes.json",
-        "sha256": "6f351b1549689508e2dbc078a58937fc6d2be85651c1d28200a64a5f700472f0",
+        "sha256": "5ed75ee80c0c0feb2e6afd63f6c96f3449772e78aca8bfcfa9afcc7822e3c3ac",
         "size_bytes": 72114
       },
       {
         "file": "administradoras.json",
-        "sha256": "3cf39c9ca6e3e75b01ed55319183521da1988d54074a24f160337c5cebc36a8b",
+        "sha256": "1a4d08dab82bc421b7d7efc33a1a58f5cbbed8382eaee905b2c68301d7c2b308",
         "size_bytes": 250052
       },
       {
         "file": "segmentos.json",
-        "sha256": "007139a07efe61ecec95305afabb1c4e05a9ab9b00a88c3e1f392e35be1c6378",
+        "sha256": "14a21c20ca8caa7a98533ce5e3fd381e79166d4d17fd783bb8826ccf9df89303",
         "size_bytes": 4474
       },
       {
         "file": "ofertas.json",
-        "sha256": "5d80e4d11524b5e4aa6476280169a9d937fcfa065e92a1404b77c3a72e9cae14",
+        "sha256": "cde3e7b65474a00cf3524d226d4fb2c57cd4ca878f6780851e0dc733c4c1db57",
         "size_bytes": 261
       },
       {
         "file": "produtos.json",
-        "sha256": "99cb3513cbd7652300153dcf2df73f5bcd5f33b961a8bd80549cb74070008ec7",
+        "sha256": "39ffcaccff05d34ef1b012d6a88371b657469a6ea4f170b03e33cdafb07d71b0",
         "size_bytes": 442630
       },
       {
         "file": "rankings.json",
-        "sha256": "55469f57af696f870c1f0564ca612d6f415bbd1a58f587790600d01d05553b90",
+        "sha256": "c3fce895f60c78df5d702ae8583b7a73219993dae3437abc9c68cf343ed918bc",
         "size_bytes": 84904
       },
       {
@@ -73,72 +73,72 @@
       },
       {
         "file": "cenarios.json",
-        "sha256": "3fd95a617dbddfc2d6323c753edc758a22d96155d5b069cf2034f91a651ecbe7",
+        "sha256": "0943c0a34b5ac453e9069dcd510cacdeafc62f5531fd95b1f7de51889953bd55",
         "size_bytes": 2338
       },
       {
         "file": "autocomplete.json",
-        "sha256": "8f88602d552d64e7d91ee20475cbbb2a73f0001870d334c05f74ce2808f5e0ec",
+        "sha256": "5804f85c6019305756cce16fa68b9701083d3c42797f3d293a437ff187ef8eef",
         "size_bytes": 29587
       }
     ],
     "seo": [
       {
         "file": "home-consorcio.json",
-        "sha256": "bc02d871eb50b5c937594fca8905fe1cf9612140a2311c9823a3d05961b5f551",
+        "sha256": "35b0d965ef15545f1770bb8457a70722ae50539541eb197d5447fdeae4052816",
         "size_bytes": 20115
       },
       {
         "file": "carro.json",
-        "sha256": "0063fd6f85f29152a502c807a9d3a1755335c2c1dc3e859deff3457732d04b7f",
+        "sha256": "88bbf4499204504ea864faca84b55ce4b06f7d174604f05fa5463b0e76dde073",
         "size_bytes": 77507
       },
       {
         "file": "moto.json",
-        "sha256": "9d61f8eeec1bd0e049619a4f2c00b8c5ef2d7f92b927b13cf930e250c337501c",
+        "sha256": "40624b8d6998a297d683e1cefc46160485e13285a09c0a8d0e3b98b3b26e8667",
         "size_bytes": 76299
       },
       {
         "file": "imobiliario.json",
-        "sha256": "f0b29f2f802540de62554b9ad78ed487ab993b1322ffa0896a8825b5ee4a7288",
+        "sha256": "b4e219428863b1e9a64a45565f500f698ea6750a22a10cd1f3b46977b8a7230e",
         "size_bytes": 105824
       },
       {
         "file": "carta-contemplada.json",
-        "sha256": "12a203a7c49716ff3cc6d50261b34781d8cbcf14a053e5192d5c6f7e172b1681",
+        "sha256": "b5d9302947ef8a3876639053061206ec20182a119b9783dae6820915da2158a3",
         "size_bytes": 20123
       },
       {
         "file": "melhor-consorcio.json",
-        "sha256": "5a585c99441e60c89620c5de52247adb2940b5467e753f8243e3f2b7c6b84d1a",
+        "sha256": "9ee7867660e6213992e75df84e171d2b49be26aafa44fb02bc99089f12cfcc6b",
         "size_bytes": 20123
       },
       {
         "file": "consorcio-ou-financiamento.json",
-        "sha256": "09b1a388c53fcc6570c448270617c31d79c05c28c2dd3be91f88231c1a857226",
+        "sha256": "318290f7c47244011584364a01fa39718707e501f3d044e62f8521a5f95e2a26",
         "size_bytes": 20173
       },
       {
         "file": "ranking-administradoras.json",
-        "sha256": "9720c4b87d5d38b17646a6b3ae3f46eba116ec8cc947799d3be183395818f880",
+        "sha256": "add71a40c6e0ff6295862e885270be660218cb54d5383ffaaaa45828135cf7ff",
         "size_bytes": 20176
       },
       {
         "file": "menor-taxa.json",
-        "sha256": "ac4f78b01783a1c3aefc7a1aa4b6540bce783d1ba3d963580830a33edebe21c4",
+        "sha256": "ffa71fb5d8354d676062b44d729fd8686263b50d7a800d222f4d2f6806113ab8",
         "size_bytes": 20121
       }
     ]
   },
   "hashes": {
-    "instituicoes": "6f351b1549689508e2dbc078a58937fc6d2be85651c1d28200a64a5f700472f0",
-    "administradoras": "3cf39c9ca6e3e75b01ed55319183521da1988d54074a24f160337c5cebc36a8b",
-    "segmentos": "007139a07efe61ecec95305afabb1c4e05a9ab9b00a88c3e1f392e35be1c6378",
-    "ofertas": "5d80e4d11524b5e4aa6476280169a9d937fcfa065e92a1404b77c3a72e9cae14",
-    "produtos": "99cb3513cbd7652300153dcf2df73f5bcd5f33b961a8bd80549cb74070008ec7",
-    "rankings": "55469f57af696f870c1f0564ca612d6f415bbd1a58f587790600d01d05553b90",
+    "instituicoes": "5ed75ee80c0c0feb2e6afd63f6c96f3449772e78aca8bfcfa9afcc7822e3c3ac",
+    "administradoras": "1a4d08dab82bc421b7d7efc33a1a58f5cbbed8382eaee905b2c68301d7c2b308",
+    "segmentos": "14a21c20ca8caa7a98533ce5e3fd381e79166d4d17fd783bb8826ccf9df89303",
+    "ofertas": "cde3e7b65474a00cf3524d226d4fb2c57cd4ca878f6780851e0dc733c4c1db57",
+    "produtos": "39ffcaccff05d34ef1b012d6a88371b657469a6ea4f170b03e33cdafb07d71b0",
+    "rankings": "c3fce895f60c78df5d702ae8583b7a73219993dae3437abc9c68cf343ed918bc",
     "series": "bf92ba24b472a19b76cb75e9d6d452dec887661a93c5441c65ec9ee165c3aa84",
-    "cenarios": "3fd95a617dbddfc2d6323c753edc758a22d96155d5b069cf2034f91a651ecbe7",
-    "autocomplete": "8f88602d552d64e7d91ee20475cbbb2a73f0001870d334c05f74ce2808f5e0ec"
+    "cenarios": "0943c0a34b5ac453e9069dcd510cacdeafc62f5531fd95b1f7de51889953bd55",
+    "autocomplete": "5804f85c6019305756cce16fa68b9701083d3c42797f3d293a437ff187ef8eef"
   }
 }
