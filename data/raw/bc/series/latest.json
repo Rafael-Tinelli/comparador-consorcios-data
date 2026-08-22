@@ -2,12 +2,12 @@
   "metadata": {
     "source": "bc_sgs_series",
     "collector": "collectors/bc_sgs_series.py",
-    "collected_at": "2026-08-21T09:10:01+00:00",
+    "collected_at": "2026-08-22T08:59:41+00:00",
     "mode_used": "sgs-json-range",
     "series_map_file": "config/series_map.json",
     "series_count": 6,
     "point_count_total": 120,
-    "content_hash": "86b396d66376d1b4d9fcad38d3be64b56d3d12878a511f46cf937c1705f64a16"
+    "content_hash": "45ee4b783d513e6404d87bcfb2e5bf15eba5945fe99799ed29e197bc0eef61f2"
   },
   "request_log": [
     {
@@ -224,16 +224,10 @@
       "collection_strategy": "latest_n",
       "requested_points": 20,
       "points": 20,
-      "first_date": "23/07/2026",
-      "latest_date": "19/08/2026",
+      "first_date": "24/07/2026",
+      "latest_date": "20/08/2026",
       "latest_value": 0.05166,
       "values": [
-        {
-          "date": "23/07/2026",
-          "data": "23/07/2026",
-          "value": 0.052531,
-          "raw_value": "0.052531"
-        },
         {
           "date": "24/07/2026",
           "data": "24/07/2026",
@@ -345,6 +339,12 @@
         {
           "date": "19/08/2026",
           "data": "19/08/2026",
+          "value": 0.05166,
+          "raw_value": "0.051660"
+        },
+        {
+          "date": "20/08/2026",
+          "data": "20/08/2026",
           "value": 0.05166,
           "raw_value": "0.051660"
         }
