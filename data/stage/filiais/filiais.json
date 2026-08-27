@@ -2,11 +2,11 @@
   "metadata": {
     "source": "bc_filiais",
     "collector": "collectors/bc_filiais.py",
-    "collected_at": "2026-08-26T13:26:08+00:00",
+    "collected_at": "2026-08-27T22:24:49+00:00",
     "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais",
     "mode_used": "odata-csv",
     "record_count": 307,
-    "raw_hash": "22d42db156aff3bbb7b75d9db0ca86735e5a7b65960da19c1f953c6448bc67dc",
+    "raw_hash": "90d84fc6c57abf84b2c82aa4c2f4f6da10a3f663097532f3f8c519164cad8be0",
     "fetch_meta": {
       "mode": "odata-csv",
       "url": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais?%24format=text%2Fcsv",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "source_record_index": 1,
+      "source_record_index": 7,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -653,7 +653,7 @@
       ]
     },
     {
-      "source_record_index": 7,
+      "source_record_index": 13,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -912,7 +912,7 @@
       ]
     },
     {
-      "source_record_index": 5,
+      "source_record_index": 11,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -1282,7 +1282,7 @@
       ]
     },
     {
-      "source_record_index": 23,
+      "source_record_index": 3,
       "institution_id": null,
       "institution_name": "FERRAZ ADMINISTRADORA DE CONSORCIOS LTDA",
       "institution_name_key": "FERRAZ ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1319,7 +1319,7 @@
       ]
     },
     {
-      "source_record_index": 24,
+      "source_record_index": 4,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -1356,7 +1356,7 @@
       ]
     },
     {
-      "source_record_index": 26,
+      "source_record_index": 6,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -1578,7 +1578,7 @@
       ]
     },
     {
-      "source_record_index": 18,
+      "source_record_index": 24,
       "institution_id": null,
       "institution_name": "SOLUÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "SOLUCAO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -1689,7 +1689,7 @@
       ]
     },
     {
-      "source_record_index": 10,
+      "source_record_index": 16,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -2281,7 +2281,7 @@
       ]
     },
     {
-      "source_record_index": 14,
+      "source_record_index": 20,
       "institution_id": null,
       "institution_name": "IRMÃOS DE MARCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "IRMAOS DE MARCO ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3095,7 +3095,7 @@
       ]
     },
     {
-      "source_record_index": 3,
+      "source_record_index": 9,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -3391,7 +3391,7 @@
       ]
     },
     {
-      "source_record_index": 20,
+      "source_record_index": 26,
       "institution_id": null,
       "institution_name": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "FRANCAUTO ADMINISTRADORA DE CONSORCIO LTDA",
@@ -3650,7 +3650,7 @@
       ]
     },
     {
-      "source_record_index": 22,
+      "source_record_index": 2,
       "institution_id": null,
       "institution_name": "CICAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "CICAL ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -3687,7 +3687,7 @@
       ]
     },
     {
-      "source_record_index": 25,
+      "source_record_index": 5,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -4353,7 +4353,7 @@
       ]
     },
     {
-      "source_record_index": 19,
+      "source_record_index": 25,
       "institution_id": null,
       "institution_name": "MAGGI ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "MAGGI ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -4538,7 +4538,7 @@
       ]
     },
     {
-      "source_record_index": 6,
+      "source_record_index": 12,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -4649,7 +4649,7 @@
       ]
     },
     {
-      "source_record_index": 13,
+      "source_record_index": 19,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -4982,7 +4982,7 @@
       ]
     },
     {
-      "source_record_index": 16,
+      "source_record_index": 22,
       "institution_id": null,
       "institution_name": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
       "institution_name_key": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
@@ -5315,7 +5315,7 @@
       ]
     },
     {
-      "source_record_index": 8,
+      "source_record_index": 14,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -5389,7 +5389,7 @@
       ]
     },
     {
-      "source_record_index": 11,
+      "source_record_index": 17,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -6684,7 +6684,7 @@
       ]
     },
     {
-      "source_record_index": 4,
+      "source_record_index": 10,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -7572,7 +7572,7 @@
       ]
     },
     {
-      "source_record_index": 12,
+      "source_record_index": 18,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -9015,7 +9015,7 @@
       ]
     },
     {
-      "source_record_index": 17,
+      "source_record_index": 23,
       "institution_id": null,
       "institution_name": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "APEC ADMINISTRADORA DE CONSORCIOS S A",
@@ -9052,7 +9052,7 @@
       ]
     },
     {
-      "source_record_index": 21,
+      "source_record_index": 1,
       "institution_id": null,
       "institution_name": "ITAÚ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "institution_name_key": "ITAU ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -10717,7 +10717,7 @@
       ]
     },
     {
-      "source_record_index": 15,
+      "source_record_index": 21,
       "institution_id": null,
       "institution_name": "H. ADMINISTRADORA DE CONSÓRCIOS LTDA",
       "institution_name_key": "H ADMINISTRADORA DE CONSORCIOS LTDA",
@@ -10865,7 +10865,7 @@
       ]
     },
     {
-      "source_record_index": 9,
+      "source_record_index": 15,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
@@ -11198,7 +11198,7 @@
       ]
     },
     {
-      "source_record_index": 2,
+      "source_record_index": 8,
       "institution_id": null,
       "institution_name": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
       "institution_name_key": "BANCORBRAS ADMINISTRADORA DE CONSORCIOS S A",
