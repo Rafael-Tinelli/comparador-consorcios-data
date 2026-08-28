@@ -554,7 +554,7 @@
       "key": "cdi",
       "label": "CDI",
       "value": 0.05166,
-      "date": "26/08/2026",
+      "date": "27/08/2026",
       "unit": "% a.d.",
       "frequency": "daily"
     },
@@ -569,16 +569,16 @@
     {
       "key": "taxa_media_credito_livre_pf",
       "label": "Taxa média de crédito livre PF",
-      "value": 63.95,
-      "date": "01/06/2026",
+      "value": 60.04,
+      "date": "01/07/2026",
       "unit": "% a.a.",
       "frequency": "monthly"
     },
     {
       "key": "taxa_media_financiamento_veiculos_pf",
       "label": "Taxa média de financiamento de veículos PF",
-      "value": 26.44,
-      "date": "01/06/2026",
+      "value": 26.52,
+      "date": "01/07/2026",
       "unit": "% a.a.",
       "frequency": "monthly"
     },
@@ -586,7 +586,7 @@
       "key": "taxa_media_credito_imobiliario_pf",
       "label": "Taxa média de crédito imobiliário PF",
       "value": 1.12,
-      "date": "01/06/2026",
+      "date": "01/07/2026",
       "unit": "% a.a.",
       "frequency": "monthly"
     }
@@ -595,9 +595,9 @@
     {
       "key": "consorcio_ou_financiamento_veiculos",
       "headline": "Veículos: comparar consórcio com financiamento segue essencial",
-      "description": "Taxa média observada no financiamento de veículos PF: 26.44. Meta Selic: 14.00. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
+      "description": "Taxa média observada no financiamento de veículos PF: 26.52. Meta Selic: 14.00. Em ambiente de crédito pressionado, o comparativo precisa olhar custo total e prazo de contemplação.",
       "evidence": {
-        "taxa_financiamento_veiculos_pf": 26.44,
+        "taxa_financiamento_veiculos_pf": 26.52,
         "selic_meta": 14.0
       }
     },
@@ -612,9 +612,9 @@
     {
       "key": "credito_livre_contexto",
       "headline": "Crédito livre PF segue como baliza macro para decisão",
-      "description": "A taxa média de crédito livre PF observada foi 63.95. O usuário tende a comparar consórcio com alternativas de crédito mesmo quando a busca começa por produto.",
+      "description": "A taxa média de crédito livre PF observada foi 60.04. O usuário tende a comparar consórcio com alternativas de crédito mesmo quando a busca começa por produto.",
       "evidence": {
-        "taxa_credito_livre_pf": 63.95
+        "taxa_credito_livre_pf": 60.04
       }
     },
     {
@@ -640,5 +640,5 @@
       }
     }
   ],
-  "meta_hash": "dcabd2f949132c3be5356ad3cc4207fc0d43dc76a8a5a8a017cb61d5fb0991f7"
+  "meta_hash": "f6438469d4852b39abc798dab90e578956cda6d09cb0942db2ff6edfc9ad5d75"
 }
