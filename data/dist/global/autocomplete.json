@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-08-27T22:25:24+00:00",
+    "generated_at": "2026-08-28T20:17:06+00:00",
     "count": 149
   },
   "items": [
@@ -636,7 +636,7 @@
     },
     {
       "type": "instituicao",
-      "label": "COOPERATIVA MISTA ROMA - PROIBIDA DE CONSTITUIR NOVOS GRUPOS DE CONSÓRCIO ATÉ 21.4.2029",
+      "label": "COOPERATIVA ADMINISTRADORA DE CONSÓRCIOS ROMA - PROIBIDA DE CONSTITUIR NOVOS GRUPOS DE CONSÓRCIO ATÉ 21.4.2029",
       "target": "/financas/consorcio/ranking-administradoras.php",
       "cnpj_root": "61550836"
     },
