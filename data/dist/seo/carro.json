@@ -2222,7 +2222,7 @@
       "key": "cdi",
       "label": "CDI",
       "value": 0.05166,
-      "date": "01/09/2026",
+      "date": "02/09/2026",
       "unit": "% a.d.",
       "frequency": "daily"
     },
@@ -2308,5 +2308,5 @@
       }
     }
   ],
-  "meta_hash": "147b76af7c0f52dbdfe0055cbb8c89319385b0bc04489862363d6bbd74528494"
+  "meta_hash": "cf1e9b3eea49aa21a66248c2a3b6e643db1d9b4782f33d8702ef3ff12294bba8"
 }
