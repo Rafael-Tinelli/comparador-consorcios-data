@@ -3028,8 +3028,8 @@
     {
       "key": "ipca",
       "label": "IPCA",
-      "value": 0.07,
-      "date": "01/07/2026",
+      "value": -0.32,
+      "date": "01/08/2026",
       "unit": "% a.m.",
       "frequency": "monthly"
     },
@@ -3107,5 +3107,5 @@
       }
     }
   ],
-  "meta_hash": "ff4b558ac0f6632053096c0a777cf9748e8007ad72e027c5b8137599e542ec9c"
+  "meta_hash": "d52b8a6fbdad09817ea79994685b482e732893117f987245507cf43abadf661f"
 }
