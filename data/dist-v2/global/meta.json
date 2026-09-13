@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-13T19:22:39+00:00",
-  "pipeline_version": "4.1.0",
-  "source_fingerprint": "72456642883fa6cc56f9169d2572394e899ad3cec2d86816f7e22e63f8681780",
-  "methodology_version": "2.0.0",
-  "methodology_sha256": "e49ce5d21cd9622b1520689cacf0ccbdf3144edfc5c50dd214b70856981cd2ee",
+  "generated_at": "2026-09-13T23:47:36+00:00",
+  "pipeline_version": "4.2.0",
+  "source_fingerprint": "285b142bc6747714c1fa5d5304d523a8d7751e937067baa25697ea623ddaaafd",
+  "methodology_version": "2.1.0",
+  "methodology_sha256": "ca5221e37b2fbecbcea9a2c591dbf8950a03763e280208181835559aed16dcb9",
   "contracts": {
     "instituicoes": "instituicoes.v2",
     "administradoras": "administradoras.v2",
@@ -13,12 +13,29 @@
     "comparacoes": "comparacoes.v2",
     "ofertas": "ofertas.v2"
   },
+  "embedded_contracts": {
+    "interpretacao_relativa": "interpretacao-relativa.v1"
+  },
   "methodology": {
     "purpose": "triagem e comparação de administradoras por sinais públicos verificáveis",
     "general_score": false,
     "missingness_policy": "ausência não recebe zero, nota neutra nem redistribuição de peso",
     "presence_role": "informativo",
-    "commercial_offers_affect_assessment": false
+    "commercial_offers_affect_assessment": false,
+    "relative_interpretation": {
+      "enabled": true,
+      "contract": "interpretacao-relativa.v1",
+      "general_ranking": false,
+      "comparison_unit": "mesmo_segmento_e_mesma_competencia",
+      "complaints_scope": "administradoras_do_cadastro_atual_com_indice_bcb_divulgado",
+      "quartile_method": "interpolacao_linear_sobre_posicao_p_vezes_n_menos_1",
+      "contemplation_policy": {
+        "absolute_count_is_allowed": true,
+        "infer_individual_probability": false,
+        "infer_time_to_contemplation": false,
+        "claim_fastest_administrator": false
+      }
+    }
   },
   "release_scope": {
     "kind": "data_only",
@@ -56,37 +73,37 @@
     "global": [
       {
         "file": "instituicoes.json",
-        "sha256": "08153dc6aef4441c65c0366eb8dddb8001072de3239e6d5d248c7fba0346eecc",
+        "sha256": "5b8cec6fffe410f68def06fe81445f4a3a6af96fd84bd6a7013044a77367f05c",
         "size_bytes": 49478
       },
       {
         "file": "administradoras.json",
-        "sha256": "9711830d5ab73e45af068f7bed91da1cd3654a8e5f6225fe1126ed45ee6a31d6",
-        "size_bytes": 626060
+        "sha256": "52ea27253b53102bca6a505ef458c8b5309939a38e171abfb464039df19fe403",
+        "size_bytes": 2414647
       },
       {
         "file": "produtos.json",
-        "sha256": "7e4380970af7cccd759f062d25a39dcd8de16b2457171b747a95e161104c0d6f",
+        "sha256": "a2976a800a898c6cdbe0039e186e19c99ba98491936e567b4e4cf1ceed8fa446",
         "size_bytes": 311294
       },
       {
         "file": "rankings.json",
-        "sha256": "698e17024797da2f0070c34cc4e8df8ef5b04c099c9e4ff1bb6e953eac7bc333",
+        "sha256": "a7197802636d32dc57cbe2ddd7545660bcd6430906f8f10228f3da1ac5f36350",
         "size_bytes": 44140
       },
       {
         "file": "segmentos.json",
-        "sha256": "d6f608cf2791807a0e9a45e44aa7d23d2104a7c131f56b209f212eae68a1d32e",
-        "size_bytes": 2900
+        "sha256": "a2ff23ed9c51c3506ad63b0407231adaa281c56249d9dc3d6dec459736e69b69",
+        "size_bytes": 17711
       },
       {
         "file": "comparacoes.json",
-        "sha256": "fa125d41fd5df8ea8439039473e04abd5f3b6a585a40db1bd785789df879b20c",
-        "size_bytes": 161461
+        "sha256": "22d126c82bbc61ebddea8b54ae3c60eb518610ecae4febbcf13fd2fd73c005c4",
+        "size_bytes": 1886840
       },
       {
         "file": "ofertas.json",
-        "sha256": "bd047284871ba3ad6a88f6e419e3b607075e0b6272603103a2cdc726221154bc",
+        "sha256": "f7a591f6f8bc63c7be7287b3833ed81ad3e4f6bcc4e21a171b7ff5fec35311ca",
         "size_bytes": 246
       }
     ],
@@ -95,7 +112,8 @@
   "notes": [
     "meta.json não contém auto-hash.",
     "Todos os demais JSONs consumíveis produzidos por este builder constam no manifesto com SHA-256 dos bytes serializados.",
-    "A release V2 é data-only: SEO editorial, rotas públicas, canonical, titles, descriptions, breadcrumbs e FAQ pertencem ao frontend/site."
+    "A release V2 é data-only: SEO editorial, rotas públicas, canonical, titles, descriptions, breadcrumbs e FAQ pertencem ao frontend/site.",
+    "A interpretação relativa é um subcontrato de dados embutido em administradoras/segmentos/comparacoes; não é score geral, SEO nem oferta."
   ],
   "source_status": {
     "bc_cadastro_admins": {
@@ -182,6 +200,6 @@
     "contract": "comparador-v2-release.v2",
     "publication_eligible": true,
     "publication_note": "Release V2 data-only. Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build. SEO editorial pertence ao frontend/site.",
-    "release_fingerprint": "9cd474256d02174d0033fb2e1398499c3d26fa9dc130db4ed584339b54f41cb8"
+    "release_fingerprint": "ac0a624c5bb4f0ba00e3b499540e499a86fd47a079707056c6c5e09ca78c15f3"
   }
 }
