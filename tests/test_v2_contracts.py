@@ -36,3 +36,30 @@ def test_delinquency_share_not_old_ratio():
     inad = 25
     assert inad / (n + inad) == 0.2
     assert inad / n == 0.25
+
+
+def test_zero_filled_segment_is_not_observed_portfolio():
+    row = {
+        "taxa_administracao_pct": 0.0,
+        "grupos_ativos": 0,
+        "cotas_ativas_em_dia": 0,
+        "contemplacoes_mes": 0,
+        "inadimplentes": 0,
+    }
+    assert v2.has_operational_signal(row) is False
+
+
+def test_any_positive_operational_signal_makes_segment_observed():
+    row = {
+        "taxa_administracao_pct": 0.0,
+        "grupos_ativos": 0,
+        "cotas_ativas_em_dia": 1,
+        "contemplacoes_mes": 0,
+        "inadimplentes": 0,
+    }
+    assert v2.has_operational_signal(row) is True
+
+
+def test_sum_complete_preserves_zero_but_rejects_partial_missingness():
+    assert v2.sum_complete([{"x": 0}, {"x": 2}], "x") == 2
+    assert v2.sum_complete([{"x": None}, {"x": 2}], "x") is None
