@@ -86,13 +86,18 @@ function t_sync_manifest_entry(string $release, string $relative): void
     $family = dirname($relative);
     $file = basename($relative);
     t_rewrite_meta($release, function (array &$meta) use ($family, $file, $raw): void {
-        foreach (($meta['artifacts'][$family] ?? []) as &$entry) {
+        if (!isset($meta['artifacts'][$family]) || !is_array($meta['artifacts'][$family])) {
+            throw new RuntimeException("Família de manifesto não encontrada: {$family}");
+        }
+        foreach ($meta['artifacts'][$family] as &$entry) {
             if (($entry['file'] ?? null) === $file) {
                 $entry['sha256'] = hash('sha256', $raw);
                 $entry['size_bytes'] = strlen($raw);
+                unset($entry);
                 return;
             }
         }
+        unset($entry);
         throw new RuntimeException("Entrada de manifesto não encontrada: {$family}/{$file}");
     });
 }
