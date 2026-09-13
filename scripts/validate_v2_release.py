@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from collections import Counter
 from pathlib import Path
 from typing import Any, Dict, List
@@ -172,31 +173,75 @@ def main() -> int:
 
     provenance_cfg = load(Path(args.provenance_config))
     required_sources = provenance_cfg.get("required_sources", {})
+    if not isinstance(required_sources, dict) or not required_sources:
+        errors.append("config de proveniência sem required_sources")
+        required_sources = {}
+
     source_status = meta.get("source_status")
     if not isinstance(source_status, dict):
         errors.append("meta.source_status ausente")
         source_status = {}
-    for source in required_sources:
+
+    for source, spec in required_sources.items():
         state = source_status.get(source)
         if not isinstance(state, dict):
             errors.append(f"source_status ausente: {source}")
             continue
-        for field in ("last_checked_at", "last_successful_check_at", "content_sha256", "competence"):
+        if state.get("last_check_status") not in {"success", "failure"}:
+            errors.append(f"source_status.{source}.last_check_status inválido")
+        for field in ("last_checked_at", "last_successful_check_at"):
             if not state.get(field):
                 errors.append(f"source_status.{source}.{field} ausente")
+        content_hash = state.get("content_sha256")
+        if not isinstance(content_hash, str) or re.fullmatch(r"[a-f0-9]{64}", content_hash) is None:
+            errors.append(f"source_status.{source}.content_sha256 inválido")
         competence = state.get("competence")
         if not isinstance(competence, dict) or "kind" not in competence or "value" not in competence:
             errors.append(f"source_status.{source}.competence inválida")
+            continue
+        competence_mode = str(spec.get("competence_mode") or "auto") if isinstance(spec, dict) else "auto"
+        if competence_mode == "not_applicable":
+            if competence.get("kind") != "not_applicable":
+                errors.append(f"source_status.{source}.competence deveria ser not_applicable")
+        elif competence.get("kind") in {"unknown", "not_reported", "not_applicable"} or competence.get("value") in {None, ""}:
+            errors.append(f"source_status.{source}.competence não resolvida")
+
+    monthly_state = source_status.get("bc_consorciobd")
+    if isinstance(monthly_state, dict):
+        competence = monthly_state.get("competence")
+        state_period = competence.get("value") if isinstance(competence, dict) else None
+        if state_period != source_period:
+            errors.append(f"competência ConsorcioBD diverge entre source_status ({state_period}) e meta ({source_period})")
 
     backend_release = meta.get("backend_release")
     if not isinstance(backend_release, dict) or backend_release.get("contract") != "comparador-v2-release.v1":
         errors.append("backend_release contract ausente/inválido")
-    elif backend_release.get("publication_eligible") is not True:
-        errors.append("backend_release não elegível para publicação")
+    else:
+        if backend_release.get("publication_eligible") is not True:
+            errors.append("backend_release não elegível para publicação")
+        release_fingerprint = backend_release.get("release_fingerprint")
+        if not isinstance(release_fingerprint, str) or re.fullmatch(r"[a-f0-9]{64}", release_fingerprint) is None:
+            errors.append("backend_release.release_fingerprint inválido")
 
     freshness = meta.get("freshness")
-    if not isinstance(freshness, dict) or freshness.get("all_required_states_present") is not True:
-        errors.append("freshness/all_required_states_present inválido")
+    if not isinstance(freshness, dict):
+        errors.append("freshness ausente/inválido")
+    else:
+        if freshness.get("all_required_states_present") is not True:
+            errors.append("freshness/all_required_states_present inválido")
+        if freshness.get("source_state_matches_consumed_bytes") is not True:
+            errors.append("freshness/source_state_matches_consumed_bytes inválido")
+        degraded = freshness.get("degraded_sources")
+        if not isinstance(degraded, list):
+            errors.append("freshness.degraded_sources inválido")
+        else:
+            expected_degraded = sorted(
+                source for source in required_sources
+                if isinstance(source_status.get(source), dict)
+                and source_status[source].get("last_check_status") != "success"
+            )
+            if sorted(degraded) != expected_degraded:
+                errors.append(f"freshness.degraded_sources divergente: {sorted(degraded)} != {expected_degraded}")
 
     if isinstance(meta.get("counts"), dict):
         expected_counts = {
@@ -217,6 +262,8 @@ def main() -> int:
             )
         if deploy.get("manifest") != "global/meta.json":
             errors.append("deploy manifest deve ser global/meta.json")
+        if deploy.get("release_contract") != "comparador-v2-release.v1":
+            errors.append("deploy release_contract divergente")
 
     if args.audit_baseline:
         baseline = load(Path(args.audit_baseline))
