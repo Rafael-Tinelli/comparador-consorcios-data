@@ -7,6 +7,7 @@ if (PHP_SAPI !== 'cli') {
 
 $repoRoot = dirname(__DIR__);
 require_once $repoRoot . '/hostgator/v2/consorcio-v2-lib.php';
+require_once $repoRoot . '/hostgator/v2/consorcio-v2-release-gate.php';
 $config = require $repoRoot . '/hostgator/v2/consorcio-v2-config.php';
 
 $fixture = $argv[1] ?? null;
@@ -64,29 +65,52 @@ function t_expect_failure(callable $fn, string $contains): void
     throw new RuntimeException("ASSERT: esperava falha contendo '{$contains}'.");
 }
 
+function t_rewrite_meta(string $release, callable $mutator): void
+{
+    $path = rtrim($release, '/') . '/global/meta.json';
+    $meta = v2_read_json($path);
+    $mutator($meta);
+    v2_atomic_write_json($path, $meta);
+}
+
 try {
-    $baseline = v2_validate_release($fixture, $config);
+    $baseline = v2_validate_release_backend($fixture, $config);
     t_assert(($baseline['validated_artifacts'] ?? 0) === 10, 'baseline deve validar 10 artefatos não-meta');
+    t_assert(($baseline['meta']['backend_release']['contract'] ?? null) === 'comparador-v2-release.v1', 'baseline deve carregar contrato de release V2');
 
     $missing = $tmpBase . '/missing-core';
     t_copy_tree($fixture, $missing);
     unlink($missing . '/global/administradoras.json');
-    t_expect_failure(fn() => v2_validate_release($missing, $config), 'Artefato declarado ausente');
+    t_expect_failure(fn() => v2_validate_release_backend($missing, $config), 'Artefato declarado ausente');
 
     $tampered = $tmpBase . '/tampered';
     t_copy_tree($fixture, $tampered);
     file_put_contents($tampered . '/global/administradoras.json', " \n", FILE_APPEND);
-    t_expect_failure(fn() => v2_validate_release($tampered, $config), 'Tamanho divergente');
+    t_expect_failure(fn() => v2_validate_release_backend($tampered, $config), 'Tamanho divergente');
 
     $invalid = $tmpBase . '/invalid-json';
     t_copy_tree($fixture, $invalid);
     file_put_contents($invalid . '/seo/site.json', "{broken\n");
-    t_expect_failure(fn() => v2_validate_release($invalid, $config), 'Tamanho divergente');
+    t_expect_failure(fn() => v2_validate_release_backend($invalid, $config), 'Tamanho divergente');
 
     $extra = $tmpBase . '/extra-json';
     t_copy_tree($fixture, $extra);
     file_put_contents($extra . '/seo/nao-declarado.json', "{}\n");
-    t_expect_failure(fn() => v2_validate_release($extra, $config), 'Inventário físico diverge do manifesto');
+    t_expect_failure(fn() => v2_validate_release_backend($extra, $config), 'Inventário físico diverge do manifesto');
+
+    $noReleaseContract = $tmpBase . '/no-release-contract';
+    t_copy_tree($fixture, $noReleaseContract);
+    t_rewrite_meta($noReleaseContract, function (array &$meta): void {
+        unset($meta['backend_release']);
+    });
+    t_expect_failure(fn() => v2_validate_release_backend($noReleaseContract, $config), 'backend_release');
+
+    $noSourceStatus = $tmpBase . '/no-source-status';
+    t_copy_tree($fixture, $noSourceStatus);
+    t_rewrite_meta($noSourceStatus, function (array &$meta): void {
+        unset($meta['source_status']);
+    });
+    t_expect_failure(fn() => v2_validate_release_backend($noSourceStatus, $config), 'source_status');
 
     $stateSuccess = v2_validation_payload('success', $fixture, $baseline['manifest_sha256'], $config);
     v2_record_validation($config, $stateSuccess);
@@ -115,7 +139,9 @@ try {
     echo json_encode([
         'status' => 'PASS',
         'validated_artifacts' => $baseline['validated_artifacts'],
-        'negative_cases' => 4,
+        'negative_cases' => 6,
+        'backend_release_gate' => true,
+        'source_status_gate' => true,
         'state_attempt_success_split' => true,
         'lock_concurrency' => true,
         'symlink_swap' => true,
