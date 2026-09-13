@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "purpose": "triagem e comparação de administradoras por sinais públicos verificáveis",
+  "general_score": {
+    "enabled": false,
+    "reason": "A primeira versão V2 não redistribui pesos entre evidências ausentes e não transforma porte/presença em qualidade."
+  },
+  "identity": {
+    "primary_key": "cnpj_root_8_digits",
+    "current_registry_required": true,
+    "name_fallback_for_join": false
+  },
+  "monthly_operations": {
+    "canonical_member": "Segmentos_Consolidados",
+    "key": ["cnpj_root", "competencia", "segmento_codigo"],
+    "latest_competence_only": true,
+    "group_files_role": ["prazo_medio_grupos", "valor_medio_bem_grupos", "reconciliacao"],
+    "group_files_must_not_be_summed_into_consolidated": true,
+    "delinquency_share_formula": "inadimplentes/(cotas_ativas_em_dia+inadimplentes)"
+  },
+  "complaints": {
+    "preserve_official_index": true,
+    "invent_position_from_row_order": false,
+    "non_disclosed_index": "null_with_reason",
+    "total_complaints_is_not_index_numerator": true
+  },
+  "presence": {
+    "role": "informational",
+    "affects_quality_assessment": false
+  },
+  "commercial_offers": {
+    "separate_contract": true,
+    "affects_assessment": false
+  },
+  "missingness": {
+    "zero_is_missing": false,
+    "missing_is_zero": false,
+    "redistribute_weights": false,
+    "neutral_score_for_missing": false
+  }
+}
