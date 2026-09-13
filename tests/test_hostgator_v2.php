@@ -77,6 +77,7 @@ try {
     $baseline = v2_validate_release_backend($fixture, $config);
     t_assert(($baseline['validated_artifacts'] ?? 0) === 10, 'baseline deve validar 10 artefatos não-meta');
     t_assert(($baseline['meta']['backend_release']['contract'] ?? null) === 'comparador-v2-release.v1', 'baseline deve carregar contrato de release V2');
+    t_assert(($baseline['meta']['freshness']['source_state_matches_consumed_bytes'] ?? null) === true, 'baseline deve confirmar estado ligado aos bytes consumidos');
 
     $missing = $tmpBase . '/missing-core';
     t_copy_tree($fixture, $missing);
@@ -112,6 +113,35 @@ try {
     });
     t_expect_failure(fn() => v2_validate_release_backend($noSourceStatus, $config), 'source_status');
 
+    $missingRequiredSource = $tmpBase . '/missing-required-source';
+    t_copy_tree($fixture, $missingRequiredSource);
+    t_rewrite_meta($missingRequiredSource, function (array &$meta): void {
+        unset($meta['source_status']['bc_consorciobd']);
+    });
+    t_expect_failure(fn() => v2_validate_release_backend($missingRequiredSource, $config), 'source_status obrigatório ausente: bc_consorciobd');
+
+    $noByteBinding = $tmpBase . '/no-byte-binding';
+    t_copy_tree($fixture, $noByteBinding);
+    t_rewrite_meta($noByteBinding, function (array &$meta): void {
+        $meta['freshness']['source_state_matches_consumed_bytes'] = false;
+    });
+    t_expect_failure(fn() => v2_validate_release_backend($noByteBinding, $config), 'source_state_matches_consumed_bytes=true');
+
+    $badDegraded = $tmpBase . '/bad-degraded';
+    t_copy_tree($fixture, $badDegraded);
+    t_rewrite_meta($badDegraded, function (array &$meta): void {
+        $meta['source_status']['bc_filiais']['last_check_status'] = 'failure';
+        $meta['freshness']['degraded_sources'] = [];
+    });
+    t_expect_failure(fn() => v2_validate_release_backend($badDegraded, $config), 'degraded_sources diverge');
+
+    $badCompetence = $tmpBase . '/bad-competence';
+    t_copy_tree($fixture, $badCompetence);
+    t_rewrite_meta($badCompetence, function (array &$meta): void {
+        $meta['source_status']['bc_consorciobd']['competence']['value'] = '202604';
+    });
+    t_expect_failure(fn() => v2_validate_release_backend($badCompetence, $config), 'Competência ConsorcioBD diverge');
+
     $stateSuccess = v2_validation_payload('success', $fixture, $baseline['manifest_sha256'], $config);
     v2_record_validation($config, $stateSuccess);
     $stateFailure = v2_validation_payload('failure', $fixture, $baseline['manifest_sha256'], $config, ['fixture failure']);
@@ -139,9 +169,13 @@ try {
     echo json_encode([
         'status' => 'PASS',
         'validated_artifacts' => $baseline['validated_artifacts'],
-        'negative_cases' => 6,
+        'negative_cases' => 10,
         'backend_release_gate' => true,
         'source_status_gate' => true,
+        'required_source_gate' => true,
+        'source_byte_binding_gate' => true,
+        'competence_gate' => true,
+        'degraded_state_gate' => true,
         'state_attempt_success_split' => true,
         'lock_concurrency' => true,
         'symlink_swap' => true,
