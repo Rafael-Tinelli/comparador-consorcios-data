@@ -8,6 +8,7 @@ if (PHP_SAPI !== 'cli') {
 
 $config = require __DIR__ . '/consorcio-v2-config.php';
 require_once __DIR__ . '/consorcio-v2-lib.php';
+require_once __DIR__ . '/consorcio-v2-release-gate.php';
 date_default_timezone_set((string)$config['project']['timezone']);
 
 $requested = null;
@@ -54,10 +55,10 @@ try {
         $target = $candidates[0]['path'];
     }
 
-    $pre = v2_validate_release($target, $config);
+    $pre = v2_validate_release_backend($target, $config);
     v2_atomic_symlink_swap($currentLink, $target);
     $active = v2_resolve_current_root($currentLink);
-    $post = v2_validate_release($active, $config);
+    $post = v2_validate_release_backend($active, $config);
     if (!hash_equals((string)$pre['manifest_sha256'], (string)$post['manifest_sha256'])) {
         throw new RuntimeException('Manifesto mudou durante rollback.');
     }
@@ -69,12 +70,14 @@ try {
         'manifest_sha256' => $post['manifest_sha256'],
         'pipeline_version' => $post['meta']['pipeline_version'] ?? null,
         'source_fingerprint' => $post['meta']['source_fingerprint'] ?? null,
+        'release_fingerprint' => $post['meta']['backend_release']['release_fingerprint'] ?? null,
         'reason' => 'manual_rollback',
     ];
     v2_atomic_write_json(rtrim((string)$config['paths']['state'], '/') . '/current_release.json', $state);
 
     $validation = v2_validation_payload('success', $active, (string)$post['manifest_sha256'], $config);
     $validation['validated_artifacts'] = $post['validated_artifacts'];
+    $validation['release_fingerprint'] = $post['meta']['backend_release']['release_fingerprint'] ?? null;
     $validation['reason'] = 'manual_rollback';
     v2_record_validation($config, $validation);
     v2_log($config, 'rollback-v2', 'Rollback concluído.', $state);
