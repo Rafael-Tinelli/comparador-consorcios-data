@@ -166,9 +166,10 @@ def main() -> int:
             errors.append(f"famílias de artefatos não suportadas: {extra_families}")
 
     physical = {
-        *(("global", p.name) for p in g.glob("*.json") if p.name != "meta.json"),
-        *(("seo", p.name) for p in legacy_seo.glob("*.json")) if legacy_seo.is_dir() else (),
+        ("global", p.name) for p in g.glob("*.json") if p.name != "meta.json"
     }
+    if legacy_seo.is_dir():
+        physical.update(("seo", p.name) for p in legacy_seo.glob("*.json"))
     if physical != declared:
         errors.append(f"inventário físico != manifesto: physical={sorted(physical)} declared={sorted(declared)}")
 
