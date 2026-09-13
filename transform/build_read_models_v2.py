@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-"""Comparador de Consórcios V2 — read models auditáveis e sem score geral implícito."""
+"""Comparador de Consórcios V2: contratos auditáveis, sem score geral implícito."""
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
+import io
 import json
 import os
 import re
+import unicodedata
 import zipfile
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -14,22 +17,10 @@ from pathlib import Path
 from statistics import median
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-# Reaproveita apenas utilitários neutros do builder legado. Nenhuma função de score legado é usada.
-from build_read_models import (
-    dump_json_text,
-    load_json,
-    normalize_key,
-    normalize_text,
-    parse_csv_bytes,
-    pick_value,
-    try_load_json,
-    write_json_if_changed,
-)
-
-PIPELINE_VERSION = "4.0.0"
+PIPELINE_VERSION = "4.0.1"
 CONTRACTS = {
-    "administradoras": "administradoras.v2",
     "instituicoes": "instituicoes.v2",
+    "administradoras": "administradoras.v2",
     "produtos": "produtos.v2",
     "rankings": "rankings.v2",
     "segmentos": "segmentos.v2",
@@ -50,6 +41,49 @@ def utc_now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
 
 
+def load_json(path: Path) -> Any:
+    with path.open("r", encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def try_load_json(path: Path) -> Any:
+    if not path.exists():
+        return None
+    return load_json(path)
+
+
+def dump_json_text(data: Any) -> str:
+    return json.dumps(data, ensure_ascii=False, indent=2, sort_keys=False) + "\n"
+
+
+def write_json_if_changed(path: Path, data: Any) -> bool:
+    text = dump_json_text(data)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    previous = path.read_text(encoding="utf-8") if path.exists() else None
+    if previous == text:
+        return False
+    path.write_text(text, encoding="utf-8")
+    return True
+
+
+def normalize_key(value: Any) -> str:
+    text = unicodedata.normalize("NFKD", str(value or ""))
+    text = "".join(ch for ch in text if not unicodedata.combining(ch)).lower()
+    text = re.sub(r"[^a-z0-9]+", "_", text)
+    return re.sub(r"_+", "_", text).strip("_")
+
+
+def normalize_text(value: Any) -> str:
+    return normalize_key(value)
+
+
+def pick_value(record: Dict[str, Any], keys: Iterable[str]) -> Any:
+    for key in keys:
+        if key in record and record[key] not in (None, "", []):
+            return record[key]
+    return None
+
+
 def root8(value: Any) -> Optional[str]:
     digits = re.sub(r"\D+", "", str(value or ""))
     if len(digits) == 8:
@@ -60,7 +94,7 @@ def root8(value: Any) -> Optional[str]:
 
 
 def strict_number(value: Any) -> Optional[float]:
-    """Converte apenas representação numérica inteira/decimal; não extrai número de texto arbitrário."""
+    """Converte somente texto que seja integralmente uma representação numérica."""
     if value is None:
         return None
     if isinstance(value, (int, float)) and not isinstance(value, bool):
@@ -104,6 +138,35 @@ def availability(value: Any, *, reason_if_missing: str = "nao_informado_na_fonte
     }
 
 
+def detect_csv_delimiter(text: str) -> str:
+    try:
+        return csv.Sniffer().sniff(text[:10000], delimiters=",;|\t").delimiter
+    except Exception:
+        return ";" if text[:10000].count(";") > text[:10000].count(",") else ","
+
+
+def parse_csv_bytes(binary: bytes) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    text = None
+    encoding_used = None
+    for encoding in ("utf-8-sig", "utf-8", "latin-1", "cp1252"):
+        try:
+            text = binary.decode(encoding)
+            encoding_used = encoding
+            break
+        except UnicodeDecodeError:
+            continue
+    if text is None:
+        raise ValueError("Não foi possível decodificar CSV")
+    delimiter = detect_csv_delimiter(text)
+    rows = [{normalize_key(k): v for k, v in row.items()} for row in csv.DictReader(io.StringIO(text), delimiter=delimiter)]
+    return rows, {
+        "encoding": encoding_used,
+        "delimiter": delimiter,
+        "row_count": len(rows),
+        "headers": list(rows[0].keys()) if rows else [],
+    }
+
+
 def read_json_records(path: Path) -> List[Dict[str, Any]]:
     payload = load_json(path)
     if isinstance(payload, list):
@@ -117,7 +180,7 @@ def read_json_records(path: Path) -> List[Dict[str, Any]]:
 
 
 def normalized_record(record: Dict[str, Any]) -> Dict[str, Any]:
-    return {normalize_key(str(k)): v for k, v in record.items()}
+    return {normalize_key(k): v for k, v in record.items()}
 
 
 def load_registry(path: Path) -> List[Dict[str, Any]]:
@@ -126,7 +189,7 @@ def load_registry(path: Path) -> List[Dict[str, Any]]:
     for raw in read_json_records(path):
         row = normalized_record(raw)
         name = pick_value(row, ["institution_name", "nome", "name", "noenti", "razao_social", "nome_fantasia"])
-        root = root8(pick_value(row, ["cnpj", "cpf_cnpj", "cnpj14", "coenti", "institution_id"]))
+        root = root8(pick_value(row, ["cnpj_root", "cnpj", "cpf_cnpj", "cnpj14", "coenti", "institution_id"]))
         if not name or not root:
             continue
         if root in seen:
@@ -135,8 +198,8 @@ def load_registry(path: Path) -> List[Dict[str, Any]]:
         items.append({
             "cnpj_root": root,
             "nome": str(name).strip(),
-            "nome_normalizado": normalize_text(str(name)),
-            "status_detalhado": pick_value(row, ["status", "situacao", "situacao_cadastral"]),
+            "nome_normalizado": normalize_text(name),
+            "status_detalhado": pick_value(row, ["status_text", "status", "situacao", "situacao_cadastral"]),
         })
     if len(items) < 100:
         raise ValueError(f"Cadastro crítico abaixo do mínimo: {len(items)}")
@@ -148,23 +211,22 @@ def load_branches(path: Path) -> Tuple[Dict[str, Dict[str, Any]], List[Dict[str,
     unresolved: List[Dict[str, Any]] = []
     for raw in read_json_records(path):
         row = normalized_record(raw)
-        root = root8(pick_value(row, ["cnpj", "cpf_cnpj", "cnpj14", "cnpj_da_administradora", "coenti"]))
+        root = root8(pick_value(row, ["cnpj_root", "cnpj", "cpf_cnpj", "cnpj14", "cnpj_da_administradora", "coenti"]))
         if not root:
             unresolved.append({"nome": pick_value(row, ["institution_name", "nome", "administradora", "noenti"])})
             continue
         item = by_root[root]
         item["filiais"] += 1
         uf = pick_value(row, ["uf", "sigla_uf"])
-        city = pick_value(row, ["cidade", "municipio", "municipio_nome"])
+        city = pick_value(row, ["city", "cidade", "municipio", "municipio_nome"])
         if uf:
             item["ufs"].add(str(uf).strip())
         if city:
             item["municipios"].add(str(city).strip())
-    clean = {
-        root: {"filiais": v["filiais"], "ufs": sorted(v["ufs"]), "municipios_count": len(v["municipios"])}
-        for root, v in by_root.items()
-    }
-    return clean, unresolved
+    return {
+        root: {"filiais": row["filiais"], "ufs": sorted(row["ufs"]), "municipios_count": len(row["municipios"])}
+        for root, row in by_root.items()
+    }, unresolved
 
 
 def load_rankings_v2(path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
@@ -176,14 +238,13 @@ def load_rankings_v2(path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         if not name or not root:
             continue
         index_value = strict_number(pick_value(row, ["indice", "indice_reclamacoes", "indice_de_reclamacoes"]))
-        official_position = strict_int(pick_value(row, ["posicao", "ranking", "classificacao"]))
         parsed.append({
             "cnpj_root": root,
             "nome": str(name).strip(),
-            "nome_normalizado": normalize_text(str(name)),
+            "nome_normalizado": normalize_text(name),
             "indice_bc": index_value,
             "indice_status": "divulgado" if index_value is not None else "nao_divulgado_pela_fonte",
-            "posicao_oficial": official_position,
+            "posicao_oficial": strict_int(pick_value(row, ["posicao", "ranking", "classificacao"])),
             "reclamacoes_reguladas_procedentes": strict_int(pick_value(row, ["quantidade_de_reclamacoes_reguladas_procedentes", "reclamacoes_reguladas_procedentes"])),
             "reclamacoes_reguladas_outras": strict_int(pick_value(row, ["quantidade_de_reclamacoes_reguladas_outras", "reclamacoes_reguladas_outras"])),
             "reclamacoes_nao_reguladas": strict_int(pick_value(row, ["quantidade_de_reclamacoes_nao_reguladas", "reclamacoes_nao_reguladas"])),
@@ -198,6 +259,18 @@ def load_rankings_v2(path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     return parsed, {"row_count": len(parsed), "csv": csv_meta}
 
 
+def has_operational_signal(row: Dict[str, Any]) -> bool:
+    """Distingue linha consolidada de preenchimento zero de segmento com operação observada."""
+    values = (
+        row.get("taxa_administracao_pct"),
+        row.get("grupos_ativos"),
+        row.get("cotas_ativas_em_dia"),
+        row.get("contemplacoes_mes"),
+        row.get("inadimplentes"),
+    )
+    return any(value is not None and value > 0 for value in values)
+
+
 def load_monthly_v2(path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     consolidated: List[Tuple[str, Dict[str, Any]]] = []
     group_rows: List[Tuple[str, Dict[str, Any]]] = []
@@ -205,14 +278,14 @@ def load_monthly_v2(path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         for member in zf.namelist():
             if not member.lower().endswith(".csv"):
                 continue
-            key = normalize_text(member)
-            if "significado" in key or "layout" in key:
+            member_key = normalize_text(member)
+            if "significado" in member_key or "layout" in member_key:
                 continue
             rows, _ = parse_csv_bytes(zf.read(member))
-            if "segmentos_consolidados" in key:
-                consolidated.extend((member, r) for r in rows)
-            elif "grupos" in key:
-                group_rows.extend((member, r) for r in rows)
+            if "segmentos_consolidados" in member_key:
+                consolidated.extend((member, row) for row in rows)
+            elif "grupos" in member_key:
+                group_rows.extend((member, row) for row in rows)
     if not consolidated:
         raise ValueError("ConsorcioBD mensal sem Segmentos_Consolidados")
 
@@ -235,7 +308,7 @@ def load_monthly_v2(path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         inad_total = inad_a + inad_b if inad_a is not None and inad_b is not None else None
         total_active = n + inad_total if n is not None and inad_total is not None else None
         inad_share = inad_total / total_active if total_active and inad_total is not None else None
-        records[key] = {
+        record = {
             "cnpj_root": root,
             "nome_administradora": str(pick_value(row, ["nome_da_administradora", "administradora_de_consorcio", "administradora"]) or "").strip() or None,
             "competencia": period,
@@ -251,15 +324,23 @@ def load_monthly_v2(path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             "inadimplencia_participacao": round(inad_share, 8) if inad_share is not None else None,
             "source_member": member,
         }
+        records[key] = record
+
     if not periods:
         raise ValueError("ConsorcioBD mensal sem competência válida")
     latest = max(periods)
-    selected = [r for (_root, period, _segment), r in records.items() if period == latest]
-    if len({x["cnpj_root"] for x in selected}) < 100:
-        raise ValueError("Cobertura mensal crítica abaixo do mínimo de 100 administradoras")
+    latest_all = [record for (_root, period, _segment), record in records.items() if period == latest]
+    active = [record for record in latest_all if has_operational_signal(record)]
+    active_roots = {x["cnpj_root"] for x in active}
+    if len(active_roots) < 100:
+        raise ValueError(f"Cobertura operacional mensal crítica abaixo do mínimo: {len(active_roots)}")
 
     group_acc: Dict[Tuple[str, str, str], Dict[str, float]] = defaultdict(lambda: {
-        "prazo_total": 0.0, "prazo_weight": 0.0, "credito_total": 0.0, "credito_weight": 0.0, "rows": 0.0
+        "prazo_total": 0.0,
+        "prazo_weight": 0.0,
+        "credito_total": 0.0,
+        "credito_weight": 0.0,
+        "rows": 0.0,
     })
     for _member, row in group_rows:
         root = root8(pick_value(row, ["cnpj_da_administradora", "cnpj", "cnpj_ac"]))
@@ -279,29 +360,42 @@ def load_monthly_v2(path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         if credito is not None:
             acc["credito_total"] += credito * weight
             acc["credito_weight"] += weight
-    for r in selected:
-        acc = group_acc.get((r["cnpj_root"], latest, r["segmento_codigo"]))
-        r["detalhe_grupos"] = {
+
+    for record in active:
+        acc = group_acc.get((record["cnpj_root"], latest, record["segmento_codigo"]))
+        record["detalhe_grupos"] = {
             "disponivel": bool(acc),
             "grupos_linhas": int(acc["rows"]) if acc else 0,
             "prazo_medio_grupos_meses": round(acc["prazo_total"] / acc["prazo_weight"], 4) if acc and acc["prazo_weight"] > 0 else None,
             "valor_medio_bem_grupos": round(acc["credito_total"] / acc["credito_weight"], 2) if acc and acc["credito_weight"] > 0 else None,
-            "nota": "Detalhes por grupo são usados apenas para prazo/crédito; estoques, fluxos e taxa vêm do consolidado.",
+            "nota": "Detalhes por grupo servem apenas a prazo/crédito; estoques, fluxos e taxa vêm do consolidado.",
         }
-    selected.sort(key=lambda x: (x["cnpj_root"], x["segmento_codigo"]))
-    return selected, {
+
+    active.sort(key=lambda x: (x["cnpj_root"], x["segmento_codigo"]))
+    return active, {
         "competencia": latest,
         "periodos_encontrados": sorted(periods),
-        "records": len(selected),
-        "administradoras": len({x["cnpj_root"] for x in selected}),
-        "segmentos": sorted({x["segmento_codigo"] for x in selected}),
+        "consolidated_rows_latest": len(latest_all),
+        "operational_rows_latest": len(active),
+        "consolidated_roots_latest": len({x["cnpj_root"] for x in latest_all}),
+        "operational_roots_latest": len(active_roots),
+        "segmentos": sorted({x["segmento_codigo"] for x in active}),
     }
 
 
+def sum_complete(rows: List[Dict[str, Any]], field: str) -> Optional[int]:
+    if not rows:
+        return None
+    values = [row.get(field) for row in rows]
+    if any(value is None for value in values):
+        return None
+    return int(sum(values))
+
+
 def source_fingerprint(paths: Iterable[Path], version: str) -> str:
-    h = hashlib.sha256(version.encode())
+    h = hashlib.sha256(version.encode("utf-8"))
     for path in paths:
-        h.update(str(path).encode())
+        h.update(str(path).encode("utf-8"))
         h.update(path.read_bytes())
     return h.hexdigest()
 
@@ -313,16 +407,22 @@ def stable_generated_at(meta_path: Path, fingerprint: str) -> str:
     return utc_now_iso()
 
 
-def build_models(registry: List[Dict[str, Any]], branches: Dict[str, Dict[str, Any]], rankings: List[Dict[str, Any]], products: List[Dict[str, Any]], generated_at: str) -> Dict[str, Any]:
+def build_models(
+    registry: List[Dict[str, Any]],
+    branches: Dict[str, Dict[str, Any]],
+    rankings: List[Dict[str, Any]],
+    products: List[Dict[str, Any]],
+    generated_at: str,
+) -> Dict[str, Any]:
     registry_roots = {x["cnpj_root"] for x in registry}
+    names = {x["cnpj_root"]: x["nome"] for x in registry}
     products_by_root: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
     for product in products:
         products_by_root[product["cnpj_root"]].append(product)
     rankings_by_root = {x["cnpj_root"]: x for x in rankings}
-    names = {x["cnpj_root"]: x["nome"] for x in registry}
 
-    institutions = []
-    admins = []
+    institutions: List[Dict[str, Any]] = []
+    admins: List[Dict[str, Any]] = []
     for inst in sorted(registry, key=lambda x: x["nome"]):
         root = inst["cnpj_root"]
         ops = products_by_root.get(root, [])
@@ -330,14 +430,30 @@ def build_models(registry: List[Dict[str, Any]], branches: Dict[str, Dict[str, A
         branch = branches.get(root, {"filiais": 0, "ufs": [], "municipios_count": 0})
         institutions.append({**inst, "cadastro_atual_bcb": True, "presenca_cadastrada": branch})
 
-        portfolio = [{
-            "codigo": p["segmento_codigo"], "key": p["segmento"], "label": p["segmento_label"], "competencia": p["competencia"]
-        } for p in ops]
-        total_n = sum(p["cotas_ativas_em_dia"] for p in ops if p["cotas_ativas_em_dia"] is not None) if ops else None
-        inad_values = [p["inadimplentes"] for p in ops]
-        total_inad = sum(x for x in inad_values if x is not None) if ops and all(x is not None for x in inad_values) else None
+        total_groups = sum_complete(ops, "grupos_ativos")
+        total_n = sum_complete(ops, "cotas_ativas_em_dia")
+        total_contempl = sum_complete(ops, "contemplacoes_mes")
+        total_inad = sum_complete(ops, "inadimplentes")
         total_active = total_n + total_inad if total_n is not None and total_inad is not None else None
         delinquency_share = total_inad / total_active if total_active and total_inad is not None else None
+
+        portfolio = []
+        for p in sorted(ops, key=lambda x: int(x["segmento_codigo"])):
+            portfolio.append({
+                "codigo": p["segmento_codigo"],
+                "key": p["segmento"],
+                "label": p["segmento_label"],
+                "competencia": p["competencia"],
+                "indicadores": {
+                    "taxa_administracao_pct": p["taxa_administracao_pct"],
+                    "grupos_ativos": p["grupos_ativos"],
+                    "cotas_ativas_em_dia": p["cotas_ativas_em_dia"],
+                    "contemplacoes_mes": p["contemplacoes_mes"],
+                    "inadimplencia_participacao": p["inadimplencia_participacao"],
+                    "prazo_medio_grupos_meses": p["detalhe_grupos"]["prazo_medio_grupos_meses"],
+                    "valor_medio_bem_grupos": p["detalhe_grupos"]["valor_medio_bem_grupos"],
+                },
+            })
 
         if not ops:
             coverage = "catalogo"
@@ -348,6 +464,14 @@ def build_models(registry: List[Dict[str, Any]], branches: Dict[str, Dict[str, A
         else:
             coverage = "operacao_e_indice_reclamacoes_divulgado"
 
+        evidence_signals = ["cadastro_atual_bcb"]
+        if ops:
+            evidence_signals.append("operacao_mensal_observada")
+        if rep is not None:
+            evidence_signals.append("registro_reclamacoes_vinculado")
+        if rep is not None and rep.get("indice_bc") is not None:
+            evidence_signals.append("indice_reclamacoes_bcb_divulgado")
+
         admins.append({
             "id": root,
             "cnpj_root": root,
@@ -355,32 +479,40 @@ def build_models(registry: List[Dict[str, Any]], branches: Dict[str, Dict[str, A
             "identidade": {
                 "cadastro_atual_bcb": True,
                 "status_detalhado": inst.get("status_detalhado"),
-                "nota": "A raiz de oito dígitos identifica a administradora no conjunto cadastral usado; não é CNPJ completo."
+                "nota": "A raiz de oito dígitos identifica a administradora no conjunto cadastral usado; não é CNPJ completo.",
             },
             "portfolio_observado": {
                 "segmentos": portfolio,
                 "afirmacao_permitida": "Há operação observada nestes segmentos na competência indicada.",
-                "limite": "O ConsorcioBD não comprova, sozinho, todos os planos/produtos comerciais atualmente disponíveis para contratação."
+                "limite": "O ConsorcioBD não comprova, sozinho, todos os planos comerciais atualmente disponíveis para contratação.",
             },
             "operacao": {
                 "competencia": ops[0]["competencia"] if ops else None,
                 "segmentos_count": len(ops),
-                "cotas_ativas_em_dia": availability(total_n, reason_if_missing="sem_operacao_mensal_vinculada"),
+                "grupos_ativos": availability(total_groups, reason_if_missing="sem_operacao_mensal_vinculada_ou_cobertura_incompleta"),
+                "cotas_ativas_em_dia": availability(total_n, reason_if_missing="sem_operacao_mensal_vinculada_ou_cobertura_incompleta"),
+                "contemplacoes_mes": availability(total_contempl, reason_if_missing="sem_operacao_mensal_vinculada_ou_cobertura_incompleta"),
                 "inadimplentes": availability(total_inad, reason_if_missing="numerador_incompleto_ou_sem_operacao"),
                 "cotas_ativas_total_calculado": availability(total_active, reason_if_missing="componentes_incompletos"),
                 "inadimplencia_participacao": availability(round(delinquency_share, 8) if delinquency_share is not None else None, reason_if_missing="componentes_incompletos"),
-                "nota_inadimplencia": "Participação calculada como inadimplentes/(cotas em dia + inadimplentes), quando ambos os estoques estão disponíveis."
+                "nota_inadimplencia": "Participação calculada como inadimplentes/(cotas em dia + inadimplentes), quando ambos os estoques estão disponíveis.",
             },
             "reclamacoes_bcb": rep if rep is not None else {
-                "indice_bc": None, "indice_status": "sem_registro_vinculado_no_arquivo", "posicao_oficial": None,
-                "reclamacoes_reguladas_procedentes": None, "reclamacoes_reguladas_outras": None,
-                "reclamacoes_nao_reguladas": None, "reclamacoes_total": None, "consorciados_referencia": None,
-                "ano": None, "semestre": None
+                "indice_bc": None,
+                "indice_status": "sem_registro_vinculado_no_arquivo",
+                "posicao_oficial": None,
+                "reclamacoes_reguladas_procedentes": None,
+                "reclamacoes_reguladas_outras": None,
+                "reclamacoes_nao_reguladas": None,
+                "reclamacoes_total": None,
+                "consorciados_referencia": None,
+                "ano": None,
+                "semestre": None,
             },
             "presenca": {
                 **branch,
                 "papel_metodologico": "informativo",
-                "nota": "Quantidade de filiais cadastradas não é usada como prova de confiabilidade nem de disponibilidade comercial nacional."
+                "nota": "Quantidade de filiais cadastradas não é usada como prova de confiabilidade nem de disponibilidade comercial nacional.",
             },
             "comparabilidade": {
                 "coverage": coverage,
@@ -389,40 +521,41 @@ def build_models(registry: List[Dict[str, Any]], branches: Dict[str, Dict[str, A
                 "dimensoes_comparaveis": [
                     *(["operacao"] if ops else []),
                     *(["indice_reclamacoes_bcb"] if rep and rep.get("indice_bc") is not None else []),
-                    *(["taxa_por_segmento"] if ops else [])
-                ]
+                    *(["taxa_por_segmento"] if ops else []),
+                ],
             },
             "leitura_confiabilidade": {
-                "estado": "evidencia_suficiente_para_triagem" if ops and rep else ("evidencia_parcial" if ops or rep else "dados_insuficientes"),
-                "texto": "A V2 organiza sinais públicos para triagem e comparação; não certifica solvência, chance de contemplação ou adequação individual."
-            }
+                "nivel_evidencia": "amplo_para_triagem" if ops and rep else ("parcial" if ops or rep else "insuficiente"),
+                "sinais_disponiveis": evidence_signals,
+                "texto": "A V2 organiza sinais públicos para triagem e comparação; não certifica solvência, chance de contemplação ou adequação individual.",
+            },
         })
 
-    segment_groups: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    grouped: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
     for product in products:
         if product["cnpj_root"] in registry_roots:
-            segment_groups[product["segmento"]].append(product)
-    segments = []
-    comparisons = []
-    for key, rows in sorted(segment_groups.items(), key=lambda kv: min(int(x["segmento_codigo"]) for x in kv[1])):
+            grouped[product["segmento"]].append(product)
+
+    segments: List[Dict[str, Any]] = []
+    comparisons: List[Dict[str, Any]] = []
+    for segment_key, rows in sorted(grouped.items(), key=lambda kv: min(int(x["segmento_codigo"]) for x in kv[1])):
         label = rows[0]["segmento_label"]
         rates = [x["taxa_administracao_pct"] for x in rows if x["taxa_administracao_pct"] is not None]
         segments.append({
-            "segmento": key,
+            "segmento": segment_key,
             "label": label,
             "codigo": rows[0]["segmento_codigo"],
             "competencia": rows[0]["competencia"],
-            "administradoras_com_operacao": len(rows),
+            "administradoras_com_operacao_observada": len(rows),
             "cotas_ativas_em_dia": sum(x["cotas_ativas_em_dia"] or 0 for x in rows),
             "contemplacoes_mes": sum(x["contemplacoes_mes"] or 0 for x in rows),
             "taxa_administracao_pct_mediana_administradoras": round(median(rates), 6) if rates else None,
-            "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial."
+            "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial.",
         })
-        comparisons.append({
-            "segmento": key,
-            "label": label,
-            "competencia": rows[0]["competencia"],
-            "administradoras": [{
+        comparison_rows = []
+        for x in rows:
+            rep = rankings_by_root.get(x["cnpj_root"], {})
+            comparison_rows.append({
                 "cnpj_root": x["cnpj_root"],
                 "nome": names.get(x["cnpj_root"], x.get("nome_administradora")),
                 "taxa_administracao_pct": x["taxa_administracao_pct"],
@@ -430,19 +563,30 @@ def build_models(registry: List[Dict[str, Any]], branches: Dict[str, Dict[str, A
                 "cotas_ativas_em_dia": x["cotas_ativas_em_dia"],
                 "contemplacoes_mes": x["contemplacoes_mes"],
                 "inadimplencia_participacao": x["inadimplencia_participacao"],
-                "indice_reclamacoes_bcb": rankings_by_root.get(x["cnpj_root"], {}).get("indice_bc"),
-                "indice_reclamacoes_status": rankings_by_root.get(x["cnpj_root"], {}).get("indice_status", "sem_registro_vinculado_no_arquivo")
-            } for x in sorted(rows, key=lambda x: (x["taxa_administracao_pct"] is None, x["taxa_administracao_pct"] or 0, x["cnpj_root"]))],
-            "sorting": "taxa_administracao_pct crescente apenas para navegação; não representa ranking geral de qualidade."
+                "indice_reclamacoes_bcb": rep.get("indice_bc"),
+                "indice_reclamacoes_status": rep.get("indice_status", "sem_registro_vinculado_no_arquivo"),
+            })
+        comparison_rows.sort(key=lambda x: (x["taxa_administracao_pct"] is None, x["taxa_administracao_pct"] if x["taxa_administracao_pct"] is not None else float("inf"), x["nome"] or ""))
+        comparisons.append({
+            "segmento": segment_key,
+            "label": label,
+            "competencia": rows[0]["competencia"],
+            "administradoras": comparison_rows,
+            "sorting": "taxa_administracao_pct crescente apenas para navegação; não representa ranking geral de qualidade.",
+            "dimensoes": {
+                "taxa_administracao_pct": {"direction": "menor_e_menor_taxa_observada", "meaning": "taxa consolidada observada; não é oferta"},
+                "indice_reclamacoes_bcb": {"direction": "menor_e_menor_indice", "meaning": "índice oficial quando divulgado"},
+                "inadimplencia_participacao": {"direction": "menor_e_menor_participacao", "meaning": "cálculo derivado dos estoques publicados"},
+            },
         })
 
     return {
         "instituicoes": {"metadata": {"generated_at": generated_at, "contract": CONTRACTS["instituicoes"], "count": len(institutions)}, "items": institutions},
         "administradoras": {"metadata": {"generated_at": generated_at, "contract": CONTRACTS["administradoras"], "count": len(admins), "ranking_geral": False}, "items": admins},
         "produtos": {"metadata": {"generated_at": generated_at, "contract": CONTRACTS["produtos"], "count": len(products), "meaning": "segmentos com operação observada no ConsorcioBD"}, "items": products},
-        "rankings": {"metadata": {"generated_at": generated_at, "contract": CONTRACTS["rankings"], "count": len(rankings), "official_position_policy": "null quando a fonte não traz coluna de posição"}, "items": rankings},
+        "rankings": {"metadata": {"generated_at": generated_at, "contract": CONTRACTS["rankings"], "count": len(rankings), "official_position_policy": "null quando a fonte não traz coluna explícita de posição"}, "items": rankings},
         "segmentos": {"metadata": {"generated_at": generated_at, "contract": CONTRACTS["segmentos"], "count": len(segments)}, "items": segments},
-        "comparacoes": {"metadata": {"generated_at": generated_at, "contract": CONTRACTS["comparacoes"], "count": len(comparisons), "ranking_geral": False}, "items": comparisons}
+        "comparacoes": {"metadata": {"generated_at": generated_at, "contract": CONTRACTS["comparacoes"], "count": len(comparisons), "ranking_geral": False}, "items": comparisons},
     }
 
 
@@ -458,8 +602,12 @@ def validate_models(models: Dict[str, Any], monthly_meta: Dict[str, Any]) -> Non
         raise ValueError("Contrato V2 não permite ranking geral nesta versão")
     if monthly_meta.get("competencia") is None or not products:
         raise ValueError("Saída mensal sem competência/produtos")
+    if monthly_meta.get("operational_rows_latest") != len(products):
+        raise ValueError("Produtos V2 deve conter somente linhas com operação observada")
     for product in products:
-        if "segmentos_consolidados" not in normalize_text(product.get("source_member") or ""):
+        if not has_operational_signal(product):
+            raise ValueError("Produto sem sinal operacional foi publicado")
+        if "segmentos_consolidados" not in normalize_text(product.get("source_member")):
             raise ValueError("Métrica operacional fora do consolidado canônico")
 
 
@@ -469,30 +617,28 @@ def build_seo_contracts(generated_at: str, admins_count: int, routes_config: Any
             "contract": "seo.defaults.v2",
             "generated_at": generated_at,
             "comparison_policy": "sem ranking geral; evidências e comparações por dimensão",
-            "administradoras_count": admins_count
+            "administradoras_count": admins_count,
         },
-        "routes": {
-            "contract": "seo.routes.v2",
-            "generated_at": generated_at,
-            "source_config": routes_config
-        },
+        "routes": {"contract": "seo.routes.v2", "generated_at": generated_at, "source_config": routes_config},
         "site": {
             "contract": "seo.site.v2",
             "generated_at": generated_at,
             "site": "Sanida",
             "path": "/financas/consorcio/",
-            "purpose": "identidade, operação observada, sinais públicos e comparação de administradoras de consórcio"
-        }
+            "purpose": "identidade, operação observada, sinais públicos e comparação de administradoras de consórcio",
+        },
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Build dos read models auditáveis do Comparador de Consórcios V2")
     parser.add_argument("--config", required=True)
+    parser.add_argument("--methodology", required=True)
     parser.add_argument("--seo-routes", required=True)
     args = parser.parse_args()
 
     cfg = load_json(Path(args.config))
+    methodology = load_json(Path(args.methodology))
     defaults = cfg.get("defaults", {})
     raw_base = Path(defaults.get("raw_base_dir", "data/raw"))
     stage_base = Path(defaults.get("stage_base_dir", "data/stage"))
@@ -508,12 +654,17 @@ def main() -> int:
     filiais = stage_base / "filiais" / "filiais.json"
     monthly = raw_base / "bc" / "consorciobd" / "latest_source.bin"
     ranking = raw_base / "bc" / "ranking_reclamacoes" / "latest_source.csv"
-    required = [cadastro, filiais, monthly, ranking]
-    missing = [str(x) for x in required if not x.exists()]
+    methodology_path = Path(args.methodology)
+    seo_routes_path = Path(args.seo_routes)
+    required = [cadastro, filiais, monthly, ranking, methodology_path, seo_routes_path]
+    missing = [str(path) for path in required if not path.exists()]
     if missing:
         raise SystemExit("Insumos V2 obrigatórios ausentes: " + ", ".join(missing))
 
-    fingerprint = source_fingerprint(required + [Path(args.seo_routes)], PIPELINE_VERSION)
+    if methodology.get("general_score", {}).get("enabled") is not False:
+        raise SystemExit("methodology_v2 deve manter general_score.enabled=false nesta versão")
+
+    fingerprint = source_fingerprint(required, PIPELINE_VERSION)
     generated_at = stable_generated_at(global_dir / "meta.json", fingerprint)
 
     registry = load_registry(cadastro)
@@ -526,49 +677,61 @@ def main() -> int:
     models["ofertas"] = {
         "metadata": {"generated_at": generated_at, "contract": CONTRACTS["ofertas"], "count": 0},
         "items": [],
-        "note": "Ofertas comerciais permanecem separadas das evidências institucionais e não alteram comparação."
+        "note": "Ofertas comerciais permanecem separadas das evidências institucionais e não alteram comparação.",
     }
 
-    routes_config = load_json(Path(args.seo_routes))
+    routes_config = load_json(seo_routes_path)
     seo_payloads = build_seo_contracts(generated_at, len(models["administradoras"]["items"]), routes_config)
 
-    artifact_entries = {"global": [], "seo": []}
+    artifact_entries: Dict[str, List[Dict[str, Any]]] = {"global": [], "seo": []}
     for name, payload in models.items():
-        filename = f"{name}.json"
         text = dump_json_text(payload)
-        artifact_entries["global"].append({"file": filename, "sha256": hashlib.sha256(text.encode()).hexdigest(), "size_bytes": len(text.encode())})
+        artifact_entries["global"].append({
+            "file": f"{name}.json",
+            "sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+            "size_bytes": len(text.encode("utf-8")),
+        })
     for name, payload in seo_payloads.items():
-        filename = f"{name}.json"
         text = dump_json_text(payload)
-        artifact_entries["seo"].append({"file": filename, "sha256": hashlib.sha256(text.encode()).hexdigest(), "size_bytes": len(text.encode())})
+        artifact_entries["seo"].append({
+            "file": f"{name}.json",
+            "sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+            "size_bytes": len(text.encode("utf-8")),
+        })
 
+    registry_roots = {x["cnpj_root"] for x in registry}
     meta = {
         "generated_at": generated_at,
         "pipeline_version": PIPELINE_VERSION,
         "source_fingerprint": fingerprint,
+        "methodology_version": methodology.get("version"),
+        "methodology_sha256": hashlib.sha256(methodology_path.read_bytes()).hexdigest(),
         "contracts": CONTRACTS,
         "methodology": {
-            "purpose": "triagem e comparação por sinais públicos",
+            "purpose": methodology.get("purpose"),
             "general_score": False,
             "missingness_policy": "ausência não recebe zero, nota neutra nem redistribuição de peso",
             "presence_role": "informativo",
-            "commercial_offers_affect_assessment": False
+            "commercial_offers_affect_assessment": False,
         },
         "source_periods": {"consorciobd_mensal": monthly_meta.get("competencia")},
-        "counts": {k: len(v.get("items", [])) for k, v in models.items()},
+        "counts": {name: len(payload.get("items", [])) for name, payload in models.items()},
         "quality": {
             "registry_roots": len(registry),
-            "monthly_roots": monthly_meta.get("administradoras"),
+            "monthly_consolidated_rows": monthly_meta.get("consolidated_rows_latest"),
+            "monthly_operational_rows": monthly_meta.get("operational_rows_latest"),
+            "monthly_consolidated_roots": monthly_meta.get("consolidated_roots_latest"),
+            "monthly_operational_roots": monthly_meta.get("operational_roots_latest"),
             "ranking_rows": ranking_meta.get("row_count"),
             "branch_unresolved": len(branch_unresolved),
-            "operational_orphans": sorted({p["cnpj_root"] for p in products} - {x["cnpj_root"] for x in registry}),
-            "ranking_orphans": sorted({r["cnpj_root"] for r in rankings} - {x["cnpj_root"] for x in registry})
+            "operational_orphans": sorted({p["cnpj_root"] for p in products} - registry_roots),
+            "ranking_orphans": sorted({r["cnpj_root"] for r in rankings} - registry_roots),
         },
         "artifacts": artifact_entries,
         "notes": [
             "meta.json não contém auto-hash.",
-            "Todos os demais JSONs consumíveis produzidos por este builder constam no manifesto com hash dos bytes serializados."
-        ]
+            "Todos os demais JSONs consumíveis produzidos por este builder constam no manifesto com SHA-256 dos bytes serializados.",
+        ],
     }
 
     changed = False
@@ -585,21 +748,24 @@ def main() -> int:
         "mode_used": "build-read-models-v2",
         "pipeline_version": PIPELINE_VERSION,
         "source_fingerprint": fingerprint,
-        "competencia": monthly_meta.get("competencia")
+        "competencia": monthly_meta.get("competencia"),
+        "operational_rows": monthly_meta.get("operational_rows_latest"),
     }
     write_json_if_changed(runtime_dir / "build_read_models_v2.json", runtime)
 
-    output = os.environ.get("GITHUB_OUTPUT")
-    if output:
-        with open(output, "a", encoding="utf-8") as fh:
+    github_output = os.environ.get("GITHUB_OUTPUT")
+    if github_output:
+        with open(github_output, "a", encoding="utf-8") as fh:
             fh.write(f"changed={'true' if changed else 'false'}\n")
             fh.write("mode_used=build-read-models-v2\n")
             fh.write(f"records={len(models['administradoras']['items'])}\n")
+
     print(json.dumps({
         "changed": changed,
         "mode_used": "build-read-models-v2",
         "records": len(models["administradoras"]["items"]),
-        "competencia": monthly_meta.get("competencia")
+        "products_observed": len(products),
+        "competencia": monthly_meta.get("competencia"),
     }, ensure_ascii=False))
     return 0
 
