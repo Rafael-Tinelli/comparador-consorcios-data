@@ -8,7 +8,17 @@ if (PHP_SAPI !== 'cli') {
 
 $config = require __DIR__ . '/consorcio-v2-config.php';
 require_once __DIR__ . '/consorcio-v2-lib.php';
+require_once __DIR__ . '/consorcio-v2-release-gate.php';
 date_default_timezone_set((string)$config['project']['timezone']);
+
+function v2_record_publication_attempt(array $config, array $payload, bool $successful = false): void
+{
+    $state = rtrim((string)$config['paths']['state'], '/');
+    v2_atomic_write_json($state . '/last_publication_attempt.json', $payload);
+    if ($successful) {
+        v2_atomic_write_json($state . '/last_publication_success.json', $payload);
+    }
+}
 
 $force = in_array('--force', $argv, true);
 $dryRun = in_array('--dry-run', $argv, true);
@@ -39,6 +49,7 @@ try {
     $manifestUrl = v2_raw_url($config, $sourceCommit, (string)$config['source']['manifest_path']);
     $metaRaw = v2_fetch($manifestUrl, $config['source']);
     $remoteMeta = v2_decode_json($metaRaw, $manifestUrl);
+    v2_validate_backend_release_meta($remoteMeta, $config);
     $entries = v2_manifest_entries($remoteMeta);
     $manifestSha = hash('sha256', $metaRaw);
 
@@ -53,15 +64,28 @@ try {
     if (is_link($current)) {
         try {
             $currentRoot = v2_resolve_current_root($current);
-            $currentResult = v2_validate_release($currentRoot, $config);
+            $currentResult = v2_validate_release_backend($currentRoot, $config);
             if (hash_equals($manifestSha, (string)$currentResult['manifest_sha256']) && !$force) {
                 $payload = v2_validation_payload('success', $currentRoot, $manifestSha, $config);
                 $payload['validated_artifacts'] = $currentResult['validated_artifacts'];
                 $payload['source_commit'] = $sourceCommit;
+                $payload['release_fingerprint'] = $currentResult['meta']['backend_release']['release_fingerprint'] ?? null;
                 $payload['reason'] = 'remote_manifest_unchanged_current_healthy';
                 v2_record_validation($config, $payload);
-                v2_log($config, 'publish-v2', 'Sem mudança; current revalidado.', $payload);
-                fwrite(STDOUT, json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
+
+                $publication = [
+                    'attempted_at' => gmdate('c'),
+                    'result' => 'no_change',
+                    'release_id' => basename($currentRoot),
+                    'release_root' => $currentRoot,
+                    'source_commit' => $sourceCommit,
+                    'manifest_sha256' => $manifestSha,
+                    'release_fingerprint' => $currentResult['meta']['backend_release']['release_fingerprint'] ?? null,
+                    'reason' => 'remote_manifest_unchanged_current_healthy',
+                ];
+                v2_record_publication_attempt($config, $publication, true);
+                v2_log($config, 'publish-v2', 'Sem mudança; current revalidado.', $publication);
+                fwrite(STDOUT, json_encode($publication, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
                 exit(10);
             }
         } catch (Throwable $currentError) {
@@ -74,12 +98,16 @@ try {
     }
 
     if ($dryRun) {
-        fwrite(STDOUT, json_encode([
-            'status' => 'DRY_RUN',
+        $publication = [
+            'attempted_at' => gmdate('c'),
+            'result' => 'dry_run',
             'source_commit' => $sourceCommit,
             'manifest_sha256' => $manifestSha,
+            'release_fingerprint' => $remoteMeta['backend_release']['release_fingerprint'] ?? null,
             'artifacts' => count($entries),
-        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
+        ];
+        v2_record_publication_attempt($config, $publication, false);
+        fwrite(STDOUT, json_encode($publication, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
         exit(0);
     }
 
@@ -107,7 +135,7 @@ try {
         }
     }
 
-    $stageValidation = v2_validate_release($stage, $config);
+    $stageValidation = v2_validate_release_backend($stage, $config);
     if (!hash_equals($manifestSha, (string)$stageValidation['manifest_sha256'])) {
         throw new RuntimeException('Assinatura do manifesto no staging divergiu do remoto.');
     }
@@ -128,7 +156,7 @@ try {
     v2_atomic_symlink_swap($current, $releaseRoot);
     $swapped = true;
 
-    $post = v2_validate_release(v2_resolve_current_root($current), $config);
+    $post = v2_validate_release_backend(v2_resolve_current_root($current), $config);
     if (!hash_equals($manifestSha, (string)$post['manifest_sha256'])) {
         throw new RuntimeException('Validação pós-swap não corresponde ao manifesto remoto.');
     }
@@ -141,13 +169,28 @@ try {
         'manifest_sha256' => $manifestSha,
         'pipeline_version' => $post['meta']['pipeline_version'] ?? null,
         'source_fingerprint' => $post['meta']['source_fingerprint'] ?? null,
+        'release_fingerprint' => $post['meta']['backend_release']['release_fingerprint'] ?? null,
+        'degraded_sources' => $post['meta']['freshness']['degraded_sources'] ?? [],
     ];
     v2_atomic_write_json(rtrim((string)$config['paths']['state'], '/') . '/current_release.json', $currentState);
 
     $validationState = v2_validation_payload('success', $releaseRoot, $manifestSha, $config);
     $validationState['validated_artifacts'] = $post['validated_artifacts'];
     $validationState['source_commit'] = $sourceCommit;
+    $validationState['release_fingerprint'] = $post['meta']['backend_release']['release_fingerprint'] ?? null;
     v2_record_validation($config, $validationState);
+
+    $publication = [
+        'attempted_at' => gmdate('c'),
+        'result' => 'success',
+        'release_id' => basename($releaseRoot),
+        'release_root' => $releaseRoot,
+        'source_commit' => $sourceCommit,
+        'manifest_sha256' => $manifestSha,
+        'release_fingerprint' => $post['meta']['backend_release']['release_fingerprint'] ?? null,
+        'degraded_sources' => $post['meta']['freshness']['degraded_sources'] ?? [],
+    ];
+    v2_record_publication_attempt($config, $publication, true);
 
     if (isset($rejected[$manifestSha])) {
         unset($rejected[$manifestSha]);
@@ -159,10 +202,23 @@ try {
     fwrite(STDOUT, json_encode($currentState, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . PHP_EOL);
     exit(0);
 } catch (Throwable $e) {
+    $rollbackRestored = false;
     if ($swapped && is_string($previousRoot) && is_dir($previousRoot)) {
         try {
-            v2_validate_release($previousRoot, $config);
+            $rollbackValidation = v2_validate_release_backend($previousRoot, $config);
             v2_atomic_symlink_swap((string)$config['paths']['current'], $previousRoot);
+            $rollbackRestored = true;
+
+            $restoredValidation = v2_validation_payload(
+                'success',
+                $previousRoot,
+                (string)$rollbackValidation['manifest_sha256'],
+                $config
+            );
+            $restoredValidation['validated_artifacts'] = $rollbackValidation['validated_artifacts'];
+            $restoredValidation['release_fingerprint'] = $rollbackValidation['meta']['backend_release']['release_fingerprint'] ?? null;
+            $restoredValidation['reason'] = 'automatic_rollback_after_publication_failure';
+            v2_record_validation($config, $restoredValidation);
         } catch (Throwable $rollbackError) {
             v2_log($config, 'publish-v2', 'Rollback automático falhou.', [
                 'publish_error' => $e->getMessage(),
@@ -170,6 +226,7 @@ try {
             ]);
         }
     }
+
     if (is_string($manifestSha)) {
         $quarantineFile = rtrim((string)$config['paths']['state'], '/') . '/rejected_releases.json';
         $quarantine = is_file($quarantineFile) ? v2_read_json($quarantineFile) : ['items' => []];
@@ -181,6 +238,7 @@ try {
         ];
         v2_atomic_write_json($quarantineFile, ['items' => $items]);
     }
+
     $activeRoot = null;
     try {
         if (is_link((string)$config['paths']['current'])) {
@@ -188,9 +246,19 @@ try {
         }
     } catch (Throwable $_ignored) {
     }
-    $failure = v2_validation_payload('failure', $activeRoot, $manifestSha, $config, [$e->getMessage()]);
-    $failure['source_commit'] = $sourceCommit;
-    v2_record_validation($config, $failure);
+
+    $failure = [
+        'attempted_at' => gmdate('c'),
+        'result' => 'failure',
+        'active_release_id' => $activeRoot ? basename($activeRoot) : null,
+        'active_release_root' => $activeRoot,
+        'target_release_root' => $releaseRoot,
+        'target_manifest_sha256' => $manifestSha,
+        'target_source_commit' => $sourceCommit,
+        'automatic_rollback_restored' => $rollbackRestored,
+        'error' => $e->getMessage(),
+    ];
+    v2_record_publication_attempt($config, $failure, false);
     v2_log($config, 'publish-v2', 'Publicação rejeitada.', $failure);
     fwrite(STDERR, $e->getMessage() . PHP_EOL);
     exit(50);
