@@ -55,13 +55,14 @@ jobs:
           python -m py_compile \
             transform/build_release_v2.py \
             transform/build_read_models_v2.py \
+            transform/interpretation_v2.py \
             transform/finalize_v2_release.py \
             scripts/persist_source_state.py \
             scripts/bootstrap_source_states.py \
             scripts/validate_v2_release.py
 
       - name: Run backend V2 unit tests
-        run: pytest -q tests/test_v2_contracts.py tests/test_source_state_v2.py
+        run: pytest -q tests/test_v2_contracts.py tests/test_source_state_v2.py tests/test_interpretation_v2.py
 
       - name: Bootstrap missing source states
         run: python scripts/bootstrap_source_states.py --config config/provenance_v2.json
