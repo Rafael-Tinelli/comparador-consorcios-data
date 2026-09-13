@@ -145,9 +145,14 @@ def test_finalizer_allows_degraded_check_but_requires_last_success(tmp_path):
     dist = tmp_path / "dist"
     (dist / "global").mkdir(parents=True)
     meta = {
-        "pipeline_version": "4.0.1",
+        "pipeline_version": "4.1.0",
         "source_fingerprint": "src",
         "methodology_sha256": "method",
+        "release_scope": {
+            "kind": "data_only",
+            "seo_artifacts": False,
+            "seo_owner": "frontend_site",
+        },
         "source_periods": {},
         "artifacts": {"global": [], "seo": []},
     }
@@ -183,6 +188,7 @@ def test_finalizer_allows_degraded_check_but_requires_last_success(tmp_path):
     run_ok(FINALIZE, "--dist-base", dist, "--provenance-config", cfg)
     out = read(dist / "global" / "meta.json")
     assert out["backend_release"]["publication_eligible"] is True
+    assert out["backend_release"]["contract"] == "comparador-v2-release.v2"
     assert out["freshness"]["degraded_sources"] == ["bc_x"]
     assert out["freshness"]["source_state_matches_consumed_bytes"] is True
     assert out["source_status"]["bc_x"]["last_successful_check_at"] == "2026-09-12T00:00:00+00:00"
@@ -192,9 +198,14 @@ def test_finalizer_rejects_state_hash_that_does_not_match_consumed_bytes(tmp_pat
     dist = tmp_path / "dist"
     (dist / "global").mkdir(parents=True)
     (dist / "global" / "meta.json").write_text(json.dumps({
-        "pipeline_version": "4.0.1",
+        "pipeline_version": "4.1.0",
         "source_fingerprint": "src",
         "methodology_sha256": "method",
+        "release_scope": {
+            "kind": "data_only",
+            "seo_artifacts": False,
+            "seo_owner": "frontend_site",
+        },
         "source_periods": {},
         "artifacts": {"global": [], "seo": []},
     }), encoding="utf-8")

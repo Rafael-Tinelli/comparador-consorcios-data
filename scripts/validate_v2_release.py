@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a generated Comparador de Consórcios V2 release.
+"""Validate a generated Comparador de Consórcios V2 data-only release.
 
 Structural validation is suitable for recurring production builds. An optional audit
 baseline adds snapshot-specific assertions for regression review without freezing the
@@ -24,11 +24,7 @@ EXPECTED_CONTRACTS = {
     "comparacoes.json": "comparacoes.v2",
     "ofertas.json": "ofertas.v2",
 }
-SEO_CONTRACTS = {
-    "defaults.json": "seo.defaults.v2",
-    "routes.json": "seo.routes.v2",
-    "site.json": "seo.site.v2",
-}
+RELEASE_CONTRACT = "comparador-v2-release.v2"
 
 
 def load(path: Path) -> Any:
@@ -50,7 +46,7 @@ def contract_of(payload: Any) -> Any:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Valida release V2 gerada")
+    parser = argparse.ArgumentParser(description="Valida release V2 data-only gerada")
     parser.add_argument("--dist-base", required=True)
     parser.add_argument("--provenance-config", required=True)
     parser.add_argument("--deploy-config")
@@ -59,13 +55,21 @@ def main() -> int:
 
     root = Path(args.dist_base)
     g = root / "global"
-    s = root / "seo"
+    legacy_seo = root / "seo"
     errors: List[str] = []
 
     meta_path = g / "meta.json"
     if not meta_path.exists():
         fail([f"meta ausente: {meta_path}"])
     meta = load(meta_path)
+
+    release_scope = meta.get("release_scope")
+    if not isinstance(release_scope, dict) or release_scope.get("kind") != "data_only":
+        errors.append("meta.release_scope.kind deve ser data_only")
+    elif release_scope.get("seo_artifacts") is not False:
+        errors.append("meta.release_scope.seo_artifacts deve ser false")
+    if isinstance(release_scope, dict) and release_scope.get("seo_owner") != "frontend_site":
+        errors.append("meta.release_scope.seo_owner deve ser frontend_site")
 
     payloads: Dict[str, Any] = {}
     for filename, expected in EXPECTED_CONTRACTS.items():
@@ -77,15 +81,6 @@ def main() -> int:
         payloads[filename] = payload
         if contract_of(payload) != expected:
             errors.append(f"contrato divergente em {filename}: {contract_of(payload)!r} != {expected!r}")
-
-    for filename, expected in SEO_CONTRACTS.items():
-        path = s / filename
-        if not path.exists():
-            errors.append(f"artefato SEO ausente: {filename}")
-            continue
-        payload = load(path)
-        if contract_of(payload) != expected:
-            errors.append(f"contrato SEO divergente em {filename}: {contract_of(payload)!r} != {expected!r}")
 
     fail(errors)
     errors = []
@@ -143,31 +138,38 @@ def main() -> int:
     if not isinstance(artifacts, dict):
         errors.append("meta.artifacts ausente/inválido")
     else:
-        for family, directory in (("global", g), ("seo", s)):
-            entries = artifacts.get(family)
-            if not isinstance(entries, list):
-                errors.append(f"meta.artifacts.{family} inválido")
-                continue
+        entries = artifacts.get("global")
+        if not isinstance(entries, list):
+            errors.append("meta.artifacts.global inválido")
+        else:
             for entry in entries:
                 if not isinstance(entry, dict) or not entry.get("file"):
-                    errors.append(f"entrada de manifesto inválida em {family}")
+                    errors.append("entrada de manifesto inválida em global")
                     continue
                 filename = entry["file"]
-                path = directory / filename
-                declared.add((family, filename))
+                path = g / filename
+                declared.add(("global", filename))
                 if not path.exists():
-                    errors.append(f"manifesto declara arquivo ausente: {family}/{filename}")
+                    errors.append(f"manifesto declara arquivo ausente: global/{filename}")
                     continue
                 raw = path.read_bytes()
                 if hashlib.sha256(raw).hexdigest() != entry.get("sha256"):
-                    errors.append(f"sha256 divergente: {family}/{filename}")
+                    errors.append(f"sha256 divergente: global/{filename}")
                 if len(raw) != entry.get("size_bytes"):
-                    errors.append(f"size_bytes divergente: {family}/{filename}")
+                    errors.append(f"size_bytes divergente: global/{filename}")
+
+        seo_entries = artifacts.get("seo", [])
+        if seo_entries not in (None, []):
+            errors.append("release data-only não pode declarar meta.artifacts.seo")
+        extra_families = sorted(set(artifacts) - {"global", "seo"})
+        if extra_families:
+            errors.append(f"famílias de artefatos não suportadas: {extra_families}")
 
     physical = {
-        *(("global", p.name) for p in g.glob("*.json") if p.name != "meta.json"),
-        *(("seo", p.name) for p in s.glob("*.json")),
+        ("global", p.name) for p in g.glob("*.json") if p.name != "meta.json"
     }
+    if legacy_seo.is_dir():
+        physical.update(("seo", p.name) for p in legacy_seo.glob("*.json"))
     if physical != declared:
         errors.append(f"inventário físico != manifesto: physical={sorted(physical)} declared={sorted(declared)}")
 
@@ -214,7 +216,7 @@ def main() -> int:
             errors.append(f"competência ConsorcioBD diverge entre source_status ({state_period}) e meta ({source_period})")
 
     backend_release = meta.get("backend_release")
-    if not isinstance(backend_release, dict) or backend_release.get("contract") != "comparador-v2-release.v1":
+    if not isinstance(backend_release, dict) or backend_release.get("contract") != RELEASE_CONTRACT:
         errors.append("backend_release contract ausente/inválido")
     else:
         if backend_release.get("publication_eligible") is not True:
@@ -262,8 +264,13 @@ def main() -> int:
             )
         if deploy.get("manifest") != "global/meta.json":
             errors.append("deploy manifest deve ser global/meta.json")
-        if deploy.get("release_contract") != "comparador-v2-release.v1":
+        if deploy.get("release_contract") != RELEASE_CONTRACT:
             errors.append("deploy release_contract divergente")
+        deploy_artifacts = deploy.get("artifacts", {})
+        if not isinstance(deploy_artifacts, dict) or "global" not in deploy_artifacts:
+            errors.append("deploy artifacts.global ausente")
+        if isinstance(deploy_artifacts, dict) and deploy_artifacts.get("seo") not in (None, []):
+            errors.append("deploy V2 data-only não pode declarar artefatos SEO")
 
     if args.audit_baseline:
         baseline = load(Path(args.audit_baseline))
@@ -326,6 +333,8 @@ def main() -> int:
     print(json.dumps({
         "status": "PASS",
         "pipeline_version": meta.get("pipeline_version"),
+        "release_contract": meta.get("backend_release", {}).get("contract"),
+        "release_scope": meta.get("release_scope", {}).get("kind"),
         "administradoras": len(admins),
         "produtos": len(products),
         "ranking_rows": len(rankings),

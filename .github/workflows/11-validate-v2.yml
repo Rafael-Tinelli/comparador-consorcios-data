@@ -5,6 +5,7 @@ on:
     paths:
       - "README.md"
       - "docs/REMEDIATION_STATUS_V2.md"
+      - "transform/build_release_v2.py"
       - "transform/build_read_models_v2.py"
       - "transform/finalize_v2_release.py"
       - "scripts/persist_source_state.py"
@@ -60,6 +61,7 @@ jobs:
       - name: Compile V2 backend
         run: |
           python -m py_compile \
+            transform/build_release_v2.py \
             transform/build_read_models_v2.py \
             transform/finalize_v2_release.py \
             scripts/persist_source_state.py \
@@ -91,12 +93,11 @@ jobs:
           )
           PY
 
-      - name: Build V2 in isolation
+      - name: Build V2 data-only in isolation
         run: |
-          python transform/build_read_models_v2.py \
+          python transform/build_release_v2.py \
             --config /tmp/sources-v2.json \
-            --methodology config/methodology_v2.json \
-            --seo-routes config/seo_routes.json
+            --methodology config/methodology_v2.json
 
       - name: Attach source provenance
         run: |
@@ -110,6 +111,14 @@ jobs:
             --dist-base /tmp/consorcio-v2-dist \
             --provenance-config config/provenance_v2.json \
             --audit-baseline config/audit_baseline_v2.json
+
+      - name: Confirm data-only release surface
+        run: |
+          if [ -d /tmp/consorcio-v2-dist/seo ] && find /tmp/consorcio-v2-dist/seo -type f -name '*.json' -print -quit | grep -q .; then
+            echo "Release V2 não pode conter JSON SEO." >&2
+            exit 1
+          fi
+          echo "V2_DATA_ONLY=PASS"
 
       - name: HostGator V2 negative tests
         run: php tests/test_hostgator_v2.php /tmp/consorcio-v2-dist
