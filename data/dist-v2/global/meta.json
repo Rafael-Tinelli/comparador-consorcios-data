@@ -1,0 +1,197 @@
+{
+  "generated_at": "2026-09-13T15:11:08+00:00",
+  "pipeline_version": "4.0.1",
+  "source_fingerprint": "cc78f8b896c7e889318309ea590eec8c80055217ab4e423f4005b41b87d33288",
+  "methodology_version": "2.0.0",
+  "methodology_sha256": "e49ce5d21cd9622b1520689cacf0ccbdf3144edfc5c50dd214b70856981cd2ee",
+  "contracts": {
+    "instituicoes": "instituicoes.v2",
+    "administradoras": "administradoras.v2",
+    "produtos": "produtos.v2",
+    "rankings": "rankings.v2",
+    "segmentos": "segmentos.v2",
+    "comparacoes": "comparacoes.v2",
+    "ofertas": "ofertas.v2"
+  },
+  "methodology": {
+    "purpose": "triagem e comparação de administradoras por sinais públicos verificáveis",
+    "general_score": false,
+    "missingness_policy": "ausência não recebe zero, nota neutra nem redistribuição de peso",
+    "presence_role": "informativo",
+    "commercial_offers_affect_assessment": false
+  },
+  "source_periods": {
+    "consorciobd_mensal": "202605"
+  },
+  "counts": {
+    "instituicoes": 130,
+    "administradoras": 130,
+    "produtos": 368,
+    "rankings": 85,
+    "segmentos": 6,
+    "comparacoes": 6,
+    "ofertas": 0
+  },
+  "quality": {
+    "registry_roots": 130,
+    "monthly_consolidated_rows": 762,
+    "monthly_operational_rows": 368,
+    "monthly_consolidated_roots": 127,
+    "monthly_operational_roots": 124,
+    "ranking_rows": 85,
+    "branch_unresolved": 0,
+    "operational_orphans": [
+      "87945218"
+    ],
+    "ranking_orphans": [
+      "87945218"
+    ]
+  },
+  "artifacts": {
+    "global": [
+      {
+        "file": "instituicoes.json",
+        "sha256": "067bc6fb5a46d101b27b1a495a05fcb523476bb62a7d497c2a191bfa0e2e7b56",
+        "size_bytes": 49478
+      },
+      {
+        "file": "administradoras.json",
+        "sha256": "f687c42b1a27b7d67bc59c43c6def9db56f9df5d6aec8fa843771546fffe245c",
+        "size_bytes": 626060
+      },
+      {
+        "file": "produtos.json",
+        "sha256": "7d9e5e1480050c8bcc095628aab46e3c738d33b9ed6dab3004c8f1f5167be673",
+        "size_bytes": 311294
+      },
+      {
+        "file": "rankings.json",
+        "sha256": "ca7c188ed23814353a5bf23c75ed1fe44b6d816434e729106ce2a4632de8c20a",
+        "size_bytes": 44140
+      },
+      {
+        "file": "segmentos.json",
+        "sha256": "4b3573b12b330ba37a47780f30a710eafa21ac34fbe4a7452c81a013ee066736",
+        "size_bytes": 2900
+      },
+      {
+        "file": "comparacoes.json",
+        "sha256": "527fccceda5394c19d5f5889c9bcbf951bebf888da4302be45ae4167141875e5",
+        "size_bytes": 161461
+      },
+      {
+        "file": "ofertas.json",
+        "sha256": "5eae879e23aa65dfeed62ec680a87e859980065bf2b257ff109ca07900f03ba4",
+        "size_bytes": 246
+      }
+    ],
+    "seo": [
+      {
+        "file": "defaults.json",
+        "sha256": "425662c148a0f6c18dae41dc5c0835478f3a500723306811d59e97d801bbf4fd",
+        "size_bytes": 202
+      },
+      {
+        "file": "routes.json",
+        "sha256": "267437c007da38afb0e8878ff6569bb2d28387d890399b0dca047a507af8467e",
+        "size_bytes": 27913
+      },
+      {
+        "file": "site.json",
+        "sha256": "83731597ceecacf40b648975d1558bcb6821fb0a178f525536183b0fe0894bc7",
+        "size_bytes": 248
+      }
+    ]
+  },
+  "notes": [
+    "meta.json não contém auto-hash.",
+    "Todos os demais JSONs consumíveis produzidos por este builder constam no manifesto com SHA-256 dos bytes serializados."
+  ],
+  "source_status": {
+    "bc_cadastro_admins": {
+      "role": "cadastro atual de administradoras",
+      "last_checked_at": "2026-09-12T12:14:57+00:00",
+      "last_check_status": "success",
+      "last_successful_check_at": "2026-09-12T12:14:57+00:00",
+      "last_changed_at": "2026-09-12T12:14:57+00:00",
+      "changed_on_last_success": true,
+      "mode_used": "odata-csv",
+      "content_sha256": "cc9e29d951074c8322e7306b94933c8e2cba4217db5009fc399376188f2411c0",
+      "competence": {
+        "kind": "not_applicable",
+        "value": null
+      },
+      "snapshot_collected_at": "2026-09-12T12:14:57+00:00",
+      "last_error": null
+    },
+    "bc_filiais": {
+      "role": "presença cadastral de filiais",
+      "last_checked_at": "2026-09-11T16:34:58+00:00",
+      "last_check_status": "success",
+      "last_successful_check_at": "2026-09-11T16:34:58+00:00",
+      "last_changed_at": "2026-09-11T16:34:58+00:00",
+      "changed_on_last_success": true,
+      "mode_used": "odata-csv",
+      "content_sha256": "b9af61585917cb3a31ffd5731327273e20cb3082f98954d568a419696e6e9638",
+      "competence": {
+        "kind": "position_date",
+        "value": "2026-09-10"
+      },
+      "snapshot_collected_at": "2026-09-11T16:34:58+00:00",
+      "last_error": null
+    },
+    "bc_consorciobd": {
+      "role": "operação mensal consolidada por segmento",
+      "last_checked_at": "2026-07-12T10:18:49+00:00",
+      "last_check_status": "success",
+      "last_successful_check_at": "2026-07-12T10:18:49+00:00",
+      "last_changed_at": "2026-07-12T10:18:49+00:00",
+      "changed_on_last_success": true,
+      "mode_used": "direct-content-download",
+      "content_sha256": "f78835875b54eac2996896c84bd7fb416669edb8e0307cf7c9a781ff34c71247",
+      "competence": {
+        "kind": "month",
+        "value": "202605"
+      },
+      "snapshot_collected_at": "2026-07-12T10:18:49+00:00",
+      "last_error": null
+    },
+    "bc_ranking_reclamacoes": {
+      "role": "reclamações de consórcios divulgadas pelo Banco Central",
+      "last_checked_at": "2026-08-07T10:29:27+00:00",
+      "last_check_status": "success",
+      "last_successful_check_at": "2026-08-07T10:29:27+00:00",
+      "last_changed_at": "2026-08-07T10:29:27+00:00",
+      "changed_on_last_success": true,
+      "mode_used": "direct-content-download",
+      "content_sha256": "9688b737cd647f63722e40df0b96b3db26c0753ab4a17df95e162acb167fc12e",
+      "competence": {
+        "kind": "semester",
+        "value": "2026-S1",
+        "year": 2026,
+        "period": 1
+      },
+      "snapshot_collected_at": "2026-08-07T10:29:27+00:00",
+      "last_error": null
+    }
+  },
+  "freshness": {
+    "semantics": {
+      "generated_at": "momento de geração dos read models; não significa atualização das fontes",
+      "last_checked_at": "última tentativa registrada de consulta à fonte",
+      "last_successful_check_at": "última consulta bem-sucedida",
+      "last_changed_at": "última consulta em que o conteúdo persistido mudou",
+      "competence": "período/data a que o conteúdo da fonte se refere, quando aplicável"
+    },
+    "all_required_states_present": true,
+    "source_state_matches_consumed_bytes": true,
+    "degraded_sources": [],
+    "source_state_sha256": "f6af040390929255de684111e7aa08a369422b9abc04b2943dda14b7b87955ca"
+  },
+  "backend_release": {
+    "contract": "comparador-v2-release.v1",
+    "publication_eligible": true,
+    "publication_note": "Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build.",
+    "release_fingerprint": "6bd73eb88d0e5a5c46dded6862d20720d1fda9fe1ee54a68627f28bc95564045"
+  }
+}

@@ -1,0 +1,1819 @@
+{
+  "metadata": {
+    "generated_at": "2026-09-13T15:11:08+00:00",
+    "contract": "instituicoes.v2",
+    "count": 130
+  },
+  "items": [
+    {
+      "cnpj_root": "84911098",
+      "nome": "ADEMICON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "nome_normalizado": "ademicon_administradora_de_consorcios_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "PR",
+          "SC"
+        ],
+        "municipios_count": 2
+      }
+    },
+    {
+      "cnpj_root": "06044551",
+      "nome": "ADMINISTRADORA DE CONSORCIO NACIONAL GAZIN LTDA",
+      "nome_normalizado": "administradora_de_consorcio_nacional_gazin_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "45441789",
+      "nome": "ADMINISTRADORA DE CONSORCIO NACIONAL HONDA LTDA",
+      "nome_normalizado": "administradora_de_consorcio_nacional_honda_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "07808907",
+      "nome": "ADMINISTRADORA DE CONSORCIOS SICREDI LTDA",
+      "nome_normalizado": "administradora_de_consorcios_sicredi_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "59999300",
+      "nome": "ADMINISTRADORA DE CONSÓRCIO NACIONAL VIME LTDA.",
+      "nome_normalizado": "administradora_de_consorcio_nacional_vime_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "73230674",
+      "nome": "ADMINISTRADORA DE CONSÓRCIO RCI BRASIL LTDA",
+      "nome_normalizado": "administradora_de_consorcio_rci_brasil_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "91341925",
+      "nome": "ADMINISTRADORA DE CONSÓRCIO SPENGLER LTDA.",
+      "nome_normalizado": "administradora_de_consorcio_spengler_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 3,
+        "ufs": [
+          "RS"
+        ],
+        "municipios_count": 3
+      }
+    },
+    {
+      "cnpj_root": "12228808",
+      "nome": "ADMINISTRADORA DE CONSÓRCIO UNICOOB LTDA",
+      "nome_normalizado": "administradora_de_consorcio_unicoob_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "03828278",
+      "nome": "ADMINISTRADORA DE CONSÓRCIOS BECKER LTDA.",
+      "nome_normalizado": "administradora_de_consorcios_becker_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "90982679",
+      "nome": "ALPHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "alpha_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "RS"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "60375243",
+      "nome": "ANCORA ADMINISTRADORA DE CONSORCIOS S.A.",
+      "nome_normalizado": "ancora_administradora_de_consorcios_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "03832228",
+      "nome": "APEC - ADMINISTRADORA DE CONSORCIOS S/A",
+      "nome_normalizado": "apec_administradora_de_consorcios_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "MG"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "13548938",
+      "nome": "ASSOCIACAO BAHIANA DE MEDICINA ABM",
+      "nome_normalizado": "associacao_bahiana_de_medicina_abm",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "BA"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "92965748",
+      "nome": "ASSOCIACAO DOS JUIZES DO RIO GRANDE DO SUL",
+      "nome_normalizado": "associacao_dos_juizes_do_rio_grande_do_sul",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "RS"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "71045363",
+      "nome": "BAMAQ ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "bamaq_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "MG"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "02010478",
+      "nome": "BANCORBRÁS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "nome_normalizado": "bancorbras_administradora_de_consorcios_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 16,
+        "ufs": [
+          "AL",
+          "AM",
+          "BA",
+          "CE",
+          "DF",
+          "ES",
+          "GO",
+          "MG",
+          "PA",
+          "PB",
+          "RS",
+          "SC",
+          "SP"
+        ],
+        "municipios_count": 15
+      }
+    },
+    {
+      "cnpj_root": "92692979",
+      "nome": "BANRISUL S.A. - ADMINISTRADORA DE CONSÓRCIOS",
+      "nome_normalizado": "banrisul_s_a_administradora_de_consorcios",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "06043050",
+      "nome": "BB ADMINISTRADORA DE CONSORCIOS S.A.",
+      "nome_normalizado": "bb_administradora_de_consorcios_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "36770683",
+      "nome": "BBC ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "bbc_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "06181431",
+      "nome": "BP ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "nome_normalizado": "bp_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "14723388",
+      "nome": "BR CONSÓRCIOS ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "br_consorcios_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 5,
+        "ufs": [
+          "MG",
+          "PR",
+          "SE",
+          "SP"
+        ],
+        "municipios_count": 5
+      }
+    },
+    {
+      "cnpj_root": "52568821",
+      "nome": "BRADESCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "bradesco_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "73235962",
+      "nome": "BREITKOPF ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "breitkopf_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 4,
+        "ufs": [
+          "SC"
+        ],
+        "municipios_count": 4
+      }
+    },
+    {
+      "cnpj_root": "03762395",
+      "nome": "BRENNER ADMINISTRADORA DE CONSORCIO LTDA",
+      "nome_normalizado": "brenner_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "RS"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "06046109",
+      "nome": "BRISA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "brisa_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "MG"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "45713971",
+      "nome": "BRQUALY ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "brqualy_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "72461643",
+      "nome": "CAMVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "camvel_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SC"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "68318773",
+      "nome": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
+      "nome_normalizado": "canopus_administradora_de_consorcios_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 11,
+        "ufs": [
+          "BA",
+          "CE",
+          "ES",
+          "MG",
+          "MT",
+          "PA",
+          "PE",
+          "RJ",
+          "RS",
+          "SP"
+        ],
+        "municipios_count": 11
+      }
+    },
+    {
+      "cnpj_root": "95783262",
+      "nome": "CARLESSI ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "carlessi_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SC"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "00266031",
+      "nome": "CICAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "cical_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "GO"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "13170428",
+      "nome": "CIMAVEL ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "cimavel_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SE"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "33868654",
+      "nome": "CLUBE NAVAL - CAIXA BENEFICIENTE",
+      "nome_normalizado": "clube_naval_caixa_beneficiente",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "RJ"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "59129403",
+      "nome": "CNF - ADMINISTRADORA DE CONSÓRCIOS NACIONAL LTDA.",
+      "nome_normalizado": "cnf_administradora_de_consorcios_nacional_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "05349595",
+      "nome": "CNP CONSÓRCIO S.A. ADMINISTRADORA DE CONSÓRCIOS",
+      "nome_normalizado": "cnp_consorcio_s_a_administradora_de_consorcios",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "44474674",
+      "nome": "COMAUTO ADMINISTRADORA DE CONSORCIO LTDA",
+      "nome_normalizado": "comauto_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "75770164",
+      "nome": "CONBR ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "nome_normalizado": "conbr_administradora_de_consorcios_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "07336852",
+      "nome": "CONBRAV - ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "conbrav_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "CE"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "92459213",
+      "nome": "CONESUL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "conesul_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "RS"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "56103171",
+      "nome": "CONSCLIC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "consclic_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "44196293",
+      "nome": "CONSHOP ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "nome_normalizado": "conshop_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 2
+      }
+    },
+    {
+      "cnpj_root": "20919916",
+      "nome": "CONSÓRCIO NACIONAL GARANTIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "consorcio_nacional_garantia_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "MG"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "47658539",
+      "nome": "CONSÓRCIO NACIONAL VOLKSWAGEN - ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "consorcio_nacional_volkswagen_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "58919903",
+      "nome": "CONVEF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "convef_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "61550836",
+      "nome": "COOPERATIVA ADMINISTRADORA DE CONSÓRCIOS ROMA - PROIBIDA DE CONSTITUIR NOVOS GRUPOS DE CONSÓRCIO ATÉ 21.4.2029",
+      "nome_normalizado": "cooperativa_administradora_de_consorcios_roma_proibida_de_constituir_novos_grupos_de_consorcio_ate_21_4_2029",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "05794450",
+      "nome": "DESTAQUE ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "destaque_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "59395061",
+      "nome": "DISAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "disal_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "08570707",
+      "nome": "ELDORADO ADMINISTRADORA DE CONSORCIO LTDA",
+      "nome_normalizado": "eldorado_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "RN"
+        ],
+        "municipios_count": 2
+      }
+    },
+    {
+      "cnpj_root": "58113812",
+      "nome": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
+      "nome_normalizado": "embracon_administradora_de_consorcio_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 92,
+        "ufs": [
+          "AL",
+          "BA",
+          "CE",
+          "DF",
+          "ES",
+          "GO",
+          "MG",
+          "MS",
+          "MT",
+          "PA",
+          "PB",
+          "PE",
+          "PR",
+          "RJ",
+          "RN",
+          "RS",
+          "SC",
+          "SE",
+          "SP"
+        ],
+        "municipios_count": 77
+      }
+    },
+    {
+      "cnpj_root": "40513064",
+      "nome": "EUTBEM ADMINISTRADORA DE CONSÓRCIO S.A.",
+      "nome_normalizado": "eutbem_administradora_de_consorcio_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "42735881",
+      "nome": "EVOY ADMINISTRADORA DE CONSORCIO LTDA.",
+      "nome_normalizado": "evoy_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "11747606",
+      "nome": "FANCAR ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "fancar_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "91107581",
+      "nome": "FARROUPILHA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "farroupilha_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "RS"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "33350620",
+      "nome": "FEDERACAO NAC. DE ASSOCIACOES DOS SERVIDORES DO BCO CENTRAL",
+      "nome_normalizado": "federacao_nac_de_associacoes_dos_servidores_do_bco_central",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "DF"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "00600262",
+      "nome": "FERRAZ ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "ferraz_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "DF"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "62534158",
+      "nome": "FF ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "nome_normalizado": "ff_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "06940240",
+      "nome": "FIEL PADUA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "fiel_padua_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "45725975",
+      "nome": "FINAMA ADMINISTRADORA DE CONSORCIO LTDA",
+      "nome_normalizado": "finama_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "78688462",
+      "nome": "FIPAL ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "fipal_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "44479061",
+      "nome": "FRA-FREIRE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "fra_freire_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "04751943",
+      "nome": "FRANCAUTO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "francauto_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "00643742",
+      "nome": "FUNDACAO HABITACIONAL DO EXERCITO - FHE",
+      "nome_normalizado": "fundacao_habitacional_do_exercito_fhe",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "82942400",
+      "nome": "GAMBATTO ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "nome_normalizado": "gambatto_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SC"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "45700892",
+      "nome": "GAP ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "gap_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "47820097",
+      "nome": "GAPLAN ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "gaplan_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 12,
+        "ufs": [
+          "MT",
+          "PR",
+          "SC",
+          "SP"
+        ],
+        "municipios_count": 12
+      }
+    },
+    {
+      "cnpj_root": "85322204",
+      "nome": "GLOBO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "globo_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 5,
+        "ufs": [
+          "PR",
+          "SC"
+        ],
+        "municipios_count": 5
+      }
+    },
+    {
+      "cnpj_root": "49937055",
+      "nome": "GMAC ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "gmac_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "91338228",
+      "nome": "GRAVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "gravel_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "RS"
+        ],
+        "municipios_count": 2
+      }
+    },
+    {
+      "cnpj_root": "26228270",
+      "nome": "GROSCON ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "nome_normalizado": "groscon_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "03586655",
+      "nome": "H. ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "h_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "PR"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "73516106",
+      "nome": "HS ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "nome_normalizado": "hs_administradora_de_consorcios_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 5,
+        "ufs": [
+          "PR",
+          "RS",
+          "SP"
+        ],
+        "municipios_count": 5
+      }
+    },
+    {
+      "cnpj_root": "61029190",
+      "nome": "ICONSÓRCIO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "iconsorcio_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "03403333",
+      "nome": "IRMÃOS DE MARCO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "irmaos_de_marco_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SC"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "00000776",
+      "nome": "ITAÚ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "itau_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "42421776",
+      "nome": "ITAÚ UNIBANCO VEÍCULOS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "itau_unibanco_veiculos_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "41629070",
+      "nome": "KLUBI ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "klubi_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "62798475",
+      "nome": "KSK ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "ksk_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "60250776",
+      "nome": "LUIZA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "luiza_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "58860976",
+      "nome": "M.I6 ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "m_i6_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "04250224",
+      "nome": "MAGGI ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "maggi_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "45793395",
+      "nome": "MASSEY FERGUSON ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "massey_ferguson_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 2
+      }
+    },
+    {
+      "cnpj_root": "76853043",
+      "nome": "MENEGALLI ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "menegalli_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "46349106",
+      "nome": "MERCABENCO ADMINISTRADORA DE CONSORCIO LTDA",
+      "nome_normalizado": "mercabenco_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "05126027",
+      "nome": "MOTOASA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "motoasa_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "04124922",
+      "nome": "MULTIMARCAS ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "nome_normalizado": "multimarcas_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "27268770",
+      "nome": "MYCON ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "nome_normalizado": "mycon_administradora_de_consorcios_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "ES",
+          "SP"
+        ],
+        "municipios_count": 2
+      }
+    },
+    {
+      "cnpj_root": "05652765",
+      "nome": "NANUQUE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "nanuque_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "05395814",
+      "nome": "NOVOTEMPO ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "nome_normalizado": "novotempo_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "48041735",
+      "nome": "PORTO SEGURO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "porto_seguro_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 16,
+        "ufs": [
+          "DF",
+          "ES",
+          "GO",
+          "MG",
+          "PR",
+          "RJ",
+          "RS",
+          "SP"
+        ],
+        "municipios_count": 15
+      }
+    },
+    {
+      "cnpj_root": "87433413",
+      "nome": "PORTOBENS ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "portobens_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "51597300",
+      "nome": "PRIMO ROSSI ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "primo_rossi_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 4,
+        "ufs": [
+          "MG",
+          "SP"
+        ],
+        "municipios_count": 4
+      }
+    },
+    {
+      "cnpj_root": "09111444",
+      "nome": "PROMOVE ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "promove_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "27836377",
+      "nome": "QUALINVEST ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "qualinvest_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "91108027",
+      "nome": "RANDON ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "randon_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "RS"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "23767155",
+      "nome": "RECON ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "recon_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 4,
+        "ufs": [
+          "CE",
+          "GO",
+          "MG",
+          "PA"
+        ],
+        "municipios_count": 4
+      }
+    },
+    {
+      "cnpj_root": "92002609",
+      "nome": "REDE OESTE ADMINISTRADORA DE CONSORCIOS LTDA.",
+      "nome_normalizado": "rede_oeste_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "PR"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "62246228",
+      "nome": "REDENÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "redencao_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "RN"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "62354055",
+      "nome": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "remaza_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 12,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 5
+      }
+    },
+    {
+      "cnpj_root": "28904092",
+      "nome": "RESERVA ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "nome_normalizado": "reserva_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "RJ"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "80402746",
+      "nome": "RIVEL ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "rivel_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "PR"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "51855716",
+      "nome": "RODOBENS ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "rodobens_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "80674393",
+      "nome": "SANTA FÉ ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "santa_fe_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SC"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "55942312",
+      "nome": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "santander_brasil_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "96479258",
+      "nome": "SCANIA ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "scania_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "94187879",
+      "nome": "SERELLO ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "serello_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "RS"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "89472310",
+      "nome": "SERRANA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "serrana_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "RS"
+        ],
+        "municipios_count": 2
+      }
+    },
+    {
+      "cnpj_root": "76515071",
+      "nome": "SERVOPA ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "servopa_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 5,
+        "ufs": [
+          "PR"
+        ],
+        "municipios_count": 5
+      }
+    },
+    {
+      "cnpj_root": "16551061",
+      "nome": "SICOOB ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "sicoob_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "DF"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "26253658",
+      "nome": "SM ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "sm_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "MG"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "04058605",
+      "nome": "SOLUÇÃO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "solucao_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "ES"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "54708839",
+      "nome": "SPERTA ADMINISTRADORA DE CONSORCIO NACIONAL LTDA",
+      "nome_normalizado": "sperta_administradora_de_consorcio_nacional_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 2
+      }
+    },
+    {
+      "cnpj_root": "87636635",
+      "nome": "SPONCHIADO ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "sponchiado_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 4,
+        "ufs": [
+          "RS"
+        ],
+        "municipios_count": 4
+      }
+    },
+    {
+      "cnpj_root": "57723801",
+      "nome": "SUZUKI MOTOS ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "suzuki_motos_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 12,
+        "ufs": [
+          "BA",
+          "MG",
+          "PA",
+          "RO",
+          "RS",
+          "SP"
+        ],
+        "municipios_count": 9
+      }
+    },
+    {
+      "cnpj_root": "53211488",
+      "nome": "TARRAF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "tarraf_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "43707203",
+      "nome": "TOYOTA ADMINISTRADORA DE CONSÓRCIOS DO BRASIL LTDA.",
+      "nome_normalizado": "toyota_administradora_de_consorcios_do_brasil_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "59956185",
+      "nome": "TRADIÇÃO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "tradicao_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "78199262",
+      "nome": "TRIÂNGULO ADMINISTRADORA DE CONSÓRCIOS S/A",
+      "nome_normalizado": "triangulo_administradora_de_consorcios_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "PR"
+        ],
+        "municipios_count": 2
+      }
+    },
+    {
+      "cnpj_root": "05551841",
+      "nome": "TÁGIDE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "tagide_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "PA"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "50586247",
+      "nome": "UNAFISCO - ASSOCIAÇÃO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
+      "nome_normalizado": "unafisco_associacao_nacional_dos_auditores_fiscais_da_receita_federal_do_brasil",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 2,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "46931655",
+      "nome": "UNECONSORCIO ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "uneconsorcio_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "60732997",
+      "nome": "UNIFISA ADMINISTRADORA NACIONAL DE CONSORCIOS LTDA",
+      "nome_normalizado": "unifisa_administradora_nacional_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 10,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 7
+      }
+    },
+    {
+      "cnpj_root": "83553883",
+      "nome": "UNIÃO CATARINENSE ADMINISTRADORA DE CONSORCIOS LTDA",
+      "nome_normalizado": "uniao_catarinense_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SC"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "56360266",
+      "nome": "VALTRA ADMINISTRADORA DE CONSÓRCIOS LTDA",
+      "nome_normalizado": "valtra_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "57236840",
+      "nome": "VANGUARDA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "vanguarda_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    },
+    {
+      "cnpj_root": "49995293",
+      "nome": "VINAC ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "vinac_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "22245020",
+      "nome": "VIVIANI ADMINISTRADORA DE CONSÓRCIO NACIONAL LTDA.",
+      "nome_normalizado": "viviani_administradora_de_consorcio_nacional_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "74118381",
+      "nome": "VOLVO ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "volvo_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "PR"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "40011095",
+      "nome": "XS5 ADMINISTRADORA DE CONSÓRCIOS S.A.",
+      "nome_normalizado": "xs5_administradora_de_consorcios_s_a",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "47458153",
+      "nome": "YAMAHA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "nome_normalizado": "yamaha_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "SP"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "23367634",
+      "nome": "ZEMA ADMINISTRADORA DE CONSÓRCIO LTDA",
+      "nome_normalizado": "zema_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 1,
+        "ufs": [
+          "MG"
+        ],
+        "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "03762583",
+      "nome": "ÁPICE ADMINISTRADORA DE CONSORCIO LTDA",
+      "nome_normalizado": "apice_administradora_de_consorcio_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
+      }
+    }
+  ]
+}

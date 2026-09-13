@@ -1,0 +1,25 @@
+{
+  "schema": "source-state.v1",
+  "source": "bc_ranking_reclamacoes",
+  "last_checked_at": "2026-08-07T10:29:27+00:00",
+  "last_check_status": "success",
+  "last_successful_check_at": "2026-08-07T10:29:27+00:00",
+  "last_changed_at": "2026-08-07T10:29:27+00:00",
+  "changed_on_last_success": true,
+  "mode_used": "direct-content-download",
+  "content_sha256": "9688b737cd647f63722e40df0b96b3db26c0753ab4a17df95e162acb167fc12e",
+  "competence": {
+    "kind": "semester",
+    "value": "2026-S1",
+    "year": 2026,
+    "period": 1
+  },
+  "snapshot_collected_at": "2026-08-07T10:29:27+00:00",
+  "last_error": null,
+  "provenance": {
+    "runtime_file": null,
+    "snapshot_file": "data/raw/bc/ranking_reclamacoes/latest.json",
+    "content_file": "data/raw/bc/ranking_reclamacoes/latest_source.csv",
+    "bootstrap": true
+  }
+}

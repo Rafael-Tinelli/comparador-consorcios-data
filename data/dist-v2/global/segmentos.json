@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "generated_at": "2026-09-13T15:11:08+00:00",
+    "contract": "segmentos.v2",
+    "count": 6
+  },
+  "items": [
+    {
+      "segmento": "imobiliario",
+      "label": "Consórcio de imóveis",
+      "codigo": "1",
+      "competencia": "202605",
+      "administradoras_com_operacao_observada": 71,
+      "cotas_ativas_em_dia": 2818705,
+      "contemplacoes_mes": 13770,
+      "taxa_administracao_pct_mediana_administradoras": 20.90699,
+      "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial."
+    },
+    {
+      "segmento": "veiculos_pesados_maquinas",
+      "label": "Veículos pesados, máquinas e equipamentos",
+      "codigo": "2",
+      "competencia": "202605",
+      "administradoras_com_operacao_observada": 56,
+      "cotas_ativas_em_dia": 825523,
+      "contemplacoes_mes": 7489,
+      "taxa_administracao_pct_mediana_administradoras": 14.00078,
+      "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial."
+    },
+    {
+      "segmento": "veiculos",
+      "label": "Veículos leves",
+      "codigo": "3",
+      "competencia": "202605",
+      "administradoras_com_operacao_observada": 107,
+      "cotas_ativas_em_dia": 4982159,
+      "contemplacoes_mes": 62109,
+      "taxa_administracao_pct_mediana_administradoras": 15.41334,
+      "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial."
+    },
+    {
+      "segmento": "motos",
+      "label": "Motocicletas",
+      "codigo": "4",
+      "competencia": "202605",
+      "administradoras_com_operacao_observada": 67,
+      "cotas_ativas_em_dia": 2910766,
+      "contemplacoes_mes": 56818,
+      "taxa_administracao_pct_mediana_administradoras": 18.85989,
+      "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial."
+    },
+    {
+      "segmento": "outros_bens_moveis",
+      "label": "Outros bens móveis duráveis",
+      "codigo": "5",
+      "competencia": "202605",
+      "administradoras_com_operacao_observada": 28,
+      "cotas_ativas_em_dia": 192477,
+      "contemplacoes_mes": 4017,
+      "taxa_administracao_pct_mediana_administradoras": 18.57924,
+      "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial."
+    },
+    {
+      "segmento": "servicos_turisticos",
+      "label": "Serviços turísticos",
+      "codigo": "6",
+      "competencia": "202605",
+      "administradoras_com_operacao_observada": 37,
+      "cotas_ativas_em_dia": 121191,
+      "contemplacoes_mes": 3682,
+      "taxa_administracao_pct_mediana_administradoras": 18.8,
+      "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial."
+    }
+  ]
+}

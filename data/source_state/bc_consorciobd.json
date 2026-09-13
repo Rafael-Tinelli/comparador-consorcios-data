@@ -1,0 +1,23 @@
+{
+  "schema": "source-state.v1",
+  "source": "bc_consorciobd",
+  "last_checked_at": "2026-07-12T10:18:49+00:00",
+  "last_check_status": "success",
+  "last_successful_check_at": "2026-07-12T10:18:49+00:00",
+  "last_changed_at": "2026-07-12T10:18:49+00:00",
+  "changed_on_last_success": true,
+  "mode_used": "direct-content-download",
+  "content_sha256": "f78835875b54eac2996896c84bd7fb416669edb8e0307cf7c9a781ff34c71247",
+  "competence": {
+    "kind": "month",
+    "value": "202605"
+  },
+  "snapshot_collected_at": "2026-07-12T10:18:49+00:00",
+  "last_error": null,
+  "provenance": {
+    "runtime_file": null,
+    "snapshot_file": "data/raw/bc/consorciobd/latest.json",
+    "content_file": "data/raw/bc/consorciobd/latest_source.bin",
+    "bootstrap": true
+  }
+}

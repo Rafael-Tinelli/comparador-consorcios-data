@@ -1,0 +1,23 @@
+{
+  "schema": "source-state.v1",
+  "source": "bc_cadastro_admins",
+  "last_checked_at": "2026-09-12T12:14:57+00:00",
+  "last_check_status": "success",
+  "last_successful_check_at": "2026-09-12T12:14:57+00:00",
+  "last_changed_at": "2026-09-12T12:14:57+00:00",
+  "changed_on_last_success": true,
+  "mode_used": "odata-csv",
+  "content_sha256": "cc9e29d951074c8322e7306b94933c8e2cba4217db5009fc399376188f2411c0",
+  "competence": {
+    "kind": "not_applicable",
+    "value": null
+  },
+  "snapshot_collected_at": "2026-09-12T12:14:57+00:00",
+  "last_error": null,
+  "provenance": {
+    "runtime_file": null,
+    "snapshot_file": "data/raw/bc/cadastro/latest.json",
+    "content_file": "data/stage/cadastro/instituicoes_cadastro.json",
+    "bootstrap": true
+  }
+}

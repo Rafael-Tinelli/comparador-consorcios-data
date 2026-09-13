@@ -1,0 +1,23 @@
+{
+  "schema": "source-state.v1",
+  "source": "bc_filiais",
+  "last_checked_at": "2026-09-11T16:34:58+00:00",
+  "last_check_status": "success",
+  "last_successful_check_at": "2026-09-11T16:34:58+00:00",
+  "last_changed_at": "2026-09-11T16:34:58+00:00",
+  "changed_on_last_success": true,
+  "mode_used": "odata-csv",
+  "content_sha256": "b9af61585917cb3a31ffd5731327273e20cb3082f98954d568a419696e6e9638",
+  "competence": {
+    "kind": "position_date",
+    "value": "2026-09-10"
+  },
+  "snapshot_collected_at": "2026-09-11T16:34:58+00:00",
+  "last_error": null,
+  "provenance": {
+    "runtime_file": null,
+    "snapshot_file": "data/raw/bc/filiais/latest.json",
+    "content_file": "data/stage/filiais/filiais.json",
+    "bootstrap": true
+  }
+}
