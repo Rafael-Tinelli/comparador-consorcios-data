@@ -10,8 +10,9 @@ Este documento distingue quatro estados diferentes: correção implementada no r
 - **C09 real:** comprovado para as quatro fontes críticas.
 - **Publicação HostGator paralela:** mecanismo homologado em 13/09/2026 sob o contrato histórico `comparador-v2-release.v1`.
 - **Simplificação C15:** backend V2 alterado para release **data-only**, contrato `comparador-v2-release.v2` e pipeline `4.1.0`.
+- **Release canônica data-only no GitHub:** publicada pelo workflow 12 #5 no commit `5664bd5360671ad94485aa8b11ab90fc142e2732`.
 - **SEO V2:** deixa de ser responsabilidade do repositório de dados; pertence ao frontend/site.
-- **Re-homologação do novo envelope data-only:** necessária antes do corte público.
+- **Re-homologação do novo envelope data-only:** pendente somente no HostGator paralelo.
 - **Produção pública:** continua V1.
 - **`deploy_enabled`:** permanece `false`.
 
@@ -19,8 +20,8 @@ Este documento distingue quatro estados diferentes: correção implementada no r
 
 | ID | Status V2 | Tratamento / evidência | Pendência antes de produção pública |
 |---|---|---|---|
-| C01 | **Implementado; envelope v2 precisa re-homologação** | Manifesto continua sendo a lista auditável dos artefatos consumíveis. A release data-only contém sete JSONs globais não-meta + `meta.json`; SEO não faz mais parte do inventário. Pull/validator/rollback continuam usando o manifesto e o mesmo gate. | Rodar workflow 11 verde e re-homologar `comparador-v2-release.v2` no HostGator paralelo. |
-| C02 | **Implementado; simplificado** | Builder data-only exige cadastro, filiais, mensal, ranking e metodologia. SEO deixou de ser insumo obrigatório. CI continua bloqueando núcleo ausente, hash/tamanho divergente, JSON extra, contrato incorreto e inventário físico divergente. | Confirmar novo envelope no workflow 11/HostGator. |
+| C01 | **Implementado; GitHub canônico concluído; HostGator v2 pendente** | Manifesto continua sendo a lista auditável dos artefatos consumíveis. A release data-only contém sete JSONs globais não-meta + `meta.json`; SEO não faz mais parte do inventário físico. Workflow 11 verde e workflow 12 #5 já publicaram o novo envelope em `main`. | Re-homologar `comparador-v2-release.v2` no HostGator paralelo. |
+| C02 | **Implementado; simplificado** | Builder data-only exige cadastro, filiais, mensal, ranking e metodologia. SEO deixou de ser insumo obrigatório. CI bloqueia núcleo ausente, hash/tamanho divergente, JSON extra, contrato incorreto e inventário físico divergente. A geração canônica data-only já foi publicada. | Confirmar o mesmo envelope no HostGator real. |
 | C03 | **Implementado** | Estoques, fluxos e taxa vêm de `Segmentos_Consolidados`; grupos ficam restritos a enriquecimentos compatíveis/reconciliação. | Frontend deve consumir os novos campos. |
 | C04 | **Implementado** | Zero e ausência são distintos; numerador incompleto não vira zero; não existe nota neutra 50 nem redistribuição de peso; segmento zerado não vira portfólio. | UI deve preservar os estados. |
 | C05 | **Implementado** | `posicao_oficial` só existe se a fonte trouxer coluna explícita. Ordem de linha não vira ranking BC. | Remover rótulos/consumo legado no frontend. |
@@ -31,24 +32,25 @@ Este documento distingue quatro estados diferentes: correção implementada no r
 | C10 | **Resolvido por mudança de contrato** | V2 inicial não tem nota/ranking geral. `methodology_v2.json` é política executável e tem hash no meta. | Qualquer futura nota exige nova metodologia/versionamento/auditoria. |
 | C11 | **Implementado** | Taxa por segmento usa consolidado; grupos enriquecem prazo/crédito; medianas derivadas não são chamadas de “mercado oficial”. | UI deve manter benchmark separado de oferta. |
 | C12 | **Implementado no recorte atual** | Join de filiais por raiz; órfão `87945218` explícito; segmento 6 `Serviços turísticos`; catálogo atual separado de história operacional. | Lifecycle/sucessão somente com fonte temporal adequada. |
-| C13 | **Mecanismo homologado sob v1; gate preservado em v2** | Lock comum, SHA imutável, staging, hash/tamanho, revalidação de `current-v2`, quarentena, swap atômico e rollback foram provados no host real. O contrato v2 mantém esses mecanismos e altera apenas o envelope de artefatos/release. | Repetir homologação estreita após publicar uma release data-only. |
+| C13 | **Mecanismo homologado sob v1; gate preservado em v2** | Lock comum, SHA imutável, staging, hash/tamanho, revalidação de `current-v2`, quarentena, swap atômico e rollback foram provados no host real. O contrato v2 mantém esses mecanismos e altera apenas o envelope de artefatos/release. | Repetir homologação estreita no HostGator usando a release canônica data-only já publicada. |
 | C14 | **Contrato de dados pronto / UI pendente** | Perfis carregam cobertura, sinais disponíveis, período e limites. | Renderizar explicação junto da comparação sem criar selo de qualidade. |
-| C15 | **Fronteira backend implementada / consumidor público pendente** | Inventário real confirmou 13 URLs existentes e quatro destinos do antigo `seo_routes.json` ausentes. Decisão: não criar páginas por existência de JSON. V2 deixa de gerar `defaults/routes/site`; SEO editorial passa ao PHP/site (`head-global.php`, `config-site.php`, página dona do canonical/title/description). | Remover/deixar de carregar `_app/consorcio-seo.php` no comparador público, migrar SEO da raiz para o padrão nativo e confirmar URLs/canonicals/sitemap após o corte. |
+| C15 | **Fronteira backend implementada / consumidor público pendente** | Inventário real confirmou 13 URLs existentes e quatro destinos do antigo `seo_routes.json` ausentes. Decisão: não criar páginas por existência de JSON. V2 deixa de gerar `defaults/routes/site`; SEO editorial passa ao PHP/site (`head-global.php`, `config-site.php`, página dona do canonical/title/description). O CLI V2 antigo foi bloqueado para impedir regressão acidental. | Remover/deixar de carregar `_app/consorcio-seo.php` no comparador público, migrar SEO da raiz para o padrão nativo e confirmar URLs/canonicals/sitemap após o corte. |
 | C16 | **Pendente de frontend** | Nenhum redesign foi embutido no backend. | Busca/URL, detalhes progressivos, 390 px, zoom 200%, teclado/foco, sem-JS e histórico precisam homologação. |
 
 ## Pipeline canônico V2 data-only
 
-A cadeia nova é:
+A cadeia atual é:
 
 1. coletores gravam os insumos e persistem `data/source_state/*.json` nas quatro fontes críticas;
 2. `transform/build_release_v2.py` constrói somente `data/dist-v2/global/*.json`;
-3. o builder remove qualquer `data/dist-v2/seo/*.json` residual da geração V2 anterior;
-4. `transform/finalize_v2_release.py` anexa proveniência e produz `backend_release.contract=comparador-v2-release.v2`;
-5. `scripts/validate_v2_release.py` valida contratos, manifesto, hashes, semântica, source-state e `release_scope=data_only`;
-6. o validador recusa JSON SEO físico ou declarado na release data-only;
-7. PHP 8.2 aplica o mesmo manifesto/gate a pull, validate e rollback;
-8. workflow 12 recusa stale base antes do commit da release;
-9. HostGator V2 permanece isolado da V1 até o corte do consumidor.
+3. `transform/build_read_models_v2.py` funciona apenas como fachada de importação e recusa execução direta; o núcleo histórico foi isolado em `_read_models_v2_core_legacy.py` até limpeza posterior;
+4. o builder remove qualquer `data/dist-v2/seo/*.json` residual da geração V2 anterior;
+5. `transform/finalize_v2_release.py` anexa proveniência e produz `backend_release.contract=comparador-v2-release.v2`;
+6. `scripts/validate_v2_release.py` valida contratos, manifesto, hashes, semântica, source-state e `release_scope=data_only`;
+7. o validador recusa JSON SEO físico ou declarado na release data-only;
+8. PHP 8.2 aplica o mesmo manifesto/gate a pull, validate e rollback;
+9. workflow 12 recusa stale base antes do commit da release;
+10. HostGator V2 permanece isolado da V1 até o corte do consumidor.
 
 ### Artefatos consumíveis V2
 
@@ -66,7 +68,7 @@ Manifesto/estado da release:
 
 - `global/meta.json`.
 
-Não existem mais artefatos SEO consumíveis na V2. `meta.artifacts.seo=[]` é somente compatibilidade transitória com a biblioteca operacional que percorre as famílias `global` e `seo`; não representa contrato SEO nem arquivo físico.
+Não existem mais artefatos SEO consumíveis na V2. `meta.artifacts.seo=[]` é somente compatibilidade transitória com a biblioteca operacional que percorre as famílias `global` e `seo`; não representa contrato SEO nem arquivo físico e não autoriza reintrodução de SEO no backend.
 
 ## Decisão C15 — arquitetura do site
 
@@ -120,14 +122,20 @@ A remoção definitiva do legado só pode ocorrer depois do Marco C, com verific
 
 ## Evidência operacional histórica — 13/09/2026
 
-### GitHub Actions / C09
+### GitHub Actions / C09 e release data-only
 
-- workflow 12 real publicou uma release canônica válida;
+- workflow 12 real publicou uma release canônica válida sob o contrato anterior;
 - uma execução foi corretamente recusada por stale base depois de outro writer avançar `main`;
 - execução posterior publicou sobre base estabilizada;
 - repetição com inputs idênticos terminou sem commit artificial;
 - cadastro e filiais tiveram sucesso com mudança;
-- ConsorcioBD e reclamações tiveram sucesso `changed:false`, preservando `last_changed_at`.
+- ConsorcioBD e reclamações tiveram sucesso `changed:false`, preservando `last_changed_at`;
+- após a simplificação C15, workflow 11 passou verde para o novo contrato data-only;
+- workflow 12 #5, iniciado sobre `04bc5a226f932d43e19bc27990f07f36b903af4c`, passou todos os gates e publicou o commit canônico `5664bd5360671ad94485aa8b11ab90fc142e2732`;
+- a release publicada usa pipeline `4.1.0`, contrato `comparador-v2-release.v2`, `release_scope=data_only`, sete artefatos de dados não-meta e nenhum JSON SEO físico;
+- `source_fingerprint=72456642883fa6cc56f9169d2572394e899ad3cec2d86816f7e22e63f8681780`;
+- `release_fingerprint=9cd474256d02174d0033fb2e1398499c3d26fa9dc130db4ed584339b54f41cb8`;
+- `degraded_sources=[]`.
 
 Regra: após coletores manuais, aguardar writers derivados — especialmente workflow 08 — antes de iniciar workflow 12. Em stale-base, iniciar nova execução; não usar “Re-run failed jobs” para reaproveitar artefatos construídos sobre HEAD antigo.
 
@@ -178,10 +186,13 @@ Na fixture auditada, a CI deve continuar provando:
 
 ## Critério de re-homologação do envelope data-only
 
-Depois de workflow 11 verde e merge:
+Etapas GitHub já concluídas:
 
-1. executar workflow 12 em `main` estabilizado;
-2. confirmar que o commit canônico remove `data/dist-v2/seo/*.json` e publica o novo meta;
+1. **CONCLUÍDO** — workflow 11 verde e merge da simplificação data-only;
+2. **CONCLUÍDO** — workflow 12 #5 em `main`, com commit canônico `5664bd5360671ad94485aa8b11ab90fc142e2732`, novo meta e ausência de `data/dist-v2/seo/*.json`.
+
+Etapas HostGator ainda pendentes:
+
 3. atualizar `hostgator/v2` na base paralela;
 4. dry-run;
 5. pull real da nova release;
