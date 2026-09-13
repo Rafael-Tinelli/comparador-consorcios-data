@@ -1,120 +1,95 @@
 # Comparador de Consórcios Data
 
-Pipeline de coleta, normalização, relacionamento, validação e geração de artefatos para o projeto **Comparador de Consórcios**.
+Pipeline canônico de dados do **Comparador de Consórcios Sanida**.
 
-## Objetivo
+## Estado do projeto
 
-Este repositório existe para:
+O `main` ainda alimenta a versão publicada existente. A reforma **V2** está sendo desenvolvida e homologada sem troca silenciosa do contrato de produção.
 
-- coletar dados oficiais e complementares sobre administradoras, produtos, séries e contexto setorial;
-- normalizar e relacionar essas fontes em modelos de leitura prontos para consumo;
-- gerar artefatos leves em JSON para o cluster `/financas/consorcio/`;
-- alimentar páginas SEO e componentes comparativos sem ETL pesado no HostGator;
-- manter a arquitetura evergreen, barata, rápida e de baixa manutenção.
+A V2 parte de uma premissa simples: o comparador deve ajudar o usuário a entender **quem é a administradora**, **em quais segmentos há operação observada**, **quais sinais públicos existem sobre sua operação e reclamações** e **como esses sinais se comparam aos de outras administradoras**, sem transformar ausência de dados, porte ou número de filiais em um selo artificial de qualidade.
 
-## Arquitetura resumida
+A especificação normativa da V2 está em [`docs/METODOLOGIA_V2.md`](docs/METODOLOGIA_V2.md). A configuração executável correspondente está em [`config/methodology_v2.json`](config/methodology_v2.json).
 
-A arquitetura v1 segue esta lógica:
+## Fontes e camadas
 
-1. **GitHub Actions** executa as coletas.
-2. Os dados brutos vão para `data/raw/`.
-3. Os dados intermediários e consolidados passam por `data/stage/`.
-4. As transformações geram os artefatos finais em `data/dist/`.
-5. O **HostGator consome os JSONs finais por estratégia pull**, preferencialmente via cron, sem depender de deploy ativo por SSH a partir do GitHub.
-6. O frontend PHP do site lê os JSONs localmente e renderiza HTML indexável no servidor.
+O repositório mantém três camadas principais:
 
-## Estratégia de publicação recomendada
+1. `data/raw/` — cópia dos insumos coletados;
+2. `data/stage/` — normalizações próprias dos coletores;
+3. `data/dist/` — artefatos públicos consumíveis pelo frontend/servidor.
 
-A estratégia preferencial de publicação é:
+As fontes atualmente usadas incluem cadastro e filiais de administradoras do Banco Central, ConsorcioBD mensal e trimestral, ranking de reclamações do Banco Central, séries SGS e contexto setorial complementar.
 
-1. O GitHub gera os arquivos finais em `data/dist/`.
-2. O GitHub também pode expor um `manifest.json` ou metadados de versão/hash.
-3. Um **cron job no HostGator** consulta esse manifest.
-4. Se houver nova versão, o servidor baixa os arquivos para uma pasta temporária.
-5. O servidor valida os arquivos baixados.
-6. O servidor publica a nova release de forma atômica, atualizando o apontamento de `current/`.
+## Builder V2
 
-Essa abordagem reduz dependência de SSH com escrita no servidor e separa claramente:
+O builder em homologação é:
 
-- **GitHub** = coleta, tratamento e build
-- **HostGator** = consumo e publicação local
+```bash
+python transform/build_read_models_v2.py \
+  --config config/sources.json \
+  --seo-routes config/seo_routes.json
+```
 
-## Saída final esperada
+Ele produz os contratos:
 
-Os artefatos finais ficam em:
+- `instituicoes.v2` — identidade cadastral atual e presença informativa;
+- `administradoras.v2` — perfil consolidado, cobertura e leitura limitada das evidências;
+- `produtos.v2` — segmentos com operação observada por raiz + competência + segmento;
+- `rankings.v2` — reclamações sem inventar posição oficial;
+- `segmentos.v2` — contexto por segmento;
+- `comparacoes.v2` — dimensões comparáveis por segmento, **sem ranking geral**;
+- `ofertas.v2` — contrato comercial separado, vazio enquanto não houver fonte própria validada.
 
-- `data/dist/global/`
-- `data/dist/seo/`
+### Fonte canônica operacional
 
-Atualmente, os artefatos globais incluem:
+Para estoques, fluxos e taxa de administração, a V2 usa `Segmentos_Consolidados` do ConsorcioBD na competência selecionada. Arquivos de grupos não são somados ao consolidado; servem apenas a estatísticas de grupo compatíveis, como prazo e valor médio do bem, e à reconciliação.
 
-- `instituicoes.json`
-- `produtos.json`
-- `rankings.json`
-- `series.json`
-- `cenarios.json`
-- `autocomplete.json`
-- `meta.json`
+### Missingness
 
-Os artefatos SEO ficam em `data/dist/seo/`.
+A V2 preserva distinção entre zero, ausência, índice não divulgado e falta de vínculo. Não existe nota neutra por ausência, fallback de score legado ou redistribuição automática de pesos.
 
-No HostGator, a publicação final esperada fica em:
+## Validação V2
 
-- `/home1/SEU_USUARIO/consorcio-data/current/global/`
-- `/home1/SEU_USUARIO/consorcio-data/current/seo/`
+O workflow `.github/workflows/11-validate-v2.yml` executa em PR e valida:
 
-O frontend público permanece em:
+- compilação e testes do builder;
+- parsing estrito e distinção entre zero/ausência;
+- integridade das chaves e dos contratos;
+- reconciliação dos totais imobiliários medidos na auditoria;
+- ausência de posição BC fabricada;
+- ausência de score/ranking geral na primeira versão V2;
+- correspondência integral entre arquivos físicos, manifesto e SHA-256.
 
-- `/public_html/financas/consorcio/`
+Os artefatos de homologação são gerados em diretório isolado e enviados como artifact do workflow; o workflow não publica a V2 no HostGator.
 
-## Estrutura do repositório
+## Publicação e migração
 
-```text
-comparador-consorcios-data/
-│
-├── .github/
-│   └── workflows/
-│       ├── 01-coleta-bc-cadastro.yml
-│       ├── 02-coleta-bc-filiais.yml
-│       ├── 03-coleta-bc-series.yml
-│       ├── 04-coleta-consorciobd.yml
-│       ├── 05-coleta-consorciobd-trimestral.yml
-│       ├── 06-coleta-ranking-reclamacoes.yml
-│       ├── 07-coleta-abac.yml
-│       ├── 08-build-read-models.yml
-│       ├── 09-deploy-hostgator.yml
-│       └── 10-validate-hostgator.yml
-│
-├── collectors/
-│   ├── bc_cadastro_admins.py
-│   ├── bc_filiais.py
-│   ├── bc_sgs_series.py
-│   ├── bc_consorciobd.py
-│   ├── bc_consorciobd_trimestral.py
-│   ├── bc_ranking_reclamacoes.py
-│   └── abac_boletim.py
-│
-├── transform/
-│   ├── normalize_instituicoes.py
-│   ├── normalize_series.py
-│   ├── normalize_rankings.py
-│   ├── normalize_produtos.py
-│   ├── build_autocomplete.py
-│   ├── build_landings_data.py
-│   └── build_read_models.py
-│
-├── shared/
-├── config/
-├── schemas/
-├── data/
-│   ├── raw/
-│   ├── stage/
-│   ├── runtime/
-│   └── dist/
-│       ├── global/
-│       └── seo/
-│
-├── tests/
-├── requirements.txt
-├── README.md
-└── .gitignore
+A publicação atual usa estratégia pull no HostGator. O frontend PHP e os scripts locais de pull/validação/rollback **não vivem neste repositório**.
+
+Por isso, `config/deploy_v2.json` é deliberadamente um contrato de **homologação com `deploy_enabled=false`**. A ativação da V2 depende de:
+
+- migrar o consumidor PHP para os contratos V2;
+- fazer pull, validador e rollback compartilharem o mesmo manifesto e as mesmas invariantes;
+- separar tentativa de validação de último sucesso;
+- impedir fallback silencioso para score legado;
+- homologar uma release concreta no PHP 8.2 usado pelo ambiente.
+
+Até essa migração ser concluída, a V2 não deve substituir automaticamente os artefatos de produção.
+
+## Workflows existentes
+
+- `01` — cadastro BC;
+- `02` — filiais BC;
+- `03` — séries SGS;
+- `04` — ConsorcioBD mensal;
+- `05` — ConsorcioBD trimestral;
+- `06` — ranking de reclamações;
+- `07` — ABAC/contexto;
+- `08` — builder legado atualmente ligado à produção;
+- `09` — readiness do pull HostGator atual;
+- `10` — validação HostGator atual;
+- `11` — validação isolada da reforma V2.
+
+## Princípio de segurança da migração
+
+Uma PR verde da V2 prova o contrato do pipeline e de seus artefatos de homologação. Ela **não prova, sozinha, que o frontend publicado já consome esse contrato**. O aceite final deve vincular commit, release, validação e consumidor da mesma geração.
