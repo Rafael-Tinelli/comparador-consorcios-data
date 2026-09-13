@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-13T15:31:07+00:00",
-  "pipeline_version": "4.0.1",
-  "source_fingerprint": "89b47d7af9159b3aa7bebaa8ea7eb93ff7ad1e91ebc6831e9195dd777492a996",
+  "generated_at": "2026-09-13T19:22:39+00:00",
+  "pipeline_version": "4.1.0",
+  "source_fingerprint": "72456642883fa6cc56f9169d2572394e899ad3cec2d86816f7e22e63f8681780",
   "methodology_version": "2.0.0",
   "methodology_sha256": "e49ce5d21cd9622b1520689cacf0ccbdf3144edfc5c50dd214b70856981cd2ee",
   "contracts": {
@@ -19,6 +19,11 @@
     "missingness_policy": "ausência não recebe zero, nota neutra nem redistribuição de peso",
     "presence_role": "informativo",
     "commercial_offers_affect_assessment": false
+  },
+  "release_scope": {
+    "kind": "data_only",
+    "seo_artifacts": false,
+    "seo_owner": "frontend_site"
   },
   "source_periods": {
     "consorciobd_mensal": "202605"
@@ -51,61 +56,46 @@
     "global": [
       {
         "file": "instituicoes.json",
-        "sha256": "4d42dc9275001f5a383f6ebbce26ccf2a393b2010d3f5e849b20faaeec5f91a9",
+        "sha256": "08153dc6aef4441c65c0366eb8dddb8001072de3239e6d5d248c7fba0346eecc",
         "size_bytes": 49478
       },
       {
         "file": "administradoras.json",
-        "sha256": "77fe4871275306d1660b0c7b30c250f4bab9b852bd905f0cf95e67ba34ee5d52",
+        "sha256": "9711830d5ab73e45af068f7bed91da1cd3654a8e5f6225fe1126ed45ee6a31d6",
         "size_bytes": 626060
       },
       {
         "file": "produtos.json",
-        "sha256": "ac8f5bb719bdc63b4696db963d130451a36652f1e24e43ad18b55d55e42c7386",
+        "sha256": "7e4380970af7cccd759f062d25a39dcd8de16b2457171b747a95e161104c0d6f",
         "size_bytes": 311294
       },
       {
         "file": "rankings.json",
-        "sha256": "def530a79a269ba332f931a0276883df7d2026dc80c17af6e2e8c8459dfe1010",
+        "sha256": "698e17024797da2f0070c34cc4e8df8ef5b04c099c9e4ff1bb6e953eac7bc333",
         "size_bytes": 44140
       },
       {
         "file": "segmentos.json",
-        "sha256": "77986382995af75b6c210542c038930004bf26801fbdd65bc3751b0edfbdd2a6",
+        "sha256": "d6f608cf2791807a0e9a45e44aa7d23d2104a7c131f56b209f212eae68a1d32e",
         "size_bytes": 2900
       },
       {
         "file": "comparacoes.json",
-        "sha256": "04b60dfaf3d26ad6be1fd48c7df502808be4393b4aec7b80648f83a8e9eb5325",
+        "sha256": "fa125d41fd5df8ea8439039473e04abd5f3b6a585a40db1bd785789df879b20c",
         "size_bytes": 161461
       },
       {
         "file": "ofertas.json",
-        "sha256": "2f477eea6210f9dbb9ff4493d450c0ff205340e7963507eaf5c53e71bb234970",
+        "sha256": "bd047284871ba3ad6a88f6e419e3b607075e0b6272603103a2cdc726221154bc",
         "size_bytes": 246
       }
     ],
-    "seo": [
-      {
-        "file": "defaults.json",
-        "sha256": "0b835f4bd67e7ddfc39159c02a696e56fa04f048b6707432c9a728539fbc008d",
-        "size_bytes": 202
-      },
-      {
-        "file": "routes.json",
-        "sha256": "fe809246d1bb33cc5f66c7b5c91f50e4a28bdc8092e00905dd15467e329183ef",
-        "size_bytes": 27913
-      },
-      {
-        "file": "site.json",
-        "sha256": "62cf2a891df03be376a79be034112b56029e571c69908d9963bbc766a903b420",
-        "size_bytes": 248
-      }
-    ]
+    "seo": []
   },
   "notes": [
     "meta.json não contém auto-hash.",
-    "Todos os demais JSONs consumíveis produzidos por este builder constam no manifesto com SHA-256 dos bytes serializados."
+    "Todos os demais JSONs consumíveis produzidos por este builder constam no manifesto com SHA-256 dos bytes serializados.",
+    "A release V2 é data-only: SEO editorial, rotas públicas, canonical, titles, descriptions, breadcrumbs e FAQ pertencem ao frontend/site."
   ],
   "source_status": {
     "bc_cadastro_admins": {
@@ -126,11 +116,11 @@
     },
     "bc_filiais": {
       "role": "presença cadastral de filiais",
-      "last_checked_at": "2026-09-13T15:17:57+00:00",
+      "last_checked_at": "2026-09-13T16:25:42+00:00",
       "last_check_status": "success",
-      "last_successful_check_at": "2026-09-13T15:17:57+00:00",
+      "last_successful_check_at": "2026-09-13T16:25:42+00:00",
       "last_changed_at": "2026-09-13T15:17:57+00:00",
-      "changed_on_last_success": true,
+      "changed_on_last_success": false,
       "mode_used": "odata-csv",
       "content_sha256": "6019cc60d837c723745c08e23218df4f85f7e871b6ba033f0db4f8b7d32bba42",
       "competence": {
@@ -186,12 +176,12 @@
     "all_required_states_present": true,
     "source_state_matches_consumed_bytes": true,
     "degraded_sources": [],
-    "source_state_sha256": "7d0db73e7abf944b95566ddd16c4b870959a906e17754e121a9042e0e4987354"
+    "source_state_sha256": "8b4531c6f305ddae62f027cfd688d0b77b649b0c57c112292e3427629e4b1589"
   },
   "backend_release": {
-    "contract": "comparador-v2-release.v1",
+    "contract": "comparador-v2-release.v2",
     "publication_eligible": true,
-    "publication_note": "Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build.",
-    "release_fingerprint": "db7a2470c8edb517ceea14a9e2a343d71f5eae2e1e508401deaf6fd194ccfb68"
+    "publication_note": "Release V2 data-only. Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build. SEO editorial pertence ao frontend/site.",
+    "release_fingerprint": "9cd474256d02174d0033fb2e1398499c3d26fa9dc130db4ed584339b54f41cb8"
   }
 }
