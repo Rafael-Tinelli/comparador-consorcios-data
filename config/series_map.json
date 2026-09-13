@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "timezone": "America/Sao_Paulo",
   "updated_by": "config/series_map.json",
   "groups": {
@@ -76,14 +76,14 @@
       },
       {
         "key": "taxa_media_credito_imobiliario_pf",
-        "label": "Taxa média de crédito imobiliário PF",
+        "label": "Financiamento imobiliário PF — recursos direcionados, taxas de mercado",
         "source": "BCB/SGS",
         "serie": 25497,
-        "unit": "% a.a.",
+        "unit": "% a.m.",
         "frequency": "monthly",
         "category": "credito",
         "enabled": true,
-        "notes": "Série especialmente relevante para vertical imobiliário."
+        "notes": "Preserva a unidade e o recorte oficiais da série 25497. Qualquer equivalente anual deve ser publicado como indicador derivado separado."
       }
     ],
     "atividade": [

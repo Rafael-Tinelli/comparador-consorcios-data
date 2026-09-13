@@ -44,6 +44,7 @@ jobs:
           mkdir -p data/raw/bc/cadastro
           mkdir -p data/stage/cadastro
           mkdir -p data/runtime
+          mkdir -p data/source_state
 
       - name: Run collector
         id: collect
@@ -93,27 +94,44 @@ jobs:
           if-no-files-found: warn
           retention-days: 15
 
-      - name: Fail if mode used is not homologated CSV
-        if: steps.collect.outputs.mode_used != 'odata-csv'
+      - name: Persist source check state
+        if: always()
         run: |
-          echo "Falha: a coleta não concluiu pelo modo homologado."
-          echo "mode_used=${{ steps.collect.outputs.mode_used }}"
-          exit 1
+          python scripts/persist_source_state.py \
+            --source bc_cadastro_admins \
+            --runtime data/runtime/bc_cadastro_admins.json \
+            --snapshot data/raw/bc/cadastro/latest.json \
+            --content-file data/stage/cadastro/instituicoes_cadastro.json \
+            --state data/source_state/bc_cadastro_admins.json \
+            --collector-outcome "${{ steps.collect.outcome }}" \
+            --accepted-mode odata-csv \
+            --competence-mode not_applicable
 
-      - name: Commit changed outputs
-        if: steps.collect.outputs.changed == 'true' && steps.collect.outputs.mode_used == 'odata-csv'
+      - name: Commit data and durable source state
+        if: always()
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -f \
-            data/raw/bc/cadastro/latest.json \
-            data/stage/cadastro/instituicoes_cadastro.json
+          git add -f data/source_state/bc_cadastro_admins.json
+
+          if [ "${{ steps.collect.outcome }}" = "success" ] && [ "${{ steps.collect.outputs.mode_used }}" = "odata-csv" ]; then
+            git add -f data/raw/bc/cadastro/latest.json data/stage/cadastro/instituicoes_cadastro.json
+          fi
 
           if git diff --cached --quiet; then
             echo "Sem diff rastreável para commit."
             exit 0
           fi
 
-          git commit -m "chore(data): atualiza cadastro BC"
-          git push
+          git commit -m "chore(data): registra cadastro BC e estado da fonte"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+
+      - name: Fail if mode used is not homologated CSV
+        if: always() && steps.collect.outcome == 'success' && steps.collect.outputs.mode_used != 'odata-csv'
+        run: |
+          echo "Falha: a coleta não concluiu pelo modo homologado."
+          echo "mode_used=${{ steps.collect.outputs.mode_used }}"
+          exit 1

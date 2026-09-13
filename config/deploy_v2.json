@@ -1,0 +1,62 @@
+{
+  "version": "3.1.0-v2-backend",
+  "environment": "homologation",
+  "deploy_enabled": false,
+  "activation_requires": [
+    "instalar e homologar hostgator/v2 no PHP 8.2 real",
+    "migrar consumidor PHP para contratos *.v2",
+    "homologar frontend com uma release V2 concreta antes da troca de produção"
+  ],
+  "artifact_source": "data/dist-v2",
+  "manifest": "global/meta.json",
+  "release_contract": "comparador-v2-release.v1",
+  "provenance_config": "config/provenance_v2.json",
+  "artifacts": {
+    "global": [
+      "instituicoes.json",
+      "administradoras.json",
+      "produtos.json",
+      "rankings.json",
+      "segmentos.json",
+      "comparacoes.json",
+      "ofertas.json",
+      "meta.json"
+    ],
+    "seo": [
+      "defaults.json",
+      "routes.json",
+      "site.json"
+    ]
+  },
+  "validation": {
+    "require_manifest_entry_for_every_non_meta_artifact": true,
+    "recalculate_sha256_from_published_bytes": true,
+    "reject_missing_file": true,
+    "reject_empty_file": true,
+    "reject_invalid_json": true,
+    "reject_contract_mismatch": true,
+    "require_backend_release_contract": true,
+    "require_source_status": true,
+    "required_contracts": {
+      "administradoras.json": "administradoras.v2",
+      "instituicoes.json": "instituicoes.v2",
+      "produtos.json": "produtos.v2",
+      "rankings.json": "rankings.v2",
+      "segmentos.json": "segmentos.v2",
+      "comparacoes.json": "comparacoes.v2",
+      "ofertas.json": "ofertas.v2"
+    }
+  },
+  "state": {
+    "separate_last_validation_attempt_from_success": true,
+    "separate_publication_attempt_from_validation": true,
+    "bind_state_to_release_id": true,
+    "bind_state_to_manifest_sha256": true,
+    "rejected_release_quarantine": true
+  },
+  "consumer_policy": {
+    "silent_legacy_score_fallback": false,
+    "allow_last_approved_release": true,
+    "require_explicit_degraded_state": true
+  }
+}

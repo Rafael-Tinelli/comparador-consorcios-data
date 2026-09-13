@@ -1,0 +1,151 @@
+name: 12 · Build & Publish Comparador V2
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 10:00 BRT = 13:00 UTC. Depois das coletas diárias de cadastro/filiais
+    # e das janelas mensais de ConsorcioBD/reclamações.
+    - cron: "0 13 * * *"
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+concurrency:
+  group: build-publish-comparador-v2
+  cancel-in-progress: false
+
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Capture input commit
+        id: input
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Setup PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: curl, json
+          coverage: none
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Compile backend V2
+        run: |
+          python -m py_compile \
+            transform/build_read_models_v2.py \
+            transform/finalize_v2_release.py \
+            scripts/persist_source_state.py \
+            scripts/bootstrap_source_states.py \
+            scripts/validate_v2_release.py
+
+      - name: Run backend V2 unit tests
+        run: pytest -q tests/test_v2_contracts.py tests/test_source_state_v2.py
+
+      - name: Bootstrap missing source states
+        run: python scripts/bootstrap_source_states.py --config config/provenance_v2.json
+
+      - name: Prepare V2 build config
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          src = json.loads(Path("config/sources.json").read_text(encoding="utf-8"))
+          src.setdefault("defaults", {})["dist_base_dir"] = "data/dist-v2"
+          Path("/tmp/sources-v2.json").write_text(
+              json.dumps(src, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Build V2 read models
+        id: build
+        run: |
+          python transform/build_read_models_v2.py \
+            --config /tmp/sources-v2.json \
+            --methodology config/methodology_v2.json \
+            --seo-routes config/seo_routes.json
+
+      - name: Attach durable source provenance
+        run: |
+          python transform/finalize_v2_release.py \
+            --dist-base data/dist-v2 \
+            --provenance-config config/provenance_v2.json
+
+      - name: Validate canonical V2 release
+        run: |
+          python scripts/validate_v2_release.py \
+            --dist-base data/dist-v2 \
+            --provenance-config config/provenance_v2.json \
+            --deploy-config config/deploy_v2.json
+
+      - name: Validate HostGator V2 contract with PHP 8.2
+        run: |
+          find hostgator/v2 -type f -name '*.php' -print0 | xargs -0 -n1 php -l
+          php -r 'if (PHP_VERSION_ID < 80200 || PHP_VERSION_ID >= 80300) { fwrite(STDERR, PHP_VERSION."\n"); exit(1); } echo "PHP=".PHP_VERSION."\n";'
+          php tests/test_hostgator_v2.php data/dist-v2
+
+      - name: Upload V2 release candidate
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: comparador-v2-release-candidate
+          path: |
+            data/dist-v2/global/*.json
+            data/dist-v2/seo/*.json
+            data/source_state/*.json
+            data/runtime/build_read_models_v2.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Refuse stale publication base
+        run: |
+          set -Eeuo pipefail
+          git fetch origin "+refs/heads/$GITHUB_REF_NAME:refs/remotes/origin/$GITHUB_REF_NAME"
+          remote_sha="$(git rev-parse "refs/remotes/origin/$GITHUB_REF_NAME")"
+          input_sha="${{ steps.input.outputs.sha }}"
+          if [ "$remote_sha" != "$input_sha" ]; then
+            echo "Branch avançou durante o build: input=$input_sha remote=$remote_sha"
+            echo "Recusando publicar artefatos construídos sobre uma base já obsoleta."
+            exit 42
+          fi
+
+      - name: Commit canonical V2 release and source states
+        if: steps.build.outputs.mode_used == 'build-read-models-v2'
+        run: |
+          set -Eeuo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -f \
+            data/dist-v2/global/*.json \
+            data/dist-v2/seo/*.json \
+            data/source_state/*.json
+
+          if git diff --cached --quiet; then
+            echo "V2 já está canônica; nenhum commit necessário."
+            exit 0
+          fi
+
+          git commit -m "chore(v2): publica release canônica"
+          git push origin "HEAD:$GITHUB_REF_NAME"

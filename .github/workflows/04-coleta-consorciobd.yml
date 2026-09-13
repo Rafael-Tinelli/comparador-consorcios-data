@@ -44,6 +44,7 @@ jobs:
           mkdir -p data/raw/bc/consorciobd
           mkdir -p data/stage/consorciobd
           mkdir -p data/runtime
+          mkdir -p data/source_state
 
       - name: Run collector
         id: collect
@@ -65,28 +66,47 @@ jobs:
           if-no-files-found: warn
           retention-days: 15
 
-      - name: Fail if mode used is not homologated
-        if: steps.collect.outputs.mode_used != 'direct-content-download'
+      - name: Persist source check state
+        if: always()
         run: |
-          echo "Falha: a coleta não concluiu pelo modo homologado."
-          echo "mode_used=${{ steps.collect.outputs.mode_used }}"
-          exit 1
+          python scripts/persist_source_state.py \
+            --source bc_consorciobd \
+            --runtime data/runtime/bc_consorciobd.json \
+            --snapshot data/raw/bc/consorciobd/latest.json \
+            --content-file data/raw/bc/consorciobd/latest_source.bin \
+            --state data/source_state/bc_consorciobd.json \
+            --collector-outcome "${{ steps.collect.outcome }}" \
+            --accepted-mode direct-content-download \
+            --competence-mode auto
 
-      - name: Commit changed outputs
-        if: steps.collect.outputs.changed == 'true' && steps.collect.outputs.mode_used == 'direct-content-download'
+      - name: Commit data and durable source state
+        if: always()
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -f \
-            data/raw/bc/consorciobd/latest.json \
-            data/raw/bc/consorciobd/latest_source.bin \
-            data/stage/consorciobd/consorciobd_catalog.json
+          git add -f data/source_state/bc_consorciobd.json
+
+          if [ "${{ steps.collect.outcome }}" = "success" ] && [ "${{ steps.collect.outputs.mode_used }}" = "direct-content-download" ]; then
+            git add -f \
+              data/raw/bc/consorciobd/latest.json \
+              data/raw/bc/consorciobd/latest_source.bin \
+              data/stage/consorciobd/consorciobd_catalog.json
+          fi
 
           if git diff --cached --quiet; then
             echo "Sem diff rastreável para commit."
             exit 0
           fi
 
-          git commit -m "chore(data): atualiza ConsorcioBD mensal"
-          git push
+          git commit -m "chore(data): registra ConsorcioBD mensal e estado da fonte"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+
+      - name: Fail if mode used is not homologated
+        if: always() && steps.collect.outcome == 'success' && steps.collect.outputs.mode_used != 'direct-content-download'
+        run: |
+          echo "Falha: a coleta não concluiu pelo modo homologado."
+          echo "mode_used=${{ steps.collect.outputs.mode_used }}"
+          exit 1
