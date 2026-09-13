@@ -35,11 +35,11 @@ Por decisão arquitetural, a release V2 passa a ser **data-only**:
 - `config-site.php` permanece autoridade para arquitetura global, sitemap e navegação;
 - o frontend deve usar os includes padrão da Sanida, sem um segundo catálogo de rotas SEO dentro do pipeline de dados.
 
-A mudança cria o contrato `comparador-v2-release.v2` e pipeline canônico `4.1.0`. A transição **no GitHub** já foi concluída: o workflow 11 passou verde e o workflow 12 #5 publicou em `main` a primeira release canônica data-only no commit `5664bd5360671ad94485aa8b11ab90fc142e2732`, com sete artefatos de dados não-meta, nenhum JSON SEO físico, `source_fingerprint=72456642883fa6cc56f9169d2572394e899ad3cec2d86816f7e22e63f8681780` e `release_fingerprint=9cd474256d02174d0033fb2e1398499c3d26fa9dc130db4ed584339b54f41cb8`.
+A mudança criou o contrato `comparador-v2-release.v2`. A última publicação canônica registrada continua sendo o pipeline `4.1.0`: o workflow 12 #5 publicou em `main` o commit `5664bd5360671ad94485aa8b11ab90fc142e2732`, com sete artefatos de dados não-meta, nenhum JSON SEO físico, `source_fingerprint=72456642883fa6cc56f9169d2572394e899ad3cec2d86816f7e22e63f8681780` e `release_fingerprint=9cd474256d02174d0033fb2e1398499c3d26fa9dc130db4ed584339b54f41cb8`.
 
-A homologação operacional de 13/09/2026 sob `comparador-v2-release.v1` continua válida como prova histórica do mecanismo, mas a **release data-only v2 ainda precisa de re-homologação estreita no HostGator paralelo antes do corte público**.
+A extensão de interpretação relativa introduz metodologia `2.1.0`, pipeline `4.2.0` e subcontrato embutido `interpretacao-relativa.v1`. Ela é aditiva aos mesmos sete artefatos V2; não cria score geral, novo JSON global nem SEO de backend. Só deve ser considerada geração canônica depois de PR verde, merge e nova execução válida do workflow 12.
 
-`config/deploy_v2.json` permanece com `deploy_enabled=false`.
+A homologação operacional de 13/09/2026 sob `comparador-v2-release.v1` continua válida como prova histórica do mecanismo. `config/deploy_v2.json` permanece com `deploy_enabled=false`.
 
 ## 3. Responsabilidades por camada
 
@@ -50,6 +50,7 @@ Responsável por:
 - coleta e preservação dos insumos;
 - normalização e read models;
 - contratos de dados;
+- interpretação relativa auditável derivada dos mesmos dados validados;
 - proveniência e freshness;
 - manifesto, hashes e release fingerprint;
 - publicação paralela, validação, state machine e rollback.
@@ -79,7 +80,7 @@ Autoridade para:
 
 A arquitetura alvo adota deliberadamente o princípio **backend forte e auditável; frontend relativamente convencional e fácil de alterar**.
 
-No backend, a complexidade é aceita quando protege uma invariável real: fonte, metodologia, contrato, proveniência, competência, integridade, manifesto, validação, publicação, state, rollback e ausência de fallback metodológico silencioso.
+No backend, a complexidade é aceita quando protege uma invariável real: fonte, metodologia, contrato, proveniência, competência, integridade, interpretação relativa, manifesto, validação, publicação, state, rollback e ausência de fallback metodológico silencioso.
 
 No frontend, a preferência é a arquitetura nativa já usada pelo site:
 
@@ -90,6 +91,8 @@ No frontend, a preferência é a arquitetura nativa já usada pelo site:
 - conteúdo essencial, contexto metodológico e informação indexável não devem depender de JavaScript para existir.
 
 Um adaptador de dados como `_app/consorcio-data.php` pode permanecer quando trouxer ganho claro: localizar/resolver `current-v2`, ler os contratos V2 e entregar estruturas PHP coerentes à página. Esse adaptador **não** deve virar engine de UI, catálogo SEO, roteador editorial, reinterpretação metodológica nem mecanismo de fallback para V1.
+
+A camada `interpretacao-relativa.v1` existe justamente para evitar que PHP/JS recalcularem mediana, quartil, posição por critério ou regras de missingness. O frontend deve consumir o contexto já versionado e limitar-se a apresentação, navegação e copy editorial compatível com o contrato.
 
 `_app/consorcio-ui.php` é tratado como organização legada da V1, não como contrato arquitetural da V2. Ele **não deve ser portado mecanicamente** para a arquitetura final. Durante a migração pública, suas responsabilidades devem voltar para PHP/HTML convencional da página, CSS e JS; se a página ficar extensa, pequenos partials PHP podem ser usados apenas por legibilidade, sem criar uma nova camada de framework, estado ou contrato.
 
@@ -130,6 +133,8 @@ A V2 não usa `config/seo_routes.json` como insumo canônico e não publica JSON
 - `bc_consorciobd_trimestral` — complemento para enriquecimento/reconciliação; não é somado ao consolidado mensal;
 - `abac_context` — contexto setorial; não substitui fonte oficial nem prova confiabilidade institucional.
 
+A interpretação relativa não adiciona fontes. Ela é calculada **depois** de `core.validate_models`, exclusivamente a partir dos read models V2 já validados.
+
 ## 6. Workflows 01–07 — coleta
 
 | # | Workflow | Agenda BRT | Papel |
@@ -168,7 +173,7 @@ Workflows 11 e 12 devem chamar:
 
 `transform/build_release_v2.py`
 
-Ele usa `transform/build_read_models_v2.py` apenas como fachada de importação para as transformações e regras de domínio já testadas, mas **não consome configuração SEO nem produz artefatos SEO**.
+Ele usa `transform/build_read_models_v2.py` apenas como fachada de importação para as transformações e regras de domínio já testadas, aplica `transform/interpretation_v2.py` somente depois da validação dos modelos-base e **não consome configuração SEO nem produz artefatos SEO**.
 
 Após a publicação canônica data-only, o antigo CLI foi endurecido para evitar regressão: `transform/build_read_models_v2.py` não pode mais ser executado diretamente e encerra com instrução para usar `build_release_v2.py`. A implementação histórica foi isolada em `transform/_read_models_v2_core_legacy.py` somente como núcleo interno temporário de transformação. Workflows 11/12 não executam esse módulo diretamente. Sua limpeza estrutural final pode ocorrer depois que o consumidor V2 estiver consolidado, sem reabrir metodologia nem misturar essa remoção com o corte público.
 
@@ -182,7 +187,9 @@ Após a publicação canônica data-only, o antigo CLI foi endurecido para evita
 - `comparacoes.v2` — comparação dimensional, sem ranking geral;
 - `ofertas.v2` — camada comercial separada.
 
-A release possui sete JSONs globais não-meta mais `global/meta.json`. `meta.artifacts.seo=[]` permanece somente como envelope transitório de compatibilidade com a biblioteca operacional HostGator ainda não re-homologada sob v2; **não há arquivo SEO físico, contrato SEO nem download SEO na release**. Essa compatibilidade deve ser reavaliada na limpeza posterior ao corte, não confundida com retorno do SEO ao backend.
+A interpretação é um subcontrato aditivo `interpretacao-relativa.v1` embutido em `administradoras.v2`, `segmentos.v2` e `comparacoes.v2`. Os contratos-base permanecem V2 porque nenhum campo existente é removido ou reinterpretado; consumidores antigos podem ignorar os campos novos. `meta.embedded_contracts.interpretacao_relativa` torna essa extensão explícita.
+
+A release continua com sete JSONs globais não-meta mais `global/meta.json`. `meta.artifacts.seo=[]` permanece somente como envelope transitório de compatibilidade com a biblioteca operacional HostGator; **não há arquivo SEO físico, contrato SEO nem download SEO na release**.
 
 `meta.release_scope` deve declarar:
 
@@ -202,9 +209,31 @@ A release possui sete JSONs globais não-meta mais `global/meta.json`. `meta.art
 - presença/porte são informativos e não viram qualidade;
 - ofertas comerciais não alteram avaliação institucional;
 - `ranking_geral_publicavel=false`;
-- não existem `scores` gerais na V2 inicial.
+- não existem `scores` gerais na V2;
+- ordenação por um critério não pode ser apresentada como ranking geral nem como posição oficial do BCB.
 
 Na fixture auditada de maio/2026, 762 combinações consolidadas resultaram em 368 operações observadas em 124 raízes. Esses números são baseline de regressão, não constantes futuras.
+
+### Interpretação relativa V1
+
+A metodologia `2.1.0` acrescenta uma camada descritiva para apoiar a interface sem transferir cálculo metodológico ao frontend.
+
+Por segmento e mesma competência, são calculados `min`, `q1`, `mediana`, `q3` e `max` para:
+
+- taxa de administração observada;
+- cotas ativas em dia;
+- contemplações no mês;
+- participação calculada de inadimplência.
+
+Os quartis usam interpolação linear na posição `p*(n-1)`. Cada observação recebe comparação com a mediana, faixa da distribuição e ordem derivada do **critério isolado**, com `oficial=false`. Empates usam dense rank. Destaques textuais são emitidos somente nos quartis inferior/superior e permanecem descritivos.
+
+O índice de reclamações BCB usa referência global entre administradoras do cadastro atual com índice divulgado; ele é institucional, não segmentado. Índice ausente/não divulgado não recebe zero, posição ou sinal favorável.
+
+`leitura_confiabilidade` responde em termos de **suficiência de evidência para triagem**. Cadastro atual, operação observada, registro de reclamações e índice divulgado são sinais separados. A saída nunca equivale a “certificação de confiabilidade”.
+
+Para contemplações, o contrato é explícito: o volume absoluto mensal pode ser comparado; **não se pode inferir probabilidade individual, tempo de contemplação nem declarar quem contempla mais rápido**.
+
+Detalhamento para consumidores: `docs/INTERPRETATION_V2.md`.
 
 ## 9. C09 — atualidade e proveniência
 
@@ -233,8 +262,8 @@ As quatro fontes críticas foram executadas de verdade com `bootstrap=false`. Ca
 Fluxo atual:
 
 1. Python 3.12 + PHP 8.2;
-2. compilação do builder data-only, fachada/core, finalizer e validadores;
-3. testes unitários de contratos/C09;
+2. compilação do builder data-only, fachada/core, interpretação, finalizer e validadores;
+3. testes unitários de contratos/C09/interpretação;
 4. lint HostGator V2;
 5. bootstrap de source-state da fixture quando necessário;
 6. build data-only isolado em `/tmp`;
@@ -244,7 +273,7 @@ Fluxo atual:
 10. testes negativos PHP/HostGator;
 11. upload do preview.
 
-O baseline auditado cobre, entre outros: 130 administradoras, 85 registros de reclamações, 368 operações/124 raízes, distribuição por segmento, totais de imóveis, portfólios de controle, órfão operacional e ausência de posição oficial fabricada.
+O baseline auditado cobre, entre outros: 130 administradoras, 85 registros de reclamações, 368 operações/124 raízes, distribuição por segmento, totais de imóveis, portfólios de controle, órfão operacional e ausência de posição oficial fabricada. Os testes de interpretação adicionam quartis, dense rank, missingness de reclamações, leitura de confiabilidade sem certificação e proibição de inferência de contemplação.
 
 ## 11. Workflow 12 — geração canônica V2
 
@@ -253,7 +282,7 @@ O baseline auditado cobre, entre outros: 130 administradoras, 85 registros de re
 Fluxo:
 
 1. captura commit de entrada;
-2. compila e testa backend V2;
+2. compila e testa backend V2, incluindo interpretação relativa;
 3. bootstrap apenas de source-state ausente;
 4. constrói `data/dist-v2` via `build_release_v2.py`;
 5. remove qualquer `data/dist-v2/seo/*.json` residual;
@@ -284,7 +313,7 @@ Workflow 12 #5:
 - commit canônico publicado: `5664bd5360671ad94485aa8b11ab90fc142e2732`;
 - `data/dist-v2/seo/` ausente.
 
-Essa etapa fecha a transição canônica no GitHub. O próximo gate é a re-homologação do envelope v2 no HostGator paralelo.
+A extensão `4.2.0` não substitui esse registro histórico: sua primeira publicação canônica deve ser documentada depois de uma execução válida do workflow 12.
 
 ## 12. HostGator V2
 
@@ -297,7 +326,7 @@ Arquivos em `hostgator/v2/`:
 - `consorcio-rollback-v2.php` — rollback somente para release válida;
 - `consorcio-v2-config.php` — origem, paths, contratos e política.
 
-No contrato atual, `consorcio-v2-config.php` é `2.3.0`, exige somente os sete contratos globais não-meta e `comparador-v2-release.v2`.
+No contrato atual, `consorcio-v2-config.php` é `2.3.0`, exige somente os sete contratos globais não-meta e `comparador-v2-release.v2`. A interpretação relativa não altera essa lista porque é subcontrato embutido nos mesmos JSONs.
 
 A cadeia operacional permanece:
 
@@ -323,7 +352,7 @@ Em 13/09/2026 foi homologado no HostGator real o mecanismo operacional sob `comp
 - rollback ensaiado com segunda release local de bytes idênticos, seguido de revalidação;
 - V1 permaneceu intacta em `/home1/sanid210/consorcio-data/current`.
 
-Essa evidência continua provando lock, staging, promoção, symlink, state, rollback e isolamento V1/V2. Ela **não substitui** a re-homologação do novo contrato data-only v2.
+Essa evidência continua provando lock, staging, promoção, symlink, state, rollback e isolamento V1/V2.
 
 ## 14. C15/C16 — inventário, SEO e frontend convencional
 
@@ -364,7 +393,8 @@ A migração pública deve, portanto:
 - não portar `_app/consorcio-ui.php` como camada obrigatória da V2;
 - manter, se útil, apenas um adaptador de dados pequeno e explícito entre `current-v2` e a página;
 - renderizar o conteúdo essencial em PHP/HTML server-side e usar CSS/JS diretamente para apresentação e interação;
-- admitir partials PHP somente por legibilidade, sem transformar partials em engine de UI ou novo sistema de contratos.
+- admitir partials PHP somente por legibilidade, sem transformar partials em engine de UI ou novo sistema de contratos;
+- consumir `interpretacao-relativa.v1` sem recalcular no navegador/PHP os benchmarks metodológicos canônicos.
 
 Essa decisão é uma **diretriz para a migração**, não uma descrição da produção atual: `consorcio-seo.php` e `consorcio-ui.php` ainda podem existir enquanto V1 permanecer pública e não devem ser removidos antes do corte controlado.
 
@@ -372,21 +402,13 @@ Essa decisão é uma **diretriz para a migração**, não uma descrição da pro
 
 ### Marco A — backend/metodologia V2
 
-**Concluído no GitHub para o contrato data-only.** Metodologia, read models, C09 e gates centrais foram implementados e auditados; workflow 11 passou verde e workflow 12 #5 publicou a release canônica `comparador-v2-release.v2`/pipeline `4.1.0` no commit `5664bd5360671ad94485aa8b11ab90fc142e2732`.
+**Base data-only concluída no GitHub.** Metodologia, read models, C09 e gates centrais foram implementados e auditados; workflow 12 #5 publicou a release canônica `comparador-v2-release.v2`/pipeline `4.1.0` no commit `5664bd5360671ad94485aa8b11ab90fc142e2732`.
+
+A extensão de interpretação `2.1.0`/`4.2.0` deve cumprir o mesmo gate: testes verdes, merge e nova geração canônica. Ela não reabre score geral e não altera o número de artefatos da release.
 
 ### Marco B — publicação operacional
 
-O mecanismo foi homologado sob release v1. Para o contrato data-only v2, a parte GitHub já está concluída; falta somente a re-homologação estreita no ambiente HostGator paralelo:
-
-1. atualizar scripts `hostgator/v2`;
-2. dry-run do contrato `comparador-v2-release.v2`;
-3. publicar uma release data-only concreta;
-4. confirmar sete artefatos não-meta e ausência de JSON SEO;
-5. validar `current-v2`;
-6. confirmar state/logs/quarentena;
-7. confirmar V1 intacta.
-
-Não é necessário repetir investigação metodológica já fechada; trata-se de re-homologação estreita do envelope de release alterado.
+O mecanismo de publicação é separado da metodologia. Uma release com interpretação relativa continua sujeita aos mesmos hashes, manifesto, staging, validação, lock, promoção e rollback; o subcontrato embutido não autoriza atalhos no HostGator.
 
 ### Marco C — V2 pública
 
@@ -397,7 +419,8 @@ Ainda pendente. Exige migração/homologação do frontend, principalmente:
 - **C09** — apresentar competência/atualidade corretamente;
 - **C14** — cobertura, período, motivos e limites junto da comparação;
 - **C15** — cortar a dependência SEO do pipeline de dados e alinhar ao padrão nativo do site;
-- **C16** — migrar para frontend convencional PHP/HTML + CSS/JS, sem engine estrutural de UI; homologar teclado, foco, 390 px, zoom 200%, sem-JS e histórico/estado da consulta.
+- **C16** — migrar para frontend convencional PHP/HTML + CSS/JS, sem engine estrutural de UI; homologar teclado, foco, 390 px, zoom 200%, sem-JS e histórico/estado da consulta;
+- **interpretação** — usar o subcontrato versionado para pistas visuais/textuais, sem criar score/ranking geral no frontend.
 
 Enquanto Marco C estiver pendente, V1 continua pública e `deploy_enabled=false`.
 
@@ -417,6 +440,8 @@ Antes de apagar, fundir ou simplificar componente, verificar:
 - reintroduz score, posição fabricada, dupla contagem ou presença como qualidade?
 - altera a semântica `Segmentos_Consolidados` versus grupos?
 - mistura SEO editorial com a release de dados novamente?
+- recalcula no frontend mediana, quartis, ordens por critério ou missingness que já pertencem ao subcontrato de interpretação?
+- transforma contemplações absolutas em promessa de rapidez/probabilidade?
 - cria uma engine de UI, estado ou roteamento sem proteger uma invariável que justifique essa complexidade?
 
 Se sim, a mudança é arquitetural e precisa de justificativa, teste e atualização deste memorial.
@@ -427,6 +452,6 @@ Uma PR verde prova código/fixtures. Uma geração canônica prova o funil. Uma 
 
 A cadeia final deve permanecer auditável:
 
-**fonte → tentativa de coleta → estado durável → bytes consumidos → builder data-only → manifesto → commit → release → validação HostGator → adaptador de dados PHP → HTML server-side + CSS/JS do site.**
+**fonte → tentativa de coleta → estado durável → bytes consumidos → read models validados → interpretação relativa versionada → builder data-only → manifesto → commit → release → validação HostGator → adaptador de dados PHP → HTML server-side + CSS/JS do site.**
 
 A disciplina final é deliberada: **backend forte e auditável; frontend convencional, legível e fácil de alterar**.
