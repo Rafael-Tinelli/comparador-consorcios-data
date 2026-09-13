@@ -4,11 +4,15 @@ Pipeline canônico de dados do **Comparador de Consórcios Sanida**.
 
 ## Estado do projeto
 
-O `main` ainda alimenta a versão publicada existente. A reforma **V2** está sendo desenvolvida e homologada sem troca silenciosa do contrato de produção.
+O `main` ainda alimenta a versão publicada existente. A reforma **V2** está sendo desenvolvida e homologada em paralelo, sem troca silenciosa do contrato de produção.
 
-A V2 parte de uma premissa simples: o comparador deve ajudar o usuário a entender **quem é a administradora**, **em quais segmentos há operação observada**, **quais sinais públicos existem sobre sua operação e reclamações** e **como esses sinais se comparam aos de outras administradoras**, sem transformar ausência de dados, porte ou número de filiais em um selo artificial de qualidade.
+A V2 deve ajudar o usuário a entender **quem é a administradora**, **em quais segmentos há operação observada**, **quais sinais públicos existem sobre sua operação e reclamações** e **como esses sinais se comparam aos de outras administradoras**, sem transformar ausência de dados, porte ou número de filiais em selo artificial de qualidade.
 
-A especificação normativa da V2 está em [`docs/METODOLOGIA_V2.md`](docs/METODOLOGIA_V2.md). A configuração executável correspondente está em [`config/methodology_v2.json`](config/methodology_v2.json).
+Documentos centrais:
+
+- [`docs/METODOLOGIA_V2.md`](docs/METODOLOGIA_V2.md) — contrato metodológico;
+- [`config/methodology_v2.json`](config/methodology_v2.json) — política executável;
+- [`docs/REMEDIATION_STATUS_V2.md`](docs/REMEDIATION_STATUS_V2.md) — C01–C16: implementado, parcial e pendente.
 
 ## Fontes e camadas
 
@@ -53,32 +57,35 @@ A V2 preserva distinção entre zero, ausência, índice não divulgado e falta 
 
 ## Validação V2
 
-O workflow `.github/workflows/11-validate-v2.yml` executa em PR e valida:
+O workflow `.github/workflows/11-validate-v2.yml` executa em PR e valida em **Python + PHP 8.2**:
 
 - compilação e testes do builder;
 - parsing estrito e distinção entre zero/ausência;
 - integridade das chaves e dos contratos;
 - exclusão de combinações zeradas do portfólio observado;
-- reconciliação dos totais imobiliários medidos na auditoria;
+- reconciliação dos totais medidos na auditoria;
 - ausência de posição BC fabricada;
 - ausência de score/ranking geral na primeira versão V2;
-- correspondência integral entre arquivos físicos, manifesto e SHA-256.
+- correspondência integral entre arquivos físicos, manifesto e SHA-256;
+- rejeição de núcleo ausente/bytes adulterados/JSON não declarado;
+- preservação de último sucesso após tentativa falha;
+- lock concorrente e troca atômica de symlink.
 
 Os artefatos de homologação são gerados em diretório isolado e enviados como artifact do workflow; o workflow não publica a V2 no HostGator.
 
-## Publicação e migração
+## Publicação HostGator V2
 
-A publicação atual usa estratégia pull no HostGator. O frontend PHP e os scripts locais de pull/validação/rollback **não vivem neste repositório**.
+A nova camada está versionada em `hostgator/v2/`:
 
-Por isso, `config/deploy_v2.json` é deliberadamente um contrato de **homologação com `deploy_enabled=false`**. A ativação da V2 depende de:
+- `consorcio-v2-lib.php` — validador e primitivas compartilhadas;
+- `consorcio-pull-deploy-v2.php` — pull por commit imutável, staging, validação, swap e quarentena;
+- `consorcio-validate-current-v2.php` — validação do `current-v2`;
+- `consorcio-rollback-v2.php` — rollback somente para release previamente validada;
+- `consorcio-v2-config.php` — contrato e caminhos da instalação paralela.
 
-- migrar o consumidor PHP para os contratos V2;
-- fazer pull, validador e rollback compartilharem o mesmo manifesto e as mesmas invariantes;
-- separar tentativa de validação de último sucesso;
-- impedir fallback silencioso para score legado;
-- homologar uma release concreta no PHP 8.2 usado pelo ambiente.
+Pull, validação e rollback usam **o mesmo manifesto e o mesmo validador**. O pull resolve a ref remota para um SHA de commit antes de baixar qualquer arquivo, evitando combinar bytes de diferentes estados de `main`. `last_validation_attempt` e `last_validation_success` são estados separados.
 
-Até essa migração ser concluída, a V2 não deve substituir automaticamente os artefatos de produção.
+`config/deploy_v2.json` permanece deliberadamente com `deploy_enabled=false`: os scripts já estão versionados e testados, mas ainda não foram instalados/homologados no HostGator nem conectados ao frontend público.
 
 ## Workflows existentes
 
@@ -96,4 +103,4 @@ Até essa migração ser concluída, a V2 não deve substituir automaticamente o
 
 ## Princípio de segurança da migração
 
-Uma PR verde da V2 prova o contrato do pipeline e de seus artefatos de homologação. Ela **não prova, sozinha, que o frontend publicado já consome esse contrato**. O aceite final deve vincular commit, release, validação e consumidor da mesma geração.
+Uma PR verde da V2 prova o contrato do pipeline e da camada de publicação em fixtures. Ela **não prova, sozinha, que o frontend publicado já consome esse contrato**. O aceite final deve vincular commit, release, validação e consumidor da mesma geração no PHP 8.2 do HostGator.
