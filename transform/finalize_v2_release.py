@@ -15,7 +15,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict
 
-RELEASE_CONTRACT = "comparador-v2-release.v1"
+RELEASE_CONTRACT = "comparador-v2-release.v2"
 SOURCE_STATE_SCHEMA = "source-state.v1"
 
 
@@ -76,6 +76,12 @@ def main() -> int:
     meta = load_json(meta_path)
     if not isinstance(meta, dict):
         raise SystemExit("meta V2 inválido")
+
+    release_scope = meta.get("release_scope")
+    if not isinstance(release_scope, dict) or release_scope.get("kind") != "data_only":
+        raise SystemExit("meta V2 deve declarar release_scope.kind=data_only")
+    if release_scope.get("seo_artifacts") is not False:
+        raise SystemExit("meta V2 data-only não pode declarar artefatos SEO")
 
     config = load_json(Path(args.provenance_config))
     required_sources = config.get("required_sources")
@@ -167,6 +173,7 @@ def main() -> int:
         "source_fingerprint": meta.get("source_fingerprint"),
         "methodology_sha256": meta.get("methodology_sha256"),
         "source_state_sha256": state_fingerprint,
+        "release_scope": meta.get("release_scope"),
         "artifacts": meta.get("artifacts"),
     })
 
@@ -188,9 +195,10 @@ def main() -> int:
         "contract": RELEASE_CONTRACT,
         "publication_eligible": True,
         "publication_note": (
-            "Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. "
-            "A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita "
-            "ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build."
+            "Release V2 data-only. Uma falha de consulta não apaga o último conteúdo aprovado; "
+            "ela é exposta em source_status. A publicação é bloqueada se faltar estado persistente, "
+            "último sucesso, competência explícita ou se o hash persistido não corresponder "
+            "exatamente aos bytes consumidos pelo build. SEO editorial pertence ao frontend/site."
         ),
         "release_fingerprint": release_fingerprint,
     }
@@ -199,6 +207,7 @@ def main() -> int:
     print(json.dumps({
         "changed": changed,
         "publication_eligible": True,
+        "release_contract": RELEASE_CONTRACT,
         "degraded_sources": sorted(degraded_sources),
         "release_fingerprint": release_fingerprint,
     }, ensure_ascii=False))
