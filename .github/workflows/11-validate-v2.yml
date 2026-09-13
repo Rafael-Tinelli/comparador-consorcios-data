@@ -110,7 +110,6 @@ jobs:
           python scripts/validate_v2_release.py \
             --dist-base /tmp/consorcio-v2-dist \
             --provenance-config config/provenance_v2.json \
-            --deploy-config config/deploy_v2.json \
             --audit-baseline config/audit_baseline_v2.json
 
       - name: Confirm data-only release surface
