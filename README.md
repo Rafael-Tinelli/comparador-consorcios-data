@@ -27,6 +27,7 @@ O builder em homologação é:
 ```bash
 python transform/build_read_models_v2.py \
   --config config/sources.json \
+  --methodology config/methodology_v2.json \
   --seo-routes config/seo_routes.json
 ```
 
@@ -44,6 +45,8 @@ Ele produz os contratos:
 
 Para estoques, fluxos e taxa de administração, a V2 usa `Segmentos_Consolidados` do ConsorcioBD na competência selecionada. Arquivos de grupos não são somados ao consolidado; servem apenas a estatísticas de grupo compatíveis, como prazo e valor médio do bem, e à reconciliação.
 
+O consolidado pode conter combinações raiz×segmento zeradas. Elas **não são tratadas como portfólio**. Um segmento só entra em `produtos.v2` e no `portfolio_observado` quando existe sinal operacional positivo. Na base auditada de maio/2026, isso reduz 762 combinações consolidadas para **368 observações operacionais em 124 raízes**.
+
 ### Missingness
 
 A V2 preserva distinção entre zero, ausência, índice não divulgado e falta de vínculo. Não existe nota neutra por ausência, fallback de score legado ou redistribuição automática de pesos.
@@ -55,6 +58,7 @@ O workflow `.github/workflows/11-validate-v2.yml` executa em PR e valida:
 - compilação e testes do builder;
 - parsing estrito e distinção entre zero/ausência;
 - integridade das chaves e dos contratos;
+- exclusão de combinações zeradas do portfólio observado;
 - reconciliação dos totais imobiliários medidos na auditoria;
 - ausência de posição BC fabricada;
 - ausência de score/ranking geral na primeira versão V2;
