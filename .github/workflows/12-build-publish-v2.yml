@@ -53,6 +53,7 @@ jobs:
       - name: Compile backend V2
         run: |
           python -m py_compile \
+            transform/build_release_v2.py \
             transform/build_read_models_v2.py \
             transform/finalize_v2_release.py \
             scripts/persist_source_state.py \
@@ -78,13 +79,12 @@ jobs:
           )
           PY
 
-      - name: Build V2 read models
+      - name: Build V2 data-only read models
         id: build
         run: |
-          python transform/build_read_models_v2.py \
+          python transform/build_release_v2.py \
             --config /tmp/sources-v2.json \
-            --methodology config/methodology_v2.json \
-            --seo-routes config/seo_routes.json
+            --methodology config/methodology_v2.json
 
       - name: Attach durable source provenance
         run: |
@@ -99,6 +99,14 @@ jobs:
             --provenance-config config/provenance_v2.json \
             --deploy-config config/deploy_v2.json
 
+      - name: Confirm data-only release surface
+        run: |
+          if [ -d data/dist-v2/seo ] && find data/dist-v2/seo -type f -name '*.json' -print -quit | grep -q .; then
+            echo "Release V2 não pode conter JSON SEO." >&2
+            exit 1
+          fi
+          echo "V2_DATA_ONLY=PASS"
+
       - name: Validate HostGator V2 contract with PHP 8.2
         run: |
           find hostgator/v2 -type f -name '*.php' -print0 | xargs -0 -n1 php -l
@@ -112,7 +120,6 @@ jobs:
           name: comparador-v2-release-candidate
           path: |
             data/dist-v2/global/*.json
-            data/dist-v2/seo/*.json
             data/source_state/*.json
             data/runtime/build_read_models_v2.json
           if-no-files-found: warn
@@ -131,16 +138,15 @@ jobs:
           fi
 
       - name: Commit canonical V2 release and source states
-        if: steps.build.outputs.mode_used == 'build-read-models-v2'
+        if: steps.build.outputs.mode_used == 'build-release-v2-data-only'
         run: |
           set -Eeuo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -f \
-            data/dist-v2/global/*.json \
-            data/dist-v2/seo/*.json \
-            data/source_state/*.json
+          # -A é deliberado: a primeira publicação data-only precisa registrar
+          # também a remoção dos antigos data/dist-v2/seo/*.json.
+          git add -A data/dist-v2 data/source_state
 
           if git diff --cached --quiet; then
             echo "V2 já está canônica; nenhum commit necessário."
