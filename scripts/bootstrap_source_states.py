@@ -55,6 +55,7 @@ def main() -> int:
             "--state", str(state_path),
             "--collector-outcome", "success",
             "--competence-mode", str(spec.get("competence_mode") or "auto"),
+            "--bootstrap",
         ]
         for mode in spec.get("accepted_modes", []):
             cmd.extend(["--accepted-mode", str(mode)])
