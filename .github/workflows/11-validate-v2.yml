@@ -4,14 +4,22 @@ on:
   pull_request:
     paths:
       - "transform/build_read_models_v2.py"
+      - "transform/finalize_v2_release.py"
+      - "scripts/persist_source_state.py"
+      - "scripts/bootstrap_source_states.py"
+      - "scripts/validate_v2_release.py"
       - "hostgator/v2/**"
       - "tests/**"
       - "config/methodology_v2.json"
+      - "config/provenance_v2.json"
+      - "config/audit_baseline_v2.json"
       - "config/deploy_v2.json"
       - "config/series_map.json"
       - "data/raw/**"
       - "data/stage/**"
+      - "data/source_state/**"
       - ".github/workflows/11-validate-v2.yml"
+      - ".github/workflows/12-build-publish-v2.yml"
   workflow_dispatch:
 
 permissions:
@@ -23,7 +31,7 @@ env:
 jobs:
   validate-v2:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - name: Checkout
@@ -47,17 +55,26 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Compile V2 builder
-        run: python -m py_compile transform/build_read_models_v2.py
+      - name: Compile V2 backend
+        run: |
+          python -m py_compile \
+            transform/build_read_models_v2.py \
+            transform/finalize_v2_release.py \
+            scripts/persist_source_state.py \
+            scripts/bootstrap_source_states.py \
+            scripts/validate_v2_release.py
 
       - name: Run V2 unit contracts
-        run: pytest -q tests/test_v2_contracts.py
+        run: pytest -q tests/test_v2_contracts.py tests/test_source_state_v2.py
 
       - name: Lint HostGator V2 PHP
         run: |
           find hostgator/v2 -type f -name '*.php' -print0 | xargs -0 -n1 php -l
           php -l tests/test_hostgator_v2.php
           php -r 'if (PHP_VERSION_ID < 80200 || PHP_VERSION_ID >= 80300) { fwrite(STDERR, PHP_VERSION."\n"); exit(1); } echo "PHP=".PHP_VERSION."\n";'
+
+      - name: Bootstrap source state fixture
+        run: python scripts/bootstrap_source_states.py --config config/provenance_v2.json
 
       - name: Prepare isolated V2 output
         run: |
@@ -73,99 +90,24 @@ jobs:
           PY
 
       - name: Build V2 in isolation
-        id: build
         run: |
           python transform/build_read_models_v2.py \
             --config /tmp/sources-v2.json \
             --methodology config/methodology_v2.json \
             --seo-routes config/seo_routes.json
 
-      - name: Audit acceptance gates
+      - name: Attach source provenance
         run: |
-          python - <<'PY'
-          import hashlib
-          import json
-          from collections import Counter
-          from pathlib import Path
+          python transform/finalize_v2_release.py \
+            --dist-base /tmp/consorcio-v2-dist \
+            --provenance-config config/provenance_v2.json
 
-          root = Path("/tmp/consorcio-v2-dist")
-          g = root / "global"
-          s = root / "seo"
-
-          def load(path):
-              return json.loads(path.read_text(encoding="utf-8"))
-
-          meta = load(g / "meta.json")
-          admins = load(g / "administradoras.json")
-          products = load(g / "produtos.json")
-          rankings = load(g / "rankings.json")
-          comparisons = load(g / "comparacoes.json")
-
-          assert meta["pipeline_version"] == "4.0.1"
-          assert meta["methodology"]["general_score"] is False
-          assert meta["methodology_version"] == "2.0.0"
-          assert admins["metadata"]["contract"] == "administradoras.v2"
-          assert products["metadata"]["contract"] == "produtos.v2"
-          assert rankings["metadata"]["contract"] == "rankings.v2"
-          assert comparisons["metadata"]["contract"] == "comparacoes.v2"
-          assert len(admins["items"]) == 130
-          assert len(rankings["items"]) == 85
-          assert len(products["items"]) == 368
-          assert len({x["cnpj_root"] for x in products["items"]}) == 124
-          assert meta["quality"]["monthly_consolidated_rows"] == 762
-          assert meta["quality"]["monthly_operational_rows"] == 368
-          assert meta["quality"]["monthly_operational_roots"] == 124
-          assert all(x["comparabilidade"]["ranking_geral_publicavel"] is False for x in admins["items"])
-          assert all("scores" not in x for x in admins["items"])
-          assert all(x["posicao_oficial"] is None for x in rankings["items"])
-
-          segment_counts = Counter(x["segmento_codigo"] for x in products["items"])
-          assert segment_counts == {"1": 72, "2": 56, "3": 108, "4": 67, "5": 28, "6": 37}
-
-          imoveis = [x for x in products["items"] if x["segmento_codigo"] == "1"]
-          assert sum(x["cotas_ativas_em_dia"] or 0 for x in imoveis) == 2818836
-          assert sum(x["contemplacoes_mes"] or 0 for x in imoveis) == 13771
-          assert sum(x["inadimplentes"] or 0 for x in imoveis) == 311836
-          assert sum(x["grupos_ativos"] or 0 for x in imoveis) == 2779
-          assert all("segmentos_consolidados" in x["source_member"].lower() for x in products["items"])
-          assert all(any((x.get(k) or 0) > 0 for k in ("taxa_administracao_pct", "grupos_ativos", "cotas_ativas_em_dia", "contemplacoes_mes", "inadimplentes")) for x in products["items"])
-
-          by_root = {x["cnpj_root"]: x for x in admins["items"]}
-          assert [x["codigo"] for x in by_root["48041735"]["portfolio_observado"]["segmentos"]] == ["1", "2", "3"]
-          assert [x["codigo"] for x in by_root["45441789"]["portfolio_observado"]["segmentos"]] == ["3", "4", "5"]
-
-          assert "87945218" in meta["quality"]["operational_orphans"]
-          assert "87945218" in meta["quality"]["ranking_orphans"]
-
-          declared = {}
-          for family in ("global", "seo"):
-              for entry in meta["artifacts"][family]:
-                  path = (g if family == "global" else s) / entry["file"]
-                  assert path.exists(), f"manifest declares missing {path}"
-                  digest = hashlib.sha256(path.read_bytes()).hexdigest()
-                  assert digest == entry["sha256"], f"hash mismatch {path}"
-                  declared[(family, entry["file"])] = True
-
-          physical = {
-              *(('global', p.name) for p in g.glob('*.json') if p.name != 'meta.json'),
-              *(('seo', p.name) for p in s.glob('*.json')),
-          }
-          assert physical == set(declared), (physical, set(declared))
-          print(json.dumps({
-              "status": "PASS",
-              "admins": len(admins["items"]),
-              "ranking_rows": len(rankings["items"]),
-              "products_observed": len(products["items"]),
-              "operational_roots": len({x["cnpj_root"] for x in products["items"]}),
-              "competencia": meta["source_periods"]["consorciobd_mensal"],
-              "segment_counts": dict(segment_counts),
-              "imoveis_cotas_em_dia": 2818836,
-              "imoveis_contemplacoes": 13771,
-              "imoveis_inadimplentes": 311836,
-              "imoveis_grupos": 2779,
-              "manifest_files": len(declared),
-          }, ensure_ascii=False, indent=2))
-          PY
+      - name: Audit acceptance and release gates
+        run: |
+          python scripts/validate_v2_release.py \
+            --dist-base /tmp/consorcio-v2-dist \
+            --provenance-config config/provenance_v2.json \
+            --audit-baseline config/audit_baseline_v2.json
 
       - name: HostGator V2 negative tests
         run: php tests/test_hostgator_v2.php /tmp/consorcio-v2-dist
@@ -178,6 +120,8 @@ jobs:
           if [ -d /tmp/consorcio-v2-dist ]; then
             cp -R /tmp/consorcio-v2-dist/. v2-artifact-preview/
           fi
+          mkdir -p v2-artifact-preview/source_state
+          cp data/source_state/*.json v2-artifact-preview/source_state/ 2>/dev/null || true
           cp data/runtime/build_read_models_v2.json v2-artifact-preview/ 2>/dev/null || true
 
       - name: Upload V2 preview
