@@ -9,11 +9,11 @@ if (!is_string($baseDir) || $baseDir === '') {
 $baseDir = rtrim($baseDir, '/');
 
 return [
-    'version' => '2.1.0',
+    'version' => '2.2.0',
     'project' => [
         'name' => 'comparador-consorcios-data',
         'timezone' => 'America/Sao_Paulo',
-        'validator_version' => '2.1.0',
+        'validator_version' => '2.2.0',
     ],
     'source' => [
         'repository' => 'Rafael-Tinelli/comparador-consorcios-data',
@@ -22,7 +22,7 @@ return [
         'raw_base' => 'https://raw.githubusercontent.com',
         'manifest_path' => 'data/dist-v2/global/meta.json',
         'dist_prefix' => 'data/dist-v2',
-        'user_agent' => 'sanida-consorcio-v2-publisher/2.1',
+        'user_agent' => 'sanida-consorcio-v2-publisher/2.2',
         'timeout_seconds' => 60,
         'retry_count' => 3,
     ],
@@ -55,6 +55,13 @@ return [
         'require_size_match' => true,
         'require_backend_release_contract' => 'comparador-v2-release.v1',
         'require_source_status' => true,
+        'required_source_status' => [
+            'bc_cadastro_admins',
+            'bc_filiais',
+            'bc_consorciobd',
+            'bc_ranking_reclamacoes',
+        ],
+        'require_source_state_matches_consumed_bytes' => true,
     ],
     'retention' => [
         'keep_releases' => 10,
