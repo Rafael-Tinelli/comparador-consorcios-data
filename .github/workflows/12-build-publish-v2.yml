@@ -28,6 +28,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Capture input commit
+        id: input
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
@@ -114,6 +118,18 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+      - name: Refuse stale publication base
+        run: |
+          set -Eeuo pipefail
+          git fetch origin "$GITHUB_REF_NAME"
+          remote_sha="$(git rev-parse "origin/$GITHUB_REF_NAME")"
+          input_sha="${{ steps.input.outputs.sha }}"
+          if [ "$remote_sha" != "$input_sha" ]; then
+            echo "Branch avançou durante o build: input=$input_sha remote=$remote_sha"
+            echo "Recusando publicar artefatos construídos sobre uma base já obsoleta."
+            exit 42
+          fi
+
       - name: Commit canonical V2 release and source states
         if: steps.build.outputs.mode_used == 'build-read-models-v2'
         run: |
@@ -132,5 +148,4 @@ jobs:
           fi
 
           git commit -m "chore(v2): publica release canônica"
-          git pull --rebase
-          git push
+          git push origin "HEAD:$GITHUB_REF_NAME"
