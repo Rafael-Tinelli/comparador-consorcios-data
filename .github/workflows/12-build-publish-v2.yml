@@ -121,8 +121,8 @@ jobs:
       - name: Refuse stale publication base
         run: |
           set -Eeuo pipefail
-          git fetch origin "$GITHUB_REF_NAME"
-          remote_sha="$(git rev-parse "origin/$GITHUB_REF_NAME")"
+          git fetch origin "+refs/heads/$GITHUB_REF_NAME:refs/remotes/origin/$GITHUB_REF_NAME"
+          remote_sha="$(git rev-parse "refs/remotes/origin/$GITHUB_REF_NAME")"
           input_sha="${{ steps.input.outputs.sha }}"
           if [ "$remote_sha" != "$input_sha" ]; then
             echo "Branch avançou durante o build: input=$input_sha remote=$remote_sha"
