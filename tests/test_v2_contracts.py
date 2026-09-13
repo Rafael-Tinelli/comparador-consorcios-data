@@ -1,5 +1,6 @@
 from pathlib import Path
 import importlib.util
+import subprocess
 import sys
 
 SCRIPT = Path(__file__).resolve().parents[1] / "transform" / "build_read_models_v2.py"
@@ -63,3 +64,14 @@ def test_any_positive_operational_signal_makes_segment_observed():
 def test_sum_complete_preserves_zero_but_rejects_partial_missingness():
     assert v2.sum_complete([{"x": 0}, {"x": 2}], "x") == 2
     assert v2.sum_complete([{"x": None}, {"x": 2}], "x") is None
+
+
+def test_legacy_read_models_cli_is_blocked():
+    result = subprocess.run(
+        [sys.executable, str(SCRIPT), "--help"],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode != 0
+    assert "build_release_v2.py" in (result.stdout + result.stderr)

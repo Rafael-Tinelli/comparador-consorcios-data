@@ -35,7 +35,9 @@ Por decisão arquitetural, a release V2 passa a ser **data-only**:
 - `config-site.php` permanece autoridade para arquitetura global, sitemap e navegação;
 - o frontend deve usar os includes padrão da Sanida, sem um segundo catálogo de rotas SEO dentro do pipeline de dados.
 
-A mudança cria o contrato `comparador-v2-release.v2` e pipeline canônico `4.1.0`. Como o contrato de release mudou, a homologação operacional de 13/09/2026 continua válida como prova histórica do mecanismo, mas a **release data-only v2 precisa de uma re-homologação estreita no HostGator paralelo antes do corte público**.
+A mudança cria o contrato `comparador-v2-release.v2` e pipeline canônico `4.1.0`. A transição **no GitHub** já foi concluída: o workflow 11 passou verde e o workflow 12 #5 publicou em `main` a primeira release canônica data-only no commit `5664bd5360671ad94485aa8b11ab90fc142e2732`, com sete artefatos de dados não-meta, nenhum JSON SEO físico, `source_fingerprint=72456642883fa6cc56f9169d2572394e899ad3cec2d86816f7e22e63f8681780` e `release_fingerprint=9cd474256d02174d0033fb2e1398499c3d26fa9dc130db4ed584339b54f41cb8`.
+
+A homologação operacional de 13/09/2026 sob `comparador-v2-release.v1` continua válida como prova histórica do mecanismo, mas a **release data-only v2 ainda precisa de re-homologação estreita no HostGator paralelo antes do corte público**.
 
 `config/deploy_v2.json` permanece com `deploy_enabled=false`.
 
@@ -89,7 +91,7 @@ Autoridade para:
 
 A V1 ainda usa `config/seo_routes.json` e `data/dist/seo/`. Eles **não devem ser removidos enquanto V1 estiver em produção**.
 
-A V2 não usa `config/seo_routes.json` como insumo canônico e não publica JSON SEO. A primeira geração canônica pelo workflow 12 no novo contrato remove os antigos `data/dist-v2/seo/*.json` residuais.
+A V2 não usa `config/seo_routes.json` como insumo canônico e não publica JSON SEO. O workflow 12 #5 já removeu de `data/dist-v2` os antigos JSONs SEO residuais e publicou a primeira geração canônica data-only em `main`.
 
 ## 5. Fontes
 
@@ -146,9 +148,9 @@ Workflows 11 e 12 devem chamar:
 
 `transform/build_release_v2.py`
 
-Ele usa `transform/build_read_models_v2.py` como implementação das transformações e regras de domínio já testadas, mas **não consome configuração SEO nem produz artefatos SEO**.
+Ele usa `transform/build_read_models_v2.py` apenas como fachada de importação para as transformações e regras de domínio já testadas, mas **não consome configuração SEO nem produz artefatos SEO**.
 
-`transform/build_read_models_v2.py` permanece temporariamente no repositório como biblioteca de transformação e CLI anterior. Não é o executável canônico do funil V2 data-only. Sua limpeza final pode ocorrer depois que a migração pública encerrar, sem misturar essa remoção com o corte do consumidor.
+Após a publicação canônica data-only, o antigo CLI foi endurecido para evitar regressão: `transform/build_read_models_v2.py` não pode mais ser executado diretamente e encerra com instrução para usar `build_release_v2.py`. A implementação histórica foi isolada em `transform/_read_models_v2_core_legacy.py` somente como núcleo interno temporário de transformação. Workflows 11/12 não executam esse módulo diretamente. Sua limpeza estrutural final pode ocorrer depois que o consumidor V2 estiver consolidado, sem reabrir metodologia nem misturar essa remoção com o corte público.
 
 ### Contratos de dados
 
@@ -160,7 +162,7 @@ Ele usa `transform/build_read_models_v2.py` como implementação das transforma�
 - `comparacoes.v2` — comparação dimensional, sem ranking geral;
 - `ofertas.v2` — camada comercial separada.
 
-A release possui sete JSONs globais não-meta mais `global/meta.json`. `meta.artifacts.seo=[]` existe apenas como envelope de compatibilidade com a biblioteca operacional HostGator já homologada; **não há arquivo SEO físico, contrato SEO nem download SEO na release**.
+A release possui sete JSONs globais não-meta mais `global/meta.json`. `meta.artifacts.seo=[]` permanece somente como envelope transitório de compatibilidade com a biblioteca operacional HostGator ainda não re-homologada sob v2; **não há arquivo SEO físico, contrato SEO nem download SEO na release**. Essa compatibilidade deve ser reavaliada na limpeza posterior ao corte, não confundida com retorno do SEO ao backend.
 
 `meta.release_scope` deve declarar:
 
@@ -211,7 +213,7 @@ As quatro fontes críticas foram executadas de verdade com `bootstrap=false`. Ca
 Fluxo atual:
 
 1. Python 3.12 + PHP 8.2;
-2. compilação do builder data-only, core, finalizer e validadores;
+2. compilação do builder data-only, fachada/core, finalizer e validadores;
 3. testes unitários de contratos/C09;
 4. lint HostGator V2;
 5. bootstrap de source-state da fixture quando necessário;
@@ -245,6 +247,24 @@ Fluxo:
 **Regra de stale base:** nunca rebasear artefato pronto sobre inputs mais novos. Se outro writer avançar a branch, iniciar uma nova execução do workflow 12 sobre o novo HEAD. Não usar “Re-run failed jobs” para contornar esse gate.
 
 Após disparos manuais dos coletores, aguardar writers derivados, especialmente workflow 08, antes de iniciar manualmente o 12.
+
+### Primeira publicação canônica data-only — 13/09/2026
+
+Workflow 12 #5:
+
+- input SHA: `04bc5a226f932d43e19bc27990f07f36b903af4c`;
+- conclusão: `success`;
+- pipeline: `4.1.0`;
+- contrato: `comparador-v2-release.v2`;
+- `release_scope=data_only`;
+- sete artefatos de dados não-meta;
+- `degraded_sources=[]`;
+- `source_fingerprint=72456642883fa6cc56f9169d2572394e899ad3cec2d86816f7e22e63f8681780`;
+- `release_fingerprint=9cd474256d02174d0033fb2e1398499c3d26fa9dc130db4ed584339b54f41cb8`;
+- commit canônico publicado: `5664bd5360671ad94485aa8b11ab90fc142e2732`;
+- `data/dist-v2/seo/` ausente.
+
+Essa etapa fecha a transição canônica no GitHub. O próximo gate é a re-homologação do envelope v2 no HostGator paralelo.
 
 ## 12. HostGator V2
 
@@ -326,11 +346,11 @@ A migração pública deve, portanto:
 
 ### Marco A — backend/metodologia V2
 
-A metodologia, read models, C09 e gates centrais foram implementados e auditados. O novo contrato data-only deve passar workflow 11 verde no HEAD da PR antes de merge.
+**Concluído no GitHub para o contrato data-only.** Metodologia, read models, C09 e gates centrais foram implementados e auditados; workflow 11 passou verde e workflow 12 #5 publicou a release canônica `comparador-v2-release.v2`/pipeline `4.1.0` no commit `5664bd5360671ad94485aa8b11ab90fc142e2732`.
 
 ### Marco B — publicação operacional
 
-O mecanismo foi homologado sob release v1. Depois do merge da simplificação data-only, executar novamente no ambiente paralelo, no mínimo:
+O mecanismo foi homologado sob release v1. Para o contrato data-only v2, a parte GitHub já está concluída; falta somente a re-homologação estreita no ambiente HostGator paralelo:
 
 1. atualizar scripts `hostgator/v2`;
 2. dry-run do contrato `comparador-v2-release.v2`;
