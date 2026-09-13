@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Build canônico da release V2 de dados, sem artefatos editoriais/SEO.
 
-A lógica de transformação permanece em ``build_read_models_v2``. Este orquestrador
-é o executável canônico dos workflows 11/12 e delimita a responsabilidade do
+A lógica de transformação-base permanece em ``build_read_models_v2``. A camada
+``interpretation_v2`` acrescenta contexto relativo auditável aos mesmos sete read
+models, sem criar score/ranking geral nem artefatos editoriais. Este orquestrador é
+o executável canônico dos workflows 11/12 e delimita a responsabilidade do
 repositório: produzir somente contratos de dados auditáveis. Title, description,
 canonical, breadcrumbs, FAQ e demais decisões editoriais pertencem ao frontend/site.
 """
@@ -17,8 +19,9 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 import build_read_models_v2 as core
+import interpretation_v2 as interpretation
 
-PIPELINE_VERSION = "4.1.0"
+PIPELINE_VERSION = "4.2.0"
 
 
 def main() -> int:
@@ -63,6 +66,14 @@ def main() -> int:
     if methodology.get("general_score", {}).get("enabled") is not False:
         raise SystemExit("methodology_v2 deve manter general_score.enabled=false nesta versão")
 
+    relative_interpretation = methodology.get("relative_interpretation", {})
+    if relative_interpretation.get("enabled") is not True:
+        raise SystemExit("methodology_v2 deve habilitar relative_interpretation nesta versão")
+    if relative_interpretation.get("contract") != interpretation.INTERPRETATION_CONTRACT:
+        raise SystemExit("Contrato de interpretação relativa incompatível")
+    if relative_interpretation.get("general_ranking") is not False:
+        raise SystemExit("relative_interpretation deve manter general_ranking=false")
+
     fingerprint = core.source_fingerprint(required, PIPELINE_VERSION)
     generated_at = core.stable_generated_at(global_dir / "meta.json", fingerprint)
 
@@ -72,6 +83,11 @@ def main() -> int:
     products, monthly_meta = core.load_monthly_v2(monthly)
     models = core.build_models(registry, branch_map, rankings, products, generated_at)
     core.validate_models(models, monthly_meta)
+
+    # A interpretação é derivada somente dos read models já validados. Ela não
+    # lê novas fontes, não altera missingness e não cria um oitavo artefato.
+    models = interpretation.enrich_models(models, methodology)
+    interpretation.validate_interpretations(models, methodology)
 
     models["ofertas"] = {
         "metadata": {
@@ -109,6 +125,9 @@ def main() -> int:
         "methodology_version": methodology.get("version"),
         "methodology_sha256": hashlib.sha256(methodology_path.read_bytes()).hexdigest(),
         "contracts": core.CONTRACTS,
+        "embedded_contracts": {
+            "interpretacao_relativa": interpretation.INTERPRETATION_CONTRACT,
+        },
         "methodology": {
             "purpose": methodology.get("purpose"),
             "general_score": False,
@@ -117,6 +136,15 @@ def main() -> int:
             ),
             "presence_role": "informativo",
             "commercial_offers_affect_assessment": False,
+            "relative_interpretation": {
+                "enabled": True,
+                "contract": interpretation.INTERPRETATION_CONTRACT,
+                "general_ranking": False,
+                "comparison_unit": relative_interpretation.get("comparison_unit"),
+                "complaints_scope": relative_interpretation.get("complaints_scope"),
+                "quartile_method": relative_interpretation.get("quartile_method"),
+                "contemplation_policy": relative_interpretation.get("contemplation_policy"),
+            },
         },
         "release_scope": {
             "kind": "data_only",
@@ -153,6 +181,10 @@ def main() -> int:
                 "A release V2 é data-only: SEO editorial, rotas públicas, canonical, "
                 "titles, descriptions, breadcrumbs e FAQ pertencem ao frontend/site."
             ),
+            (
+                "A interpretação relativa é um subcontrato de dados embutido em "
+                "administradoras/segmentos/comparacoes; não é score geral, SEO nem oferta."
+            ),
         ],
     }
 
@@ -171,6 +203,7 @@ def main() -> int:
         "competencia": monthly_meta.get("competencia"),
         "operational_rows": monthly_meta.get("operational_rows_latest"),
         "seo_artifacts": False,
+        "interpretation_contract": interpretation.INTERPRETATION_CONTRACT,
     }
     core.write_json_if_changed(runtime_dir / "build_read_models_v2.json", runtime)
 
@@ -190,6 +223,7 @@ def main() -> int:
                 "products_observed": len(products),
                 "competencia": monthly_meta.get("competencia"),
                 "seo_artifacts": False,
+                "interpretation_contract": interpretation.INTERPRETATION_CONTRACT,
             },
             ensure_ascii=False,
         )
