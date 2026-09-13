@@ -75,6 +75,26 @@ Autoridade para:
 
 **Princípio:** centralizar mecanismo compartilhado nos includes do site; não centralizar conteúdo editorial em JSON de dados.
 
+### Diretriz de frontend V2 — backend forte, frontend convencional
+
+A arquitetura alvo adota deliberadamente o princípio **backend forte e auditável; frontend relativamente convencional e fácil de alterar**.
+
+No backend, a complexidade é aceita quando protege uma invariável real: fonte, metodologia, contrato, proveniência, competência, integridade, manifesto, validação, publicação, state, rollback e ausência de fallback metodológico silencioso.
+
+No frontend, a preferência é a arquitetura nativa já usada pelo site:
+
+- PHP/HTML server-side para a estrutura e o conteúdo essencial da página;
+- includes globais da Sanida para `head`, menu, footer e demais mecanismos compartilhados;
+- CSS para apresentação;
+- JavaScript para interação e progressive enhancement — busca, comparação, abertura de detalhes, filtros, URL/history e comportamento de interface;
+- conteúdo essencial, contexto metodológico e informação indexável não devem depender de JavaScript para existir.
+
+Um adaptador de dados como `_app/consorcio-data.php` pode permanecer quando trouxer ganho claro: localizar/resolver `current-v2`, ler os contratos V2 e entregar estruturas PHP coerentes à página. Esse adaptador **não** deve virar engine de UI, catálogo SEO, roteador editorial, reinterpretação metodológica nem mecanismo de fallback para V1.
+
+`_app/consorcio-ui.php` é tratado como organização legada da V1, não como contrato arquitetural da V2. Ele **não deve ser portado mecanicamente** para a arquitetura final. Durante a migração pública, suas responsabilidades devem voltar para PHP/HTML convencional da página, CSS e JS; se a página ficar extensa, pequenos partials PHP podem ser usados apenas por legibilidade, sem criar uma nova camada de framework, estado ou contrato.
+
+Regra de simplificação do frontend: **complexidade só permanece quando protege uma invariável importante**. Uma camada que apenas reorganiza a renderização, mas dificulta alterações editoriais ou de interface, deve ser eliminada ou reduzida.
+
 ## 4. Camadas de dados
 
 1. `data/raw/` — insumos coletados;
@@ -305,7 +325,7 @@ Em 13/09/2026 foi homologado no HostGator real o mecanismo operacional sob `comp
 
 Essa evidência continua provando lock, staging, promoção, symlink, state, rollback e isolamento V1/V2. Ela **não substitui** a re-homologação do novo contrato data-only v2.
 
-## 14. C15 — inventário e simplificação de SEO
+## 14. C15/C16 — inventário, SEO e frontend convencional
 
 Snapshot read-only do HostGator em 13/09/2026 confirmou 13 rotas reais do cluster:
 
@@ -340,7 +360,13 @@ A migração pública deve, portanto:
 - deixar SEO da página no próprio PHP + `head-global.php`;
 - preservar `config-site.php` como autoridade de sitemap/navegação;
 - migrar apenas o consumidor de dados para `current-v2`;
-- não fabricar novas URLs, redirects ou `noindex` por existência histórica de um JSON.
+- não fabricar novas URLs, redirects ou `noindex` por existência histórica de um JSON;
+- não portar `_app/consorcio-ui.php` como camada obrigatória da V2;
+- manter, se útil, apenas um adaptador de dados pequeno e explícito entre `current-v2` e a página;
+- renderizar o conteúdo essencial em PHP/HTML server-side e usar CSS/JS diretamente para apresentação e interação;
+- admitir partials PHP somente por legibilidade, sem transformar partials em engine de UI ou novo sistema de contratos.
+
+Essa decisão é uma **diretriz para a migração**, não uma descrição da produção atual: `consorcio-seo.php` e `consorcio-ui.php` ainda podem existir enquanto V1 permanecer pública e não devem ser removidos antes do corte controlado.
 
 ## 15. Estado de ativação
 
@@ -371,7 +397,7 @@ Ainda pendente. Exige migração/homologação do frontend, principalmente:
 - **C09** — apresentar competência/atualidade corretamente;
 - **C14** — cobertura, período, motivos e limites junto da comparação;
 - **C15** — cortar a dependência SEO do pipeline de dados e alinhar ao padrão nativo do site;
-- **C16** — teclado, foco, 390 px, zoom 200%, sem-JS e histórico/estado da consulta.
+- **C16** — migrar para frontend convencional PHP/HTML + CSS/JS, sem engine estrutural de UI; homologar teclado, foco, 390 px, zoom 200%, sem-JS e histórico/estado da consulta.
 
 Enquanto Marco C estiver pendente, V1 continua pública e `deploy_enabled=false`.
 
@@ -391,6 +417,7 @@ Antes de apagar, fundir ou simplificar componente, verificar:
 - reintroduz score, posição fabricada, dupla contagem ou presença como qualidade?
 - altera a semântica `Segmentos_Consolidados` versus grupos?
 - mistura SEO editorial com a release de dados novamente?
+- cria uma engine de UI, estado ou roteamento sem proteger uma invariável que justifique essa complexidade?
 
 Se sim, a mudança é arquitetural e precisa de justificativa, teste e atualização deste memorial.
 
@@ -400,4 +427,6 @@ Uma PR verde prova código/fixtures. Uma geração canônica prova o funil. Uma 
 
 A cadeia final deve permanecer auditável:
 
-**fonte → tentativa de coleta → estado durável → bytes consumidos → builder data-only → manifesto → commit → release → validação HostGator → consumidor PHP → HTML final do site.**
+**fonte → tentativa de coleta → estado durável → bytes consumidos → builder data-only → manifesto → commit → release → validação HostGator → adaptador de dados PHP → HTML server-side + CSS/JS do site.**
+
+A disciplina final é deliberada: **backend forte e auditável; frontend convencional, legível e fácil de alterar**.
