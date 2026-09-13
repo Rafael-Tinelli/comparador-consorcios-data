@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "schema": "comparador-v2-provenance-config.v1",
+  "purpose": "Separar momento de consulta, última mudança e competência de cada fonte crítica usada pelo backend V2.",
+  "required_sources": {
+    "bc_cadastro_admins": {
+      "role": "cadastro atual de administradoras",
+      "state_file": "data/source_state/bc_cadastro_admins.json",
+      "runtime_file": "data/runtime/bc_cadastro_admins.json",
+      "snapshot_file": "data/raw/bc/cadastro/latest.json",
+      "content_file": "data/stage/cadastro/instituicoes_cadastro.json",
+      "accepted_modes": ["odata-csv"],
+      "competence_mode": "not_applicable"
+    },
+    "bc_filiais": {
+      "role": "presença cadastral de filiais",
+      "state_file": "data/source_state/bc_filiais.json",
+      "runtime_file": "data/runtime/bc_filiais.json",
+      "snapshot_file": "data/raw/bc/filiais/latest.json",
+      "content_file": "data/stage/filiais/filiais.json",
+      "accepted_modes": ["odata-csv"],
+      "competence_mode": "auto"
+    },
+    "bc_consorciobd": {
+      "role": "operação mensal consolidada por segmento",
+      "state_file": "data/source_state/bc_consorciobd.json",
+      "runtime_file": "data/runtime/bc_consorciobd.json",
+      "snapshot_file": "data/raw/bc/consorciobd/latest.json",
+      "content_file": "data/raw/bc/consorciobd/latest_source.bin",
+      "accepted_modes": ["direct-content-download"],
+      "competence_mode": "auto"
+    },
+    "bc_ranking_reclamacoes": {
+      "role": "reclamações de consórcios divulgadas pelo Banco Central",
+      "state_file": "data/source_state/bc_ranking_reclamacoes.json",
+      "runtime_file": "data/runtime/bc_ranking_reclamacoes.json",
+      "snapshot_file": "data/raw/bc/ranking_reclamacoes/latest.json",
+      "content_file": "data/raw/bc/ranking_reclamacoes/latest_source.csv",
+      "accepted_modes": ["direct-content-download"],
+      "competence_mode": "auto"
+    }
+  },
+  "publication_policy": {
+    "require_state_for_every_source": true,
+    "require_last_successful_check": true,
+    "require_content_sha256": true,
+    "require_explicit_competence": true,
+    "allow_last_approved_content_after_failed_check": true,
+    "expose_failed_last_check_as_degraded": true,
+    "generated_at_is_not_source_freshness": true
+  }
+}

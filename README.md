@@ -1,120 +1,137 @@
 # Comparador de Consórcios Data
 
-Pipeline de coleta, normalização, relacionamento, validação e geração de artefatos para o projeto **Comparador de Consórcios**.
+Pipeline canônico de dados do **Comparador de Consórcios Sanida**.
 
-## Objetivo
+## Estado do projeto
 
-Este repositório existe para:
+O `main` ainda alimenta a versão publicada existente. A reforma **V2** está sendo desenvolvida e homologada em paralelo, sem troca silenciosa do contrato de produção.
 
-- coletar dados oficiais e complementares sobre administradoras, produtos, séries e contexto setorial;
-- normalizar e relacionar essas fontes em modelos de leitura prontos para consumo;
-- gerar artefatos leves em JSON para o cluster `/financas/consorcio/`;
-- alimentar páginas SEO e componentes comparativos sem ETL pesado no HostGator;
-- manter a arquitetura evergreen, barata, rápida e de baixa manutenção.
+A V2 deve ajudar o usuário a entender **quem é a administradora**, **em quais segmentos há operação observada**, **quais sinais públicos existem sobre sua operação e reclamações** e **como esses sinais se comparam aos de outras administradoras**, sem transformar ausência de dados, porte ou número de filiais em selo artificial de qualidade.
 
-## Arquitetura resumida
+Documentos centrais:
 
-A arquitetura v1 segue esta lógica:
+- [`docs/METODOLOGIA_V2.md`](docs/METODOLOGIA_V2.md) — contrato metodológico;
+- [`config/methodology_v2.json`](config/methodology_v2.json) — política executável;
+- [`config/provenance_v2.json`](config/provenance_v2.json) — contrato de consulta, mudança e competência das fontes críticas;
+- [`docs/REMEDIATION_STATUS_V2.md`](docs/REMEDIATION_STATUS_V2.md) — C01–C16: implementado, parcial e pendente.
 
-1. **GitHub Actions** executa as coletas.
-2. Os dados brutos vão para `data/raw/`.
-3. Os dados intermediários e consolidados passam por `data/stage/`.
-4. As transformações geram os artefatos finais em `data/dist/`.
-5. O **HostGator consome os JSONs finais por estratégia pull**, preferencialmente via cron, sem depender de deploy ativo por SSH a partir do GitHub.
-6. O frontend PHP do site lê os JSONs localmente e renderiza HTML indexável no servidor.
+## Fontes e camadas
 
-## Estratégia de publicação recomendada
+O repositório separa explicitamente dados, estado de coleta e publicação:
 
-A estratégia preferencial de publicação é:
+1. `data/raw/` — cópia dos insumos coletados;
+2. `data/stage/` — normalizações próprias dos coletores;
+3. `data/source_state/` — estado durável de cada fonte crítica (`last_checked_at`, último sucesso, última mudança, competência, hash e erro da última tentativa);
+4. `data/dist/` — artefatos da geração legada atualmente ligada à produção;
+5. `data/dist-v2/` — artefatos canônicos do backend V2.
 
-1. O GitHub gera os arquivos finais em `data/dist/`.
-2. O GitHub também pode expor um `manifest.json` ou metadados de versão/hash.
-3. Um **cron job no HostGator** consulta esse manifest.
-4. Se houver nova versão, o servidor baixa os arquivos para uma pasta temporária.
-5. O servidor valida os arquivos baixados.
-6. O servidor publica a nova release de forma atômica, atualizando o apontamento de `current/`.
+As fontes atualmente usadas incluem cadastro e filiais de administradoras do Banco Central, ConsorcioBD mensal e trimestral, ranking de reclamações do Banco Central, séries SGS e contexto setorial complementar.
 
-Essa abordagem reduz dependência de SSH com escrita no servidor e separa claramente:
+## Builder V2
 
-- **GitHub** = coleta, tratamento e build
-- **HostGator** = consumo e publicação local
+O builder é:
 
-## Saída final esperada
+```bash
+python transform/build_read_models_v2.py \
+  --config config/sources.json \
+  --methodology config/methodology_v2.json \
+  --seo-routes config/seo_routes.json
+```
 
-Os artefatos finais ficam em:
+No workflow canônico, `dist_base_dir` é sobrescrito para `data/dist-v2`. Depois do build, `transform/finalize_v2_release.py` incorpora a proveniência persistente ao `global/meta.json` sem confundir momento de geração com atualidade da fonte.
 
-- `data/dist/global/`
-- `data/dist/seo/`
+Ele produz os contratos:
 
-Atualmente, os artefatos globais incluem:
+- `instituicoes.v2` — identidade cadastral atual e presença informativa;
+- `administradoras.v2` — perfil consolidado, cobertura e leitura limitada das evidências;
+- `produtos.v2` — segmentos com operação observada por raiz + competência + segmento;
+- `rankings.v2` — reclamações sem inventar posição oficial;
+- `segmentos.v2` — contexto por segmento;
+- `comparacoes.v2` — dimensões comparáveis por segmento, **sem ranking geral**;
+- `ofertas.v2` — contrato comercial separado, vazio enquanto não houver fonte própria validada.
 
-- `instituicoes.json`
-- `produtos.json`
-- `rankings.json`
-- `series.json`
-- `cenarios.json`
-- `autocomplete.json`
-- `meta.json`
+### Fonte canônica operacional
 
-Os artefatos SEO ficam em `data/dist/seo/`.
+Para estoques, fluxos e taxa de administração, a V2 usa `Segmentos_Consolidados` do ConsorcioBD na competência selecionada. Arquivos de grupos não são somados ao consolidado; servem apenas a estatísticas de grupo compatíveis, como prazo e valor médio do bem, e à reconciliação.
 
-No HostGator, a publicação final esperada fica em:
+O consolidado pode conter combinações raiz×segmento zeradas. Elas **não são tratadas como portfólio**. Um segmento só entra em `produtos.v2` e no `portfolio_observado` quando existe sinal operacional positivo. Na base auditada de maio/2026, isso reduz 762 combinações consolidadas para **368 observações operacionais em 124 raízes**.
 
-- `/home1/SEU_USUARIO/consorcio-data/current/global/`
-- `/home1/SEU_USUARIO/consorcio-data/current/seo/`
+### Missingness
 
-O frontend público permanece em:
+A V2 preserva distinção entre zero, ausência, índice não divulgado e falta de vínculo. Não existe nota neutra por ausência, fallback de score legado ou redistribuição automática de pesos.
 
-- `/public_html/financas/consorcio/`
+### Atualidade e proveniência — C09
 
-## Estrutura do repositório
+`generated_at` significa apenas **quando os read models foram gerados**. Ele não pode ser apresentado como data de atualização da fonte.
 
-```text
-comparador-consorcios-data/
-│
-├── .github/
-│   └── workflows/
-│       ├── 01-coleta-bc-cadastro.yml
-│       ├── 02-coleta-bc-filiais.yml
-│       ├── 03-coleta-bc-series.yml
-│       ├── 04-coleta-consorciobd.yml
-│       ├── 05-coleta-consorciobd-trimestral.yml
-│       ├── 06-coleta-ranking-reclamacoes.yml
-│       ├── 07-coleta-abac.yml
-│       ├── 08-build-read-models.yml
-│       ├── 09-deploy-hostgator.yml
-│       └── 10-validate-hostgator.yml
-│
-├── collectors/
-│   ├── bc_cadastro_admins.py
-│   ├── bc_filiais.py
-│   ├── bc_sgs_series.py
-│   ├── bc_consorciobd.py
-│   ├── bc_consorciobd_trimestral.py
-│   ├── bc_ranking_reclamacoes.py
-│   └── abac_boletim.py
-│
-├── transform/
-│   ├── normalize_instituicoes.py
-│   ├── normalize_series.py
-│   ├── normalize_rankings.py
-│   ├── normalize_produtos.py
-│   ├── build_autocomplete.py
-│   ├── build_landings_data.py
-│   └── build_read_models.py
-│
-├── shared/
-├── config/
-├── schemas/
-├── data/
-│   ├── raw/
-│   ├── stage/
-│   ├── runtime/
-│   └── dist/
-│       ├── global/
-│       └── seo/
-│
-├── tests/
-├── requirements.txt
-├── README.md
-└── .gitignore
+Os coletores críticos de cadastro, filiais, ConsorcioBD mensal e reclamações mantêm arquivos `source-state.v1`. Uma consulta bem-sucedida sem mudança avança `last_checked_at` e `last_successful_check_at`, mas preserva `last_changed_at`. Uma consulta com falha registra a falha sem apagar o último conteúdo aprovado, seu hash ou sua competência.
+
+O `meta.json` da release transporta esses estados em `source_status`, além de `freshness.degraded_sources`. Assim, conteúdo válido pode continuar disponível após uma falha transitória de coleta, mas a degradação fica explícita e não é mascarada por uma nova geração.
+
+## Validação V2
+
+O workflow `.github/workflows/11-validate-v2.yml` executa em PR e valida em **Python + PHP 8.2**:
+
+- compilação e testes do builder e da persistência de proveniência;
+- parsing estrito e distinção entre zero/ausência;
+- integridade das chaves e dos contratos;
+- exclusão de combinações zeradas do portfólio observado;
+- reconciliação dos totais medidos na auditoria por baseline de regressão separado;
+- ausência de posição BC fabricada;
+- ausência de score/ranking geral na primeira versão V2;
+- correspondência integral entre arquivos físicos, manifesto e SHA-256;
+- estado persistente das fontes críticas e contrato `comparador-v2-release.v1`;
+- rejeição de núcleo ausente/bytes adulterados/JSON não declarado/proveniência ausente;
+- preservação de último sucesso após tentativa falha;
+- lock concorrente e troca atômica de symlink;
+- separação entre tentativa de publicação e estado de validação da release ativa.
+
+Os artefatos de homologação são gerados em diretório isolado e enviados como artifact do workflow; o workflow de PR não publica a V2 no HostGator.
+
+## Geração canônica V2
+
+O workflow `.github/workflows/12-build-publish-v2.yml` é a geração recorrente do backend V2. Ele:
+
+1. testa o backend;
+2. cria somente os estados de fonte ainda ausentes durante a migração inicial;
+3. gera `data/dist-v2`;
+4. anexa a proveniência ao manifesto;
+5. executa os gates estruturais e PHP 8.2;
+6. recusa publicação se a branch tiver avançado durante o build;
+7. versiona `data/dist-v2` e `data/source_state` no mesmo commit de publicação.
+
+Os números exatos da Auditoria 2 ficam em `config/audit_baseline_v2.json` e são usados como teste de regressão da fixture auditada, **não como limites fixos do workflow recorrente**. O pipeline de produção deve aceitar mudanças legítimas nas fontes sem exigir que o mercado permaneça congelado nos totais de maio/2026.
+
+## Publicação HostGator V2
+
+A nova camada está versionada em `hostgator/v2/`:
+
+- `consorcio-v2-lib.php` — validador e primitivas compartilhadas;
+- `consorcio-v2-release-gate.php` — gate do contrato de release e proveniência;
+- `consorcio-pull-deploy-v2.php` — pull por commit imutável, staging, validação, swap e quarentena;
+- `consorcio-validate-current-v2.php` — validação do `current-v2`;
+- `consorcio-rollback-v2.php` — rollback somente para release previamente validada;
+- `consorcio-v2-config.php` — contrato e caminhos da instalação paralela.
+
+Pull, validação e rollback usam **o mesmo manifesto e o mesmo gate de backend**. O pull resolve a ref remota para um SHA de commit antes de baixar qualquer arquivo, evitando combinar bytes de diferentes estados de `main`. `last_validation_attempt` e `last_validation_success` são estados da validação da release; `last_publication_attempt` e `last_publication_success` são estados separados da tentativa de publicação. Uma falha de download ou de release candidata não deve fazer uma release ativa e saudável parecer inválida.
+
+O HostGator V2 lê exclusivamente `data/dist-v2`. `config/deploy_v2.json` permanece deliberadamente com `deploy_enabled=false`: o backend está preparado para homologação, mas os scripts ainda não foram instalados/testados no HostGator real nem conectados ao frontend público.
+
+## Workflows existentes
+
+- `01` — cadastro BC + estado persistente da fonte;
+- `02` — filiais BC + estado persistente da fonte;
+- `03` — séries SGS;
+- `04` — ConsorcioBD mensal + estado persistente da fonte;
+- `05` — ConsorcioBD trimestral;
+- `06` — ranking de reclamações + estado persistente da fonte;
+- `07` — ABAC/contexto;
+- `08` — builder legado atualmente ligado à produção;
+- `09` — readiness do pull HostGator atual;
+- `10` — validação HostGator atual;
+- `11` — validação isolada/regressão da reforma V2;
+- `12` — geração e publicação canônica do backend V2 no repositório.
+
+## Princípio de segurança da migração
+
+Uma PR verde da V2 prova o contrato do pipeline e da camada de publicação em fixtures. Ela **não prova, sozinha, que o frontend publicado já consome esse contrato**. O aceite final de produção deve vincular commit, release, validação e consumidor da mesma geração no PHP 8.2 do HostGator.

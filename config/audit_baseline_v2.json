@@ -1,0 +1,33 @@
+{
+  "version": "2026-09-13",
+  "purpose": "Baseline da Auditoria 2 para testes de regressão em PR. Não é gate numérico do workflow recorrente de produção.",
+  "expected": {
+    "administradoras": 130,
+    "ranking_rows": 85,
+    "products": 368,
+    "operational_roots": 124,
+    "segment_counts": {
+      "1": 72,
+      "2": 56,
+      "3": 108,
+      "4": 67,
+      "5": 28,
+      "6": 37
+    },
+    "imoveis": {
+      "cotas_ativas_em_dia": 2818836,
+      "contemplacoes_mes": 13771,
+      "inadimplentes": 311836,
+      "grupos_ativos": 2779
+    },
+    "orphan_operational_root": "87945218",
+    "monthly_consolidated_rows": 762,
+    "monthly_operational_rows": 368,
+    "monthly_operational_roots": 124,
+    "all_positions_null": true,
+    "portfolios": {
+      "48041735": ["1", "2", "3"],
+      "45441789": ["3", "4", "5"]
+    }
+  }
+}

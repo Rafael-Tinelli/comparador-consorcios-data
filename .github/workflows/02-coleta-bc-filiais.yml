@@ -43,6 +43,7 @@ jobs:
           mkdir -p data/raw/bc/filiais
           mkdir -p data/stage/filiais
           mkdir -p data/runtime
+          mkdir -p data/source_state
 
       - name: Run collector
         id: collect
@@ -52,7 +53,7 @@ jobs:
             --source bc_filiais
 
       - name: Upload collector outputs
-        if: success()
+        if: always()
         uses: actions/upload-artifact@v6
         with:
           name: bc-filiais-output
@@ -63,20 +64,44 @@ jobs:
           if-no-files-found: warn
           retention-days: 15
 
-      - name: Commit changed outputs
-        if: success() && steps.collect.outputs.changed == 'true' && steps.collect.outputs.mode_used == 'odata-csv'
+      - name: Persist source check state
+        if: always()
+        run: |
+          python scripts/persist_source_state.py \
+            --source bc_filiais \
+            --runtime data/runtime/bc_filiais.json \
+            --snapshot data/raw/bc/filiais/latest.json \
+            --content-file data/stage/filiais/filiais.json \
+            --state data/source_state/bc_filiais.json \
+            --collector-outcome "${{ steps.collect.outcome }}" \
+            --accepted-mode odata-csv \
+            --competence-mode auto
+
+      - name: Commit data and durable source state
+        if: always()
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -f \
-            data/raw/bc/filiais/latest.json \
-            data/stage/filiais/filiais.json
+          git add -f data/source_state/bc_filiais.json
+
+          if [ "${{ steps.collect.outcome }}" = "success" ] && [ "${{ steps.collect.outputs.mode_used }}" = "odata-csv" ]; then
+            git add -f data/raw/bc/filiais/latest.json data/stage/filiais/filiais.json
+          fi
 
           if git diff --cached --quiet; then
             echo "Sem diff rastreável para commit."
             exit 0
           fi
 
-          git commit -m "chore(data): atualiza filiais BC"
-          git push
+          git commit -m "chore(data): registra filiais BC e estado da fonte"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+
+      - name: Fail if mode used is not homologated CSV
+        if: always() && steps.collect.outcome == 'success' && steps.collect.outputs.mode_used != 'odata-csv'
+        run: |
+          echo "Falha: a coleta não concluiu pelo modo homologado."
+          echo "mode_used=${{ steps.collect.outputs.mode_used }}"
+          exit 1
