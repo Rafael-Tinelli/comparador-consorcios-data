@@ -1,6 +1,13 @@
 from copy import deepcopy
+from pathlib import Path
+import importlib.util
+import sys
 
-from transform import interpretation_v2 as iv2
+SCRIPT = Path(__file__).resolve().parents[1] / "transform" / "interpretation_v2.py"
+spec = importlib.util.spec_from_file_location("interpretation_v2", SCRIPT)
+iv2 = importlib.util.module_from_spec(spec)
+sys.path.insert(0, str(SCRIPT.parent))
+spec.loader.exec_module(iv2)
 
 
 def methodology():
