@@ -4,6 +4,8 @@
 The builder's generated_at describes read-model generation, not source freshness.
 This finalizer injects the durable per-source check/change/competence state into
 `global/meta.json`, which is the publication contract consumed by HostGator/UI.
+It also proves that the durable state's content hash matches the exact file used
+by the build, preventing provenance from drifting away from the consumed bytes.
 """
 from __future__ import annotations
 
@@ -20,6 +22,14 @@ SOURCE_STATE_SCHEMA = "source-state.v1"
 def load_json(path: Path) -> Any:
     with path.open("r", encoding="utf-8") as fh:
         return json.load(fh)
+
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def canonical_sha(payload: Any) -> str:
@@ -63,6 +73,10 @@ def main() -> int:
     if not meta_path.exists():
         raise SystemExit(f"meta V2 ausente: {meta_path}")
 
+    meta = load_json(meta_path)
+    if not isinstance(meta, dict):
+        raise SystemExit("meta V2 inválido")
+
     config = load_json(Path(args.provenance_config))
     required_sources = config.get("required_sources")
     if not isinstance(required_sources, dict) or not required_sources:
@@ -76,10 +90,16 @@ def main() -> int:
         if not isinstance(spec, dict):
             blocking_errors.append(f"spec inválida para {source}")
             continue
+
         state_path = Path(str(spec.get("state_file") or ""))
+        content_path = Path(str(spec.get("content_file") or ""))
         if not state_path.exists():
             blocking_errors.append(f"estado persistente ausente: {source} -> {state_path}")
             continue
+        if not content_path.exists() or not content_path.is_file():
+            blocking_errors.append(f"conteúdo canônico ausente: {source} -> {content_path}")
+            continue
+
         state = load_json(state_path)
         if not isinstance(state, dict) or state.get("schema") != SOURCE_STATE_SCHEMA:
             blocking_errors.append(f"schema de estado inválido: {source}")
@@ -87,27 +107,59 @@ def main() -> int:
         if state.get("source") != source:
             blocking_errors.append(f"source divergente no estado: {source}")
             continue
+        if state.get("last_check_status") not in {"success", "failure"}:
+            blocking_errors.append(f"last_check_status inválido: {source}")
         if not state.get("last_checked_at"):
             blocking_errors.append(f"last_checked_at ausente: {source}")
         if not state.get("last_successful_check_at"):
             blocking_errors.append(f"last_successful_check_at ausente: {source}")
-        if not state.get("content_sha256"):
-            blocking_errors.append(f"content_sha256 ausente: {source}")
+
+        state_hash = state.get("content_sha256")
+        if not isinstance(state_hash, str) or len(state_hash) != 64:
+            blocking_errors.append(f"content_sha256 ausente/inválido: {source}")
+        else:
+            actual_hash = sha256_file(content_path)
+            if actual_hash != state_hash:
+                blocking_errors.append(
+                    f"content_sha256 não corresponde aos bytes consumidos: {source} estado={state_hash} arquivo={actual_hash}"
+                )
+
+        provenance = state.get("provenance")
+        if isinstance(provenance, dict):
+            state_content_file = provenance.get("content_file")
+            if state_content_file and str(state_content_file) != str(content_path):
+                blocking_errors.append(
+                    f"content_file do estado diverge da configuração: {source} estado={state_content_file} config={content_path}"
+                )
+
         competence = state.get("competence")
         if not isinstance(competence, dict) or "kind" not in competence or "value" not in competence:
             blocking_errors.append(f"competence inválida: {source}")
+        else:
+            competence_mode = str(spec.get("competence_mode") or "auto")
+            if competence_mode == "not_applicable":
+                if competence.get("kind") != "not_applicable":
+                    blocking_errors.append(f"competence deveria ser not_applicable: {source}")
+            else:
+                if competence.get("kind") in {"unknown", "not_reported", "not_applicable"} or competence.get("value") in {None, ""}:
+                    blocking_errors.append(f"competence não resolvida para fonte que exige período/data: {source}")
 
         compact = compact_state(state, str(spec.get("role") or "source"))
         source_status[source] = compact
         if compact.get("last_check_status") != "success":
             degraded_sources.append(source)
 
+    monthly_period = meta.get("source_periods", {}).get("consorciobd_mensal")
+    monthly_state = source_status.get("bc_consorciobd")
+    if isinstance(monthly_state, dict):
+        state_period = monthly_state.get("competence", {}).get("value") if isinstance(monthly_state.get("competence"), dict) else None
+        if monthly_period and state_period != monthly_period:
+            blocking_errors.append(
+                f"competência ConsorcioBD diverge entre build e source_state: meta={monthly_period} estado={state_period}"
+            )
+
     if blocking_errors:
         raise SystemExit("Proveniência V2 inválida:\n- " + "\n- ".join(blocking_errors))
-
-    meta = load_json(meta_path)
-    if not isinstance(meta, dict):
-        raise SystemExit("meta V2 inválido")
 
     state_fingerprint = canonical_sha(source_status)
     release_fingerprint = canonical_sha({
@@ -128,6 +180,7 @@ def main() -> int:
             "competence": "período/data a que o conteúdo da fonte se refere, quando aplicável",
         },
         "all_required_states_present": True,
+        "source_state_matches_consumed_bytes": True,
         "degraded_sources": sorted(degraded_sources),
         "source_state_sha256": state_fingerprint,
     }
@@ -136,7 +189,8 @@ def main() -> int:
         "publication_eligible": True,
         "publication_note": (
             "Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. "
-            "A publicação só é bloqueada se faltar estado persistente, último sucesso, hash de conteúdo ou competência explícita."
+            "A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita "
+            "ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build."
         ),
         "release_fingerprint": release_fingerprint,
     }
