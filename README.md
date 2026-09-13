@@ -25,7 +25,7 @@ Regras de mudança:
 
 ## 2. Estado atual do projeto
 
-O `main` ainda alimenta a versão publicada existente. A reforma **V2** está sendo homologada em paralelo, sem troca silenciosa do contrato de produção.
+O `main` ainda alimenta a versão publicada existente. A reforma **V2** foi homologada no backend e na camada operacional paralela do HostGator, mas **ainda não foi ativada para o usuário final**. A V1 continua sendo a produção pública enquanto o consumidor PHP/frontend não for migrado e homologado.
 
 A V2 foi desenhada para responder:
 
@@ -42,8 +42,8 @@ Documentos normativos e operacionais:
 - [`config/methodology_v2.json`](config/methodology_v2.json) — política metodológica executável;
 - [`config/provenance_v2.json`](config/provenance_v2.json) — contrato de consulta, mudança, hash e competência das fontes críticas;
 - [`config/audit_baseline_v2.json`](config/audit_baseline_v2.json) — fotografia da Auditoria 2 usada somente para regressão da fixture;
-- [`config/deploy_v2.json`](config/deploy_v2.json) — contrato de publicação V2, ainda com ativação desabilitada;
-- [`docs/REMEDIATION_STATUS_V2.md`](docs/REMEDIATION_STATUS_V2.md) — mapa C01–C16.
+- [`config/deploy_v2.json`](config/deploy_v2.json) — contrato de publicação V2, ainda com `deploy_enabled=false` enquanto o consumidor público não migra;
+- [`docs/REMEDIATION_STATUS_V2.md`](docs/REMEDIATION_STATUS_V2.md) — mapa C01–C16 e situação da homologação real.
 
 ## 3. Mapa das camadas de dados
 
@@ -180,7 +180,7 @@ ABAC é contexto complementar; não substitui cadastro, operação ou reclamaç�
 
 ## 6. Funil V1 ainda em produção — workflows 08 → 09 → 10
 
-Este funil continua existindo **por decisão de migração segura**. Ele não deve ser apagado só porque V2 já existe no repositório.
+Este funil continua existindo **por decisão de migração segura**. Ele não deve ser apagado só porque V2 já foi homologada operacionalmente.
 
 ### 08 · Build Read Models
 
@@ -275,6 +275,10 @@ Uma release só é elegível se o estado durável puder ser reconciliado com os 
 
 `transform/finalize_v2_release.py` incorpora os estados em `global/meta.json` sob `source_status` e `freshness` e cria o contrato de release `comparador-v2-release.v1`.
 
+### Evidência real de C09 — 13/09/2026
+
+As quatro fontes críticas foram executadas no GitHub Actions com `bootstrap=false`. Cadastro e filiais registraram mudança real; ConsorcioBD mensal e ranking de reclamações retornaram `changed:false`, avançando `last_checked_at`/`last_successful_check_at` sem avançar artificialmente `last_changed_at`. Depois disso, o workflow 12 publicou a release canônica usando esses estados persistidos. Isso comprova a semântica C09 fora de fixture.
+
 ## 9. Funil de validação V2 — workflow 11
 
 Arquivo: `.github/workflows/11-validate-v2.yml`.
@@ -320,6 +324,17 @@ Fluxo:
 
 **Invariante de reprodutibilidade:** uma release já construída nunca é rebaseada sobre novos inputs. Se o branch mudar durante o build, o ciclo falha e uma nova geração deve nascer do novo commit.
 
+### Evidência real e regra operacional de concorrência — 13/09/2026
+
+- a primeira publicação canônica V2 real foi concluída com sucesso;
+- em uma execução posterior, o workflow 12 chegou até o candidato válido, mas recusou publicar porque o workflow 08 havia avançado `main` durante o build; o gate de stale base funcionou como desenhado;
+- nesses casos, **não usar “Re-run failed jobs”**: iniciar um novo workflow 12 a partir do `main` já estabilizado;
+- após execuções manuais de coletores, aguardar workflows escritores derivados — especialmente o 08 — terminarem antes de disparar manualmente o 12;
+- uma execução seguinte, já com a branch estabilizada, publicou normalmente;
+- uma nova execução do workflow 12 sobre a mesma base gerou artefatos idênticos e terminou com `V2 já está canônica; nenhum commit necessário.`, comprovando comportamento determinístico e ausência de commit artificial.
+
+O gate de stale base **não deve ser removido ou enfraquecido**. Se colisões se tornarem recorrentes a ponto de prejudicar a operação, a correção deve ser serialização coordenada dos writers, não rebase de artefato já construído.
+
 ## 11. Publicação operacional HostGator V2
 
 A camada paralela está em `hostgator/v2/`:
@@ -347,56 +362,91 @@ Falha de rede, manifesto candidato inválido ou erro de download não pode “en
 ### Quarentena e rollback
 
 - manifesto rejeitado entra em quarentena;
-- `--force` só deve ser usado conscientemente depois de corrigida a causa;
+- `--force` só deve ser usado conscientemente; na homologação de 13/09/2026 ele foi usado exclusivamente para produzir uma segunda release local de bytes idênticos e testar o mecanismo operacional de rollback;
 - se houver falha pós-swap, o processo tenta restaurar a release anterior;
 - rollback manual também valida a release alvo antes e depois do swap;
 - pull, validate e rollback compartilham o mesmo lock e o mesmo gate.
 
 `current-v2` é separado da publicação V1 e deve permanecer assim até o corte explícito do consumidor.
 
+### Homologação real no HostGator — 13/09/2026
+
+Base paralela instalada:
+
+`/home1/sanid210/comparador-consorcios-v2-homolog`
+
+Evidências registradas:
+
+- PHP CLI real: `8.2.33`;
+- scripts de `hostgator/v2` instalados em `bin-v2/` e aprovados no `php -l`;
+- dry-run concluído antes da criação de `current-v2`;
+- commit canônico de origem: `34b5f53e35499352086dc6dc94f9c8cc944507d3`;
+- release homologada: `20260913T154448Z_34b5f53e_2009151a`;
+- `manifest_sha256`: `2009151aca2a6655027eadf6b38eb279d169b13ae6a20149a67a37e8c75eae78`;
+- `source_fingerprint`: `89b47d7af9159b3aa7bebaa8ea7eb93ff7ad1e91ebc6831e9195dd777492a996`;
+- `release_fingerprint`: `db7a2470c8edb517ceea14a9e2a343d71f5eae2e1e508401deaf6fd194ccfb68`;
+- 10 artefatos validados pelo mesmo gate de backend/proveniência;
+- `degraded_sources=[]`;
+- segunda chamada sem mudança retornou `RC=10`, `result=no_change` e `reason=remote_manifest_unchanged_current_healthy`;
+- `last_publication_*`, `last_validation_*`, `current_release.json` e logs foram verificados no host real;
+- ausência de `rejected_releases.json` foi confirmada, coerente com nenhuma candidata rejeitada durante a homologação;
+- o ensaio de rollback criou uma segunda release local por `--force`, com bytes/manifesto/fingerprint idênticos, promoveu-a, voltou explicitamente à primeira release e revalidou `current-v2` com sucesso;
+- esse ensaio comprova o mecanismo de staging, promoção, symlink swap, gate, rollback e revalidação, **não** uma reversão entre dois conteúdos de dados distintos;
+- a V1 permaneceu intacta em `/home1/sanid210/consorcio-data/current`, apontando para `/home1/sanid210/consorcio-data/releases/20260913T152026Z_d6066ac` ao fim do ensaio.
+
+A pasta de homologação e as duas releases V2 locais devem ser preservadas enquanto servirem de baseline para a migração do consumidor.
+
 ## 12. Inventário resumido dos 12 workflows
 
 | # | Workflow | Papel | Estado de migração |
 |---|---|---|---|
-| 01 | BC Cadastro | coleta catálogo atual + C09 | compartilhado, preparado para V2 |
-| 02 | BC Filiais | presença informativa + C09 | compartilhado, preparado para V2 |
+| 01 | BC Cadastro | coleta catálogo atual + C09 | compartilhado, homologado para V2 |
+| 02 | BC Filiais | presença informativa + C09 | compartilhado, homologado para V2 |
 | 03 | BC Séries | séries SGS | auxiliar |
-| 04 | ConsorcioBD mensal | operação canônica + C09 | crítico V2 |
+| 04 | ConsorcioBD mensal | operação canônica + C09 | crítico V2, estado real validado |
 | 05 | ConsorcioBD trimestral | complementar | auxiliar |
-| 06 | Ranking Reclamações | reclamações oficiais + C09 | crítico V2 |
+| 06 | Ranking Reclamações | reclamações oficiais + C09 | crítico V2, estado real validado |
 | 07 | ABAC | contexto setorial | auxiliar |
 | 08 | Build Read Models | builder legado | V1 em produção |
 | 09 | HostGator Pull Ready | readiness legado | V1 em produção |
 | 10 | Validate HostGator Pull | validação/probe legado | V1 em produção |
-| 11 | Validate Comparador V2 | CI/regressão V2 | homologação de código |
-| 12 | Build & Publish Comparador V2 | geração canônica `dist-v2` | etapa operacional V2 |
+| 11 | Validate Comparador V2 | CI/regressão V2 | backend V2 homologado em código |
+| 12 | Build & Publish Comparador V2 | geração canônica `dist-v2` | operacionalmente homologado |
 
 ## 13. Estado de ativação e definição de “pronto”
 
 Existem três marcos distintos:
 
-### A. Backend V2 pronto em código
+### A. Backend V2 pronto em código — **CONCLUÍDO**
 
 Exige workflow 11 verde no HEAD correspondente, incluindo Python, PHP 8.2, C09, manifesto, contratos e testes negativos.
 
-### B. Backend V2 homologado operacionalmente
+### B. Backend V2 homologado operacionalmente — **CONCLUÍDO em 13/09/2026**
 
-Além de A, exige ao menos:
+Além de A, o checklist exigia:
 
-1. executar o workflow 12 como workflow real e obter release candidate + commit canônico coerentes;
-2. confirmar `data/source_state` das quatro fontes críticas em execução real, não apenas fixture;
-3. instalar `hostgator/v2` em paralelo no HostGator real;
-4. confirmar PHP 8.2 no host;
-5. executar pull/dry-run conforme aplicável;
-6. publicar uma release V2 concreta em `releases-v2`;
-7. validar `current-v2` com o mesmo manifesto/gate;
-8. verificar `last_publication_*`, `last_validation_*`, quarentena e logs;
-9. ensaiar rollback para uma release anterior válida;
-10. confirmar que V1 permanece intacta durante o ensaio.
+1. executar o workflow 12 como workflow real e obter release candidate + commit canônico coerentes — **concluído**;
+2. confirmar `data/source_state` das quatro fontes críticas em execução real, não apenas fixture — **concluído**;
+3. instalar `hostgator/v2` em paralelo no HostGator real — **concluído**;
+4. confirmar PHP 8.2 no host — **concluído com PHP 8.2.33**;
+5. executar pull/dry-run conforme aplicável — **concluído**;
+6. publicar uma release V2 concreta em `releases-v2` — **concluído**;
+7. validar `current-v2` com o mesmo manifesto/gate — **concluído**;
+8. verificar `last_publication_*`, `last_validation_*`, quarentena e logs — **concluído**;
+9. ensaiar rollback para uma release anterior válida — **concluído para o mecanismo operacional, usando duas releases locais de bytes idênticos**;
+10. confirmar que V1 permanece intacta durante o ensaio — **concluído**.
 
-### C. V2 em produção para o usuário
+**Conclusão do Marco B:** o backend V2 e sua camada de publicação operacional estão homologados em paralelo. Isso não significa que a V2 já esteja pública.
+
+### C. V2 em produção para o usuário — **PENDENTE**
 
 Além de B, exige migração e homologação do consumidor PHP/frontend, incluindo C06, C07, C14, C15 e C16. Só então deve ser considerada qualquer mudança de `deploy_enabled`, paths públicos ou desativação da V1.
+
+Enquanto C estiver pendente:
+
+- `config/deploy_v2.json` deve permanecer com `deploy_enabled=false`;
+- V1 continua sendo a produção pública;
+- `current-v2` continua sendo uma instalação paralela de homologação, não o contrato de consumo público.
 
 ## 14. Pendências que pertencem ao consumidor/frontend
 
@@ -404,17 +454,19 @@ O backend não deve tentar “resolver” estas pendências reintroduzindo campo
 
 - **C06** — consumidor deve abandonar fallback silencioso para score/metodologia V1;
 - **C07** — labels, percentuais, datas e unidades devem refletir os contratos V2;
-- **C09** — frontend deve apresentar corretamente competência/atualidade; o backend já transporta a semântica;
+- **C09** — frontend deve apresentar corretamente competência/atualidade; o backend já transporta e teve essa semântica comprovada em execução real;
 - **C14** — mostrar cobertura, período, motivos e limites próximos da comparação;
 - **C15** — reconciliar consumidores e rotas SEO reais antes do corte;
 - **C16** — teclado, foco, 390 px, zoom 200%, sem-JS e histórico/estado da consulta.
+
+A próxima etapa recomendada é iniciar por **C15**, inventariando consumidores PHP e rotas SEO efetivamente publicadas para delimitar o corte sem criar fallback ou destino órfão.
 
 ## 15. Checklist contra redução silenciosa
 
 Antes de apagar, fundir ou simplificar qualquer componente, verificar explicitamente:
 
 - o arquivo participa de 01–12?
-- é V1 ainda em produção ou V2 em homologação?
+- é V1 ainda em produção ou V2 já homologada, porém ainda paralela?
 - altera raw, stage, runtime, source_state, dist ou dist-v2?
 - muda a relação entre conteúdo e `content_sha256`?
 - perde `last_checked_at`, `last_successful_check_at`, `last_changed_at` ou competência?
