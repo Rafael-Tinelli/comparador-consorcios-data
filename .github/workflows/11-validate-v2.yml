@@ -3,6 +3,8 @@ name: 11 · Validate Comparador V2
 on:
   pull_request:
     paths:
+      - "README.md"
+      - "docs/REMEDIATION_STATUS_V2.md"
       - "transform/build_read_models_v2.py"
       - "transform/finalize_v2_release.py"
       - "scripts/persist_source_state.py"
