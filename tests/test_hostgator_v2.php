@@ -73,11 +73,38 @@ function t_rewrite_meta(string $release, callable $mutator): void
     v2_atomic_write_json($path, $meta);
 }
 
+function t_sync_manifest_entry(string $release, string $relative): void
+{
+    $path = rtrim($release, '/') . '/' . $relative;
+    if (!is_file($path)) {
+        throw new RuntimeException("Fixture ausente para sync de manifesto: {$relative}");
+    }
+    $raw = file_get_contents($path);
+    if ($raw === false) {
+        throw new RuntimeException("Falha ao ler fixture para sync: {$relative}");
+    }
+    $family = dirname($relative);
+    $file = basename($relative);
+    t_rewrite_meta($release, function (array &$meta) use ($family, $file, $raw): void {
+        foreach (($meta['artifacts'][$family] ?? []) as &$entry) {
+            if (($entry['file'] ?? null) === $file) {
+                $entry['sha256'] = hash('sha256', $raw);
+                $entry['size_bytes'] = strlen($raw);
+                return;
+            }
+        }
+        throw new RuntimeException("Entrada de manifesto não encontrada: {$family}/{$file}");
+    });
+}
+
 try {
     $baseline = v2_validate_release_backend($fixture, $config);
-    t_assert(($baseline['validated_artifacts'] ?? 0) === 10, 'baseline deve validar 10 artefatos não-meta');
-    t_assert(($baseline['meta']['backend_release']['contract'] ?? null) === 'comparador-v2-release.v1', 'baseline deve carregar contrato de release V2');
+    t_assert(($baseline['validated_artifacts'] ?? 0) === 7, 'baseline data-only deve validar 7 artefatos não-meta');
+    t_assert(($baseline['meta']['backend_release']['contract'] ?? null) === 'comparador-v2-release.v2', 'baseline deve carregar contrato de release V2 data-only');
+    t_assert(($baseline['meta']['release_scope']['kind'] ?? null) === 'data_only', 'baseline deve declarar release_scope=data_only');
+    t_assert(($baseline['meta']['release_scope']['seo_artifacts'] ?? null) === false, 'baseline não deve publicar artefatos SEO');
     t_assert(($baseline['meta']['freshness']['source_state_matches_consumed_bytes'] ?? null) === true, 'baseline deve confirmar estado ligado aos bytes consumidos');
+    t_assert((glob(rtrim($fixture, '/') . '/seo/*.json') ?: []) === [], 'baseline não deve conter JSON SEO físico');
 
     $missing = $tmpBase . '/missing-core';
     t_copy_tree($fixture, $missing);
@@ -91,13 +118,15 @@ try {
 
     $invalid = $tmpBase . '/invalid-json';
     t_copy_tree($fixture, $invalid);
-    file_put_contents($invalid . '/seo/site.json', "{broken\n");
-    t_expect_failure(fn() => v2_validate_release_backend($invalid, $config), 'Tamanho divergente');
+    file_put_contents($invalid . '/global/ofertas.json', "{broken\n");
+    t_sync_manifest_entry($invalid, 'global/ofertas.json');
+    t_expect_failure(fn() => v2_validate_release_backend($invalid, $config), 'JSON inválido');
 
-    $extra = $tmpBase . '/extra-json';
-    t_copy_tree($fixture, $extra);
-    file_put_contents($extra . '/seo/nao-declarado.json', "{}\n");
-    t_expect_failure(fn() => v2_validate_release_backend($extra, $config), 'Inventário físico diverge do manifesto');
+    $extraSeo = $tmpBase . '/extra-seo-json';
+    t_copy_tree($fixture, $extraSeo);
+    v2_ensure_dirs([$extraSeo . '/seo']);
+    file_put_contents($extraSeo . '/seo/routes.json', "{}\n");
+    t_expect_failure(fn() => v2_validate_release_backend($extraSeo, $config), 'Inventário físico diverge do manifesto');
 
     $noReleaseContract = $tmpBase . '/no-release-contract';
     t_copy_tree($fixture, $noReleaseContract);
@@ -170,6 +199,9 @@ try {
         'status' => 'PASS',
         'validated_artifacts' => $baseline['validated_artifacts'],
         'negative_cases' => 10,
+        'release_contract' => 'comparador-v2-release.v2',
+        'release_scope' => 'data_only',
+        'seo_artifacts' => false,
         'backend_release_gate' => true,
         'source_status_gate' => true,
         'required_source_gate' => true,
