@@ -1,15 +1,16 @@
 {
-  "version": "3.1.0-v2-backend",
+  "version": "3.2.0-v2-data-only",
   "environment": "homologation",
   "deploy_enabled": false,
   "activation_requires": [
-    "instalar e homologar hostgator/v2 no PHP 8.2 real",
-    "migrar consumidor PHP para contratos *.v2",
+    "re-homologar o contrato comparador-v2-release.v2 data-only no HostGator paralelo",
+    "migrar consumidor PHP para contratos *.v2 sem fallback metodológico V1",
+    "manter SEO editorial no frontend/site usando os includes padrão da Sanida",
     "homologar frontend com uma release V2 concreta antes da troca de produção"
   ],
   "artifact_source": "data/dist-v2",
   "manifest": "global/meta.json",
-  "release_contract": "comparador-v2-release.v1",
+  "release_contract": "comparador-v2-release.v2",
   "provenance_config": "config/provenance_v2.json",
   "artifacts": {
     "global": [
@@ -21,11 +22,6 @@
       "comparacoes.json",
       "ofertas.json",
       "meta.json"
-    ],
-    "seo": [
-      "defaults.json",
-      "routes.json",
-      "site.json"
     ]
   },
   "validation": {
@@ -35,6 +31,7 @@
     "reject_empty_file": true,
     "reject_invalid_json": true,
     "reject_contract_mismatch": true,
+    "reject_seo_artifacts_in_data_release": true,
     "require_backend_release_contract": true,
     "require_source_status": true,
     "required_contracts": {
@@ -57,6 +54,8 @@
   "consumer_policy": {
     "silent_legacy_score_fallback": false,
     "allow_last_approved_release": true,
-    "require_explicit_degraded_state": true
+    "require_explicit_degraded_state": true,
+    "seo_owner": "frontend_site",
+    "seo_from_data_release": false
   }
 }
