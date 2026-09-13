@@ -139,6 +139,7 @@ def main() -> int:
     parser.add_argument("--accepted-mode", action="append", default=[])
     parser.add_argument("--competence-mode", choices=("auto", "not_applicable"), default="auto")
     parser.add_argument("--error")
+    parser.add_argument("--bootstrap", action="store_true", help="Permite criar o estado inicial a partir de snapshot já versionado, sem runtime de uma coleta atual.")
     args = parser.parse_args()
 
     runtime_path = Path(args.runtime) if args.runtime else None
@@ -152,18 +153,37 @@ def main() -> int:
 
     runtime = load_json_if_exists(runtime_path)
     snapshot = load_json_if_exists(snapshot_path)
+    content_sha_now = sha256_file(content_path)
 
     runtime_mode = runtime.get("mode_used") if isinstance(runtime, dict) else None
-    if not runtime_mode and isinstance(snapshot, dict):
+    if args.bootstrap and not runtime_mode and isinstance(snapshot, dict):
         runtime_mode = nested(snapshot, ("metadata", "mode_used"))
-    accepted_mode = not args.accepted_mode or runtime_mode in set(args.accepted_mode)
+
     collector_succeeded = args.collector_outcome == "success"
-    success = collector_succeeded and accepted_mode
+    integrity_error = None
+
+    if collector_succeeded:
+        if snapshot is None:
+            integrity_error = "snapshot_missing_or_invalid_after_success"
+        elif content_sha_now is None:
+            integrity_error = "content_file_missing_after_success"
+        elif not args.bootstrap and not isinstance(runtime, dict):
+            integrity_error = "runtime_missing_or_invalid_after_success"
+        elif not args.bootstrap and not runtime.get("last_checked_at"):
+            integrity_error = "runtime_last_checked_at_missing_after_success"
+        elif not args.bootstrap and not isinstance(runtime.get("changed"), bool):
+            integrity_error = "runtime_changed_missing_after_success"
+
+    accepted_mode = not args.accepted_mode or runtime_mode in set(args.accepted_mode)
+    if collector_succeeded and integrity_error is None and not accepted_mode:
+        integrity_error = f"mode_not_accepted={runtime_mode!r}"
+
+    success = collector_succeeded and integrity_error is None
 
     checked_at = None
     if isinstance(runtime, dict):
         checked_at = runtime.get("last_checked_at")
-    if not checked_at and success:
+    if not checked_at and args.bootstrap and success:
         checked_at = snapshot_collected_at(snapshot)
     checked_at = str(checked_at or utc_now_iso())
 
@@ -172,20 +192,20 @@ def main() -> int:
         runtime_changed = None
 
     if success:
-        content_sha = sha256_file(content_path) or previous.get("content_sha256")
+        content_sha = content_sha_now
         competence = infer_competence(runtime, snapshot, args.competence_mode)
         if runtime_changed is True:
-            last_changed_at = (
-                runtime.get("last_changed_at") if isinstance(runtime, dict) else None
-            ) or checked_at
+            last_changed_at = runtime.get("last_changed_at") or checked_at
         elif runtime_changed is False:
             last_changed_at = previous.get("last_changed_at")
         else:
+            # Bootstrap: a ausência de histórico significa que o snapshot conhecido
+            # é, por definição, o primeiro conteúdo aprovado nesta trilha de estado.
             last_changed_at = previous.get("last_changed_at") or snapshot_collected_at(snapshot) or checked_at
 
         last_successful_check_at = checked_at
         changed_on_last_success = runtime_changed
-        if changed_on_last_success is None and not previous:
+        if args.bootstrap and changed_on_last_success is None:
             changed_on_last_success = True
         last_error = None
     else:
@@ -196,10 +216,12 @@ def main() -> int:
         changed_on_last_success = previous.get("changed_on_last_success")
         if args.error:
             last_error = args.error
+        elif integrity_error:
+            last_error = integrity_error
         elif not collector_succeeded:
             last_error = f"collector_outcome={args.collector_outcome}"
         else:
-            last_error = f"mode_not_accepted={runtime_mode!r}"
+            last_error = "source_state_persistence_failure"
 
     payload: Dict[str, Any] = {
         "schema": SCHEMA,
@@ -218,6 +240,7 @@ def main() -> int:
             "runtime_file": str(runtime_path) if runtime_path else None,
             "snapshot_file": str(snapshot_path) if snapshot_path else None,
             "content_file": str(content_path) if content_path else None,
+            "bootstrap": bool(args.bootstrap),
         },
     }
 
@@ -230,7 +253,7 @@ def main() -> int:
 
     write_json(state_path, payload)
     print(json.dumps(payload, ensure_ascii=False))
-    return 0
+    return 0 if success else 2
 
 
 if __name__ == "__main__":
