@@ -1,13 +1,5 @@
 #!/usr/bin/env python3
-"""Build canônico da release V2 de dados, sem artefatos editoriais/SEO.
-
-A lógica de transformação-base permanece em ``build_read_models_v2``. A camada
-``interpretation_v2`` acrescenta contexto relativo auditável aos mesmos sete read
-models, sem criar score/ranking geral nem artefatos editoriais. Este orquestrador é
-o executável canônico dos workflows 11/12 e delimita a responsabilidade do
-repositório: produzir somente contratos de dados auditáveis. Title, description,
-canonical, breadcrumbs, FAQ e demais decisões editoriais pertencem ao frontend/site.
-"""
+"""Build canônico data-only do Comparador de Consórcios V2."""
 from __future__ import annotations
 
 import argparse
@@ -18,16 +10,14 @@ import shutil
 from pathlib import Path
 from typing import Any, Dict, List
 
-import build_read_models_v2 as core
+import read_models_v2_core as core
 import interpretation_v2 as interpretation
 
 PIPELINE_VERSION = "4.2.0"
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(
-        description="Build canônico data-only do Comparador de Consórcios V2"
-    )
+    parser = argparse.ArgumentParser(description="Build canônico data-only do Comparador de Consórcios V2")
     parser.add_argument("--config", required=True)
     parser.add_argument("--methodology", required=True)
     args = parser.parse_args()
@@ -40,13 +30,10 @@ def main() -> int:
     dist_base = Path(defaults.get("dist_base_dir", "data/dist-v2"))
     global_dir = dist_base / "global"
     runtime_dir = Path("data/runtime")
-
     global_dir.mkdir(parents=True, exist_ok=True)
     runtime_dir.mkdir(parents=True, exist_ok=True)
 
-    # A V2 data-only não publica SEO. A remoção aqui também limpa artefatos
-    # residuais de releases V2 anteriores quando o workflow 12 gerar o próximo
-    # commit canônico.
+    # Releases V2 são estritamente data-only. Qualquer resíduo SEO é removido.
     legacy_seo_dir = dist_base / "seo"
     removed_legacy_seo = legacy_seo_dir.exists()
     if removed_legacy_seo:
@@ -57,21 +44,19 @@ def main() -> int:
     monthly = raw_base / "bc" / "consorciobd" / "latest_source.bin"
     ranking = raw_base / "bc" / "ranking_reclamacoes" / "latest_source.csv"
     methodology_path = Path(args.methodology)
-
     required: List[Path] = [cadastro, filiais, monthly, ranking, methodology_path]
     missing = [str(path) for path in required if not path.exists()]
     if missing:
         raise SystemExit("Insumos V2 obrigatórios ausentes: " + ", ".join(missing))
 
     if methodology.get("general_score", {}).get("enabled") is not False:
-        raise SystemExit("methodology_v2 deve manter general_score.enabled=false nesta versão")
-
-    relative_interpretation = methodology.get("relative_interpretation", {})
-    if relative_interpretation.get("enabled") is not True:
-        raise SystemExit("methodology_v2 deve habilitar relative_interpretation nesta versão")
-    if relative_interpretation.get("contract") != interpretation.INTERPRETATION_CONTRACT:
+        raise SystemExit("methodology_v2 deve manter general_score.enabled=false")
+    relative = methodology.get("relative_interpretation", {})
+    if relative.get("enabled") is not True:
+        raise SystemExit("methodology_v2 deve habilitar relative_interpretation")
+    if relative.get("contract") != interpretation.INTERPRETATION_CONTRACT:
         raise SystemExit("Contrato de interpretação relativa incompatível")
-    if relative_interpretation.get("general_ranking") is not False:
+    if relative.get("general_ranking") is not False:
         raise SystemExit("relative_interpretation deve manter general_ranking=false")
 
     fingerprint = core.source_fingerprint(required, PIPELINE_VERSION)
@@ -84,38 +69,22 @@ def main() -> int:
     models = core.build_models(registry, branch_map, rankings, products, generated_at)
     core.validate_models(models, monthly_meta)
 
-    # A interpretação é derivada somente dos read models já validados. Ela não
-    # lê novas fontes, não altera missingness e não cria um oitavo artefato.
     models = interpretation.enrich_models(models, methodology)
     interpretation.validate_interpretations(models, methodology)
-
     models["ofertas"] = {
-        "metadata": {
-            "generated_at": generated_at,
-            "contract": core.CONTRACTS["ofertas"],
-            "count": 0,
-        },
+        "metadata": {"generated_at": generated_at, "contract": core.CONTRACTS["ofertas"], "count": 0},
         "items": [],
-        "note": (
-            "Ofertas comerciais permanecem separadas das evidências institucionais "
-            "e não alteram comparação."
-        ),
+        "note": "Ofertas comerciais permanecem separadas das evidências institucionais e não alteram comparação.",
     }
 
-    # ``seo`` permanece como família vazia somente para compatibilidade do
-    # envelope operacional HostGator V2 já homologado. Nenhum arquivo SEO é
-    # gerado, declarado ou baixado pela release data-only.
     artifact_entries: Dict[str, List[Dict[str, Any]]] = {"global": [], "seo": []}
     for name, payload in models.items():
-        text = core.dump_json_text(payload)
-        raw = text.encode("utf-8")
-        artifact_entries["global"].append(
-            {
-                "file": f"{name}.json",
-                "sha256": hashlib.sha256(raw).hexdigest(),
-                "size_bytes": len(raw),
-            }
-        )
+        raw = core.dump_json_text(payload).encode("utf-8")
+        artifact_entries["global"].append({
+            "file": f"{name}.json",
+            "sha256": hashlib.sha256(raw).hexdigest(),
+            "size_bytes": len(raw),
+        })
 
     registry_roots = {x["cnpj_root"] for x in registry}
     meta = {
@@ -125,36 +94,26 @@ def main() -> int:
         "methodology_version": methodology.get("version"),
         "methodology_sha256": hashlib.sha256(methodology_path.read_bytes()).hexdigest(),
         "contracts": core.CONTRACTS,
-        "embedded_contracts": {
-            "interpretacao_relativa": interpretation.INTERPRETATION_CONTRACT,
-        },
+        "embedded_contracts": {"interpretacao_relativa": interpretation.INTERPRETATION_CONTRACT},
         "methodology": {
             "purpose": methodology.get("purpose"),
             "general_score": False,
-            "missingness_policy": (
-                "ausência não recebe zero, nota neutra nem redistribuição de peso"
-            ),
+            "missingness_policy": "ausência não recebe zero, nota neutra nem redistribuição de peso",
             "presence_role": "informativo",
             "commercial_offers_affect_assessment": False,
             "relative_interpretation": {
                 "enabled": True,
                 "contract": interpretation.INTERPRETATION_CONTRACT,
                 "general_ranking": False,
-                "comparison_unit": relative_interpretation.get("comparison_unit"),
-                "complaints_scope": relative_interpretation.get("complaints_scope"),
-                "quartile_method": relative_interpretation.get("quartile_method"),
-                "contemplation_policy": relative_interpretation.get("contemplation_policy"),
+                "comparison_unit": relative.get("comparison_unit"),
+                "complaints_scope": relative.get("complaints_scope"),
+                "quartile_method": relative.get("quartile_method"),
+                "contemplation_policy": relative.get("contemplation_policy"),
             },
         },
-        "release_scope": {
-            "kind": "data_only",
-            "seo_artifacts": False,
-            "seo_owner": "frontend_site",
-        },
+        "release_scope": {"kind": "data_only", "seo_artifacts": False, "seo_owner": "frontend_site"},
         "source_periods": {"consorciobd_mensal": monthly_meta.get("competencia")},
-        "counts": {
-            name: len(payload.get("items", [])) for name, payload in models.items()
-        },
+        "counts": {name: len(payload.get("items", [])) for name, payload in models.items()},
         "quality": {
             "registry_roots": len(registry),
             "monthly_consolidated_rows": monthly_meta.get("consolidated_rows_latest"),
@@ -163,28 +122,15 @@ def main() -> int:
             "monthly_operational_roots": monthly_meta.get("operational_roots_latest"),
             "ranking_rows": ranking_meta.get("row_count"),
             "branch_unresolved": len(branch_unresolved),
-            "operational_orphans": sorted(
-                {p["cnpj_root"] for p in products} - registry_roots
-            ),
-            "ranking_orphans": sorted(
-                {r["cnpj_root"] for r in rankings} - registry_roots
-            ),
+            "operational_orphans": sorted({p["cnpj_root"] for p in products} - registry_roots),
+            "ranking_orphans": sorted({r["cnpj_root"] for r in rankings} - registry_roots),
         },
         "artifacts": artifact_entries,
         "notes": [
             "meta.json não contém auto-hash.",
-            (
-                "Todos os demais JSONs consumíveis produzidos por este builder "
-                "constam no manifesto com SHA-256 dos bytes serializados."
-            ),
-            (
-                "A release V2 é data-only: SEO editorial, rotas públicas, canonical, "
-                "titles, descriptions, breadcrumbs e FAQ pertencem ao frontend/site."
-            ),
-            (
-                "A interpretação relativa é um subcontrato de dados embutido em "
-                "administradoras/segmentos/comparacoes; não é score geral, SEO nem oferta."
-            ),
+            "Todos os JSONs consumíveis não-meta constam no manifesto com SHA-256 e tamanho.",
+            "SEO editorial pertence exclusivamente ao frontend/site.",
+            "interpretacao-relativa.v1 não é score geral, ranking geral nem oferta comercial.",
         ],
     }
 
@@ -214,20 +160,15 @@ def main() -> int:
             fh.write("mode_used=build-release-v2-data-only\n")
             fh.write(f"records={len(models['administradoras']['items'])}\n")
 
-    print(
-        json.dumps(
-            {
-                "changed": changed,
-                "mode_used": "build-release-v2-data-only",
-                "records": len(models["administradoras"]["items"]),
-                "products_observed": len(products),
-                "competencia": monthly_meta.get("competencia"),
-                "seo_artifacts": False,
-                "interpretation_contract": interpretation.INTERPRETATION_CONTRACT,
-            },
-            ensure_ascii=False,
-        )
-    )
+    print(json.dumps({
+        "changed": changed,
+        "mode_used": "build-release-v2-data-only",
+        "records": len(models["administradoras"]["items"]),
+        "products_observed": len(products),
+        "competencia": monthly_meta.get("competencia"),
+        "seo_artifacts": False,
+        "interpretation_contract": interpretation.INTERPRETATION_CONTRACT,
+    }, ensure_ascii=False))
     return 0
 
 

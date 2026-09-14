@@ -1,10 +1,9 @@
-name: 04 · Coleta ConsorcioBD
+name: 03 · Coleta ConsorcioBD
 
 on:
   workflow_dispatch:
   schedule:
-    # 06:00 BRT = 09:00 UTC
-    # Rodando no dia 12 para ficar depois da janela informada pelo BCB
+    # 06:00 BRT = 09:00 UTC; janela mensal do BCB.
     - cron: "0 9 12 * *"
 
 permissions:
@@ -21,51 +20,26 @@ jobs:
   collect:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: "pip"
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
       - name: Ensure runtime directories
-        run: |
-          mkdir -p data/raw/bc/consorciobd
-          mkdir -p data/stage/consorciobd
-          mkdir -p data/runtime
-          mkdir -p data/source_state
-
+        run: mkdir -p data/raw/bc/consorciobd data/stage/consorciobd data/runtime data/source_state
       - name: Run collector
         id: collect
         run: |
           python collectors/bc_consorciobd.py \
             --config config/sources.json \
             --source bc_consorciobd
-
-      - name: Upload collector outputs
-        if: always()
-        uses: actions/upload-artifact@v6
-        with:
-          name: bc-consorciobd-output
-          path: |
-            data/raw/bc/consorciobd/latest.json
-            data/raw/bc/consorciobd/latest_source.bin
-            data/stage/consorciobd/consorciobd_catalog.json
-            data/runtime/bc_consorciobd.json
-          if-no-files-found: warn
-          retention-days: 15
-
       - name: Persist source check state
         if: always()
         run: |
@@ -78,35 +52,21 @@ jobs:
             --collector-outcome "${{ steps.collect.outcome }}" \
             --accepted-mode direct-content-download \
             --competence-mode auto
-
-      - name: Commit data and durable source state
+      - name: Commit approved data and source state
         if: always()
         shell: bash
         run: |
+          set -Eeuo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           git add -f data/source_state/bc_consorciobd.json
-
           if [ "${{ steps.collect.outcome }}" = "success" ] && [ "${{ steps.collect.outputs.mode_used }}" = "direct-content-download" ]; then
-            git add -f \
-              data/raw/bc/consorciobd/latest.json \
-              data/raw/bc/consorciobd/latest_source.bin \
-              data/stage/consorciobd/consorciobd_catalog.json
+            git add -f data/raw/bc/consorciobd/latest.json data/raw/bc/consorciobd/latest_source.bin data/stage/consorciobd/consorciobd_catalog.json
           fi
-
-          if git diff --cached --quiet; then
-            echo "Sem diff rastreável para commit."
-            exit 0
-          fi
-
+          if git diff --cached --quiet; then exit 0; fi
           git commit -m "chore(data): registra ConsorcioBD mensal e estado da fonte"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
-
-      - name: Fail if mode used is not homologated
+      - name: Enforce homologated mode
         if: always() && steps.collect.outcome == 'success' && steps.collect.outputs.mode_used != 'direct-content-download'
-        run: |
-          echo "Falha: a coleta não concluiu pelo modo homologado."
-          echo "mode_used=${{ steps.collect.outputs.mode_used }}"
-          exit 1
+        run: exit 1
