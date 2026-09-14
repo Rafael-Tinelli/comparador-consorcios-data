@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-13T23:47:36+00:00",
+  "generated_at": "2026-09-14T18:18:08+00:00",
   "pipeline_version": "4.2.0",
-  "source_fingerprint": "285b142bc6747714c1fa5d5304d523a8d7751e937067baa25697ea623ddaaafd",
+  "source_fingerprint": "2af8d735137a0101be8e639254c42a51276ae9955a24d89c6ed54c9bceece4f3",
   "methodology_version": "2.1.0",
   "methodology_sha256": "ca5221e37b2fbecbcea9a2c591dbf8950a03763e280208181835559aed16dcb9",
   "contracts": {
@@ -73,37 +73,37 @@
     "global": [
       {
         "file": "instituicoes.json",
-        "sha256": "5b8cec6fffe410f68def06fe81445f4a3a6af96fd84bd6a7013044a77367f05c",
+        "sha256": "8ed756c5a1c6049b735e232d16dc3c40de694115bb8b258c6c540e66145d8bf9",
         "size_bytes": 49478
       },
       {
         "file": "administradoras.json",
-        "sha256": "52ea27253b53102bca6a505ef458c8b5309939a38e171abfb464039df19fe403",
+        "sha256": "1059f8e9c085be40af3284fe08247d83396b57a1e83420681374a5dfd626c508",
         "size_bytes": 2414647
       },
       {
         "file": "produtos.json",
-        "sha256": "a2976a800a898c6cdbe0039e186e19c99ba98491936e567b4e4cf1ceed8fa446",
+        "sha256": "62a8b592c87b543f38bf61870147ebadd4a61fa906c06df5fb6578cd5b0eb342",
         "size_bytes": 311294
       },
       {
         "file": "rankings.json",
-        "sha256": "a7197802636d32dc57cbe2ddd7545660bcd6430906f8f10228f3da1ac5f36350",
+        "sha256": "f3beca4b6e2bcdf0d92b4a7abcc1939fd9c5034f94a49b87c546a58bb2877993",
         "size_bytes": 44140
       },
       {
         "file": "segmentos.json",
-        "sha256": "a2ff23ed9c51c3506ad63b0407231adaa281c56249d9dc3d6dec459736e69b69",
+        "sha256": "caf66f72501e77c902b544e72077592c350047095fe5b0bc4ca88c9201964f40",
         "size_bytes": 17711
       },
       {
         "file": "comparacoes.json",
-        "sha256": "22d126c82bbc61ebddea8b54ae3c60eb518610ecae4febbcf13fd2fd73c005c4",
+        "sha256": "eb8c191a49600746fbdb86c194aa58f79f24e3c2c2d4c895a8c5093c9a86c717",
         "size_bytes": 1886840
       },
       {
         "file": "ofertas.json",
-        "sha256": "f7a591f6f8bc63c7be7287b3833ed81ad3e4f6bcc4e21a171b7ff5fec35311ca",
+        "sha256": "420d4c0400cddd2a7600a77d79e17a394dde7863f87a9009e4c06ba78fdd5d58",
         "size_bytes": 246
       }
     ],
@@ -111,41 +111,41 @@
   },
   "notes": [
     "meta.json não contém auto-hash.",
-    "Todos os demais JSONs consumíveis produzidos por este builder constam no manifesto com SHA-256 dos bytes serializados.",
-    "A release V2 é data-only: SEO editorial, rotas públicas, canonical, titles, descriptions, breadcrumbs e FAQ pertencem ao frontend/site.",
-    "A interpretação relativa é um subcontrato de dados embutido em administradoras/segmentos/comparacoes; não é score geral, SEO nem oferta."
+    "Todos os JSONs consumíveis não-meta constam no manifesto com SHA-256 e tamanho.",
+    "SEO editorial pertence exclusivamente ao frontend/site.",
+    "interpretacao-relativa.v1 não é score geral, ranking geral nem oferta comercial."
   ],
   "source_status": {
     "bc_cadastro_admins": {
       "role": "cadastro atual de administradoras",
-      "last_checked_at": "2026-09-13T15:16:51+00:00",
+      "last_checked_at": "2026-09-14T15:07:02+00:00",
       "last_check_status": "success",
-      "last_successful_check_at": "2026-09-13T15:16:51+00:00",
-      "last_changed_at": "2026-09-13T15:16:51+00:00",
+      "last_successful_check_at": "2026-09-14T15:07:02+00:00",
+      "last_changed_at": "2026-09-14T15:07:02+00:00",
       "changed_on_last_success": true,
       "mode_used": "odata-csv",
-      "content_sha256": "ffff70d7a6f858d9789e9c6a2391282c8356d818c066eaf5a50c96056491c1d4",
+      "content_sha256": "2aed86b88865fb55fcacab332e2563572266df1e1344a70d5a5881041b77a6cf",
       "competence": {
         "kind": "not_applicable",
         "value": null
       },
-      "snapshot_collected_at": "2026-09-13T15:16:51+00:00",
+      "snapshot_collected_at": "2026-09-14T15:07:02+00:00",
       "last_error": null
     },
     "bc_filiais": {
       "role": "presença cadastral de filiais",
-      "last_checked_at": "2026-09-13T16:25:42+00:00",
+      "last_checked_at": "2026-09-14T18:05:55+00:00",
       "last_check_status": "success",
-      "last_successful_check_at": "2026-09-13T16:25:42+00:00",
-      "last_changed_at": "2026-09-13T15:17:57+00:00",
-      "changed_on_last_success": false,
+      "last_successful_check_at": "2026-09-14T18:05:55+00:00",
+      "last_changed_at": "2026-09-14T18:05:55+00:00",
+      "changed_on_last_success": true,
       "mode_used": "odata-csv",
-      "content_sha256": "6019cc60d837c723745c08e23218df4f85f7e871b6ba033f0db4f8b7d32bba42",
+      "content_sha256": "2a766e03275686f731019a46150d944e1fda0ac6233d0ed8a28e2c21d7408a65",
       "competence": {
         "kind": "position_date",
-        "value": "2026-09-10"
+        "value": "2026-09-13"
       },
-      "snapshot_collected_at": "2026-09-13T15:17:57+00:00",
+      "snapshot_collected_at": "2026-09-14T18:05:55+00:00",
       "last_error": null
     },
     "bc_consorciobd": {
@@ -194,12 +194,12 @@
     "all_required_states_present": true,
     "source_state_matches_consumed_bytes": true,
     "degraded_sources": [],
-    "source_state_sha256": "8b4531c6f305ddae62f027cfd688d0b77b649b0c57c112292e3427629e4b1589"
+    "source_state_sha256": "c8a4e7751863c4d02071dde08976e495a219c1d8f9cdd362ce21846802d4b686"
   },
   "backend_release": {
     "contract": "comparador-v2-release.v2",
     "publication_eligible": true,
     "publication_note": "Release V2 data-only. Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build. SEO editorial pertence ao frontend/site.",
-    "release_fingerprint": "ac0a624c5bb4f0ba00e3b499540e499a86fd47a079707056c6c5e09ca78c15f3"
+    "release_fingerprint": "c99684e395ed44a1ef0e4d99c9694097bed71cf48c0b711eea8dc8474fa6db65"
   }
 }
