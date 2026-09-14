@@ -1,10 +1,9 @@
 from pathlib import Path
 import importlib.util
-import subprocess
 import sys
 
-SCRIPT = Path(__file__).resolve().parents[1] / "transform" / "build_read_models_v2.py"
-spec = importlib.util.spec_from_file_location("v2", SCRIPT)
+SCRIPT = Path(__file__).resolve().parents[1] / "transform" / "read_models_v2_core.py"
+spec = importlib.util.spec_from_file_location("v2_core", SCRIPT)
 v2 = importlib.util.module_from_spec(spec)
 sys.path.insert(0, str(SCRIPT.parent))
 spec.loader.exec_module(v2)
@@ -66,12 +65,6 @@ def test_sum_complete_preserves_zero_but_rejects_partial_missingness():
     assert v2.sum_complete([{"x": None}, {"x": 2}], "x") is None
 
 
-def test_legacy_read_models_cli_is_blocked():
-    result = subprocess.run(
-        [sys.executable, str(SCRIPT), "--help"],
-        check=False,
-        capture_output=True,
-        text=True,
-    )
-    assert result.returncode != 0
-    assert "build_release_v2.py" in (result.stdout + result.stderr)
+def test_core_has_no_legacy_cli_or_seo_surface():
+    assert not hasattr(v2, "main")
+    assert not hasattr(v2, "build_seo_contracts")

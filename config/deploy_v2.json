@@ -1,13 +1,7 @@
 {
-  "version": "3.2.0-v2-data-only",
-  "environment": "homologation",
-  "deploy_enabled": false,
-  "activation_requires": [
-    "re-homologar o contrato comparador-v2-release.v2 data-only no HostGator paralelo",
-    "migrar consumidor PHP para contratos *.v2 sem fallback metodológico V1",
-    "manter SEO editorial no frontend/site usando os includes padrão da Sanida",
-    "homologar frontend com uma release V2 concreta antes da troca de produção"
-  ],
+  "version": "4.0.0-production",
+  "environment": "production",
+  "deploy_enabled": true,
   "artifact_source": "data/dist-v2",
   "manifest": "global/meta.json",
   "release_contract": "comparador-v2-release.v2",
@@ -56,6 +50,13 @@
     "allow_last_approved_release": true,
     "require_explicit_degraded_state": true,
     "seo_owner": "frontend_site",
-    "seo_from_data_release": false
+    "seo_from_data_release": false,
+    "legacy_v1_fallback": false
+  },
+  "cutover": {
+    "v1_retired": true,
+    "rollback_scope": "approved_v2_releases_only",
+    "public_consumer": "/financas/consorcio/",
+    "canonical_server_pointer": "current-v2"
   }
 }

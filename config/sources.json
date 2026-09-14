@@ -1,20 +1,20 @@
 {
   "project": {
     "name": "comparador-consorcios-data",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "timezone": "America/Sao_Paulo",
     "publish_only_on_change": true,
     "validate_before_deploy": true
   },
   "defaults": {
-    "user_agent": "comparador-consorcios-data/1.0 (+https://sanida.com.br/financas/consorcio/)",
+    "user_agent": "comparador-consorcios-data/2.0 (+https://sanida.com.br/financas/consorcio/)",
     "timeout_seconds": 60,
     "retry_attempts": 3,
     "retry_backoff_seconds": 5,
     "verify_ssl": true,
     "raw_base_dir": "data/raw",
     "stage_base_dir": "data/stage",
-    "dist_base_dir": "data/dist"
+    "dist_base_dir": "data/dist-v2"
   },
   "sources": {
     "bc_cadastro_admins": {
@@ -26,35 +26,17 @@
       "api": {
         "type": "odata_csv",
         "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Instituicoes_em_funcionamento/versao/v1/odata/SedesConsorcios",
-        "default_params": {
-          "$format": "text/csv"
-        }
+        "default_params": {"$format": "text/csv"}
       },
       "csv": {
         "delimiter": "auto",
-        "encoding_candidates": [
-          "utf-8-sig",
-          "utf-8",
-          "latin-1",
-          "cp1252"
-        ],
+        "encoding_candidates": ["utf-8-sig", "utf-8", "latin-1", "cp1252"],
         "expected_min_rows_absolute": 50,
         "expected_min_ratio_against_previous": 0.9,
-        "required_normalized_fields_any": [
-          "institution_id",
-          "institution_name",
-          "cnpj"
-        ],
+        "required_normalized_fields_any": ["institution_id", "institution_name", "cnpj"],
         "minimum_non_empty_required_field_ratio": 0.7
       },
-      "schedule": {
-        "kind": "daily",
-        "time_brt": "05:10"
-      },
-      "storage": {
-        "raw_dir": "data/raw/bc/cadastro",
-        "stage_dir": "data/stage/cadastro"
-      },
+      "storage": {"raw_dir": "data/raw/bc/cadastro", "stage_dir": "data/stage/cadastro"},
       "publish_on_change": true,
       "critical": true
     },
@@ -67,66 +49,19 @@
       "api": {
         "type": "odata_csv",
         "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais",
-        "default_params": {
-          "$format": "text/csv"
-        }
+        "default_params": {"$format": "text/csv"}
       },
       "csv": {
         "delimiter": "auto",
-        "encoding_candidates": [
-          "utf-8-sig",
-          "utf-8",
-          "latin-1",
-          "cp1252"
-        ],
+        "encoding_candidates": ["utf-8-sig", "utf-8", "latin-1", "cp1252"],
         "expected_min_rows_absolute": 20,
         "expected_min_ratio_against_previous": 0.85,
-        "required_normalized_fields_any": [
-          "institution_id",
-          "institution_name",
-          "unit_code",
-          "city",
-          "uf"
-        ],
+        "required_normalized_fields_any": ["institution_id", "institution_name", "unit_code", "city", "uf"],
         "minimum_non_empty_required_field_ratio": 0.7
       },
-      "schedule": {
-        "kind": "daily",
-        "time_brt": "05:20"
-      },
-      "storage": {
-        "raw_dir": "data/raw/bc/filiais",
-        "stage_dir": "data/stage/filiais"
-      },
+      "storage": {"raw_dir": "data/raw/bc/filiais", "stage_dir": "data/stage/filiais"},
       "publish_on_change": true,
-      "critical": false
-    },
-    "bc_sgs_series": {
-      "enabled": true,
-      "provider": "BCB",
-      "category": "series",
-      "collector": "collectors/bc_sgs_series.py",
-      "official_page_url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs/",
-      "series_map_file": "config/series_map.json",
-      "api": {
-        "type": "sgs",
-        "endpoint_template": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{serie}/dados",
-        "default_params": {
-          "formato": "json",
-          "dataInicial": null,
-          "dataFinal": null
-        }
-      },
-      "schedule": {
-        "kind": "daily",
-        "time_brt": "05:35"
-      },
-      "storage": {
-        "raw_dir": "data/raw/bc/series",
-        "stage_dir": "data/stage/series"
-      },
-      "publish_on_change": true,
-      "critical": false
+      "critical": true
     },
     "bc_consorciobd": {
       "enabled": true,
@@ -136,94 +71,18 @@
       "official_page_url": "https://www.bcb.gov.br/fis/Consorcios/port/consorcio_banco_de_dados.asp?frame=1",
       "direct_download": {
         "base_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD",
-        "http_methods": [
-          "HEAD",
-          "GET"
-        ],
-        "families": [
-          {
-            "key": "dados_consolidados",
-            "label": "Dados Consolidados",
-            "filename_pattern": "{yyyymm}Consorcios.zip",
-            "publish_frequency": "monthly",
-            "probe_months_back": 8,
-            "min_size_bytes": 1024,
-            "enabled": true
-          }
-        ]
+        "http_methods": ["HEAD", "GET"],
+        "families": [{
+          "key": "dados_consolidados",
+          "label": "Dados Consolidados",
+          "filename_pattern": "{yyyymm}Consorcios.zip",
+          "publish_frequency": "monthly",
+          "probe_months_back": 8,
+          "min_size_bytes": 1024,
+          "enabled": true
+        }]
       },
-      "schedule": {
-        "kind": "monthly",
-        "day_of_month": 12,
-        "time_brt": "06:00"
-      },
-      "storage": {
-        "raw_dir": "data/raw/bc/consorciobd",
-        "stage_dir": "data/stage/consorciobd"
-      },
-      "publish_on_change": true,
-      "critical": true
-    },
-    "bc_consorciobd_trimestral": {
-      "enabled": true,
-      "provider": "BCB",
-      "category": "base_setorial",
-      "collector": "collectors/bc_consorciobd_trimestral.py",
-      "official_page_url": "https://www.bcb.gov.br/fis/Consorcios/port/consorcio_banco_de_dados.asp?frame=1",
-      "direct_download": {
-        "base_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD",
-        "http_methods": [
-          "HEAD",
-          "GET"
-        ],
-        "families": [
-          {
-            "key": "uf",
-            "label": "Dados por Unidade da Federação",
-            "filename_pattern": "{yyyymm}Consorcios_UF.zip",
-            "publish_frequency": "quarterly",
-            "allowed_months": [
-              3,
-              6,
-              9,
-              12
-            ],
-            "probe_months_back": 24,
-            "min_size_bytes": 1024,
-            "enabled": true
-          },
-          {
-            "key": "adm",
-            "label": "Dados Contábeis Consolidados",
-            "filename_pattern": "{yyyymm}Consorcios_ADM.zip",
-            "publish_frequency": "quarterly",
-            "allowed_months": [
-              3,
-              6,
-              9,
-              12
-            ],
-            "probe_months_back": 24,
-            "min_size_bytes": 1024,
-            "enabled": true
-          }
-        ]
-      },
-      "schedule": {
-        "kind": "quarterly",
-        "months": [
-          2,
-          5,
-          8,
-          11
-        ],
-        "day_of_month": 12,
-        "time_brt": "06:20"
-      },
-      "storage": {
-        "raw_dir": "data/raw/bc/consorciobd_trimestral",
-        "stage_dir": "data/stage/consorciobd_trimestral"
-      },
+      "storage": {"raw_dir": "data/raw/bc/consorciobd", "stage_dir": "data/stage/consorciobd"},
       "publish_on_change": true,
       "critical": true
     },
@@ -239,54 +98,11 @@
         "periodicidade": "SEMESTRAL",
         "probe_semesters_back": 10,
         "min_size_bytes": 200,
-        "http_methods": [
-          "HEAD",
-          "GET"
-        ]
+        "http_methods": ["HEAD", "GET"]
       },
-      "schedule": {
-        "kind": "monthly",
-        "day_of_month": 7,
-        "time_brt": "06:40"
-      },
-      "storage": {
-        "raw_dir": "data/raw/bc/ranking_reclamacoes",
-        "stage_dir": "data/stage/ranking_reclamacoes"
-      },
+      "storage": {"raw_dir": "data/raw/bc/ranking_reclamacoes", "stage_dir": "data/stage/ranking_reclamacoes"},
       "publish_on_change": true,
       "critical": true
-    },
-    "abac_boletim": {
-      "enabled": true,
-      "provider": "ABAC",
-      "category": "mercado_setorial",
-      "collector": "collectors/abac_boletim.py",
-      "official_page_url": "https://materiais.abac.org.br/boletim-sistema-de-consorcios",
-      "discovery": {
-        "page_url": "https://materiais.abac.org.br/boletim-sistema-de-consorcios",
-        "allowed_host_substrings": [
-          "d335luupugsy2.cloudfront.net",
-          "materiais.abac.org.br"
-        ],
-        "link_text_contains": "BAIXAR",
-        "probe_top_candidates": 8,
-        "min_size_bytes": 50000,
-        "http_methods": [
-          "HEAD",
-          "GET"
-        ]
-      },
-      "schedule": {
-        "kind": "monthly",
-        "day_of_month": 15,
-        "time_brt": "06:50"
-      },
-      "storage": {
-        "raw_dir": "data/raw/abac/boletim",
-        "stage_dir": "data/stage/abac/boletim"
-      },
-      "publish_on_change": true,
-      "critical": false
     }
   }
 }

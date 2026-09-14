@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Comparador de Consórcios V2: contratos auditáveis, sem score geral implícito."""
+"""Núcleo canônico de transformação dos read models do Comparador de Consórcios V2.
+
+Este módulo contém somente parsing, normalização, construção e validação de dados.
+Publicação, proveniência e interpretação relativa ficam nas camadas próprias.
+"""
 from __future__ import annotations
 
-import argparse
 import csv
 import hashlib
 import io
 import json
-import os
 import re
 import unicodedata
 import zipfile
@@ -17,7 +19,6 @@ from pathlib import Path
 from statistics import median
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-PIPELINE_VERSION = "4.0.1"
 CONTRACTS = {
     "instituicoes": "instituicoes.v2",
     "administradoras": "administradoras.v2",
@@ -27,6 +28,7 @@ CONTRACTS = {
     "comparacoes": "comparacoes.v2",
     "ofertas": "ofertas.v2",
 }
+
 SEGMENTS = {
     "1": ("imobiliario", "Consórcio de imóveis"),
     "2": ("veiculos_pesados_maquinas", "Veículos pesados, máquinas e equipamentos"),
@@ -47,9 +49,7 @@ def load_json(path: Path) -> Any:
 
 
 def try_load_json(path: Path) -> Any:
-    if not path.exists():
-        return None
-    return load_json(path)
+    return load_json(path) if path.exists() else None
 
 
 def dump_json_text(data: Any) -> str:
@@ -94,7 +94,6 @@ def root8(value: Any) -> Optional[str]:
 
 
 def strict_number(value: Any) -> Optional[float]:
-    """Converte somente texto que seja integralmente uma representação numérica."""
     if value is None:
         return None
     if isinstance(value, (int, float)) and not isinstance(value, bool):
@@ -158,7 +157,10 @@ def parse_csv_bytes(binary: bytes) -> Tuple[List[Dict[str, Any]], Dict[str, Any]
     if text is None:
         raise ValueError("Não foi possível decodificar CSV")
     delimiter = detect_csv_delimiter(text)
-    rows = [{normalize_key(k): v for k, v in row.items()} for row in csv.DictReader(io.StringIO(text), delimiter=delimiter)]
+    rows = [
+        {normalize_key(k): v for k, v in row.items()}
+        for row in csv.DictReader(io.StringIO(text), delimiter=delimiter)
+    ]
     return rows, {
         "encoding": encoding_used,
         "delimiter": delimiter,
@@ -224,7 +226,11 @@ def load_branches(path: Path) -> Tuple[Dict[str, Dict[str, Any]], List[Dict[str,
         if city:
             item["municipios"].add(str(city).strip())
     return {
-        root: {"filiais": row["filiais"], "ufs": sorted(row["ufs"]), "municipios_count": len(row["municipios"])}
+        root: {
+            "filiais": row["filiais"],
+            "ufs": sorted(row["ufs"]),
+            "municipios_count": len(row["municipios"]),
+        }
         for root, row in by_root.items()
     }, unresolved
 
@@ -260,7 +266,6 @@ def load_rankings_v2(path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
 
 
 def has_operational_signal(row: Dict[str, Any]) -> bool:
-    """Distingue linha consolidada de preenchimento zero de segmento com operação observada."""
     values = (
         row.get("taxa_administracao_pct"),
         row.get("grupos_ativos"),
@@ -308,7 +313,7 @@ def load_monthly_v2(path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         inad_total = inad_a + inad_b if inad_a is not None and inad_b is not None else None
         total_active = n + inad_total if n is not None and inad_total is not None else None
         inad_share = inad_total / total_active if total_active and inad_total is not None else None
-        record = {
+        records[key] = {
             "cnpj_root": root,
             "nome_administradora": str(pick_value(row, ["nome_da_administradora", "administradora_de_consorcio", "administradora"]) or "").strip() or None,
             "competencia": period,
@@ -324,7 +329,6 @@ def load_monthly_v2(path: Path) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
             "inadimplencia_participacao": round(inad_share, 8) if inad_share is not None else None,
             "source_member": member,
         }
-        records[key] = record
 
     if not periods:
         raise ValueError("ConsorcioBD mensal sem competência válida")
@@ -566,7 +570,11 @@ def build_models(
                 "indice_reclamacoes_bcb": rep.get("indice_bc"),
                 "indice_reclamacoes_status": rep.get("indice_status", "sem_registro_vinculado_no_arquivo"),
             })
-        comparison_rows.sort(key=lambda x: (x["taxa_administracao_pct"] is None, x["taxa_administracao_pct"] if x["taxa_administracao_pct"] is not None else float("inf"), x["nome"] or ""))
+        comparison_rows.sort(key=lambda x: (
+            x["taxa_administracao_pct"] is None,
+            x["taxa_administracao_pct"] if x["taxa_administracao_pct"] is not None else float("inf"),
+            x["nome"] or "",
+        ))
         comparisons.append({
             "segmento": segment_key,
             "label": label,
@@ -609,166 +617,3 @@ def validate_models(models: Dict[str, Any], monthly_meta: Dict[str, Any]) -> Non
             raise ValueError("Produto sem sinal operacional foi publicado")
         if "segmentos_consolidados" not in normalize_text(product.get("source_member")):
             raise ValueError("Métrica operacional fora do consolidado canônico")
-
-
-def build_seo_contracts(generated_at: str, admins_count: int, routes_config: Any) -> Dict[str, Any]:
-    return {
-        "defaults": {
-            "contract": "seo.defaults.v2",
-            "generated_at": generated_at,
-            "comparison_policy": "sem ranking geral; evidências e comparações por dimensão",
-            "administradoras_count": admins_count,
-        },
-        "routes": {"contract": "seo.routes.v2", "generated_at": generated_at, "source_config": routes_config},
-        "site": {
-            "contract": "seo.site.v2",
-            "generated_at": generated_at,
-            "site": "Sanida",
-            "path": "/financas/consorcio/",
-            "purpose": "identidade, operação observada, sinais públicos e comparação de administradoras de consórcio",
-        },
-    }
-
-
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Build dos read models auditáveis do Comparador de Consórcios V2")
-    parser.add_argument("--config", required=True)
-    parser.add_argument("--methodology", required=True)
-    parser.add_argument("--seo-routes", required=True)
-    args = parser.parse_args()
-
-    cfg = load_json(Path(args.config))
-    methodology = load_json(Path(args.methodology))
-    defaults = cfg.get("defaults", {})
-    raw_base = Path(defaults.get("raw_base_dir", "data/raw"))
-    stage_base = Path(defaults.get("stage_base_dir", "data/stage"))
-    dist_base = Path(defaults.get("dist_base_dir", "data/dist"))
-    global_dir = dist_base / "global"
-    seo_dir = dist_base / "seo"
-    runtime_dir = Path("data/runtime")
-    global_dir.mkdir(parents=True, exist_ok=True)
-    seo_dir.mkdir(parents=True, exist_ok=True)
-    runtime_dir.mkdir(parents=True, exist_ok=True)
-
-    cadastro = stage_base / "cadastro" / "instituicoes_cadastro.json"
-    filiais = stage_base / "filiais" / "filiais.json"
-    monthly = raw_base / "bc" / "consorciobd" / "latest_source.bin"
-    ranking = raw_base / "bc" / "ranking_reclamacoes" / "latest_source.csv"
-    methodology_path = Path(args.methodology)
-    seo_routes_path = Path(args.seo_routes)
-    required = [cadastro, filiais, monthly, ranking, methodology_path, seo_routes_path]
-    missing = [str(path) for path in required if not path.exists()]
-    if missing:
-        raise SystemExit("Insumos V2 obrigatórios ausentes: " + ", ".join(missing))
-
-    if methodology.get("general_score", {}).get("enabled") is not False:
-        raise SystemExit("methodology_v2 deve manter general_score.enabled=false nesta versão")
-
-    fingerprint = source_fingerprint(required, PIPELINE_VERSION)
-    generated_at = stable_generated_at(global_dir / "meta.json", fingerprint)
-
-    registry = load_registry(cadastro)
-    branch_map, branch_unresolved = load_branches(filiais)
-    rankings, ranking_meta = load_rankings_v2(ranking)
-    products, monthly_meta = load_monthly_v2(monthly)
-    models = build_models(registry, branch_map, rankings, products, generated_at)
-    validate_models(models, monthly_meta)
-
-    models["ofertas"] = {
-        "metadata": {"generated_at": generated_at, "contract": CONTRACTS["ofertas"], "count": 0},
-        "items": [],
-        "note": "Ofertas comerciais permanecem separadas das evidências institucionais e não alteram comparação.",
-    }
-
-    routes_config = load_json(seo_routes_path)
-    seo_payloads = build_seo_contracts(generated_at, len(models["administradoras"]["items"]), routes_config)
-
-    artifact_entries: Dict[str, List[Dict[str, Any]]] = {"global": [], "seo": []}
-    for name, payload in models.items():
-        text = dump_json_text(payload)
-        artifact_entries["global"].append({
-            "file": f"{name}.json",
-            "sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
-            "size_bytes": len(text.encode("utf-8")),
-        })
-    for name, payload in seo_payloads.items():
-        text = dump_json_text(payload)
-        artifact_entries["seo"].append({
-            "file": f"{name}.json",
-            "sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
-            "size_bytes": len(text.encode("utf-8")),
-        })
-
-    registry_roots = {x["cnpj_root"] for x in registry}
-    meta = {
-        "generated_at": generated_at,
-        "pipeline_version": PIPELINE_VERSION,
-        "source_fingerprint": fingerprint,
-        "methodology_version": methodology.get("version"),
-        "methodology_sha256": hashlib.sha256(methodology_path.read_bytes()).hexdigest(),
-        "contracts": CONTRACTS,
-        "methodology": {
-            "purpose": methodology.get("purpose"),
-            "general_score": False,
-            "missingness_policy": "ausência não recebe zero, nota neutra nem redistribuição de peso",
-            "presence_role": "informativo",
-            "commercial_offers_affect_assessment": False,
-        },
-        "source_periods": {"consorciobd_mensal": monthly_meta.get("competencia")},
-        "counts": {name: len(payload.get("items", [])) for name, payload in models.items()},
-        "quality": {
-            "registry_roots": len(registry),
-            "monthly_consolidated_rows": monthly_meta.get("consolidated_rows_latest"),
-            "monthly_operational_rows": monthly_meta.get("operational_rows_latest"),
-            "monthly_consolidated_roots": monthly_meta.get("consolidated_roots_latest"),
-            "monthly_operational_roots": monthly_meta.get("operational_roots_latest"),
-            "ranking_rows": ranking_meta.get("row_count"),
-            "branch_unresolved": len(branch_unresolved),
-            "operational_orphans": sorted({p["cnpj_root"] for p in products} - registry_roots),
-            "ranking_orphans": sorted({r["cnpj_root"] for r in rankings} - registry_roots),
-        },
-        "artifacts": artifact_entries,
-        "notes": [
-            "meta.json não contém auto-hash.",
-            "Todos os demais JSONs consumíveis produzidos por este builder constam no manifesto com SHA-256 dos bytes serializados.",
-        ],
-    }
-
-    changed = False
-    for name, payload in models.items():
-        changed |= write_json_if_changed(global_dir / f"{name}.json", payload)
-    for name, payload in seo_payloads.items():
-        changed |= write_json_if_changed(seo_dir / f"{name}.json", payload)
-    changed |= write_json_if_changed(global_dir / "meta.json", meta)
-
-    runtime = {
-        "last_checked_at": utc_now_iso(),
-        "last_changed_at": utc_now_iso() if changed else None,
-        "changed": changed,
-        "mode_used": "build-read-models-v2",
-        "pipeline_version": PIPELINE_VERSION,
-        "source_fingerprint": fingerprint,
-        "competencia": monthly_meta.get("competencia"),
-        "operational_rows": monthly_meta.get("operational_rows_latest"),
-    }
-    write_json_if_changed(runtime_dir / "build_read_models_v2.json", runtime)
-
-    github_output = os.environ.get("GITHUB_OUTPUT")
-    if github_output:
-        with open(github_output, "a", encoding="utf-8") as fh:
-            fh.write(f"changed={'true' if changed else 'false'}\n")
-            fh.write("mode_used=build-read-models-v2\n")
-            fh.write(f"records={len(models['administradoras']['items'])}\n")
-
-    print(json.dumps({
-        "changed": changed,
-        "mode_used": "build-read-models-v2",
-        "records": len(models["administradoras"]["items"]),
-        "products_observed": len(products),
-        "competencia": monthly_meta.get("competencia"),
-    }, ensure_ascii=False))
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
