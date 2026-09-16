@@ -1,0 +1,55 @@
+{
+  "contract": "segment-taxonomy.v1",
+  "source": "bc_consorciobd_segment_taxonomy",
+  "source_url": "https://www.bcb.gov.br/fis/Consorcios/port/consorcio_banco_de_dados.asp?frame=1",
+  "fetched_at": null,
+  "source_sha256": null,
+  "status": "ok",
+  "auto_added_codes": [],
+  "missing_codes": [],
+  "renamed_codes": [],
+  "items": [
+    {
+      "codigo": "1",
+      "key": "imobiliario",
+      "label_oficial": "bens imóveis",
+      "label_exibicao": "Consórcio de imóveis",
+      "first_seen": null
+    },
+    {
+      "codigo": "2",
+      "key": "veiculos_pesados_maquinas",
+      "label_oficial": "tratores, equipamentos rodoviários, máquinas agrícolas, embarcações, aeronaves e veículos automotores de carga e transporte coletivo",
+      "label_exibicao": "Veículos pesados, máquinas e equipamentos",
+      "first_seen": null
+    },
+    {
+      "codigo": "3",
+      "key": "veiculos",
+      "label_oficial": "veículos automotores não incluídos no segmento 2",
+      "label_exibicao": "Veículos leves",
+      "first_seen": null
+    },
+    {
+      "codigo": "4",
+      "key": "motos",
+      "label_oficial": "motocicletas e motonetas",
+      "label_exibicao": "Motocicletas",
+      "first_seen": null
+    },
+    {
+      "codigo": "5",
+      "key": "outros_bens_moveis",
+      "label_oficial": "outros bens móveis duráveis",
+      "label_exibicao": "Outros bens móveis duráveis",
+      "first_seen": null
+    },
+    {
+      "codigo": "6",
+      "key": "servicos_turisticos",
+      "label_oficial": "serviços turísticos",
+      "label_exibicao": "Serviços turísticos",
+      "first_seen": null
+    }
+  ]
+}

@@ -25,6 +25,8 @@ EXPECTED_CONTRACTS = {
     "ofertas.json": "ofertas.v2",
 }
 RELEASE_CONTRACT = "comparador-v2-release.v2"
+TAXONOMY_CONTRACT = "segment-taxonomy.v1"
+SAFE_TAXONOMY_STATUS = {"ok", "ok_with_additions"}
 
 
 def load(path: Path) -> Any:
@@ -88,6 +90,7 @@ def main() -> int:
     admins = payloads["administradoras.json"].get("items", [])
     products = payloads["produtos.json"].get("items", [])
     rankings = payloads["rankings.json"].get("items", [])
+    segments = payloads["segmentos.json"].get("items", [])
     comparisons = payloads["comparacoes.json"].get("items", [])
 
     if len(admins) < 100:
@@ -107,11 +110,56 @@ def main() -> int:
     if any(x.get("comparabilidade", {}).get("ranking_geral_publicavel") is not False for x in admins):
         errors.append("ranking_geral_publicavel deve ser false para todas as administradoras")
 
-    valid_segments = {"1", "2", "3", "4", "5", "6"}
+    # A taxonomia válida vem da própria release, derivada da fonte oficial.
+    taxonomy = meta.get("segment_taxonomy")
+    valid_segments: set[str] = set()
+    if not isinstance(taxonomy, dict):
+        errors.append("meta.segment_taxonomy ausente/inválido")
+    else:
+        if taxonomy.get("contract") != TAXONOMY_CONTRACT:
+            errors.append("meta.segment_taxonomy.contract inválido")
+        if taxonomy.get("status") not in SAFE_TAXONOMY_STATUS:
+            errors.append(f"meta.segment_taxonomy.status não publicável: {taxonomy.get('status')!r}")
+
+        known_codes = taxonomy.get("known_codes")
+        if not isinstance(known_codes, list) or not known_codes:
+            errors.append("meta.segment_taxonomy.known_codes ausente/vazio")
+        else:
+            normalized_codes = [str(code) for code in known_codes]
+            if any(not code.isdigit() for code in normalized_codes):
+                errors.append("meta.segment_taxonomy.known_codes contém código não numérico")
+            if len(normalized_codes) != len(set(normalized_codes)):
+                errors.append("meta.segment_taxonomy.known_codes contém duplicatas")
+            valid_segments = set(normalized_codes)
+
+        observed_codes = taxonomy.get("observed_codes")
+        if not isinstance(observed_codes, list) or not observed_codes:
+            errors.append("meta.segment_taxonomy.observed_codes ausente/vazio")
+        elif valid_segments:
+            unknown_observed = sorted({str(x) for x in observed_codes} - valid_segments)
+            if unknown_observed:
+                errors.append(f"códigos observados fora da taxonomia oficial: {unknown_observed}")
+
+        additions = taxonomy.get("auto_added_codes", [])
+        if not isinstance(additions, list):
+            errors.append("meta.segment_taxonomy.auto_added_codes inválido")
+        elif valid_segments:
+            invalid_additions = sorted({str(x) for x in additions} - valid_segments)
+            if invalid_additions:
+                errors.append(f"auto_added_codes fora da taxonomia: {invalid_additions}")
+
+    segment_metadata = payloads["segmentos.json"].get("metadata", {})
+    if isinstance(segment_metadata, dict):
+        if segment_metadata.get("taxonomy_contract") != TAXONOMY_CONTRACT:
+            errors.append("segmentos.metadata.taxonomy_contract inválido")
+        declared_codes = segment_metadata.get("official_codes")
+        if valid_segments and {str(x) for x in (declared_codes or [])} != valid_segments:
+            errors.append("segmentos.metadata.official_codes diverge de meta.segment_taxonomy.known_codes")
+
     product_keys = []
     for product in products:
-        segment = product.get("segmento_codigo")
-        if segment not in valid_segments:
+        segment = str(product.get("segmento_codigo") or "")
+        if not valid_segments or segment not in valid_segments:
             errors.append(f"segmento inválido: {segment!r}")
         key = (product.get("cnpj_root"), product.get("competencia"), segment)
         product_keys.append(key)
@@ -127,6 +175,14 @@ def main() -> int:
             errors.append(f"produto fora da fonte consolidada: {key}")
     if len(product_keys) != len(set(product_keys)):
         errors.append("chave cnpj_root+competencia+segmento duplicada em produtos")
+
+    segment_codes = {str(x.get("codigo") or "") for x in segments if isinstance(x, dict)}
+    if valid_segments and not segment_codes.issubset(valid_segments):
+        errors.append(f"segmentos.json contém códigos fora da taxonomia: {sorted(segment_codes - valid_segments)}")
+    comparison_keys = {str(x.get("segmento") or "") for x in comparisons if isinstance(x, dict)}
+    segment_keys = {str(x.get("segmento") or "") for x in segments if isinstance(x, dict)}
+    if comparison_keys != segment_keys:
+        errors.append("comparacoes.json e segmentos.json divergem no conjunto de segmentos publicados")
 
     source_period = meta.get("source_periods", {}).get("consorciobd_mensal")
     product_periods = sorted({x.get("competencia") for x in products if x.get("competencia")})
@@ -250,6 +306,7 @@ def main() -> int:
             "administradoras": len(admins),
             "produtos": len(products),
             "rankings": len(rankings),
+            "segmentos": len(segments),
             "comparacoes": len(comparisons),
         }
         for key, value in expected_counts.items():
@@ -300,14 +357,14 @@ def main() -> int:
             errors.append("baseline exige posicao_oficial nula em todos os registros")
         if isinstance(expected.get("portfolios"), dict):
             by_root = {x.get("cnpj_root"): x for x in admins}
-            for root, segment_codes in expected["portfolios"].items():
-                admin = by_root.get(root)
+            for root_key, segment_codes_expected in expected["portfolios"].items():
+                admin = by_root.get(root_key)
                 if not admin:
-                    errors.append(f"baseline administradora ausente para portfolio: {root}")
+                    errors.append(f"baseline administradora ausente para portfolio: {root_key}")
                     continue
                 actual = [x.get("codigo") for x in admin.get("portfolio_observado", {}).get("segmentos", [])]
-                if actual != segment_codes:
-                    errors.append(f"baseline portfolio {root}: {actual} != {segment_codes}")
+                if actual != segment_codes_expected:
+                    errors.append(f"baseline portfolio {root_key}: {actual} != {segment_codes_expected}")
         if expected.get("orphan_operational_root"):
             orphan = expected["orphan_operational_root"]
             if orphan not in meta.get("quality", {}).get("operational_orphans", []):
@@ -335,6 +392,9 @@ def main() -> int:
         "pipeline_version": meta.get("pipeline_version"),
         "release_contract": meta.get("backend_release", {}).get("contract"),
         "release_scope": meta.get("release_scope", {}).get("kind"),
+        "segment_taxonomy_contract": meta.get("segment_taxonomy", {}).get("contract"),
+        "segment_taxonomy_status": meta.get("segment_taxonomy", {}).get("status"),
+        "segment_codes": meta.get("segment_taxonomy", {}).get("known_codes", []),
         "administradoras": len(admins),
         "produtos": len(products),
         "ranking_rows": len(rankings),
