@@ -48,13 +48,16 @@ def load_taxonomy(path: Path) -> Dict[str, Any]:
             raise ValueError("Item de taxonomia inválido")
         code = str(item.get("codigo") or "")
         key = str(item.get("key") or "")
-        label = str(item.get("label_oficial") or "").strip()
+        official_label = str(item.get("label_oficial") or "").strip()
+        display_label = str(item.get("label_exibicao") or official_label).strip()
         if not code.isdigit():
             raise ValueError(f"Código de segmento inválido: {code!r}")
         if not key or normalize_key(key) != key:
             raise ValueError(f"Key de segmento inválida: {key!r}")
-        if not label:
+        if not official_label:
             raise ValueError(f"Label oficial ausente no segmento {code}")
+        if not display_label:
+            raise ValueError(f"Label de exibição ausente no segmento {code}")
         if code in codes:
             raise ValueError(f"Código de segmento duplicado: {code}")
         if key in keys:
@@ -66,8 +69,19 @@ def load_taxonomy(path: Path) -> Dict[str, Any]:
 
 
 def segment_map(payload: Dict[str, Any]) -> Dict[str, Tuple[str, str]]:
+    """Mapa usado pelos read models: código -> (key estável, label de exibição)."""
     return {
-        str(item["codigo"]): (str(item["key"]), str(item["label_oficial"]).strip())
+        str(item["codigo"]): (
+            str(item["key"]),
+            str(item.get("label_exibicao") or item["label_oficial"]).strip(),
+        )
+        for item in payload["items"]
+    }
+
+
+def official_label_map(payload: Dict[str, Any]) -> Dict[str, str]:
+    return {
+        str(item["codigo"]): str(item["label_oficial"]).strip()
         for item in payload["items"]
     }
 
@@ -101,6 +115,7 @@ def _parse_csv_bytes(binary: bytes) -> List[Dict[str, Any]]:
 
 
 def observed_segment_codes(consorciobd_zip: Path) -> Set[str]:
+    """Lê todos os códigos realmente presentes no consolidado, inclusive códigos futuros."""
     codes: Set[str] = set()
     found_consolidated = False
     with zipfile.ZipFile(consorciobd_zip, "r") as zf:
@@ -129,6 +144,7 @@ def observed_segment_codes(consorciobd_zip: Path) -> Set[str]:
 
 
 def assert_release_safe(payload: Dict[str, Any], observed_codes: Iterable[str]) -> None:
+    """Autoriza adições oficiais; bloqueia somente mutações estruturais pendentes."""
     status = str(payload.get("status") or "")
     if status not in SAFE_STATUSES:
         raise ValueError(
@@ -156,5 +172,7 @@ def taxonomy_summary(payload: Dict[str, Any], observed_codes: Iterable[str]) -> 
         "known_codes": known,
         "observed_codes": observed,
         "auto_added_codes": payload.get("auto_added_codes", []),
+        "missing_codes": payload.get("missing_codes", []),
+        "renamed_codes": payload.get("renamed_codes", []),
         "fetched_at": payload.get("fetched_at"),
     }
