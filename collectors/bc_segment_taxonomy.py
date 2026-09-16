@@ -85,6 +85,7 @@ def build_session(timeout_seconds: int) -> requests.Session:
 
 
 def parse_official_segments(html: bytes) -> Dict[str, str]:
+    """Extrai a legenda `1 = ...; 2 = ...` da página oficial do ConsorcioBD."""
     soup = BeautifulSoup(html, "lxml")
     text = soup.get_text(" ", strip=True).replace("\u00a0", " ")
     text = re.sub(r"\s+", " ", text)
@@ -108,6 +109,8 @@ def parse_official_segments(html: bytes) -> Dict[str, str]:
     stop_candidates = [x for x in stop_candidates if x > 0]
     if stop_candidates:
         legend = legend[:min(stop_candidates)]
+        # Ao cortar no texto "Dados por...", pode restar o ordinal "2." do título seguinte.
+        legend = re.sub(r"\s+\d+\.\s*$", "", legend)
 
     entries: Dict[str, str] = {}
     pattern = re.compile(
@@ -211,7 +214,8 @@ def main() -> int:
         raise ValueError("Página oficial de taxonomia retornou conteúdo vazio")
 
     official = parse_official_segments(html)
-    fetched_at = utc_now_iso()
+    checked_at = utc_now_iso()
+    current_source_sha = hashlib.sha256(html).hexdigest()
     competence = current_competence(stage_dir)
 
     previous_by_code = {
@@ -271,12 +275,26 @@ def main() -> int:
         else ("ok_with_additions" if new_codes else "ok")
     )
 
+    # O stage é um contrato semântico, não um log de polling. Se a taxonomia não mudou,
+    # preservamos os metadados anteriores para não provocar releases apenas por timestamp.
+    semantic_changed = (
+        items != previous_items
+        or status != previous.get("status")
+        or new_codes != previous.get("auto_added_codes", [])
+        or missing_codes != previous.get("missing_codes", [])
+        or renamed_codes != previous.get("renamed_codes", [])
+        or not previous.get("fetched_at")
+    )
+    fetched_at = checked_at if semantic_changed else previous.get("fetched_at")
+    source_sha = current_source_sha if semantic_changed else previous.get("source_sha256")
+    source_url = response.url if semantic_changed else previous.get("source_url", response.url)
+
     payload = {
         "contract": TAXONOMY_CONTRACT,
         "source": "bc_consorciobd_segment_taxonomy",
-        "source_url": response.url,
+        "source_url": source_url,
         "fetched_at": fetched_at,
-        "source_sha256": hashlib.sha256(html).hexdigest(),
+        "source_sha256": source_sha,
         "status": status,
         "auto_added_codes": new_codes,
         "missing_codes": missing_codes,
@@ -292,7 +310,7 @@ def main() -> int:
 
     runtime_payload = {
         "source": "bc_consorciobd_segment_taxonomy",
-        "last_checked_at": fetched_at,
+        "last_checked_at": checked_at,
         "changed": changed,
         "status": status,
         "official_codes": sorted(official_codes, key=int),
@@ -301,6 +319,7 @@ def main() -> int:
         "renamed_codes": renamed_codes,
         "stage_file": str(stage_file),
         "source_url": response.url,
+        "source_sha256": current_source_sha,
     }
     dump_json(runtime_file, runtime_payload)
 
