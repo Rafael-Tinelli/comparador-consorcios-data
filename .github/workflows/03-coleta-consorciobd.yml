@@ -52,7 +52,14 @@ jobs:
             --collector-outcome "${{ steps.collect.outcome }}" \
             --accepted-mode direct-content-download \
             --competence-mode auto
-      - name: Commit approved data and source state
+      - name: Collect official segment taxonomy
+        id: taxonomy
+        if: steps.collect.outcome == 'success'
+        run: |
+          python collectors/bc_segment_taxonomy.py \
+            --config config/sources.json \
+            --source bc_consorciobd
+      - name: Commit approved data, taxonomy and source state
         if: always()
         shell: bash
         run: |
@@ -63,10 +70,18 @@ jobs:
           if [ "${{ steps.collect.outcome }}" = "success" ] && [ "${{ steps.collect.outputs.mode_used }}" = "direct-content-download" ]; then
             git add -f data/raw/bc/consorciobd/latest.json data/raw/bc/consorciobd/latest_source.bin data/stage/consorciobd/consorciobd_catalog.json
           fi
+          if [ "${{ steps.taxonomy.outcome }}" = "success" ]; then
+            git add -f data/stage/consorciobd/segment_taxonomy.json
+          fi
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "chore(data): registra ConsorcioBD mensal e estado da fonte"
+          git commit -m "chore(data): registra ConsorcioBD, taxonomia oficial e estado da fonte"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
       - name: Enforce homologated mode
         if: always() && steps.collect.outcome == 'success' && steps.collect.outputs.mode_used != 'direct-content-download'
         run: exit 1
+      - name: Enforce additive taxonomy policy
+        if: always() && steps.taxonomy.outcome == 'success' && steps.taxonomy.outputs.status == 'structural_change_detected'
+        run: |
+          echo "BCB alterou/removou significado de segmento existente; evidência foi registrada, mas a migração exige revisão humana." >&2
+          exit 1
