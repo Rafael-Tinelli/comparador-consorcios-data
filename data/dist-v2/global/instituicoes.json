@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-09-16T17:24:42+00:00",
+    "generated_at": "2026-09-17T17:24:04+00:00",
     "contract": "instituicoes.v2",
     "count": 130
   },
@@ -1285,8 +1285,8 @@
     },
     {
       "cnpj_root": "91108027",
-      "nome": "RANDON ADMINISTRADORA DE CONSÓRCIOS LTDA.",
-      "nome_normalizado": "randon_administradora_de_consorcios_ltda",
+      "nome": "RACON ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "racon_administradora_de_consorcios_ltda",
       "status_detalhado": null,
       "cadastro_atual_bcb": true,
       "presenca_cadastrada": {
