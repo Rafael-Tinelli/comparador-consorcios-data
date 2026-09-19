@@ -1,11 +1,11 @@
 {
   "schema": "source-state.v1",
   "source": "bc_cadastro_admins",
-  "last_checked_at": "2026-09-18T13:02:24+00:00",
+  "last_checked_at": "2026-09-19T12:35:37+00:00",
   "last_check_status": "success",
-  "last_successful_check_at": "2026-09-18T13:02:24+00:00",
+  "last_successful_check_at": "2026-09-19T12:35:37+00:00",
   "last_changed_at": "2026-09-18T13:02:24+00:00",
-  "changed_on_last_success": true,
+  "changed_on_last_success": false,
   "mode_used": "odata-csv",
   "content_sha256": "a71092709a7fa3294b652641dce611675c7d4765c16a48d5639589fcef9cfd8c",
   "competence": {
