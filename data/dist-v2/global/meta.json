@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-28T19:56:15+00:00",
+  "generated_at": "2026-09-29T18:24:34+00:00",
   "pipeline_version": "4.3.0",
-  "source_fingerprint": "10a9073806da5f23916d615dee77e4cadbd65e4ad2f1ea99f49029561d04e28b",
+  "source_fingerprint": "da70f805c77d11630f30ccfb5e120e21213bcba2c649bfe277c67850da408374",
   "methodology_version": "2.1.0",
   "methodology_sha256": "ca5221e37b2fbecbcea9a2c591dbf8950a03763e280208181835559aed16dcb9",
   "contracts": {
@@ -116,37 +116,37 @@
     "global": [
       {
         "file": "instituicoes.json",
-        "sha256": "b4dbceb1156eb4d238b0a185a9a0c9a6b78fabdd52789cb9a516619af8c1a1e2",
+        "sha256": "d8216e1b8539200ea10204d327bd06bbfaa60f8461eb544de7c8cf2df97d958b",
         "size_bytes": 49476
       },
       {
         "file": "administradoras.json",
-        "sha256": "108c7c11470850483992e848e4c6255a7fd5d155f22047a145abeb114fc33ab1",
+        "sha256": "41088e19ccd6528977b0272d56afdba12345df5c970376302e967cf0275415db",
         "size_bytes": 2414646
       },
       {
         "file": "produtos.json",
-        "sha256": "60a1c81076752ff6c10f2b8446c945461c1b3e80cc20efcf46d8b86cf5a9d5d9",
+        "sha256": "a1b7cfcadc0c6623727c763616f4f78ac7a540c79eb16e72595bc665aebb8f64",
         "size_bytes": 311294
       },
       {
         "file": "rankings.json",
-        "sha256": "71ae72051884149ba822c2b534378795d2ebb7a6fbb0501039bcdd378025e2a2",
+        "sha256": "c4e57e7631b3c63cd1fa70d8a74ca7aad87637ca70124dfa97b10f43a5437070",
         "size_bytes": 44140
       },
       {
         "file": "segmentos.json",
-        "sha256": "5ad1e394210743798a69a83f7e84ea4de3c385717c1d4bb826b0a5b4770a9738",
+        "sha256": "e396e105cd194fbbf5ac4cc26a61690953a8e292c82ecd51c657cfdfd8f03086",
         "size_bytes": 17942
       },
       {
         "file": "comparacoes.json",
-        "sha256": "2055fd20c67a77b4e98cf1eac5dcb5a151c88ad8f2bc6548d093bd0cdc2ce3b2",
+        "sha256": "e523c7a4fc1cc2264f6dd6e3d110017c40f285a6b5dfb7c4b5ec6d9a6e0055d9",
         "size_bytes": 1886836
       },
       {
         "file": "ofertas.json",
-        "sha256": "0871013f458930ca4e53a9b025e9569a4bf09483a41e21913f75140da2474296",
+        "sha256": "3f6d94a2f98875d25802400a0694f7e58a83d7e5795ef310478a587595da4a27",
         "size_bytes": 246
       }
     ],
@@ -179,18 +179,18 @@
     },
     "bc_filiais": {
       "role": "presença cadastral de filiais",
-      "last_checked_at": "2026-09-28T19:43:10+00:00",
+      "last_checked_at": "2026-09-29T18:07:38+00:00",
       "last_check_status": "success",
-      "last_successful_check_at": "2026-09-28T19:43:10+00:00",
-      "last_changed_at": "2026-09-28T19:43:10+00:00",
+      "last_successful_check_at": "2026-09-29T18:07:38+00:00",
+      "last_changed_at": "2026-09-29T18:07:38+00:00",
       "changed_on_last_success": true,
       "mode_used": "odata-csv",
-      "content_sha256": "f62673afd9947229ad658d5bd4b785acb473ac8a92b9b813515450801cf8a102",
+      "content_sha256": "7f4e18c2193fd985bd1fba50eff086050246456be07066d5b8fc857501bef58d",
       "competence": {
         "kind": "position_date",
-        "value": "2026-09-27"
+        "value": "2026-09-28"
       },
-      "snapshot_collected_at": "2026-09-28T19:43:10+00:00",
+      "snapshot_collected_at": "2026-09-29T18:07:38+00:00",
       "last_error": null
     },
     "bc_consorciobd": {
@@ -239,12 +239,12 @@
     "all_required_states_present": true,
     "source_state_matches_consumed_bytes": true,
     "degraded_sources": [],
-    "source_state_sha256": "a9ed849edbf61514353338eac4b36b6f5e411e1d0e808c2bc75255d0f19fcc35"
+    "source_state_sha256": "dcdc549d9ced894cbadc7be64d230e782287051e296cc7d725b1dcb693e6e208"
   },
   "backend_release": {
     "contract": "comparador-v2-release.v2",
     "publication_eligible": true,
     "publication_note": "Release V2 data-only. Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build. SEO editorial pertence ao frontend/site.",
-    "release_fingerprint": "628581b05dfe7cfe37f858234ad7a2063da6559b645149c0c4882c3c1daaf6d6"
+    "release_fingerprint": "5e9c2fedf46e40588f852f0ceb13a1478dcd59c7fe2eb4a143cd9e85e8704ed0"
   }
 }
