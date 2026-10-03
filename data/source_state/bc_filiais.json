@@ -1,11 +1,11 @@
 {
   "schema": "source-state.v1",
   "source": "bc_filiais",
-  "last_checked_at": "2026-10-02T17:54:41+00:00",
+  "last_checked_at": "2026-10-03T16:29:14+00:00",
   "last_check_status": "success",
-  "last_successful_check_at": "2026-10-02T17:54:41+00:00",
+  "last_successful_check_at": "2026-10-03T16:29:14+00:00",
   "last_changed_at": "2026-10-02T17:54:41+00:00",
-  "changed_on_last_success": true,
+  "changed_on_last_success": false,
   "mode_used": "odata-csv",
   "content_sha256": "64ae68425200a58460ae1430b9fc40e2a07a4b59fec06d03438f2275586f7e8d",
   "competence": {
