@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-10-04T17:13:22+00:00",
+    "generated_at": "2026-10-06T18:43:36+00:00",
     "contract": "instituicoes.v2",
     "count": 130
   },
@@ -977,13 +977,15 @@
       "status_detalhado": null,
       "cadastro_atual_bcb": true,
       "presenca_cadastrada": {
-        "filiais": 5,
+        "filiais": 7,
         "ufs": [
+          "GO",
           "PR",
+          "RJ",
           "RS",
           "SP"
         ],
-        "municipios_count": 5
+        "municipios_count": 7
       }
     },
     {
