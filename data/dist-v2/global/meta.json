@@ -163,11 +163,11 @@
   "source_status": {
     "bc_cadastro_admins": {
       "role": "cadastro atual de administradoras",
-      "last_checked_at": "2026-10-09T15:23:42+00:00",
+      "last_checked_at": "2026-10-10T14:33:28+00:00",
       "last_check_status": "success",
-      "last_successful_check_at": "2026-10-09T15:23:42+00:00",
+      "last_successful_check_at": "2026-10-10T14:33:28+00:00",
       "last_changed_at": "2026-10-09T15:23:42+00:00",
-      "changed_on_last_success": true,
+      "changed_on_last_success": false,
       "mode_used": "odata-csv",
       "content_sha256": "9bff03dd60a34b30664e3199858d7b0d5807f2e5acf73f7ff8ff9e174a13a277",
       "competence": {
@@ -179,11 +179,11 @@
     },
     "bc_filiais": {
       "role": "presença cadastral de filiais",
-      "last_checked_at": "2026-10-09T18:24:34+00:00",
+      "last_checked_at": "2026-10-10T17:22:51+00:00",
       "last_check_status": "success",
-      "last_successful_check_at": "2026-10-09T18:24:34+00:00",
+      "last_successful_check_at": "2026-10-10T17:22:51+00:00",
       "last_changed_at": "2026-10-09T18:24:34+00:00",
-      "changed_on_last_success": true,
+      "changed_on_last_success": false,
       "mode_used": "odata-csv",
       "content_sha256": "2dc6755c92eed9f194c99f19ed7d8fca721562256b08e5442afc4ab3adc8837c",
       "competence": {
@@ -239,12 +239,12 @@
     "all_required_states_present": true,
     "source_state_matches_consumed_bytes": true,
     "degraded_sources": [],
-    "source_state_sha256": "f878bdd8cace1cfb6149b82fb8f8512bbed5f7fa1849dc61776fe62b07c274bf"
+    "source_state_sha256": "53250f46d754a8ccdcf1c1e656f7a671ee26d76f8c1e8ddd13c1ff4a022103e2"
   },
   "backend_release": {
     "contract": "comparador-v2-release.v2",
     "publication_eligible": true,
     "publication_note": "Release V2 data-only. Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build. SEO editorial pertence ao frontend/site.",
-    "release_fingerprint": "372ac477ea7f76c50e62d2173a8464e44800b42abfbd576cd164166ba4da725d"
+    "release_fingerprint": "6a1fdc3caa120f06b9bc34955e031a7282484044b464ff98fa00d7c715af01c6"
   }
 }
