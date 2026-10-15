@@ -114,6 +114,73 @@ jobs:
           probe("202605", "GET", "browser", browser_ua)
           print("GITHUB_RUNNER_HTTP_DIAG_FINISHED", flush=True)
           PY
+      - name: DIAGNOSTICO TEMPORARIO — coletor C03 integral em sandbox /tmp
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        timeout-minutes: 7
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import shutil
+          import subprocess
+          import sys
+          import tempfile
+          from pathlib import Path
+
+          repo = Path.cwd()
+          baseline = repo / "data/raw/bc/consorciobd/latest_source.bin"
+          expected = hashlib.sha256(baseline.read_bytes()).hexdigest()
+          print(f"SANDBOX_BASELINE_SHA256={expected}", flush=True)
+
+          with tempfile.TemporaryDirectory(prefix="consorciobd-c03-github-") as folder:
+              root = Path(folder)
+              raw_dir = root / "data/raw/bc/consorciobd"
+              raw_dir.mkdir(parents=True, exist_ok=True)
+              target = raw_dir / "latest_source.bin"
+              shutil.copyfile(baseline, target)
+
+              proc = subprocess.run([
+                  sys.executable,
+                  str(repo / "collectors/bc_consorciobd.py"),
+                  "--config", str(repo / "config/sources.json"),
+                  "--source", "bc_consorciobd",
+              ], cwd=root, text=True, capture_output=True, timeout=300, check=False)
+
+              print(f"SANDBOX_COLLECTOR_EXIT={proc.returncode}", flush=True)
+              print(f"SANDBOX_STDOUT={proc.stdout[-3500:]}", flush=True)
+              print(f"SANDBOX_STDERR={proc.stderr[-3500:]}", flush=True)
+
+              runtime_file = root / "data/runtime/bc_consorciobd.json"
+              if runtime_file.exists():
+                  runtime = json.loads(runtime_file.read_text(encoding="utf-8"))
+                  print("SANDBOX_RUNTIME=" + json.dumps({
+                      "mode_used": runtime.get("mode_used"),
+                      "changed": runtime.get("changed"),
+                      "selected_url": runtime.get("selected_url"),
+                      "probe_count": runtime.get("probe_count"),
+                      "last_checked_at": runtime.get("last_checked_at"),
+                      "resource_sha256": runtime.get("resource_sha256"),
+                      "probes": runtime.get("probe_results") if proc.returncode != 0 else None,
+                  }, ensure_ascii=False)[:12000], flush=True)
+              else:
+                  runtime = {}
+                  print("SANDBOX_RUNTIME_MISSING", flush=True)
+
+              persisted_hash = hashlib.sha256(target.read_bytes()).hexdigest()
+              print(f"SANDBOX_PERSISTED_SHA256={persisted_hash}", flush=True)
+
+              ok = (
+                  proc.returncode == 0
+                  and runtime.get("mode_used") == "direct-content-download"
+                  and runtime.get("changed") is False
+                  and runtime.get("selected_url", "").endswith("202605Consorcios.zip")
+                  and persisted_hash == expected
+              )
+              print(f"C03_SANDBOX_COLLECTOR={'PASS' if ok else 'FAIL'}", flush=True)
+              if not ok:
+                  sys.exit(1)
+          PY
       - name: Compile canonical backend
         run: |
           python -m py_compile \
