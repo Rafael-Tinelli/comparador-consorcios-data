@@ -43,6 +43,77 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+      - name: DIAGNOSTICO TEMPORARIO — HTTP ConsorcioBD no runner (somente PR)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        timeout-minutes: 6
+        run: |
+          python - <<'PY'
+          import hashlib
+          import io
+          import json
+          import zipfile
+          import requests
+
+          cfg = json.load(open("config/sources.json", encoding="utf-8"))
+          source = cfg["sources"]["bc_consorciobd"]
+          base = source["direct_download"]["base_url"].rstrip("/")
+          portal = source["official_page_url"]
+          collector_ua = cfg["defaults"]["user_agent"]
+          browser_ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/154.0 Safari/537.36"
+          expected_may_sha = "f78835875b54eac2996896c84bd7fb416669edb8e0307cf7c9a781ff34c71247"
+          s = requests.Session()
+          s.trust_env = True
+
+          def probe(month, method, ua_label, ua):
+              url = f"{base}/{month}Consorcios.zip"
+              headers = {"Accept": "*/*", "User-Agent": ua, "Referer": portal}
+              print(f"BEGIN month={month} method={method} ua={ua_label}", flush=True)
+              try:
+                  with s.request(method, url, headers=headers, timeout=(8, 20), allow_redirects=True, stream=True) as r:
+                      print(json.dumps({
+                          "http": r.status_code,
+                          "final_url": r.url,
+                          "content_type": r.headers.get("Content-Type"),
+                          "content_length": r.headers.get("Content-Length"),
+                          "server": r.headers.get("Server"),
+                          "redirects": len(r.history),
+                          "collector_header_ok": (
+                              r.status_code == 200 and r.url.lower().endswith(".zip")
+                              and "text/html" not in (r.headers.get("Content-Type") or "").lower()
+                          )
+                      }, ensure_ascii=False), flush=True)
+                      if method == "GET":
+                          content = bytearray()
+                          for chunk in r.iter_content(chunk_size=65536):
+                              if not chunk:
+                                  continue
+                              content.extend(chunk)
+                              if len(content) > 3000000:
+                                  print("body_aborted_over_3mb", flush=True)
+                                  break
+                          raw = bytes(content)
+                          digest = hashlib.sha256(raw).hexdigest()
+                          print(f"body_bytes={len(raw)} prefix_hex={raw[:16].hex()} sha256={digest}", flush=True)
+                          if month == "202605":
+                              print(f"matches_known_approved_sha={digest == expected_may_sha}", flush=True)
+                          try:
+                              with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+                                  print(f"ZIP_VALID=YES members={archive.namelist()[:8]!r} bad_member={archive.testzip()!r}", flush=True)
+                          except Exception as exc:
+                              print(f"ZIP_VALID=NO error={type(exc).__name__}: {str(exc)[:180]}", flush=True)
+                              print(f"body_preview={raw[:120]!r}", flush=True)
+              except Exception as exc:
+                  print(f"REQUEST_EXCEPTION={type(exc).__name__}: {str(exc)[:400]}", flush=True)
+              print("END", flush=True)
+
+          print("GITHUB_RUNNER_HTTP_DIAG_BEGIN", flush=True)
+          for month in ("202605", "202606"):
+              probe(month, "HEAD", "collector", collector_ua)
+              probe(month, "GET", "collector", collector_ua)
+          probe("202605", "GET", "browser", browser_ua)
+          print("GITHUB_RUNNER_HTTP_DIAG_FINISHED", flush=True)
+          PY
       - name: Compile canonical backend
         run: |
           python -m py_compile \
