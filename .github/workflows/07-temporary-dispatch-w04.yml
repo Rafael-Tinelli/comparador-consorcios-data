@@ -1,0 +1,41 @@
+# OPERACAO TEMPORARIA: nao mesclar esta branch na main.
+# Dispara o workflow 04 original da main; nenhum dado e alterado aqui.
+name: TEMP · Acionamento workflow 04 reclamacoes
+on:
+  push:
+    branches:
+      - ops/w04-dispatch-20261015
+    paths:
+      - .github/workflows/07-temporary-dispatch-w04.yml
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  dispatch:
+    if: github.repository == 'Rafael-Tinelli/comparador-consorcios-data'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Executar somente workflow 04 na main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -Eeuo pipefail
+          test "$GITHUB_REF_NAME" = "ops/w04-dispatch-20261015"
+          code="$(curl --silent --show-error \
+            --output /tmp/dispatch-w04-response \
+            --write-out '%{http_code}' \
+            --request POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${GH_TOKEN}" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            --data '{"ref":"main"}' \
+            "https://api.github.com/repos/Rafael-Tinelli/comparador-consorcios-data/actions/workflows/04-coleta-ranking-reclamacoes.yml/dispatches")"
+          echo "DISPATCH_HTTP=$code"
+          if [ "$code" != "204" ]; then
+            cat /tmp/dispatch-w04-response
+            exit 1
+          fi
+          echo "W04_DISPATCH_CONFIRMED=PASS"
