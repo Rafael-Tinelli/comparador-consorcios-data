@@ -1,0 +1,43 @@
+# DIAGNOSTICO OPERACIONAL TEMPORARIO — nao integrar a main.
+# Um push deste arquivo na branch isolada solicita UMA execucao do workflow 06 canonico,
+# na branch main, preservando todos os gates originais de build e publicacao.
+name: TEMP · Dispatch workflow 06 para sincronizar C03
+on:
+  push:
+    branches:
+      - ops/c03-manifest-dispatch-20261015
+    paths:
+      - .github/workflows/07-c03-dispatch-once.yml
+permissions:
+  contents: read
+  actions: write
+jobs:
+  dispatch:
+    if: github.repository == 'Rafael-Tinelli/comparador-consorcios-data'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Disparar Build & Publish V2 canonico na main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -Eeuo pipefail
+          if [ "$GITHUB_REF_NAME" != "ops/c03-manifest-dispatch-20261015" ]; then
+            echo "BRANCH_MISMATCH=FAIL"
+            exit 1
+          fi
+          printf 'DISPATCHING=06-build-publish-v2.yml REF=main\\n'
+          code="$(curl --silent --show-error --output /tmp/dispatch.out \
+            --write-out '%{http_code}' \
+            --request POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${GH_TOKEN}" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            --data '{"ref":"main"}' \
+            "https://api.github.com/repos/Rafael-Tinelli/comparador-consorcios-data/actions/workflows/06-build-publish-v2.yml/dispatches")"
+          echo "DISPATCH_HTTP=$code"
+          if [ "$code" != "204" ]; then
+            cat /tmp/dispatch.out
+            exit 1
+          fi
+          echo "CANONICAL_WORKFLOW_DISPATCHED=PASS"
