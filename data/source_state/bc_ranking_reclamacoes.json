@@ -1,9 +1,9 @@
 {
   "schema": "source-state.v1",
   "source": "bc_ranking_reclamacoes",
-  "last_checked_at": "2026-09-13T15:19:53+00:00",
+  "last_checked_at": "2026-10-15T16:58:21+00:00",
   "last_check_status": "success",
-  "last_successful_check_at": "2026-09-13T15:19:53+00:00",
+  "last_successful_check_at": "2026-10-15T16:58:21+00:00",
   "last_changed_at": "2026-08-07T10:29:27+00:00",
   "changed_on_last_success": false,
   "mode_used": "direct-content-download",
