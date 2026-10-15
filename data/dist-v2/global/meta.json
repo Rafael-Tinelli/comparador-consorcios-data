@@ -211,9 +211,9 @@
     },
     "bc_ranking_reclamacoes": {
       "role": "reclamações de consórcios divulgadas pelo Banco Central",
-      "last_checked_at": "2026-09-13T15:19:53+00:00",
+      "last_checked_at": "2026-10-15T16:58:21+00:00",
       "last_check_status": "success",
-      "last_successful_check_at": "2026-09-13T15:19:53+00:00",
+      "last_successful_check_at": "2026-10-15T16:58:21+00:00",
       "last_changed_at": "2026-08-07T10:29:27+00:00",
       "changed_on_last_success": false,
       "mode_used": "direct-content-download",
@@ -239,12 +239,12 @@
     "all_required_states_present": true,
     "source_state_matches_consumed_bytes": true,
     "degraded_sources": [],
-    "source_state_sha256": "5f865f24e34494e9b56b0ffcbac3f38b1ed622ae7df2e0a547c5cd3b603570e1"
+    "source_state_sha256": "9cbbeccf520f875ead9e890f613a1e35cf974320c6e7c6ee7faf8b246f094558"
   },
   "backend_release": {
     "contract": "comparador-v2-release.v2",
     "publication_eligible": true,
     "publication_note": "Release V2 data-only. Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build. SEO editorial pertence ao frontend/site.",
-    "release_fingerprint": "7b0175e7b1e0daa1abd43573962758039727d4807c635fa60b17713a2a151fa8"
+    "release_fingerprint": "967e6e5a7cb1356105cc7b7506b91bc0c3e0417a039bbab46e762283a93418d6"
   }
 }
