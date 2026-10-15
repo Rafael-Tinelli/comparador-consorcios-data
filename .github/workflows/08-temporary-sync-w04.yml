@@ -1,0 +1,60 @@
+# OPERACAO TEMPORARIA — executar uma vez; nao integrar a main.
+name: TEMP · Concluir W04 e sincronizar manifesto
+on:
+  push:
+    branches:
+      - ops/w04-dispatch-20261015
+    paths:
+      - .github/workflows/08-temporary-sync-w04.yml
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  finish:
+    if: github.repository == 'Rafael-Tinelli/comparador-consorcios-data'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Cancelar apenas a execucao 04 obsoleta e disparar 06 canonico
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -Eeuo pipefail
+          test "$GITHUB_REF_NAME" = "ops/w04-dispatch-20261015"
+          base="https://api.github.com/repos/Rafael-Tinelli/comparador-consorcios-data"
+          status="$(curl -fsSL \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            "$base/actions/runs/37655505479" | python3 -c 'import json,sys;print(json.load(sys.stdin)["status"])')"
+          echo "OLD_W04_STATUS=$status"
+          if [ "$status" = "queued" ]; then
+            cancel_code="$(curl --silent --show-error \
+              --output /tmp/old-w04-cancel-response \
+              --write-out '%{http_code}' \
+              --request POST \
+              --header "Accept: application/vnd.github+json" \
+              --header "Authorization: Bearer ${GH_TOKEN}" \
+              "$base/actions/runs/37655505479/cancel")"
+            echo "OLD_W04_CANCEL_HTTP=$cancel_code"
+            if [ "$cancel_code" != "202" ]; then
+              cat /tmp/old-w04-cancel-response
+              echo "Aviso: cancelamento da execucao antiga nao confirmado"
+            fi
+          fi
+          code="$(curl --silent --show-error \
+            --output /tmp/dispatch-w06-response \
+            --write-out '%{http_code}' \
+            --request POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer ${GH_TOKEN}" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            --data '{"ref":"main"}' \
+            "$base/actions/workflows/06-build-publish-v2.yml/dispatches")"
+          echo "W06_DISPATCH_HTTP=$code"
+          if [ "$code" != "204" ]; then
+            cat /tmp/dispatch-w06-response
+            exit 1
+          fi
+          echo "W06_DISPATCH_CONFIRMED=PASS"
