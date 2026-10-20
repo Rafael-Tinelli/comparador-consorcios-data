@@ -1,18 +1,18 @@
 {
   "schema": "source-state.v1",
   "source": "bc_cadastro_admins",
-  "last_checked_at": "2026-10-19T15:45:15+00:00",
+  "last_checked_at": "2026-10-20T13:42:39+00:00",
   "last_check_status": "success",
-  "last_successful_check_at": "2026-10-19T15:45:15+00:00",
-  "last_changed_at": "2026-10-19T15:45:15+00:00",
+  "last_successful_check_at": "2026-10-20T13:42:39+00:00",
+  "last_changed_at": "2026-10-20T13:42:39+00:00",
   "changed_on_last_success": true,
   "mode_used": "odata-csv",
-  "content_sha256": "0f08bef5fbe2c986e3c9067bdf55103cc9c259b569c0ce8a29980f5010f1b3db",
+  "content_sha256": "dd7d2a95df7afb464db978aa0e302d676a99748d7d1e1f2d07d2eab490c90555",
   "competence": {
     "kind": "not_applicable",
     "value": null
   },
-  "snapshot_collected_at": "2026-10-19T15:45:15+00:00",
+  "snapshot_collected_at": "2026-10-20T13:42:39+00:00",
   "last_error": null,
   "provenance": {
     "runtime_file": "data/runtime/bc_cadastro_admins.json",
@@ -22,7 +22,7 @@
   },
   "runtime_summary": {
     "record_count": 130,
-    "raw_hash": "0ef950cc0248fda6cb59d9323169c6b22db01eb717a1ff3d2c1eae99064d3d95",
-    "stage_items_hash": "a370ec67f14337d14ca0d3daf58ad8385506021978188601e88460dd324d14e9"
+    "raw_hash": "be71afc75bb08acd1d807871eb90826e1dd199d4bec9527534c951b7b6312a1e",
+    "stage_items_hash": "f14df98c411f440145736ca5ed98e292647e1bc5a5d6aa796060e755030e3f77"
   }
 }
