@@ -1,8 +1,8 @@
 {
   "schema": "source-state.v1",
   "source": "bc_filiais",
-  "last_checked_at": "2026-11-06T19:30:08+00:00",
-  "last_check_status": "success",
+  "last_checked_at": "2026-11-07T17:46:34+00:00",
+  "last_check_status": "failure",
   "last_successful_check_at": "2026-11-06T19:30:08+00:00",
   "last_changed_at": "2026-11-06T19:30:08+00:00",
   "changed_on_last_success": true,
@@ -13,7 +13,7 @@
     "value": "2026-11-05"
   },
   "snapshot_collected_at": "2026-11-06T19:30:08+00:00",
-  "last_error": null,
+  "last_error": "collector_outcome=failure",
   "provenance": {
     "runtime_file": "data/runtime/bc_filiais.json",
     "snapshot_file": "data/raw/bc/filiais/latest.json",
