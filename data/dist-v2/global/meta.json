@@ -163,11 +163,11 @@
   "source_status": {
     "bc_cadastro_admins": {
       "role": "cadastro atual de administradoras",
-      "last_checked_at": "2026-11-06T16:03:37+00:00",
+      "last_checked_at": "2026-11-07T14:58:16+00:00",
       "last_check_status": "success",
-      "last_successful_check_at": "2026-11-06T16:03:37+00:00",
+      "last_successful_check_at": "2026-11-07T14:58:16+00:00",
       "last_changed_at": "2026-11-06T16:03:37+00:00",
-      "changed_on_last_success": true,
+      "changed_on_last_success": false,
       "mode_used": "odata-csv",
       "content_sha256": "93c7fbd489e4235ddd7c2a3d37c8b9f1b74c9a397c17fb3fc6c10315ba7e8b30",
       "competence": {
@@ -179,8 +179,8 @@
     },
     "bc_filiais": {
       "role": "presença cadastral de filiais",
-      "last_checked_at": "2026-11-06T19:30:08+00:00",
-      "last_check_status": "success",
+      "last_checked_at": "2026-11-07T17:46:34+00:00",
+      "last_check_status": "failure",
       "last_successful_check_at": "2026-11-06T19:30:08+00:00",
       "last_changed_at": "2026-11-06T19:30:08+00:00",
       "changed_on_last_success": true,
@@ -191,7 +191,7 @@
         "value": "2026-11-05"
       },
       "snapshot_collected_at": "2026-11-06T19:30:08+00:00",
-      "last_error": null
+      "last_error": "collector_outcome=failure"
     },
     "bc_consorciobd": {
       "role": "operação mensal consolidada por segmento",
@@ -211,9 +211,9 @@
     },
     "bc_ranking_reclamacoes": {
       "role": "reclamações de consórcios divulgadas pelo Banco Central",
-      "last_checked_at": "2026-10-15T16:58:21+00:00",
+      "last_checked_at": "2026-11-07T15:54:29+00:00",
       "last_check_status": "success",
-      "last_successful_check_at": "2026-10-15T16:58:21+00:00",
+      "last_successful_check_at": "2026-11-07T15:54:29+00:00",
       "last_changed_at": "2026-08-07T10:29:27+00:00",
       "changed_on_last_success": false,
       "mode_used": "direct-content-download",
@@ -238,13 +238,15 @@
     },
     "all_required_states_present": true,
     "source_state_matches_consumed_bytes": true,
-    "degraded_sources": [],
-    "source_state_sha256": "5acb155690d19e12b3a6e5241bcb6ad4b3a8e498f2ff71c718e655a5235b0131"
+    "degraded_sources": [
+      "bc_filiais"
+    ],
+    "source_state_sha256": "f6a87e7df659616f18ef9ec956d1db09fcd6b5fd3ae836c311d3ad21115acb7b"
   },
   "backend_release": {
     "contract": "comparador-v2-release.v2",
     "publication_eligible": true,
     "publication_note": "Release V2 data-only. Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build. SEO editorial pertence ao frontend/site.",
-    "release_fingerprint": "c66c5679a6ff1263d1060aebbbace95d799fa7b0b7de9ce74cc8d30330755843"
+    "release_fingerprint": "a5c9182a4046607e1988496b33ebf8c72c3e5feb1aa39abd8d75be5ce7e0a711"
   }
 }
