@@ -1,7 +1,7 @@
 {
   "schema": "source-state.v1",
   "source": "bc_filiais",
-  "last_checked_at": "2026-11-07T17:46:34+00:00",
+  "last_checked_at": "2026-11-08T17:58:12+00:00",
   "last_check_status": "failure",
   "last_successful_check_at": "2026-11-06T19:30:08+00:00",
   "last_changed_at": "2026-11-06T19:30:08+00:00",
