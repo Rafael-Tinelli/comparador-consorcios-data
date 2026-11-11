@@ -21,8 +21,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      - name: Authenticate scoped V2 data publisher
+        if: ${{ vars.CONSORCIO_PUBLISH_APP_CLIENT_ID != '' }}
+        id: publisher_token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.CONSORCIO_PUBLISH_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CONSORCIO_PUBLISH_APP_PRIVATE_KEY }}
+          permission-contents: write
       - uses: actions/checkout@v5
         with:
+          token: ${{ steps.publisher_token.outputs.token || github.token }}
           fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
@@ -64,6 +73,7 @@ jobs:
             git add -f data/raw/bc/ranking_reclamacoes/latest.json data/raw/bc/ranking_reclamacoes/latest_source.csv data/stage/ranking_reclamacoes/ranking_reclamacoes_consorcios.json
           fi
           if git diff --cached --quiet; then exit 0; fi
+          python scripts/guard_automated_data_commit.py --workflow reclamacoes
           git commit -m "chore(data): registra reclamações BCB e estado da fonte"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"

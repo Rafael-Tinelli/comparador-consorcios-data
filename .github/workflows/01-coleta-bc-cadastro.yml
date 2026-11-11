@@ -23,9 +23,18 @@ jobs:
     timeout-minutes: 30
 
     steps:
+      - name: Authenticate scoped V2 data publisher
+        if: ${{ vars.CONSORCIO_PUBLISH_APP_CLIENT_ID != '' }}
+        id: publisher_token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.CONSORCIO_PUBLISH_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CONSORCIO_PUBLISH_APP_PRIVATE_KEY }}
+          permission-contents: write
       - name: Checkout
         uses: actions/checkout@v5
         with:
+          token: ${{ steps.publisher_token.outputs.token || github.token }}
           fetch-depth: 0
 
       - name: Setup Python
@@ -125,6 +134,7 @@ jobs:
             exit 0
           fi
 
+          python scripts/guard_automated_data_commit.py --workflow cadastro
           git commit -m "chore(data): registra cadastro BC e estado da fonte"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"

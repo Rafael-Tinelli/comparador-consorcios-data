@@ -21,9 +21,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      - name: Authenticate scoped V2 data publisher
+        if: ${{ vars.CONSORCIO_PUBLISH_APP_CLIENT_ID != '' }}
+        id: publisher_token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.CONSORCIO_PUBLISH_APP_CLIENT_ID }}
+          private-key: ${{ secrets.CONSORCIO_PUBLISH_APP_PRIVATE_KEY }}
+          permission-contents: write
       - name: Checkout
         uses: actions/checkout@v5
         with:
+          token: ${{ steps.publisher_token.outputs.token || github.token }}
           fetch-depth: 0
       - name: Capture input commit
         id: input
@@ -86,5 +95,6 @@ jobs:
             echo "Release já canônica; nenhum commit necessário."
             exit 0
           fi
+          python scripts/guard_automated_data_commit.py --workflow release
           git commit -m "chore(v2): publica release canônica"
           git push origin "HEAD:$GITHUB_REF_NAME"
