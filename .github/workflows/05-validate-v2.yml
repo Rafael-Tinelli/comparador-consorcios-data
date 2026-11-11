@@ -29,6 +29,8 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # Include o commit com os insumos históricos para teste de regressão
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -80,13 +82,47 @@ jobs:
         run: |
           python scripts/validate_v2_release.py \
             --dist-base /tmp/consorcio-v2-dist \
-            --provenance-config config/provenance_v2.json \
-            --audit-baseline config/audit_baseline_v2.json
+            --provenance-config config/provenance_v2.json
           if [ -d /tmp/consorcio-v2-dist/seo ] && find /tmp/consorcio-v2-dist/seo -type f -name '*.json' -print -quit | grep -q .; then
             echo "SEO residual na release data-only" >&2
             exit 1
           fi
           php tests/test_hostgator_v2.php /tmp/consorcio-v2-dist
+      - name: Regression against frozen 202605 audit baseline
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+          historic_ref="$(python - <<'PY'
+          import json
+          from pathlib import Path
+          baseline = json.loads(Path('config/audit_baseline_v2.json').read_text(encoding='utf-8'))
+          print(baseline['historical_fixture']['commit'])
+          PY
+          )"
+          [[ "$historic_ref" =~ ^[0-9a-f]{40}$ ]] || { echo 'Commit histórico inválido' >&2; exit 1; }
+          git cat-file -e "${historic_ref}^{commit}"
+          historic_dir="$(mktemp -d)"
+          trap 'rm -rf "$historic_dir"' EXIT
+          cp -R config scripts transform "$historic_dir/"
+          git archive "$historic_ref" data/raw data/stage data/source_state | tar -xf - -C "$historic_dir"
+          (
+            cd "$historic_dir"
+            python transform/build_release_v2.py --config config/sources.json --methodology config/methodology_v2.json
+            python transform/finalize_v2_release.py --dist-base data/dist-v2 --provenance-config config/provenance_v2.json
+            python scripts/validate_v2_release.py \
+              --dist-base data/dist-v2 \
+              --provenance-config config/provenance_v2.json \
+              --audit-baseline config/audit_baseline_v2.json
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          baseline = json.loads(Path('config/audit_baseline_v2.json').read_text(encoding='utf-8'))
+          meta = json.loads(Path('data/dist-v2/global/meta.json').read_text(encoding='utf-8'))
+          expected = baseline['historical_fixture']['competence']
+          actual = meta['source_periods']['consorciobd_mensal']
+          assert actual == expected, f'Competência histórica divergente: {actual} != {expected}'
+          PY
+          )
       - name: Assert V1 is absent
         run: |
           test ! -e transform/build_read_models.py

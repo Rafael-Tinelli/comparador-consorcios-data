@@ -173,6 +173,8 @@ A superfície operacional final é:
 5. `05-validate-v2.yml` — contratos, testes e gates;
 6. `06-build-publish-v2.yml` — geração e commit da release canônica.
 
+**Validação de PR sem congelar as competências:** o workflow `05` primeiro valida o build com os insumos atuais por contratos, relações, proveniência e hashes, sem exigir os totais de maio/2026. Em seguida, reconstrói uma release isolada com os insumos históricos de `202605`, arquivados no commit fixado em `config/audit_baseline_v2.json`, usando **o código do PR**, e aplica as expectativas numéricas originais da Auditoria 2. Assim, mudanças de competência não interrompem PRs corretos, enquanto alterações na transformação continuam sujeitas à regressão histórica. O commit histórico é imutável e deve mudar somente por decisão explícita e documentada.
+
 Não existem workflows de build/deploy V1.
 
 ## 9. Publicação HostGator
