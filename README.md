@@ -229,7 +229,7 @@ Uma release só pode avançar quando:
 
 ## 12. Proteção da main e commits de dados
 
-Os workflows `01`–`04` e `06` publicam automaticamente apenas arquivos de dados expressamente autorizados por `scripts/guard_automated_data_commit.py`. As alterações de código, metodologia, workflows e contratos exigem PR com o job `validate-v2` aprovado. A proteção efetiva da branch é uma **regra de repositório configurada no GitHub**, não apenas o script de guarda. A automação preparada pode usar uma GitHub App própria; os detalhes e a sequência de ativação sem interromper a coleta estão em [docs/PROTECAO_MAIN_V2.md](docs/PROTECAO_MAIN_V2.md).
+Os workflows `01`–`04` e `06` publicam automaticamente apenas arquivos de dados expressamente autorizados por `scripts/guard_automated_data_commit.py`. As alterações de código, metodologia, workflows e contratos exigem PR com o job `validate-v2` aprovado. A proteção efetiva da branch é uma **regra de repositório configurada no GitHub**, não apenas o script de guarda. A automação preparada pode usar uma GitHub App própria, com chave privada restrita ao ambiente `consorcio-data-publisher` autorizado apenas para `main`; os detalhes e a sequência de ativação sem interromper a coleta estão em [docs/PROTECAO_MAIN_V2.md](docs/PROTECAO_MAIN_V2.md).
 
 ## 12. Política de mudanças
 

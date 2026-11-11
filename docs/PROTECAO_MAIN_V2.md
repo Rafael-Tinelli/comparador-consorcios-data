@@ -13,7 +13,7 @@
 1. `05` é executado em **todo PR** (sem filtro de caminhos), para que o check obrigatório nunca fique pendente em mudanças fora dos filtros antigos.
 2. Os workflows `01`–`04` e `06` geram token de App com `actions/create-github-app-token@v3`, usando o token do repositório apenas até a migração.
 3. Antes de `git commit`, chamam o guarda com o identificador fixo daquele workflow.
-4. O `GITHUB_TOKEN` padrão permanece como *fallback transitório* enquanto a regra da branch não está ativa. **Não ative a regra PR obrigatória antes de configurar e testar a App.**
+4. O `GITHUB_TOKEN` padrão permanece como *fallback transitório* enquanto a regra da branch não está ativa. **Não ative a regra PR obrigatória antes de configurar e testar a App.** A chave privada fica apenas no **environment secret**, inacessível em execuções de branches não autorizadas.
 5. Alteração na lista de caminhos, no workflow, no token ou nas regras de publicação deve passar por PR.
 
 ## Ativação segura — ordem obrigatória
@@ -28,10 +28,10 @@
 1. Registrar uma GitHub App na conta proprietária: exemplo de nome `comparador-consorcios-data-publisher`.
 2. Configurar permissões *Repository permissions*: `Contents: Read and write`; `Metadata: Read`; demais apenas leitura/nenhuma. Não conceder `Workflows`, `Administration`, `Actions` ou permissões de organização.
 3. Instalar a App **somente** em `Rafael-Tinelli/comparador-consorcios-data`.
-4. Em *Settings → Secrets and variables → Actions* adicionar:
-   - **Variable** `CONSORCIO_PUBLISH_APP_CLIENT_ID`: Client ID da App.
-   - **Secret** `CONSORCIO_PUBLISH_APP_PRIVATE_KEY`: conteúdo da chave privada PEM. Nunca adicionar a chave ao Git nem aos logs.
-5. Rodar manualmente `01 · Coleta BC Cadastro` **antes** de proteger a branch. Confirmar sucesso do token e push com a identidade da App.
+4. Em *Settings → Environments*, criar `consorcio-data-publisher` com **Deployment branches: Selected branches → `main`** (apenas a branch principal; sem aprovação humana obrigatória para não bloquear os horários de coleta). Essa restrição deve estar ativa **antes** de cadastrar a chave. Não usar `Protected branches only` enquanto a regra ainda não estiver ativa.
+5. Em *Settings → Secrets and variables → Actions*, cadastrar a **Repository variable** `CONSORCIO_PUBLISH_APP_CLIENT_ID` com o Client ID da App. Não cadastrar a chave privada como segredo do repositório.
+6. Em *Settings → Environments → consorcio-data-publisher → Environment secrets*, cadastrar o **segredo do ambiente** `CONSORCIO_PUBLISH_APP_PRIVATE_KEY` com o conteúdo PEM. Não registrar a chave no Git, logs ou secrets gerais da conta.
+7. Rodar manualmente `01 · Coleta BC Cadastro`, selecionando a branch `main`, **antes** de proteger a branch. Confirmar sucesso da autenticação e push com a identidade da App.
 
 ### C. Ativar ruleset sobre a main
 
@@ -51,7 +51,7 @@ A configuração do ruleset é uma ação administrativa feita na interface GitH
 
 1. Criar PR com mudança inocente em `README.md`, verificar que o merge exige `validate-v2` e que push direto de usuário sem bypass é rejeitado.
 2. Rodar `01` manualmente, confirmar que faz commit de `data/` via App com o ruleset ativo.
-3. Rodar `06` manualmente e confirmar que gera/publica somente `data/dist-v2/global/*.json` e `data/source_state/*.json` autorizados.
+3. Rodar `06` manualmente, selecionando a branch `main`, e confirmar que gera/publica somente os JSONs autorizados em `data/dist-v2/global/` e os estados aprovados de `data/source_state/`.
 4. Confirmar `data/dist-v2/global/meta.json` e `current-v2` no HostGator conforme processo independente de homologação.
 5. Se houver erro de bypass, **não retirar a regra sem análise**; verificar token App, instalação, permissões e lista de bypass. Em contingência, pausar coletas até corrigir a identidade ou voltar temporariamente a publicação por PR monitorado.
 

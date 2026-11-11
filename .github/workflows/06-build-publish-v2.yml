@@ -18,6 +18,8 @@ concurrency:
 
 jobs:
   build-publish:
+    # Secret da App só está disponível a workflows da branch main.
+    environment: consorcio-data-publisher
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
