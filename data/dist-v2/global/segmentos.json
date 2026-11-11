@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-11-10T20:08:24+00:00",
+    "generated_at": "2026-11-11T17:32:00+00:00",
     "contract": "segmentos.v2",
     "count": 6,
     "taxonomy_contract": "segment-taxonomy.v1",
@@ -21,11 +21,11 @@
       "segmento": "imobiliario",
       "label": "Consórcio de imóveis",
       "codigo": "1",
-      "competencia": "202605",
+      "competencia": "202608",
       "administradoras_com_operacao_observada": 71,
-      "cotas_ativas_em_dia": 2818705,
-      "contemplacoes_mes": 13770,
-      "taxa_administracao_pct_mediana_administradoras": 20.90699,
+      "cotas_ativas_em_dia": 3035893,
+      "contemplacoes_mes": 14632,
+      "taxa_administracao_pct_mediana_administradoras": 20.85673,
       "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial.",
       "interpretacao": {
         "contract": "interpretacao-relativa.v1",
@@ -37,11 +37,11 @@
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
               "n": 71,
-              "min": 9.73701,
-              "q1": 19.694445,
-              "mediana": 20.90699,
-              "q3": 22.887685,
-              "max": 26.77837,
+              "min": 9.23327,
+              "q1": 19.778025,
+              "mediana": 20.85673,
+              "q3": 22.907525,
+              "max": 26.88211,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -52,11 +52,11 @@
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
               "n": 71,
-              "min": 103.0,
-              "q1": 1538.5,
-              "mediana": 4544.0,
-              "q3": 21207.0,
-              "max": 444155.0,
+              "min": 71.0,
+              "q1": 1565.5,
+              "mediana": 5192.0,
+              "q3": 23438.5,
+              "max": 510783.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -68,10 +68,10 @@
             "distribuicao": {
               "n": 71,
               "min": 0.0,
-              "q1": 7.0,
-              "mediana": 15.0,
-              "q3": 117.5,
-              "max": 2482.0,
+              "q1": 6.0,
+              "mediana": 25.0,
+              "q3": 112.5,
+              "max": 2404.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -83,10 +83,10 @@
             "distribuicao": {
               "n": 71,
               "min": 0.0,
-              "q1": 0.08645172,
-              "mediana": 0.11874649,
-              "q3": 0.17123386,
-              "max": 0.70882208,
+              "q1": 0.08063192,
+              "mediana": 0.10940695,
+              "q3": 0.16217872,
+              "max": 0.71256905,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           }
@@ -101,11 +101,11 @@
       "segmento": "veiculos_pesados_maquinas",
       "label": "Veículos pesados, máquinas e equipamentos",
       "codigo": "2",
-      "competencia": "202605",
-      "administradoras_com_operacao_observada": 56,
-      "cotas_ativas_em_dia": 825523,
-      "contemplacoes_mes": 7489,
-      "taxa_administracao_pct_mediana_administradoras": 14.00078,
+      "competencia": "202608",
+      "administradoras_com_operacao_observada": 54,
+      "cotas_ativas_em_dia": 847561,
+      "contemplacoes_mes": 8012,
+      "taxa_administracao_pct_mediana_administradoras": 13.970525,
       "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial.",
       "interpretacao": {
         "contract": "interpretacao-relativa.v1",
@@ -116,12 +116,12 @@
             "label": "Taxa de administração observada",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 56,
-              "min": 7.71399,
-              "q1": 13.0849075,
-              "mediana": 14.00078,
-              "q3": 16.8372875,
-              "max": 28.20057,
+              "n": 54,
+              "min": 7.65686,
+              "q1": 13.093265,
+              "mediana": 13.970525,
+              "q3": 16.963935,
+              "max": 26.64,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -131,12 +131,12 @@
             "label": "Cotas ativas em dia",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 56,
-              "min": 13.0,
-              "q1": 754.0,
-              "mediana": 2741.5,
-              "q3": 13754.25,
-              "max": 257111.0,
+              "n": 54,
+              "min": 145.0,
+              "q1": 1126.0,
+              "mediana": 3029.0,
+              "q3": 14596.75,
+              "max": 261273.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -146,12 +146,12 @@
             "label": "Contemplações observadas no mês",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 56,
+              "n": 54,
               "min": 0.0,
-              "q1": 7.75,
-              "mediana": 21.0,
-              "q3": 106.0,
-              "max": 1781.0,
+              "q1": 8.25,
+              "mediana": 31.0,
+              "q3": 119.5,
+              "max": 1936.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -161,12 +161,12 @@
             "label": "Participação calculada de inadimplência",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 56,
-              "min": 0.01423488,
-              "q1": 0.09556392,
-              "mediana": 0.11433578,
-              "q3": 0.16417618,
-              "max": 0.56770492,
+              "n": 54,
+              "min": 0.02826855,
+              "q1": 0.08888549,
+              "mediana": 0.11505033,
+              "q3": 0.16306331,
+              "max": 0.55711883,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           }
@@ -181,11 +181,11 @@
       "segmento": "veiculos",
       "label": "Veículos leves",
       "codigo": "3",
-      "competencia": "202605",
+      "competencia": "202608",
       "administradoras_com_operacao_observada": 107,
-      "cotas_ativas_em_dia": 4982159,
-      "contemplacoes_mes": 62109,
-      "taxa_administracao_pct_mediana_administradoras": 15.41334,
+      "cotas_ativas_em_dia": 5162108,
+      "contemplacoes_mes": 65210,
+      "taxa_administracao_pct_mediana_administradoras": 15.46874,
       "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial.",
       "interpretacao": {
         "contract": "interpretacao-relativa.v1",
@@ -198,10 +198,10 @@
             "distribuicao": {
               "n": 107,
               "min": 0.0,
-              "q1": 13.700605,
-              "mediana": 15.41334,
-              "q3": 17.99219,
-              "max": 25.04203,
+              "q1": 13.71165,
+              "mediana": 15.46874,
+              "q3": 17.979295,
+              "max": 23.88,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -212,11 +212,11 @@
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
               "n": 107,
-              "min": 67.0,
-              "q1": 1249.5,
-              "mediana": 3183.0,
-              "q3": 22102.5,
-              "max": 1037115.0,
+              "min": 52.0,
+              "q1": 1267.0,
+              "mediana": 3078.0,
+              "q3": 22679.0,
+              "max": 1040893.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -228,10 +228,10 @@
             "distribuicao": {
               "n": 107,
               "min": 0.0,
-              "q1": 15.0,
-              "mediana": 42.0,
-              "q3": 265.0,
-              "max": 14389.0,
+              "q1": 16.0,
+              "mediana": 43.0,
+              "q3": 248.0,
+              "max": 14172.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -243,10 +243,10 @@
             "distribuicao": {
               "n": 107,
               "min": 0.0,
-              "q1": 0.08611001,
-              "mediana": 0.11320755,
-              "q3": 0.15082952,
-              "max": 0.61422594,
+              "q1": 0.08282027,
+              "mediana": 0.1058104,
+              "q3": 0.15060108,
+              "max": 0.56075999,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           }
@@ -261,11 +261,11 @@
       "segmento": "motos",
       "label": "Motocicletas",
       "codigo": "4",
-      "competencia": "202605",
-      "administradoras_com_operacao_observada": 67,
-      "cotas_ativas_em_dia": 2910766,
-      "contemplacoes_mes": 56818,
-      "taxa_administracao_pct_mediana_administradoras": 18.85989,
+      "competencia": "202608",
+      "administradoras_com_operacao_observada": 66,
+      "cotas_ativas_em_dia": 2962589,
+      "contemplacoes_mes": 57175,
+      "taxa_administracao_pct_mediana_administradoras": 19.392885,
       "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial.",
       "interpretacao": {
         "contract": "interpretacao-relativa.v1",
@@ -276,12 +276,12 @@
             "label": "Taxa de administração observada",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 67,
-              "min": 5.22982,
-              "q1": 16.152845,
-              "mediana": 18.85989,
-              "q3": 20.89541,
-              "max": 38.94,
+              "n": 66,
+              "min": 4.36329,
+              "q1": 16.25452,
+              "mediana": 19.392885,
+              "q3": 20.957315,
+              "max": 39.10317,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -291,12 +291,12 @@
             "label": "Cotas ativas em dia",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 67,
-              "min": 38.0,
-              "q1": 952.5,
-              "mediana": 2552.0,
-              "q3": 7796.5,
-              "max": 2251038.0,
+              "n": 66,
+              "min": 52.0,
+              "q1": 992.5,
+              "mediana": 2646.0,
+              "q3": 8264.0,
+              "max": 2307851.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -306,12 +306,12 @@
             "label": "Contemplações observadas no mês",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 67,
+              "n": 66,
               "min": 0.0,
-              "q1": 11.0,
-              "mediana": 33.0,
-              "q3": 107.5,
-              "max": 46983.0,
+              "q1": 12.5,
+              "mediana": 33.5,
+              "q3": 115.5,
+              "max": 47729.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -321,12 +321,12 @@
             "label": "Participação calculada de inadimplência",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 67,
-              "min": 0.02247191,
-              "q1": 0.09458717,
-              "mediana": 0.13929041,
-              "q3": 0.17298647,
-              "max": 0.52,
+              "n": 66,
+              "min": 0.02777778,
+              "q1": 0.09857986,
+              "mediana": 0.13811342,
+              "q3": 0.17963992,
+              "max": 0.76449054,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           }
@@ -341,11 +341,11 @@
       "segmento": "outros_bens_moveis",
       "label": "Outros bens móveis duráveis",
       "codigo": "5",
-      "competencia": "202605",
-      "administradoras_com_operacao_observada": 28,
-      "cotas_ativas_em_dia": 192477,
-      "contemplacoes_mes": 4017,
-      "taxa_administracao_pct_mediana_administradoras": 18.57924,
+      "competencia": "202608",
+      "administradoras_com_operacao_observada": 26,
+      "cotas_ativas_em_dia": 176287,
+      "contemplacoes_mes": 2700,
+      "taxa_administracao_pct_mediana_administradoras": 18.29449,
       "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial.",
       "interpretacao": {
         "contract": "interpretacao-relativa.v1",
@@ -356,12 +356,12 @@
             "label": "Taxa de administração observada",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 28,
+              "n": 26,
               "min": 7.0,
-              "q1": 15.28158,
-              "mediana": 18.57924,
-              "q3": 21.9576,
-              "max": 43.75946,
+              "q1": 15.0806425,
+              "mediana": 18.29449,
+              "q3": 21.194405,
+              "max": 39.73276,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -371,12 +371,12 @@
             "label": "Cotas ativas em dia",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 28,
+              "n": 26,
               "min": 8.0,
-              "q1": 140.0,
-              "mediana": 895.0,
-              "q3": 4129.25,
-              "max": 81146.0,
+              "q1": 188.25,
+              "mediana": 1291.5,
+              "q3": 6395.0,
+              "max": 63579.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -386,12 +386,12 @@
             "label": "Contemplações observadas no mês",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 28,
+              "n": 26,
               "min": 0.0,
-              "q1": 2.0,
-              "mediana": 13.0,
-              "q3": 132.75,
-              "max": 1781.0,
+              "q1": 3.5,
+              "mediana": 25.5,
+              "q3": 73.5,
+              "max": 774.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -401,12 +401,12 @@
             "label": "Participação calculada de inadimplência",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 28,
+              "n": 26,
               "min": 0.0,
-              "q1": 0.07490446,
-              "mediana": 0.15821093,
-              "q3": 0.22603675,
-              "max": 0.76388987,
+              "q1": 0.07586509,
+              "mediana": 0.14333806,
+              "q3": 0.19943023,
+              "max": 0.82036397,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           }
@@ -421,11 +421,11 @@
       "segmento": "servicos_turisticos",
       "label": "Serviços turísticos",
       "codigo": "6",
-      "competencia": "202605",
-      "administradoras_com_operacao_observada": 37,
-      "cotas_ativas_em_dia": 121191,
-      "contemplacoes_mes": 3682,
-      "taxa_administracao_pct_mediana_administradoras": 18.8,
+      "competencia": "202608",
+      "administradoras_com_operacao_observada": 36,
+      "cotas_ativas_em_dia": 130597,
+      "contemplacoes_mes": 3631,
+      "taxa_administracao_pct_mediana_administradoras": 18.179855,
       "nota_taxa": "Mediana derivada entre administradoras observadas; não é média oficial de mercado nem oferta comercial.",
       "interpretacao": {
         "contract": "interpretacao-relativa.v1",
@@ -436,12 +436,12 @@
             "label": "Taxa de administração observada",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 37,
+              "n": 36,
               "min": 9.5,
-              "q1": 16.33974,
-              "mediana": 18.8,
-              "q3": 22.02916,
-              "max": 29.1366,
+              "q1": 16.39897,
+              "mediana": 18.179855,
+              "q3": 22.0399375,
+              "max": 28.45857,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -451,12 +451,12 @@
             "label": "Cotas ativas em dia",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 37,
-              "min": 18.0,
-              "q1": 146.0,
-              "mediana": 425.0,
-              "q3": 1244.0,
-              "max": 51665.0,
+              "n": 36,
+              "min": 19.0,
+              "q1": 160.5,
+              "mediana": 556.0,
+              "q3": 1302.75,
+              "max": 51842.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -466,12 +466,12 @@
             "label": "Contemplações observadas no mês",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 37,
+              "n": 36,
               "min": 0.0,
-              "q1": 2.0,
+              "q1": 3.0,
               "mediana": 8.0,
-              "q3": 27.0,
-              "max": 1408.0,
+              "q3": 28.75,
+              "max": 1492.0,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           },
@@ -481,12 +481,12 @@
             "label": "Participação calculada de inadimplência",
             "scope": "segmento_mesma_competencia",
             "distribuicao": {
-              "n": 37,
-              "min": 0.06533333,
-              "q1": 0.12820513,
-              "mediana": 0.18510158,
-              "q3": 0.24605678,
-              "max": 0.71923077,
+              "n": 36,
+              "min": 0.02382725,
+              "q1": 0.10599001,
+              "mediana": 0.18325784,
+              "q3": 0.2425,
+              "max": 0.71304348,
               "metodo_quartis": "interpolacao_linear_p_n_menos_1"
             }
           }
