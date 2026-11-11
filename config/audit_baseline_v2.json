@@ -1,6 +1,6 @@
 {
   "version": "2026-09-13",
-  "purpose": "Baseline da Auditoria 2 para testes de regressão em PR. Não é gate numérico do workflow recorrente de produção.",
+  "purpose": "Baseline imutável da Auditoria 2 (dados de maio/2026). Apenas para regressão com insumos congelados; não é gate numérico da competência atual.",
   "expected": {
     "administradoras": 130,
     "ranking_rows": 85,
@@ -26,8 +26,25 @@
     "monthly_operational_roots": 124,
     "all_positions_null": true,
     "portfolios": {
-      "48041735": ["1", "2", "3"],
-      "45441789": ["3", "4", "5"]
+      "45441789": [
+        "3",
+        "4",
+        "5"
+      ],
+      "48041735": [
+        "1",
+        "2",
+        "3"
+      ]
     }
+  },
+  "historical_fixture": {
+    "commit": "df776f8ed11c0ad6ce61f7620a0b36e02c055dc5",
+    "competence": "202605",
+    "paths": [
+      "data/raw",
+      "data/stage",
+      "data/source_state"
+    ]
   }
 }
