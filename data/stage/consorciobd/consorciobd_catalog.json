@@ -2,10 +2,10 @@
   "metadata": {
     "source": "bc_consorciobd",
     "collector": "collectors/bc_consorciobd.py",
-    "collected_at": "2026-07-12T10:18:49+00:00",
+    "collected_at": "2026-11-11T17:21:03+00:00",
     "mode_used": "direct-content-download",
-    "probe_count": 3,
-    "resource_sha256": "f78835875b54eac2996896c84bd7fb416669edb8e0307cf7c9a781ff34c71247"
+    "probe_count": 4,
+    "resource_sha256": "5a6bbe8d38d4e8df6d3ca4e790a4c925cf1e0e8f5a1692f2724da4f4c4f23b91"
   },
   "resource": {
     "family_key": "dados_consolidados",
@@ -14,40 +14,40 @@
       "family_key": "dados_consolidados",
       "family_label": "Dados Consolidados",
       "year": 2026,
-      "month": 5,
-      "yyyymm": "202605",
-      "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202605Consorcios.zip"
+      "month": 8,
+      "yyyymm": "202608",
+      "url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202608Consorcios.zip"
     },
     "selected_probe": {
       "method": "HEAD",
       "status_code": 200,
-      "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202605Consorcios.zip",
+      "final_url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202608Consorcios.zip",
       "content_type": "application/x-zip-compressed",
-      "content_length": "107927",
+      "content_length": "109968",
       "ok": true
     },
     "download_meta": {
       "status_code": 200,
-      "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202605Consorcios.zip",
+      "final_url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202608Consorcios.zip",
       "content_type": "application/x-zip-compressed",
-      "content_length": "107927",
-      "last_modified": "Sat, 11 Jul 2026 02:40:43 GMT",
-      "etag": "\"90863babde10dd1:0\""
+      "content_length": "109968",
+      "last_modified": "Sun, 11 Oct 2026 16:02:38 GMT",
+      "etag": "\"{79FDF460-C25C-437C-B7AB-8828AFEF40EC},3\""
     },
-    "sha256": "f78835875b54eac2996896c84bd7fb416669edb8e0307cf7c9a781ff34c71247",
+    "sha256": "5a6bbe8d38d4e8df6d3ca4e790a4c925cf1e0e8f5a1692f2724da4f4c4f23b91",
     "inspection": {
       "detected_format": "zip_with_csv",
       "content_type": "application/x-zip-compressed",
-      "size_bytes": 107927,
+      "size_bytes": 109968,
       "archive_members": [
         "Significado_dos_campos_e_metricas.xlsx",
-        "202605Bens_Imoveis_Grupos.csv",
-        "202605Segmentos_Consolidados.csv"
+        "202608Bens_Imoveis_Grupos.csv",
+        "202608Segmentos_Consolidados.csv"
       ],
       "archive_members_preview": [
         "Significado_dos_campos_e_metricas.xlsx",
-        "202605Bens_Imoveis_Grupos.csv",
-        "202605Segmentos_Consolidados.csv"
+        "202608Bens_Imoveis_Grupos.csv",
+        "202608Segmentos_Consolidados.csv"
       ]
     }
   },
@@ -57,15 +57,15 @@
         "family_key": "dados_consolidados",
         "family_label": "Dados Consolidados",
         "year": 2026,
-        "month": 7,
-        "yyyymm": "202607",
-        "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202607Consorcios.zip"
+        "month": 11,
+        "yyyymm": "202611",
+        "url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202611Consorcios.zip"
       },
       "probes": [
         {
           "method": "HEAD",
           "status_code": 404,
-          "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202607Consorcios.zip",
+          "final_url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202611Consorcios.zip",
           "content_type": "text/html",
           "content_length": "6245",
           "ok": false
@@ -73,7 +73,7 @@
         {
           "method": "GET",
           "status_code": 404,
-          "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202607Consorcios.zip",
+          "final_url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202611Consorcios.zip",
           "content_type": "text/html",
           "content_length": "6245",
           "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
@@ -87,15 +87,15 @@
         "family_key": "dados_consolidados",
         "family_label": "Dados Consolidados",
         "year": 2026,
-        "month": 6,
-        "yyyymm": "202606",
-        "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202606Consorcios.zip"
+        "month": 10,
+        "yyyymm": "202610",
+        "url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202610Consorcios.zip"
       },
       "probes": [
         {
           "method": "HEAD",
           "status_code": 404,
-          "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202606Consorcios.zip",
+          "final_url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202610Consorcios.zip",
           "content_type": "text/html",
           "content_length": "6245",
           "ok": false
@@ -103,7 +103,7 @@
         {
           "method": "GET",
           "status_code": 404,
-          "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202606Consorcios.zip",
+          "final_url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202610Consorcios.zip",
           "content_type": "text/html",
           "content_length": "6245",
           "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
@@ -117,17 +117,47 @@
         "family_key": "dados_consolidados",
         "family_label": "Dados Consolidados",
         "year": 2026,
-        "month": 5,
-        "yyyymm": "202605",
-        "url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202605Consorcios.zip"
+        "month": 9,
+        "yyyymm": "202609",
+        "url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202609Consorcios.zip"
+      },
+      "probes": [
+        {
+          "method": "HEAD",
+          "status_code": 404,
+          "final_url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202609Consorcios.zip",
+          "content_type": "text/html",
+          "content_length": "6245",
+          "ok": false
+        },
+        {
+          "method": "GET",
+          "status_code": 404,
+          "final_url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202609Consorcios.zip",
+          "content_type": "text/html",
+          "content_length": "6245",
+          "first_chunk_sha256": "ff4d19a0a8a0c1b9f072adfe3ce0ef97291a17023c1452f15d0f42d2c334833e",
+          "first_chunk_preview_hex": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227074",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "family_key": "dados_consolidados",
+        "family_label": "Dados Consolidados",
+        "year": 2026,
+        "month": 8,
+        "yyyymm": "202608",
+        "url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202608Consorcios.zip"
       },
       "probes": [
         {
           "method": "HEAD",
           "status_code": 200,
-          "final_url": "https://www.bcb.gov.br/Fis/Consorcios/Port/BD/202605Consorcios.zip",
+          "final_url": "https://www.bcb.gov.br/content/estabilidadefinanceira/consorcio-banco-de-dados/dados-consolidados/202608Consorcios.zip",
           "content_type": "application/x-zip-compressed",
-          "content_length": "107927",
+          "content_length": "109968",
           "ok": true
         }
       ]
