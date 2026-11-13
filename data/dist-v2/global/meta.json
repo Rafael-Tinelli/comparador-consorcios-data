@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-12T20:35:56+00:00",
+  "generated_at": "2026-11-13T20:12:45+00:00",
   "pipeline_version": "4.3.0",
-  "source_fingerprint": "0c793dc381e9ea8e9ff88561be6e4051c693de5dac91793a0b07fc15a9b2045e",
+  "source_fingerprint": "8c54b3ae7932f3f8152cc8aa322aa06c530993cecb6ac09238be3cbae23a2210",
   "methodology_version": "2.1.0",
   "methodology_sha256": "ca5221e37b2fbecbcea9a2c591dbf8950a03763e280208181835559aed16dcb9",
   "contracts": {
@@ -73,8 +73,8 @@
     "consorciobd_mensal": "202608"
   },
   "counts": {
-    "instituicoes": 130,
-    "administradoras": 130,
+    "instituicoes": 129,
+    "administradoras": 129,
     "produtos": 360,
     "rankings": 85,
     "segmentos": 6,
@@ -82,7 +82,7 @@
     "ofertas": 0
   },
   "quality": {
-    "registry_roots": 130,
+    "registry_roots": 129,
     "monthly_consolidated_rows": 756,
     "monthly_operational_rows": 360,
     "monthly_consolidated_roots": 126,
@@ -105,8 +105,11 @@
     ],
     "ranking_rows": 85,
     "branch_unresolved": 0,
-    "operational_orphans": [],
+    "operational_orphans": [
+      "61550836"
+    ],
     "ranking_orphans": [
+      "61550836",
       "87945218"
     ]
   },
@@ -114,37 +117,37 @@
     "global": [
       {
         "file": "instituicoes.json",
-        "sha256": "d598b0b8b3569878483607cdd4a1573bf932e1fd35b294d48b3a655fd402a035",
-        "size_bytes": 49524
+        "sha256": "4cd53fdb4cfeb3d66715c1a6e9730ae4b5731c60b2bd8b2825a3a8e5181597c3",
+        "size_bytes": 49035
       },
       {
         "file": "administradoras.json",
-        "sha256": "19067b5b70a97cf6ed824826f7a277943c900deac49773ad85a448b2a1d1cf95",
-        "size_bytes": 2386988
+        "sha256": "bcf0747f79863d20482194220763544af3a3f9c05e13655f8e4959717d0a12b0",
+        "size_bytes": 2359948
       },
       {
         "file": "produtos.json",
-        "sha256": "0263a55c1db7765aa813eac695ec2dbd737c3d18e8445d3115d4a691bc01fba5",
+        "sha256": "2066829e131b5606d780adb3cb717067e2dc8fb5449c0641ef5e358c7b19543d",
         "size_bytes": 304586
       },
       {
         "file": "rankings.json",
-        "sha256": "33369b312841f0bc7636378bce31086ed4ff1d7782abe8c115a61a46b7e1c7d5",
+        "sha256": "b8d0afa5a98bb7bc6cb5c5dbf9b9e887296af82df47e1a7d9c5bded49abbd905",
         "size_bytes": 44140
       },
       {
         "file": "segmentos.json",
-        "sha256": "74da5522499b58fdcaf9a7de915b16d1e62742aed966f7c0c89caad5ba28fe07",
-        "size_bytes": 17960
+        "sha256": "10c51bfe57426392450b1a054f74f5f83177a85d4efab036e4d8b653e68d4f8d",
+        "size_bytes": 17941
       },
       {
         "file": "comparacoes.json",
-        "sha256": "c4180c9846b5aa70cbdeb9a81fe0115f287927f32f11db704f11a365b2ecd4e2",
-        "size_bytes": 1856111
+        "sha256": "7a658e464a1702c609425fd12fa0450d4a52d94a3b3cf8c4b46d9a20c7f8546f",
+        "size_bytes": 1832315
       },
       {
         "file": "ofertas.json",
-        "sha256": "b7024ebf34392321e5a93c65169c0054f08f28f87b118f4340eb845ff4ee1618",
+        "sha256": "e719ae318efeb922e65704d81150cf8987a79fcf92617e50b67438b4225ad6fe",
         "size_bytes": 246
       }
     ],
@@ -161,34 +164,34 @@
   "source_status": {
     "bc_cadastro_admins": {
       "role": "cadastro atual de administradoras",
-      "last_checked_at": "2026-11-12T16:55:43+00:00",
+      "last_checked_at": "2026-11-13T16:36:27+00:00",
       "last_check_status": "success",
-      "last_successful_check_at": "2026-11-12T16:55:43+00:00",
-      "last_changed_at": "2026-11-12T16:55:43+00:00",
+      "last_successful_check_at": "2026-11-13T16:36:27+00:00",
+      "last_changed_at": "2026-11-13T16:36:27+00:00",
       "changed_on_last_success": true,
       "mode_used": "odata-csv",
-      "content_sha256": "31d364171d26e677b7ec918563b7c7aca80b403031cae2e73602ca3a86e48dae",
+      "content_sha256": "0e0353a4f776ac8153f3edfd65d0bfc70bc7c1798e69c4c2803f113a043f4733",
       "competence": {
         "kind": "not_applicable",
         "value": null
       },
-      "snapshot_collected_at": "2026-11-12T16:55:43+00:00",
+      "snapshot_collected_at": "2026-11-13T16:36:27+00:00",
       "last_error": null
     },
     "bc_filiais": {
       "role": "presença cadastral de filiais",
-      "last_checked_at": "2026-11-12T20:05:08+00:00",
+      "last_checked_at": "2026-11-13T19:50:42+00:00",
       "last_check_status": "success",
-      "last_successful_check_at": "2026-11-12T20:05:08+00:00",
-      "last_changed_at": "2026-11-12T20:05:08+00:00",
+      "last_successful_check_at": "2026-11-13T19:50:42+00:00",
+      "last_changed_at": "2026-11-13T19:50:42+00:00",
       "changed_on_last_success": true,
       "mode_used": "odata-csv",
-      "content_sha256": "b8c00baa0264acba3e45bfc01dd727d9a706abf00d22a0552825501498251f83",
+      "content_sha256": "c6b220ef0b9f17ad1269c0f0753e3d307f6907060d51964c49c13dc827c8a327",
       "competence": {
         "kind": "position_date",
-        "value": "2026-11-11"
+        "value": "2026-11-12"
       },
-      "snapshot_collected_at": "2026-11-12T20:05:08+00:00",
+      "snapshot_collected_at": "2026-11-13T19:50:42+00:00",
       "last_error": null
     },
     "bc_consorciobd": {
@@ -237,12 +240,12 @@
     "all_required_states_present": true,
     "source_state_matches_consumed_bytes": true,
     "degraded_sources": [],
-    "source_state_sha256": "ba5ada50bfcec762773b583c38f5e7008da0752167b16608a0a8ff2f11b67228"
+    "source_state_sha256": "e6412926957c3dd9a9cafbda7e752a10581a38a14e185ece7611ef03ef59923e"
   },
   "backend_release": {
     "contract": "comparador-v2-release.v2",
     "publication_eligible": true,
     "publication_note": "Release V2 data-only. Uma falha de consulta não apaga o último conteúdo aprovado; ela é exposta em source_status. A publicação é bloqueada se faltar estado persistente, último sucesso, competência explícita ou se o hash persistido não corresponder exatamente aos bytes consumidos pelo build. SEO editorial pertence ao frontend/site.",
-    "release_fingerprint": "1978cdadb3634e2eb94b5ab623cc96a336d64db2f51e55bd6668b7d979425178"
+    "release_fingerprint": "e019681aed7885dc716cbc5ef2fc7f71ca3c45a09951a08fa501195e48539e5f"
   }
 }

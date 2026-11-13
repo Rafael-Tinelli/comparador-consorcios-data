@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_at": "2026-11-12T20:35:56+00:00",
+    "generated_at": "2026-11-13T20:12:45+00:00",
     "contract": "instituicoes.v2",
-    "count": 130
+    "count": 129
   },
   "items": [
     {
@@ -598,18 +598,6 @@
       "cnpj_root": "58919903",
       "nome": "CONVEF ADMINISTRADORA DE CONSÓRCIOS LTDA.",
       "nome_normalizado": "convef_administradora_de_consorcios_ltda",
-      "status_detalhado": null,
-      "cadastro_atual_bcb": true,
-      "presenca_cadastrada": {
-        "filiais": 0,
-        "ufs": [],
-        "municipios_count": 0
-      }
-    },
-    {
-      "cnpj_root": "61550836",
-      "nome": "COOPERATIVA ADMINISTRADORA DE CONSÓRCIOS ROMA - PROIBIDA DE CONSTITUIR NOVOS GRUPOS DE CONSÓRCIO ATÉ 21.4.2029",
-      "nome_normalizado": "cooperativa_administradora_de_consorcios_roma_proibida_de_constituir_novos_grupos_de_consorcio_ate_21_4_2029",
       "status_detalhado": null,
       "cadastro_atual_bcb": true,
       "presenca_cadastrada": {
