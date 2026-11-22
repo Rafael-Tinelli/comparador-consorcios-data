@@ -2,7 +2,7 @@
   "metadata": {
     "source": "bc_filiais",
     "collector": "collectors/bc_filiais.py",
-    "collected_at": "2026-11-20T20:30:11+00:00",
+    "collected_at": "2026-11-22T19:49:13+00:00",
     "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais",
     "mode_used": "odata-csv",
     "params": {
@@ -1066,6 +1066,22 @@
       "Posicao": "19/11/2026"
     },
     {
+      "CNPJ": "62354055",
+      "NomeInstituicao": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "Endereco": "RUA PEDROSO, 441",
+      "Numero": "",
+      "Complemento": "TERREO",
+      "Bairro": "LIBERDADE",
+      "CEP": "01322-010",
+      "MunicipioIbge": "3550308",
+      "Municipio": "SAO PAULO",
+      "UF": "SP",
+      "DataInicio": "1993-01-07",
+      "DDD": "11",
+      "Telefone": "33729155",
+      "Posicao": "19/11/2026"
+    },
+    {
       "CNPJ": "58113812",
       "NomeInstituicao": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "Endereco": "RUA PIO XI",
@@ -1319,22 +1335,6 @@
       "DataInicio": "1993-02-07",
       "DDD": "null",
       "Telefone": "null",
-      "Posicao": "19/11/2026"
-    },
-    {
-      "CNPJ": "62354055",
-      "NomeInstituicao": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "Endereco": "RUA PEDROSO, 441",
-      "Numero": "",
-      "Complemento": "TERREO",
-      "Bairro": "LIBERDADE",
-      "CEP": "01322-010",
-      "MunicipioIbge": "3550308",
-      "Municipio": "SAO PAULO",
-      "UF": "SP",
-      "DataInicio": "1993-01-07",
-      "DDD": "11",
-      "Telefone": "33729155",
       "Posicao": "19/11/2026"
     },
     {

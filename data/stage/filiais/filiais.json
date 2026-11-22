@@ -2,11 +2,11 @@
   "metadata": {
     "source": "bc_filiais",
     "collector": "collectors/bc_filiais.py",
-    "collected_at": "2026-11-20T20:30:11+00:00",
+    "collected_at": "2026-11-22T19:49:13+00:00",
     "endpoint": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais",
     "mode_used": "odata-csv",
     "record_count": 310,
-    "raw_hash": "bfed06f03367446e9553b18db2167675ff4ffcc7bf12e0248e221e92e8bb3929",
+    "raw_hash": "822228ce5ee9e328f3ab706a75a5bc973ebec1b9ef3d4903493ff75631364053",
     "fetch_meta": {
       "mode": "odata-csv",
       "url": "https://olinda.bcb.gov.br/olinda/servico/Informes_FiliaisAdministradorasConsorcios/versao/v1/odata/Filiais?%24format=text%2Fcsv",
@@ -9720,6 +9720,43 @@
     {
       "source_record_index": 66,
       "institution_id": null,
+      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
+      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
+      "cnpj": "62354055",
+      "cnpj_root": "62354055",
+      "unit_code": null,
+      "unit_name": null,
+      "unit_name_key": null,
+      "unit_type": null,
+      "status_text": null,
+      "is_active": null,
+      "address": "RUA PEDROSO, 441",
+      "neighborhood": "LIBERDADE",
+      "city": "SAO PAULO",
+      "uf": "SP",
+      "zip_code": "01322010",
+      "phone": "33729155",
+      "start_date": "1993-01-07",
+      "source_fields_present": [
+        "Bairro",
+        "CEP",
+        "CNPJ",
+        "Complemento",
+        "DDD",
+        "DataInicio",
+        "Endereco",
+        "Municipio",
+        "MunicipioIbge",
+        "NomeInstituicao",
+        "Numero",
+        "Posicao",
+        "Telefone",
+        "UF"
+      ]
+    },
+    {
+      "source_record_index": 67,
+      "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
       "cnpj": "58113812",
@@ -9755,7 +9792,7 @@
       ]
     },
     {
-      "source_record_index": 67,
+      "source_record_index": 68,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -9792,7 +9829,7 @@
       ]
     },
     {
-      "source_record_index": 68,
+      "source_record_index": 69,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -9829,7 +9866,7 @@
       ]
     },
     {
-      "source_record_index": 69,
+      "source_record_index": 70,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -9866,7 +9903,7 @@
       ]
     },
     {
-      "source_record_index": 70,
+      "source_record_index": 71,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -9903,7 +9940,7 @@
       ]
     },
     {
-      "source_record_index": 71,
+      "source_record_index": 72,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -9940,7 +9977,7 @@
       ]
     },
     {
-      "source_record_index": 72,
+      "source_record_index": 73,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -9977,7 +10014,7 @@
       ]
     },
     {
-      "source_record_index": 73,
+      "source_record_index": 74,
       "institution_id": null,
       "institution_name": "EMBRACON ADMINISTRADORA DE CONSÓRCIO S/A",
       "institution_name_key": "EMBRACON ADMINISTRADORA DE CONSORCIO S A",
@@ -10014,7 +10051,7 @@
       ]
     },
     {
-      "source_record_index": 74,
+      "source_record_index": 75,
       "institution_id": null,
       "institution_name": "SANTANDER BRASIL ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "SANTANDER BRASIL ADMINISTRADORA DE CONSORCIO LTDA",
@@ -10051,7 +10088,7 @@
       ]
     },
     {
-      "source_record_index": 75,
+      "source_record_index": 76,
       "institution_id": null,
       "institution_name": "UNAFISCO - ASSOCIAÇÃO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
       "institution_name_key": "UNAFISCO ASSOCIACAO NACIONAL DOS AUDITORES FISCAIS DA RECEITA FEDERAL DO BRASIL",
@@ -10088,7 +10125,7 @@
       ]
     },
     {
-      "source_record_index": 76,
+      "source_record_index": 77,
       "institution_id": null,
       "institution_name": "PRIMO ROSSI ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "PRIMO ROSSI ADMINISTRADORA DE CONSORCIO LTDA",
@@ -10125,7 +10162,7 @@
       ]
     },
     {
-      "source_record_index": 77,
+      "source_record_index": 78,
       "institution_id": null,
       "institution_name": "CANOPUS ADMINISTRADORA DE CONSORCIOS S/A",
       "institution_name_key": "CANOPUS ADMINISTRADORA DE CONSORCIOS S A",
@@ -10162,7 +10199,7 @@
       ]
     },
     {
-      "source_record_index": 78,
+      "source_record_index": 79,
       "institution_id": null,
       "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -10199,7 +10236,7 @@
       ]
     },
     {
-      "source_record_index": 79,
+      "source_record_index": 80,
       "institution_id": null,
       "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -10236,7 +10273,7 @@
       ]
     },
     {
-      "source_record_index": 80,
+      "source_record_index": 81,
       "institution_id": null,
       "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -10273,7 +10310,7 @@
       ]
     },
     {
-      "source_record_index": 81,
+      "source_record_index": 82,
       "institution_id": null,
       "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
       "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
@@ -10292,43 +10329,6 @@
       "zip_code": "02113012",
       "phone": null,
       "start_date": "1993-02-07",
-      "source_fields_present": [
-        "Bairro",
-        "CEP",
-        "CNPJ",
-        "Complemento",
-        "DDD",
-        "DataInicio",
-        "Endereco",
-        "Municipio",
-        "MunicipioIbge",
-        "NomeInstituicao",
-        "Numero",
-        "Posicao",
-        "Telefone",
-        "UF"
-      ]
-    },
-    {
-      "source_record_index": 82,
-      "institution_id": null,
-      "institution_name": "REMAZA ADMINISTRADORA DE CONSÓRCIO LTDA.",
-      "institution_name_key": "REMAZA ADMINISTRADORA DE CONSORCIO LTDA",
-      "cnpj": "62354055",
-      "cnpj_root": "62354055",
-      "unit_code": null,
-      "unit_name": null,
-      "unit_name_key": null,
-      "unit_type": null,
-      "status_text": null,
-      "is_active": null,
-      "address": "RUA PEDROSO, 441",
-      "neighborhood": "LIBERDADE",
-      "city": "SAO PAULO",
-      "uf": "SP",
-      "zip_code": "01322010",
-      "phone": "33729155",
-      "start_date": "1993-01-07",
       "source_fields_present": [
         "Bairro",
         "CEP",
