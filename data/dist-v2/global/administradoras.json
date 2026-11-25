@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_at": "2026-11-24T22:52:15+00:00",
+    "generated_at": "2026-11-25T22:05:13+00:00",
     "contract": "administradoras.v2",
-    "count": 129,
+    "count": 130,
     "ranking_geral": false,
     "interpretation_contract": "interpretacao-relativa.v1",
     "reclamacoes_bcb_referencia_global": {
@@ -49225,6 +49225,116 @@
         "sinais": {
           "cadastro_atual_bcb": true,
           "operacao_mensal_observada": true,
+          "registro_reclamacoes_vinculado": false,
+          "indice_reclamacoes_bcb_divulgado": false
+        },
+        "limites": [
+          "Não certifica solvência nem confiabilidade universal.",
+          "Não substitui análise da proposta, do regulamento e das condições do grupo.",
+          "Não prevê chance nem tempo individual de contemplação."
+        ]
+      },
+      "interpretacao_relativa": {
+        "contract": "interpretacao-relativa.v1",
+        "reclamacoes_bcb": {
+          "availability": "unavailable",
+          "reason": "sem_registro_vinculado_no_arquivo",
+          "mediana_referencia": 290.905,
+          "ordem_derivada": null,
+          "comparacao_mediana": null,
+          "faixa_distribuicao": null,
+          "destaque": null,
+          "papel": "indice_reclamacoes_institucional",
+          "escopo": "administradoras_cadastro_atual_com_indice_divulgado",
+          "nota": "Índice ausente ou não divulgado não equivale a zero nem a sinal favorável."
+        }
+      }
+    },
+    {
+      "id": "59563889",
+      "cnpj_root": "59563889",
+      "nome": "VINCERE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "identidade": {
+        "cadastro_atual_bcb": true,
+        "status_detalhado": null,
+        "nota": "A raiz de oito dígitos identifica a administradora no conjunto cadastral usado; não é CNPJ completo."
+      },
+      "portfolio_observado": {
+        "segmentos": [],
+        "afirmacao_permitida": "Há operação observada nestes segmentos na competência indicada.",
+        "limite": "O ConsorcioBD não comprova, sozinho, todos os planos comerciais atualmente disponíveis para contratação."
+      },
+      "operacao": {
+        "competencia": null,
+        "segmentos_count": 0,
+        "grupos_ativos": {
+          "value": null,
+          "availability": "unavailable",
+          "reason": "sem_operacao_mensal_vinculada_ou_cobertura_incompleta"
+        },
+        "cotas_ativas_em_dia": {
+          "value": null,
+          "availability": "unavailable",
+          "reason": "sem_operacao_mensal_vinculada_ou_cobertura_incompleta"
+        },
+        "contemplacoes_mes": {
+          "value": null,
+          "availability": "unavailable",
+          "reason": "sem_operacao_mensal_vinculada_ou_cobertura_incompleta"
+        },
+        "inadimplentes": {
+          "value": null,
+          "availability": "unavailable",
+          "reason": "numerador_incompleto_ou_sem_operacao"
+        },
+        "cotas_ativas_total_calculado": {
+          "value": null,
+          "availability": "unavailable",
+          "reason": "componentes_incompletos"
+        },
+        "inadimplencia_participacao": {
+          "value": null,
+          "availability": "unavailable",
+          "reason": "componentes_incompletos"
+        },
+        "nota_inadimplencia": "Participação calculada como inadimplentes/(cotas em dia + inadimplentes), quando ambos os estoques estão disponíveis."
+      },
+      "reclamacoes_bcb": {
+        "indice_bc": null,
+        "indice_status": "sem_registro_vinculado_no_arquivo",
+        "posicao_oficial": null,
+        "reclamacoes_reguladas_procedentes": null,
+        "reclamacoes_reguladas_outras": null,
+        "reclamacoes_nao_reguladas": null,
+        "reclamacoes_total": null,
+        "consorciados_referencia": null,
+        "ano": null,
+        "semestre": null
+      },
+      "presenca": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0,
+        "papel_metodologico": "informativo",
+        "nota": "Quantidade de filiais cadastradas não é usada como prova de confiabilidade nem de disponibilidade comercial nacional."
+      },
+      "comparabilidade": {
+        "coverage": "catalogo",
+        "ranking_geral_publicavel": false,
+        "motivo_sem_ranking_geral": "V2 não redistribui pesos entre evidências ausentes e não converte porte/presença em qualidade.",
+        "dimensoes_comparaveis": []
+      },
+      "leitura_confiabilidade": {
+        "nivel_evidencia": "insuficiente",
+        "sinais_disponiveis": [
+          "cadastro_atual_bcb"
+        ],
+        "texto": "A administradora aparece no cadastro atual usado pela ferramenta, mas as demais evidências desta release são insuficientes para uma triagem comparativa ampla.",
+        "contract": "interpretacao-relativa.v1",
+        "resposta_chave": "apenas_cadastro_atual",
+        "sinais": {
+          "cadastro_atual_bcb": true,
+          "operacao_mensal_observada": false,
           "registro_reclamacoes_vinculado": false,
           "indice_reclamacoes_bcb_divulgado": false
         },

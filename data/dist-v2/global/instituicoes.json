@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generated_at": "2026-11-24T22:52:15+00:00",
+    "generated_at": "2026-11-25T22:05:13+00:00",
     "contract": "instituicoes.v2",
-    "count": 129
+    "count": 130
   },
   "items": [
     {
@@ -1722,6 +1722,18 @@
           "SP"
         ],
         "municipios_count": 1
+      }
+    },
+    {
+      "cnpj_root": "59563889",
+      "nome": "VINCERE ADMINISTRADORA DE CONSÓRCIOS LTDA.",
+      "nome_normalizado": "vincere_administradora_de_consorcios_ltda",
+      "status_detalhado": null,
+      "cadastro_atual_bcb": true,
+      "presenca_cadastrada": {
+        "filiais": 0,
+        "ufs": [],
+        "municipios_count": 0
       }
     },
     {
