@@ -1,18 +1,18 @@
 {
   "schema": "source-state.v1",
   "source": "bc_filiais",
-  "last_checked_at": "2026-11-26T21:42:03+00:00",
+  "last_checked_at": "2026-11-27T21:26:47+00:00",
   "last_check_status": "success",
-  "last_successful_check_at": "2026-11-26T21:42:03+00:00",
-  "last_changed_at": "2026-11-26T21:42:03+00:00",
+  "last_successful_check_at": "2026-11-27T21:26:47+00:00",
+  "last_changed_at": "2026-11-27T21:26:47+00:00",
   "changed_on_last_success": true,
   "mode_used": "odata-csv",
-  "content_sha256": "13b6e429614b3b8e12e4fddf6a957c2b14f58ef563592712de2aa5bdcfe96d9c",
+  "content_sha256": "287b6da37cb0a3bcc45a3208355ab9326acd11e63565722c6bbb375a0cb70e3d",
   "competence": {
     "kind": "position_date",
-    "value": "2026-11-25"
+    "value": "2026-11-26"
   },
-  "snapshot_collected_at": "2026-11-26T21:42:03+00:00",
+  "snapshot_collected_at": "2026-11-27T21:26:47+00:00",
   "last_error": null,
   "provenance": {
     "runtime_file": "data/runtime/bc_filiais.json",
@@ -22,7 +22,7 @@
   },
   "runtime_summary": {
     "record_count": 310,
-    "raw_hash": "0040f23185a0b7dc9ce744ebaea7e47d954f1a96fd0ca2731533aa460c2f21c5",
-    "stage_items_hash": "4e14efc3bf0c93ad6008567ce66c938ff767c2125aeed19c3d19c03c2df6cd70"
+    "raw_hash": "3bcd25295b07a7806bfd27deacabae07a4abcbc526f3106958aebed2be14c593",
+    "stage_items_hash": "a70883c71c3ca3c6fab5ebb2f9be18eeb3692070fff4d3e7863aa7f379e76469"
   }
 }
